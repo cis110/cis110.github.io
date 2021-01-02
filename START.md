@@ -23,9 +23,10 @@ Note: In the future, it would be better to have a starter repo that we can just 
 - Next, we need to update our course account's repo folder. Do `cd ~/repo` and `mkdir 20fa` (again, replace with correct semester). Now perform the same symlink work as in html - `ls -l current` to confirm it exists, `rm current` to remove it, and `ln -s 20fa current` to attach to new semester. `cd` into that directory and then:
   - `git init`
   - `git remote add origin https://github.com/cis110/20fa.git`
-  - `git branch --set-upstream-to=origin/master`
   - `git pull origin master`
+  - `git branch --set-upstream-to=origin/master`
 - If you now try to visit cis110.com, you will notice that it does not work (hard refresh if it loads content from your cache) - specifically you will receive a 403, as the `~/html/current` directory does not have read access granted yet.
+- One time procedure: Do `chmod a+rx ~/html/current` to provide read access on the contents of the `current` folder
 - Run `./push_site_to_prod` and load the site now, you should see your website rendered.
   - Note: the script uses the `current` symlinks to pull from git and push to the html folders, so MAKE SURE they are correct before running the script or you risk writing over existing information.
 
@@ -33,8 +34,8 @@ At this point, you are set to begin editing the site on your local device. Make 
 
 ## Course Account Changes - Non-Website
 
-- `ssh` into the course account and note that the `current` directory is a symlink to `content/20su` (where `20su` is the previuos semester in this example)
-- I do not really know how much of this is important, so do yourself a favor and just copy it all over - `cp -r 20su 20fa` for example.
+- `ssh` into the course account and note that the `current` directory is a symlink to `content/20su` (where `20su` is the previous semester in this example)
+- I do not really know how much of this is important, so do yourself a favor and just copy it all over - `cd content && mkdir 20fa && cp -r 20su 20fa` for example.
 - This will take a minute.
 - Now `cd ~` and change the symlink for `current` from `content/20su` to `content/20fa` with `rm current && ln -s content/20fa current`
 - There is another symlink in the home directory that is the same thing but is named the name of the semester. Because I don't know if that matters, just replace it as well. `rm 20su && ln -s content/20fa 20fa`
