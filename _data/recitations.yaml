@@ -1,0 +1,22 @@
+# General format - Delete any unused fields, : and \n characters break things
+# rec_number: 2xx
+# ta_one: name
+# ta_two: name
+# day_and_time: M/T @ x:yz
+# location: loc
+# student_count: #
+
+# this is how you have a recitation with one person
+# - rec_number: 201
+#   ta_one: Sierra Mills
+#   day_and_time: Monday @ 12-2
+#   location: DRL 4E9
+#   student_count: 19
+
+# this is how you have a recitation with two people
+# - rec_number: 205
+#   ta_one: Ben Robinov
+#   ta_two: Fawad Syed
+#   day_and_time: Tuesday @ 12-2
+#   location: Towne 305
+#   student_count: 20

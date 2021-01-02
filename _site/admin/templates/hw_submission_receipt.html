@@ -1,0 +1,25 @@
+
+
+<body>
+  <div ng-if="group.members">
+    <h3>Group Members</h3>
+    {{group.members}}
+    <br/><br/>
+  </div>
+
+  <!-- information on submitted files -->
+  <div ng-if="file_receipt">
+    <div ng-bind-html="file_receipt"></div>
+    <br/><br/>
+  </div>
+
+  <!-- test receipt -->
+  <div ng-if="test_receipt">
+    <div ng-bind-html="test_receipt"></div>
+    <br/><br/>
+  </div>
+
+
+  <button ng-click="cancel()">Close</button>
+</body>
+

@@ -1,0 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
+.resource-header-list {
+    list-style-type: none;
+}

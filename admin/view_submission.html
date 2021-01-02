@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="vsApp" ng-controller="vsController">
+
+<head>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="css/abn_tree.css">
+<!-- <link rel="stylesheet" href="js/highlight/styles/default.css"> -->
+<!-- <link rel="stylesheet" href="https://google-code-prettify.googlecode.com/svn/loader/prettify.css"> -->
+
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-animate.js"></script>
+
+<!-- <script type="text/javascript" src="js/highlight/highlight.pack.js"></script> -->
+
+<!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/prettify.js"></script> -->
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script type="text/javascript" src="js/abn_tree_directive.js"></script>
+<script type="text/javascript" src="js/view_submission.js"></script>
+
+<title>View Homework Submission</title>
+
+</head>
+
+<body>
+
+<!-- tree view -->
+<div style="float: left; width: 20%;">
+<!-- {{hwname}}<br> -->
+<abn-tree tree-data="tree" tree-control="treeControl" on-select="treeClicked(branch)"></abn-tree>
+</div>
+
+<!-- source code -->
+<div>
+<h3>{{filename}}</h3><br>
+<!--<pre><code id="file-source"></code></pre>-->
+<pre id="file-source"></pre>
+</div>
+
+</body>
+</html>

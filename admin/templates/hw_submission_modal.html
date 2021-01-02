@@ -1,0 +1,38 @@
+
+<div class="modal-body">
+<div ng-if="loading">Loading.  Please wait...</div>
+<div ng-if="!loading">
+  <table>
+    <tbody>
+      <tr>
+        <td>PennKey:</td><td><b>{{parent.pennkey}}</b></td>
+      </tr>
+      <tr ng-if="parent.name">
+        <td>Name:</td><td><b>{{parent.name}}</b></td>
+      </tr>
+      <tr>
+        <td>Assignment:</td><td><b>{{tdata.Task}}</b></td>
+      </tr>
+      <tr ng-if="!showReceipt">
+        <td>Current Date:</td><td><b>{{tdata.Now}}</b></td>
+      </tr>
+      <tr ng-if="!showReceipt">
+        <td>Due Date:</td><td><b>{{tdata.DueDate}}</b></td>
+      </tr>
+      <tr ng-if="tdata.NewDeadline && !showReceipt">
+        <td>Extension:</td><td><b>{{tdata.NewDeadline}}</b></td>
+      </tr>
+      <tr ng-if="!showReceipt">
+        <td colspan="2">An immediate submission will be <b><font color="red">{{tdata.LateStatus}}</font></b>.</td>
+      </tr>
+      <tr ng-if="showReceipt">
+        <td>Submission Time:</td><td><b>{{sdata.Now}} {{sdata.LateStatus ? '(' + sdata.LateStatus + ')' : ''}}</b></td>
+      </tr>
+    </tbody>
+  </table><br/>
+
+  <div ng-if="!showReceipt" ng-include="'templates/hw_submission_form.html?13'"></div>   <!-- submission form -->
+  <div ng-if="showReceipt"  ng-include="'templates/hw_submission_receipt.html'"></div> <!-- submission receipt -->
+</div>
+</div>
+

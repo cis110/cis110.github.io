@@ -1,0 +1,83 @@
+<h1 class="page-header"> BASIC SEARCH </h1>
+    
+    <div class="row">
+	<div class="btn-group">
+         <div class="col-xs-4">
+            <label for="search_table" class="btn btn-primary" ng-model="content" btn-radio="'search_table'" uncheckable>Search by Individual TA </label>
+	 </div>
+	 <div class="col-xs-4">
+            <label for="search_graph" class="btn btn-primary" ng-model="content" btn-radio="'search_graph'" uncheckable>Show Average Help Time Graph </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <!-- <form role="form"> -->
+        <div class="col-xs-4">
+          <div class="form-group">
+            <label for="pennkey">PennKey</label>
+            <input type="text" class="form-control" id="pennkey" placeholder="Enter pennkey" size="10" ng-model="queryPennkey"></input>
+          </div>
+        </div>
+
+        <div class="col-xs-4">
+          <div class="form-group">
+            <label for="tapennkey">TA PennKey</label>
+            <input type="text" class="form-control" id="tapennkey" placeholder="Enter TA pennkey" size="10" ng-model="queryTAPennkey"></input>
+          </div>
+        </div>
+
+        
+      <!-- </form> -->
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label>Start Date</label>
+          <div id="startDate">
+            <quick-datepicker ng-model="queryStart" icon-class="fa fa-calendar" label-format="EEEE, MMMM d, yyyy"></quick-datepicker>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label>End Date</label>
+          <div id="endDate">
+            <quick-datepicker ng-model="queryEnd" icon-class="fa fa-calendar" label-format="EEEE, MMMM d, yyyy"></quick-datepicker>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-4" ng-show="content == 'search_table'">
+        <button class="btn btn-primary" ng-click="getData()">Get Data</button>
+      </div>
+      <div class="col-xs-4" ng-show="content == 'search_graph'">
+	<button class="btn btn-primary" ng-click="getChartData()">Show Graph</button>
+      </div>
+    </div>
+
+
+    <div ng-if="ohData">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th ng-repeat="col in ohHeaders">{{col}}</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="row in ohData">
+            <td ng-repeat="col in ohHeaders">{{row[col]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div ng-show="content == 'search_graph'" ng-if="chartData">
+    	<div ac-chart="chartType" ac-data="chartData" ac-config="chartConfig" id='chart' class='chart'></div>
+    </div>

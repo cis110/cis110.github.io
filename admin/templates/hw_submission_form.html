@@ -1,0 +1,130 @@
+
+<div class="modal-body">
+<p>After submitting your files, you will receive a confirmation
+  page with the results of testing the files you submitted. If you
+  see any compile errors or warnings, this means there is a
+  problem that could interfere with our grading scripts and may
+  result in a significant deduction.</p>
+
+<div ng-if="attempts !== undefined"> <!-- information about attempts -->
+  <!-- task is not yet submitted -->
+  <span ng-if="attempts === undefined">
+    <h3>You have not yet submitted this task.</h3>
+  </span>
+
+  <!-- task is submitted at least once -->
+  <span ng-if="attempts !== undefined">
+    <h3>You have submitted {{attempts}} {{attempt != 1 ? "attempts" : "attempt"}}: you have
+      {{(allowed - attempts) < 0 ? 0 : allowed - attempts}} remaining (before losing points).</h3>
+  </span>
+
+  There {{allowed == 1 ? "is" : "are"}} {{allowed}} free
+  {{allowed == 1 ? "attempt" : "attempts"}}, with a {{tdata.AttemptPenalty}}
+  point penalty for each extra attempt.
+
+  <!-- extra attempts -->
+  <span ng-if="tdata.ExtraAttempts">
+    <b>You have been given {{tdata.ExtraAttempts}} extra
+      {{tdata.ExtraAttempts == 1 ? "attempt" : "attempts"}}.</b>
+    These extra attempts are included in the number of free
+    attempts listed above.
+  </span>
+
+  <!-- Remaining attempts -->
+  <span ng-if="(allowed - attempts) > 1">
+    You have <b>{{(allowed - attempts) < 0 ? 0 : allowed - attempts}} free attempts remaining</b>.
+  </span>
+  <span ng-if="remaining == 1">
+    You have <b>1 free attempt remaining</b>.
+  </span>
+  <span ng-if="remaining = 0">
+    You have <b>no free attempts remaining</b>.
+  </span>
+  <span ng-if="remaining < 0">
+    You have used {{-remaining}} extra
+    {{remaining == -1 ? "attempt" : "attempts"}} 
+    and have been <b>penalized
+      {{-remaining * tdata.AttemptPenalty}} points</b>.
+  </span>
+  <br/>
+</div> <!-- end information about attempts -->
+
+<!-- actual submission form -->
+<form enctype="multipart/form-data" method="post" id="submission_form">
+  <input type="hidden" name="task" value="{{tdata.Task}}"></input>
+  <div ng-if="group.updateable">
+    <h3>Group:</h3>
+    <span ng-if="group.message">{{group.message}}<p/></span>
+    <div ng-if="group.members">
+      It is still possible to update the group that you are in
+      for this assignment.  Enter the new group members below.
+      (Any existing groups will be deleted.)<br/>
+
+      <input type="text" value="{{group.members}}" ng-model="group.members" width="40"/><br/>
+      <button class="btn btn-primary" ng-click="retrieveTaskForm(true)">Register</button>
+    </div>
+    <div ng-if="!group.members">
+      You must register a group for this assignment. Enter the
+      pennkeys of the group members below, separated by
+      commas. You can register your group without submitting
+      your assignment. Just hit the Registration button
+      below.<br/>
+
+      <input type="text" value="{{pennkey}}," ng-model="group.members" width="40"/><br/>
+      <button class="btn btn-primary" ng-click="retrieveTaskForm(true)">Register</button>
+    </div>
+  </div> <!-- end group.updateable -->
+
+  <div ng-if="!group.updateable && group.members"> <!-- group is not updateable but members exist -->
+    <h3>Group:</h3> The registered group for this task is
+    {{group.members}}.  You cannot change your group at this
+    point without contactings a TA.<br/>
+  </div>
+
+  <h3>Files:</h3>
+  <table class="submitInfo">
+    <tr ng-repeat="f in tfiles">
+      <td><tt>{{f[0]}}</pre></tt></td>
+      <td><input type="file" name="{{f[0]}}" size="80" maxLength="150"/></td>
+      <td>{{ f[1] ? "Last submission: " + f[1] : "Not yet submitted" }}</td>
+    </tr>
+  </table>
+  <!-- end actual submission form -->
+  
+  <br>
+
+  <!-- timespent -->
+  <div ng-if="submit_options.show_hours">
+    Optional: Roughly how many hours did you spend on this
+    assignment?&nbsp;&nbsp;
+    
+    <input type="text" class="form-control" style="width:10%; display:inline" name="timespent" maxLength="10"/>
+
+    &nbsp;&nbsp;(enter a numeric value, like 3.5 or 6)
+    <br/>
+  </div>
+  <!-- end timespent -->
+
+  <br/>
+
+  <!-- comments -->
+  <div ng-if="submit_options.show_comments">
+    Optional: Enter any comments you have on this homework below.<br/>
+    <textarea class="form-control" name="comments" rows="4" cols="80"/><br/>
+  </div>
+  <!-- end comments -->
+
+  <!-- e-mail receipt -->
+  <div ng-if="parent.email">
+    <input type="checkbox" name="response" value="email" checked="yes"/>
+    Also send submission receipt to {{parent.email}}?<br/>
+  </div>
+  <!-- end e-mail receipt -->
+
+  <br/>
+  <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+  &nbsp;&nbsp;
+  <button class=" btn btn-primary" ng-click="submitTask()">Submit</button>
+</form>
+</div>
+<!-- end container -->

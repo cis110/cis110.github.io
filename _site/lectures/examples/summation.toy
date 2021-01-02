@@ -1,0 +1,27 @@
+program Summation
+// Benedict Brown
+// PennKey: bjbrown
+// Recitation: 2--
+// Input:    n
+// Output:   n + n-1 + ... + 1
+// Remarks:  assume n > 0
+// -----------------------------------------------------------------------------
+
+// Register Map
+RA - n
+RB - sum
+RC - i
+RD - constant 1
+
+10: 7D01   R[D] <- 0001                  constant 1
+11: 8AFF   read R[A]                     int n = StdIn.readInt()
+12: 7B00   R[B] <- 0000                  int sum = 0
+13: 1CA0   R[C] <- R[A]                  int i = n
+
+14: CC18   if (R[C] == 0) goto 18        while (i != 0)
+15: 1BBC   R[B] <- R[B] + R[C]             sum = sum + i
+16: 2CCD   R[C] <- R[C] - R[D]             i = i - 1
+17: C014   goto 14                       end while
+
+18: 9BFF   write R[B]                    println(sum)
+19: 0000   halt                          

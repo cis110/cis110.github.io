@@ -1,0 +1,45 @@
+table.table > tbody > tr > td {
+	vertical-align: middle;
+}
+.calendar-data {
+	padding: 0 10px;
+}
+
+#student-info {
+	max-width: 35%;
+}
+#student-info td {
+	border-top: none;
+}
+
+.panel.panel-default {
+  border-color: #325d88;
+}
+
+.panel-default > .panel-heading {
+  background-color: #325d88;
+}
+
+.panel-default .panel-title {
+  color: #ffffff;
+}
+
+/*.btn .btn-primary .btn-sm {
+	padding: 2px 4px;
+}*/
+
+.panel > .panel-heading:hover {
+  background-color: #325DA7;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.submitInfo td {
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #d9edf7;
+}

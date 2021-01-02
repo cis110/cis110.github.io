@@ -1,0 +1,33 @@
+
+
+<div class="modal-body">
+<div ng-if="loading">Updating.  Please wait...</div>
+<div ng-if="!loading">
+<table>
+  <tbody>
+    <tr>
+      <td>PennKey:</td><td><b>{{parent.pennkey}}</b></td>
+    </tr><tr ng-if="name">
+      <td>Name:</td><td><b>{{parent.name}}</b></td>
+    </tr><tr ng-if="clickerid !== undefined">
+      <td>Current Clicker ID:</td><td><b>{{parent.clickerid ? parent.clickerid : 'Not Entered'}}</b></td>
+    </tr>
+  </tbody>
+</table>
+<br/><br/>
+
+Please enter the 6-character Device ID found on the back of your
+TurningPoint ResponseCard.  Enter all six characters, even if the
+code starts with a zero.
+
+<br/><br/>
+<img src="images/responsecard-deviceid.png"/>
+<br/><br/>
+
+<input class="form-control" type="text" width=100 ng-model="clickerid"></input><br/>
+<button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+&nbsp;
+<button class="btn btn-primary" ng-click="update(clickerid)" ng-disabled="{{false}}">Submit</button>
+</div>
+</div>
+

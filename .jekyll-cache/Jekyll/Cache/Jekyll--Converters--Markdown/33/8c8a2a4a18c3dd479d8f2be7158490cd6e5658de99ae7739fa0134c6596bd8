@@ -1,0 +1,455 @@
+I"��<ul>
+  <li><a href="#general-example-1-reading-the-stack-trace-of-a-runtime-error">General Example 1: Reading the stack trace of a runtime error</a>
+    <ul>
+      <li><a href="#compile-the-code">Compile the code</a></li>
+      <li><a href="#run-the-code">Run the code</a></li>
+      <li><a href="#understanding-the-error-message">Understanding the Error Message</a>
+        <ul>
+          <li><a href="#1-we-start-by-examining-the-stack-trace">1. We start by examining the STACK TRACE.</a></li>
+          <li><a href="#2-next-we-look-to-the-name-of-the-exception-to-tell-us-what-actually-went-wrong">2. Next, we look to the name of the exception to tell us what actually went wrong.</a></li>
+          <li><a href="#3-finally-lets-look-at-the-exception-description-java-gives-us">3. Finally, let’s look at the Exception Description Java gives us.</a></li>
+          <li><a href="#4-lets-summarize-what-weve-learned-just-from-the-exception">4. Let’s summarize what we’ve learned just from the Exception.</a></li>
+        </ul>
+      </li>
+      <li><a href="#fixing-the-problem">Fixing the problem.</a></li>
+    </ul>
+  </li>
+  <li><a href="#general-example-2-squash-one-bug-and-you-find-another">General Example 2: Squash one bug, and you find another.</a>
+    <ul>
+      <li><a href="#reading-the-exception">Reading the Exception</a>
+        <ul>
+          <li><a href="#1-we-start-by-examining-the-stack-trace-1">1. We start by examining the STACK TRACE.</a></li>
+          <li><a href="#2-follow-with-a-look-at-the-exception-name">2. Follow with a look at the EXCEPTION NAME.</a></li>
+          <li><a href="#3-exception-description">3. EXCEPTION DESCRIPTION</a></li>
+        </ul>
+      </li>
+      <li><a href="#using-print-statements-to-debug">Using Print Statements to Debug</a></li>
+    </ul>
+  </li>
+  <li><a href="#a-pause-to-collect-your-thoughts">A Pause to Collect Your Thoughts</a></li>
+  <li><a href="#null-pointer-exceptions">Null Pointer Exceptions</a>
+    <ul>
+      <li><a href="#short-and-sweet-npe-by-not-assigning-a-value-to-a-variable">Short and Sweet: NPE by Not Assigning a Value to a Variable.</a></li>
+      <li><a href="#an-npe-one-layer-deeper">An NPE One Layer Deeper</a></li>
+      <li><a href="#npes-can-come-from-poor-design-choices">NPEs Can Come From Poor Design Choices</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="general-example-1-reading-the-stack-trace-of-a-runtime-error">General Example 1: Reading the stack trace of a runtime error</h1>
+
+<p>Here’s <code class="language-plaintext highlighter-rouge">Palindromes.java</code>. It’s a file that contains a <code class="language-plaintext highlighter-rouge">main</code> function for testing &amp; printing, and an <code class="language-plaintext highlighter-rouge">isPalindrome</code> function that returns <code class="language-plaintext highlighter-rouge">true</code> when its input String is a palindrome.</p>
+
+<p>Unfortunately, this program is buggy. Let’s try to find out what happens when we run it.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Palindromes</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">input</span> <span class="o">=</span> <span class="s">"hannah"</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isPalindrome</span><span class="o">(</span><span class="n">input</span><span class="o">))</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">input</span> <span class="o">+</span> <span class="s">" is a palindrome."</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">input</span> <span class="o">+</span> <span class="s">" is NOT a palindrome."</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// base case - can't repeat the step of "peeling off first and last letters"</span>
+        <span class="c1">// when there's only one letter, e.g.:</span>
+        <span class="c1">// r a c e c a r</span>
+        <span class="c1">// X X X ! X X X</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// check if first and last are the same</span>
+        <span class="kt">char</span> <span class="n">firstChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="kt">char</span> <span class="n">lastChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+        <span class="kt">boolean</span> <span class="n">firstAndLastMatch</span> <span class="o">=</span> <span class="n">firstChar</span> <span class="o">==</span> <span class="n">lastChar</span><span class="o">;</span>
+
+        <span class="c1">//if they match, recurse on the string without the first and last letters</span>
+        <span class="k">return</span> <span class="n">firstAndLastMatch</span> <span class="o">&amp;&amp;</span> <span class="n">isPalindrome</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="compile-the-code">Compile the code</h2>
+
+<p>The code does compile. That’s a good sign, but it doesn’t mean that our code <em>works</em>, just that it will run.</p>
+
+<hr />
+
+<h2 id="run-the-code">Run the code</h2>
+
+<p>Here’s where the error pops up. Before we think too hard about solving it, we should make sure to note that this is a <strong>runtime error</strong>, or a bug in our code that causes an error sometime after the program is compiled and started.</p>
+
+<blockquote>
+  <p>Runtime errors usually happen when you try to perform some operation on some data that is outside of an acceptable range of values. An example would be trying to call <code class="language-plaintext highlighter-rouge">Math.sqrt(-1)</code>, since we can’t represent the square root of a negative number as an <code class="language-plaintext highlighter-rouge">int</code>.
+This looks similar to a Type Error, but a Type Error would lead to a compilation error. You have the right data type in general, but the specific value that you’re using is invalid.</p>
+</blockquote>
+
+<p>Our first step on seeing a runtime error like this should be to break apart the message that’s printed.</p>
+
+<hr />
+
+<h2 id="understanding-the-error-message">Understanding the Error Message</h2>
+
+<p>Here’s our error message.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: 6
+        at java.lang.String.charAt(String.java:658)
+        at Palindromes.isPalindrome(Palindromes.java:24)
+        at Palindromes.main(Palindromes.java:5)
+</code></pre></div></div>
+
+<p>How do we read it?</p>
+
+<h3 id="1-we-start-by-examining-the-stack-trace">1. We start by examining the STACK TRACE.</h3>
+
+<blockquote>
+  <p>The stack trace is the series of “at statements” printed at the bottom of your exception. It shows the sequence of functions that were called leading up to your error.</p>
+</blockquote>
+
+<p>We start at the bottom, as this is the first function called. Here that’s <code class="language-plaintext highlighter-rouge">main</code>, which makes sense: <code class="language-plaintext highlighter-rouge">main</code> is always the entry point to Java programs. We see at the end of the line <code class="language-plaintext highlighter-rouge">(Palindromes.java:5)</code>, meaning that <code class="language-plaintext highlighter-rouge">main</code> called another function on line 5. To see what that function is, we look to the next line up.</p>
+
+<blockquote>
+  <p>The stack trace has the first (outermost) function call at the bottom. Each line number in a line of the stack trace refers to the line where the next function was called. The next function is directly on top of the previous, and the last function to be called before the error crashed the program is at the top of the trace.</p>
+</blockquote>
+
+<p>The next line up indicates that <code class="language-plaintext highlighter-rouge">main</code> calls <code class="language-plaintext highlighter-rouge">isPalindrome</code>. Following the same pattern, we find that <code class="language-plaintext highlighter-rouge">isPalindrome</code> calls another function on line 24. That function (from the next line up!) is <code class="language-plaintext highlighter-rouge">charAt</code>. This brings us to the top of the stack trace, and it means that we’ve found the function call that crashed the program: <code class="language-plaintext highlighter-rouge">charAt</code>. Moreover, we know that the specific call to <code class="language-plaintext highlighter-rouge">charAt</code> that crashed the program lives on line <code class="language-plaintext highlighter-rouge">24</code>.</p>
+
+<h3 id="2-next-we-look-to-the-name-of-the-exception-to-tell-us-what-actually-went-wrong">2. Next, we look to the name of the exception to tell us what actually went wrong.</h3>
+
+<blockquote>
+  <p>Exceptions are how Java tells us that we hit a runtime error. We say that exceptions are “thrown” by Java when the underlying bug causes the program to crash.</p>
+</blockquote>
+
+<p>The name of this exception is <code class="language-plaintext highlighter-rouge">StringIndexOutOfBoundsException</code>. Let’s break it apart to get some insight as to why this exception was thrown.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">String</code> indicates that we used a String in a way that led to our error. Something about the way we tried to use or treat the String was a problem.</li>
+  <li><code class="language-plaintext highlighter-rouge">IndexOutOfBounds</code> is a type of exception thrown when we attempt to index into a sequence (like an array or a String) with an index that’s somehow invalid.</li>
+  <li><code class="language-plaintext highlighter-rouge">Exception</code> confirms what we already know: our program has a bug that causes it to crash.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">StringIndexOutOfBoundsException</code>, like its array counterpart, is a remarkably common error. Recall that a String is essentially a sequence of <code class="language-plaintext highlighter-rouge">chars</code> (characters), and that we can index it with <code class="language-plaintext highlighter-rouge">charAt</code> to ask for the character at a particular position. Like all indexing in Java, indices start at <code class="language-plaintext highlighter-rouge">0</code>, meaning that <code class="language-plaintext highlighter-rouge">"Harry".charAt(0) == 'H'</code>, <code class="language-plaintext highlighter-rouge">"Harry".charAt(4) == 'y'</code>, and trying to ask for an index smaller than <code class="language-plaintext highlighter-rouge">0</code> or larger than <code class="language-plaintext highlighter-rouge">4</code> would throw a <code class="language-plaintext highlighter-rouge">StringIndexOutOfBoundsException</code>.</p>
+
+<blockquote>
+  <p>If a String <code class="language-plaintext highlighter-rouge">s</code> has a length of <code class="language-plaintext highlighter-rouge">n</code>, <code class="language-plaintext highlighter-rouge">i</code> is a valid index for <code class="language-plaintext highlighter-rouge">s.charAt(i)</code> if <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; n</code>.</p>
+</blockquote>
+
+<h3 id="3-finally-lets-look-at-the-exception-description-java-gives-us">3. Finally, let’s look at the Exception Description Java gives us.</h3>
+
+<p>After the name of the exception, Java prints the message: <code class="language-plaintext highlighter-rouge">String index out of range: 6</code>. There are two especially important components to this message.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">String index out of range</code> is a slightly more descriptive way of stating the name of the Exception itself. This confirms that whatever index we gave <code class="language-plaintext highlighter-rouge">charAt</code> is either too small (<code class="language-plaintext highlighter-rouge">&lt;0</code>) or too big (<code class="language-plaintext highlighter-rouge">&gt;= length of the string</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">6</code>: This is the index that we tried to pass <code class="language-plaintext highlighter-rouge">charAt</code>. This narrows down the problem, since <code class="language-plaintext highlighter-rouge">6</code> could never be too <em>small</em> of an index for <code class="language-plaintext highlighter-rouge">charAt</code> to accept, only too <em>big</em>.</li>
+</ul>
+
+<h3 id="4-lets-summarize-what-weve-learned-just-from-the-exception">4. Let’s summarize what we’ve learned just from the Exception.</h3>
+
+<p>We get a <code class="language-plaintext highlighter-rouge">StringIndexOutOfBoundsException</code> when we attempt to call <code class="language-plaintext highlighter-rouge">charAt</code> on line 24 inside <code class="language-plaintext highlighter-rouge">isPalindrome</code>. The index that causes this problem is <code class="language-plaintext highlighter-rouge">6</code>, which suggests that the String we’re calling <code class="language-plaintext highlighter-rouge">charAt</code> on probably has a length of 6 or less.</p>
+
+<h2 id="fixing-the-problem">Fixing the problem.</h2>
+
+<p>You might already have a sense of how to fix this problem having looked at the code, but it’s good to check your assumptions. To do this, we can use Print Statement Debugging carefully placed around the lines where the error occurs.</p>
+
+<blockquote>
+  <p>Print Statement Debugging: adding print statement(s) to your code to check the values of your data before the program crashes.</p>
+</blockquote>
+
+<p>We’ve already narrowed it down that <code class="language-plaintext highlighter-rouge">6</code> is somehow too large of an index for the String it’s called on. Looking at line 24, where the exception occurs, we see:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">lastChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+</code></pre></div></div>
+
+<p>Why is <code class="language-plaintext highlighter-rouge">6</code> too large here? We can add a print statement on the line above to check what the String <code class="language-plaintext highlighter-rouge">word</code> actually contains, and check how long it is.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">word</span> <span class="o">+</span> <span class="s">" has a length of "</span> <span class="o">+</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+<span class="kt">char</span> <span class="n">lastChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+</code></pre></div></div>
+
+<p>This print statement shows us the value of <code class="language-plaintext highlighter-rouge">word</code> as well as its length. Now, running our program results in the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hannah has a length of 6
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: 6
+        at java.lang.String.charAt(String.java:658)
+        at Palindromes.isPalindrome(Palindromes.java:25)
+        at Palindromes.main(Palindromes.java:5)
+</code></pre></div></div>
+
+<p>We still have our same exception printed, but the first line shows the result of our print statement too. It turns out that right before the program crashes, <code class="language-plaintext highlighter-rouge">word</code> has the value <code class="language-plaintext highlighter-rouge">"hannah"</code>, which is a String six characters long. Of course, then, <code class="language-plaintext highlighter-rouge">word.charAt(6)</code> would result in an error, since the index of the last character is <code class="language-plaintext highlighter-rouge">5</code> instead. Taking a close look at line 24 reveals that ask for <code class="language-plaintext highlighter-rouge">word.charAt(word.length())</code>, and indexing using the length of the same String will always be a problem. What I should have written instead is:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">lastChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>This, of course, is the proper way to get the last character from a String. That character will always live at index word.length() - 1`. Now we can compile the code again and see what happens…</p>
+
+<h1 id="general-example-2-squash-one-bug-and-you-find-another">General Example 2: Squash one bug, and you find another.</h1>
+
+<p>This should now be the state of our code.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">input</span> <span class="o">=</span> <span class="s">"hannah"</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isPalindrome</span><span class="o">(</span><span class="n">input</span><span class="o">))</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">input</span> <span class="o">+</span> <span class="s">" is a palindrome."</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">input</span> <span class="o">+</span> <span class="s">" is NOT a palindrome."</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// base case - can't repeat the step where there's only one letter</span>
+        <span class="c1">// r a c e c a r</span>
+        <span class="c1">// ^ ^ ^   ^ ^ ^</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// check if first and last are the same</span>
+        <span class="kt">char</span> <span class="n">firstChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="kt">char</span> <span class="n">lastChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="kt">boolean</span> <span class="n">firstAndLastMatch</span> <span class="o">=</span> <span class="n">firstChar</span> <span class="o">==</span> <span class="n">lastChar</span><span class="o">;</span>
+
+        <span class="c1">// if they match, recurse on the string without the first and last letters</span>
+        <span class="k">return</span> <span class="n">firstAndLastMatch</span> <span class="o">&amp;&amp;</span> <span class="n">isPalindrome</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Fortunately, this code still compiles. But since we hope that we’ve solved a bug, we’d also like it to <em>run</em> without crashing. When we run it now, we get the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: 0
+      at java.lang.String.charAt(String.java:658)
+      at Palindromes.isPalindrome(Palindromes.java:23)
+      at Palindromes.isPalindrome(Palindromes.java:28)
+      at Palindromes.isPalindrome(Palindromes.java:28)
+      at Palindromes.isPalindrome(Palindromes.java:28)
+      at Palindromes.main(Palindromes.java:5)
+</code></pre></div></div>
+
+<p>It still crashes! But with a different message than before. We don’t have a correct program yet, but at least we have a new kind of problem. This is progress.</p>
+
+<blockquote>
+  <p>When you discover that your code has a bug, it’s usually the case that your code has several bugs hiding on top of each other. You will often solve one problem successfully, like we did, only to discover another underlying issue. Such is programming.</p>
+</blockquote>
+
+<p>Let’s get to work.</p>
+
+<h2 id="reading-the-exception">Reading the Exception</h2>
+
+<h3 id="1-we-start-by-examining-the-stack-trace-1">1. We start by examining the STACK TRACE.</h3>
+
+<p>Like before, start with the stack trace from the bottom. Again we see that the first function call is from <code class="language-plaintext highlighter-rouge">main</code> on line 5. This call goes to <code class="language-plaintext highlighter-rouge">isPalindrome</code>, which calls the next function on line 28. <strong>Note that before our program crashed at line 24 of <code class="language-plaintext highlighter-rouge">isPalindrome</code> so we have even more evidence that we fixed the previous bug.</strong> The next function that <code class="language-plaintext highlighter-rouge">isPalindrome</code> calls is itself, <code class="language-plaintext highlighter-rouge">isPalindrome</code>. This is a signature sign of a recursive function: a call stack where a function appears repeatedly on top of calls to itself. This pattern repeats until one last call to <code class="language-plaintext highlighter-rouge">isPalindrome</code>, which then calls <code class="language-plaintext highlighter-rouge">charAt</code> on line 23. We have two main takeaways from this stack trace: first, we know that the error occurs when the fourth call to <code class="language-plaintext highlighter-rouge">isPalindrome</code> calls <code class="language-plaintext highlighter-rouge">charAt</code>; second, we take note that the error occurs only when we’re working with a String smaller than the original input <code class="language-plaintext highlighter-rouge">"hannah"</code> since each recursive call to <code class="language-plaintext highlighter-rouge">isPalindrome</code> operates on a shorter and shorter String.</p>
+
+<h3 id="2-follow-with-a-look-at-the-exception-name">2. Follow with a look at the EXCEPTION NAME.</h3>
+
+<p>The name is <code class="language-plaintext highlighter-rouge">StringIndexOutOfBoundsException</code> like before. The same conclusions apply:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">String</code> tells us that our error is related to using a String wrong.</li>
+  <li><code class="language-plaintext highlighter-rouge">IndexOutOfBounds</code> tells us that the error is because we tried to use an index outside of the range of the String’s length (0 and str.length() - 1)</li>
+  <li><code class="language-plaintext highlighter-rouge">Exception</code> is a reminder that this is a runtime error.</li>
+</ul>
+
+<h3 id="3-exception-description">3. EXCEPTION DESCRIPTION</h3>
+
+<p>The message that Java prints for us is <code class="language-plaintext highlighter-rouge">String index out of range: 0</code>. Like before, <code class="language-plaintext highlighter-rouge">String index out of range</code> means that we used an index that’s too small or too big. We used an index that was too big last time, but using a negative number is another obvious way to fail. That being said, Java reports that the bad index value is <code class="language-plaintext highlighter-rouge">0</code> here. This may strike you as strange, since indices for Strings start at <code class="language-plaintext highlighter-rouge">0</code>. Thus, <code class="language-plaintext highlighter-rouge">0</code> should simply be the index of the first character of a String.</p>
+
+<h2 id="using-print-statements-to-debug">Using Print Statements to Debug</h2>
+
+<p>It might not be immediately clear why <code class="language-plaintext highlighter-rouge">0</code> could ever be an invalid index for a String. Let’s try using Print Statement Debugging to get a grasp of what’s happening. The statement that we used before should be a good template for this type of problem:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">word</span> <span class="o">+</span> <span class="s">" has a length of "</span> <span class="o">+</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+</code></pre></div></div>
+
+<p>One issue that we need to address, though, is that we can’t simply put the statement in the same place as before. We remember from the stack trace that the error occurs at the line number 23, and our previous spot to test was just after this at line 24. This would mean that anything that gets printed would not reflect the state of the data right before the moment the bug occurs. So, we write the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">word</span> <span class="o">+</span> <span class="s">" has a length of "</span> <span class="o">+</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+<span class="kt">char</span> <span class="n">firstChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Compiling and running this program now gives us the following output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hannah has a length of 6
+anna has a length of 4
+nn has a length of 2
+ has a length of 0
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: 0
+        at java.lang.String.charAt(String.java:658)
+        at Palindromes.isPalindrome(Palindromes.java:24)
+        at Palindromes.isPalindrome(Palindromes.java:29)
+        at Palindromes.isPalindrome(Palindromes.java:29)
+        at Palindromes.isPalindrome(Palindromes.java:29)
+        at Palindromes.main(Palindromes.java:5)
+</code></pre></div></div>
+
+<p>Like before, we have a bunch of printed lines before our program just ends up crashing anyway. This time, we see that this print statement gets called a total of four times, and this matches up quite well with our understanding of the program execution from the stack trace. We saw there four calls to <code class="language-plaintext highlighter-rouge">isPalindrome</code>, and this output shows us that each call ends up printing the input <code class="language-plaintext highlighter-rouge">isPalindrome</code> recieves along with its length in characters.</p>
+
+<p>Now, looking at the list of printed outputs before the Exception message is printed: that last line looks weird. Why didn’t anything print before <code class="language-plaintext highlighter-rouge">"has a length of 0"</code>? Looking at the last recursion step, we had <code class="language-plaintext highlighter-rouge">nn</code> as our input. The recursive step takes the first and last characters off the String and compares them. Since they were the same, the program checks to see if what’s left is a palindrome. So what’s left… an empty String! It looks like this: <code class="language-plaintext highlighter-rouge">""</code>. There are no characters inside it, so the index 0 refers to the first character, but there is no first character because an empty string is empty! Aha!</p>
+
+<p>We’re trying to use charAt() on an empty string, which just doesn’t work. So what do we do? Change our index math so that we don’t ask for something invalid? No, we update our base case. Here it is written currently:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Looking at it, it becomes obvious that this is an inadequate base case. When we have an original input String that’s even in length, then none of the recursive steps will ever have a length of <code class="language-plaintext highlighter-rouge">1</code>. Yet, an empty string with a length of <code class="language-plaintext highlighter-rouge">0</code> is vacuously a palindrome. There’s nothing there, and nothing backwards is still nothing. So we fix our base case to handle this type of input and move on!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="a-pause-to-collect-your-thoughts">A Pause to Collect Your Thoughts</h1>
+
+<p>We had a program with two similar bugs. We used the Exception messages from the crashes, along with cleverly placed print statements, to solve both bugs. The first was a simple mistake of index math, and the second revealed that our choice of base case was clearly not covering all possible outcomes. In both cases, we used information that Java provided us to quickly fix our errors.</p>
+
+<h1 id="null-pointer-exceptions">Null Pointer Exceptions</h1>
+<p><code class="language-plaintext highlighter-rouge">NullPointerException</code>, or <code class="language-plaintext highlighter-rouge">NPE</code> for short, is a runtime error that occurs when a program attempts to dereference a variable that contains the value <code class="language-plaintext highlighter-rouge">null</code>. It sounds simple enough, and indeed these errors are often easy enough to spot and fix. It’s worth noting, though, that <code class="language-plaintext highlighter-rouge">null</code> has been called a <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">“billion-dollar mistake” by its designer Tony Hoare</a> due to the decades of crashes and vulnerabilities it’s led to since its implementation. As we begin to work with objects, and therefore references, it will be important to understand the <code class="language-plaintext highlighter-rouge">NPE</code> when it occurs and how to fix it.</p>
+
+<p>Let’s build our defenses against <code class="language-plaintext highlighter-rouge">NPE</code>s with a few quick examples. Anywhere we use an object or method that we haven’t explicitly defined in code, you can assume that it has been reasonably and correctly implemented behind the scenes <em>without any bugs</em>.</p>
+
+<h2 id="short-and-sweet-npe-by-not-assigning-a-value-to-a-variable">Short and Sweet: NPE by Not Assigning a Value to a Variable.</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SodaCan</span> <span class="n">pepsi</span><span class="o">;</span>
+<span class="n">pepsi</span><span class="o">.</span><span class="na">shakeCan</span><span class="o">();</span>
+</code></pre></div></div>
+<p>This first example is a simple look at what happens when you attempt to deference <code class="language-plaintext highlighter-rouge">null</code>. We declared the variable <code class="language-plaintext highlighter-rouge">pepsi</code>, but since we didn’t assign it a value, it is not a reference to any particular <code class="language-plaintext highlighter-rouge">SodaCan</code> and therefore we run into trouble when we append the <code class="language-plaintext highlighter-rouge">.shakeCan()</code> method call to the end of it. Recall that the <code class="language-plaintext highlighter-rouge">.</code> is the syntax for dereferencing a variable, meaning that <code class="language-plaintext highlighter-rouge">pepsi.shakeCan()</code> attempts to:</p>
+<ol>
+  <li>find a variable named <code class="language-plaintext highlighter-rouge">pepsi</code>,</li>
+  <li>follow the reference it contains (i.e. dereference it),</li>
+  <li>and then call the method <code class="language-plaintext highlighter-rouge">shakeCan()</code> that should be available from the <code class="language-plaintext highlighter-rouge">SodaCan</code> object hopefully found in memory.</li>
+</ol>
+
+<p>This process breaks down at step 2: <code class="language-plaintext highlighter-rouge">pepsi</code> stores <code class="language-plaintext highlighter-rouge">null</code>, which means that it can’t be dereferenced! You’ll get an error like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception in thread "main" java.lang.NullPointerException
+        at SodaCan.main(SodaCan.java:2)
+</code></pre></div></div>
+<p>As annoying as NPEs are, they’re usually quite easy to fix. The idea here is that <code class="language-plaintext highlighter-rouge">pepsi</code> contained a null reference, so let’s just replace it with a reference to an actual <code class="language-plaintext highlighter-rouge">SodaCan</code> using the constructor:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SodaCan</span> <span class="n">pepsi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SodaCan</span><span class="o">();</span>
+<span class="n">pepsi</span><span class="o">.</span><span class="na">shakeCan</span><span class="o">();</span>
+</code></pre></div></div>
+<p>The program compiles and runs, now.</p>
+
+<h2 id="an-npe-one-layer-deeper">An NPE One Layer Deeper</h2>
+<p>We have the following two simple classes for a <code class="language-plaintext highlighter-rouge">Course</code> that’s comprised of several <code class="language-plaintext highlighter-rouge">Students</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">grade</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">double</span> <span class="n">grade</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">grade</span> <span class="o">=</span> <span class="n">grade</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Course</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">Student</span><span class="o">[]</span> <span class="n">roster</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">enrollment</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Course</span><span class="o">(</span><span class="kt">int</span> <span class="n">classSize</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">roster</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="n">classSize</span><span class="o">];</span> 
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addStudent</span><span class="o">(</span><span class="nc">Student</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">enrollment</span> <span class="o">&lt;</span> <span class="n">roster</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">roster</span><span class="o">[</span><span class="n">enrollment</span><span class="o">]</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
+            <span class="n">enrollment</span><span class="o">++;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Simple enough. A <code class="language-plaintext highlighter-rouge">Course</code> is basically just an array of <code class="language-plaintext highlighter-rouge">Student</code>s with some added functionality on top. We run the following code and get an NPE:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Course</span> <span class="n">cis110</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Course</span><span class="o">(</span><span class="mi">350</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cis110</span><span class="o">.</span><span class="na">roster</span><span class="o">[</span><span class="mi">10</span><span class="o">].</span><span class="na">grade</span><span class="o">);</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception in thread "main" java.lang.NullPointerException
+        at CourseTester.main(CourseTester.java:2)
+</code></pre></div></div>
+<p>We see that the error comes from line 2. On this line, we’re attempting to look at the 11th <code class="language-plaintext highlighter-rouge">Student</code> in our <code class="language-plaintext highlighter-rouge">Course</code> and print out their grade. Let’s try to see where it breaks down by finding out what was actually <code class="language-plaintext highlighter-rouge">null</code> when we tried to dereference it.</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">cis110</code> is definitely not a <code class="language-plaintext highlighter-rouge">null</code> variable. We just initialized on the previous line using a constructor that should work just fine.</li>
+  <li><code class="language-plaintext highlighter-rouge">cis110.roster</code> is also fine: in the constructor for a <code class="language-plaintext highlighter-rouge">Course</code>, we will always initialize the <code class="language-plaintext highlighter-rouge">roster</code> field of the <code class="language-plaintext highlighter-rouge">Course</code> object we’re creating. After line 1, <code class="language-plaintext highlighter-rouge">cis110.roster</code> is definitely a reference to an array and it itself should not be <code class="language-plaintext highlighter-rouge">null</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">cis110.roster[10]</code> should refer to the <code class="language-plaintext highlighter-rouge">Student</code> in position <code class="language-plaintext highlighter-rouge">10</code> of the <code class="language-plaintext highlighter-rouge">roster</code> array. That means we’re referring to the 11th student, but that should be fine here given that our array was initialized to have a length of 350.</li>
+</ol>
+
+<p>Step 3 here should give us some pause: sure, it’s fine to ask for the value at position <code class="language-plaintext highlighter-rouge">10</code> in this array, but it’s not immediately obvious what that value should be. Recall, now, that when initializing an array how we did in the constructor (<code class="language-plaintext highlighter-rouge">roster = new Student[classSize]</code>), all of the entries in the array will take some default value that depends on the type of the data. Our data type? <code class="language-plaintext highlighter-rouge">Student</code>, which like all other objects, defaults to <code class="language-plaintext highlighter-rouge">null</code> when not initialized.</p>
+
+<p>This means that <code class="language-plaintext highlighter-rouge">cis110.roster[10]</code> is indeed <code class="language-plaintext highlighter-rouge">null</code>, and the attempted dereference with <code class="language-plaintext highlighter-rouge">.grade</code> is what leads to our NPE. Notice that we got several layers deep here, with a null value hiding in a reference from a reference.</p>
+
+<blockquote>
+  <p>When an NPE appears on a line with several nested dereferences (<code class="language-plaintext highlighter-rouge">this.that.theOther.etc()</code>), start from the left and work your way through to figure out where the null reference lives.</p>
+</blockquote>
+
+<p>While an array itself might not be <code class="language-plaintext highlighter-rouge">null</code>, if the array has been implicitly initialized and has a reference data type, it will be filled with many <code class="language-plaintext highlighter-rouge">null</code> reference data types to begin with. This distinction will help you reason about NPEs when they appear.</p>
+
+<h2 id="npes-can-come-from-poor-design-choices">NPEs Can Come From Poor Design Choices</h2>
+<p>Our next example relates to a common bug. Imagine that you’ve spent a lot of time and effort writing your <code class="language-plaintext highlighter-rouge">LinkedList</code> class, including a <code class="language-plaintext highlighter-rouge">deleteLink(Link l)</code> method:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Link</span> <span class="n">head</span><span class="o">;</span>
+    <span class="c1">// methods, and constructors omitted above</span>
+
+    <span class="cm">/**
+    * deleteLink is a function from the LinkedList class that 
+    * deletes a specific Link from a LinkedList and returns 
+    * the head of the list with one small bug.
+    */</span>
+    <span class="kd">public</span> <span class="nc">Link</span> <span class="nf">deleteLink</span><span class="o">(</span><span class="nc">Link</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">size</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">Link</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">tmp</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">l</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">head</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+                <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">l</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">tmp</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+                    <span class="n">size</span><span class="o">--;</span>
+                    <span class="k">return</span> <span class="n">head</span><span class="o">;</span> 
+                <span class="o">}</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="o">}</span>  
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// fields, methods, and constructors omitted above</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+<p>This method implicitly handles four cases:</p>
+<ol>
+  <li>When the <code class="language-plaintext highlighter-rouge">LinkedList</code> itself is empty, we’ll automatically <code class="language-plaintext highlighter-rouge">return head</code></li>
+  <li>When the <code class="language-plaintext highlighter-rouge">LinkedList</code> is not empty and the first <code class="language-plaintext highlighter-rouge">Link</code> is the one to be deleted, we handle this in the second <code class="language-plaintext highlighter-rouge">if</code> block and quickly return.</li>
+  <li>When the <code class="language-plaintext highlighter-rouge">LinkedList</code> is not empty and the first <code class="language-plaintext highlighter-rouge">Link</code> is not the one to be deleted, we’ll keep looking until we find and delete it.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">LinkedList</code> never contained the <code class="language-plaintext highlighter-rouge">Link</code> we’re looking to delete, we’ll <code class="language-plaintext highlighter-rouge">return head</code> anyway. Nothing changed.</li>
+</ol>
+
+<p>Let’s run the following:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">LinkedList</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">();</span>
+<span class="n">list</span><span class="o">.</span><span class="na">addLink</span><span class="o">(</span><span class="k">new</span> <span class="nc">Link</span><span class="o">(</span><span class="s">"cat"</span><span class="o">));</span>
+<span class="nc">Link</span> <span class="n">result</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">deleteLink</span><span class="o">(</span><span class="k">new</span> <span class="nc">Link</span><span class="o">(</span><span class="s">"cat"</span><span class="o">));</span>
+<span class="n">result</span><span class="o">.</span><span class="na">printEntries</span><span class="o">();</span>
+</code></pre></div></div>
+<p>Oh no! We get another NPE:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception in thread "main" java.lang.NullPointerException
+        at LinkedList.main(LinkedList.java:4)
+</code></pre></div></div>
+<p>As you may have guessed given the larger amount of code coming before this, we’ve encountered an NPE that’s a little harder to root out. We can start by reading the error message, which tells us that the issue is on line 4. That’s the line where we call <code class="language-plaintext highlighter-rouge">result.printEntries()</code>. We’re getting the NPE when we dereference some variable, like always. “But wait!” you may be thinking to yourself, “this time we definitely assigned <code class="language-plaintext highlighter-rouge">result</code> to have some value.” Very astute!</p>
+
+<p>Unlike last time, we’ve set the <code class="language-plaintext highlighter-rouge">Link result</code> to be equal to… something. That thing is the result of deleting the <code class="language-plaintext highlighter-rouge">"cat" Link</code> from our <code class="language-plaintext highlighter-rouge">LinkedList</code> using the method we already talked about, which should be the <code class="language-plaintext highlighter-rouge">head</code> link of the <code class="language-plaintext highlighter-rouge">LinkedList</code>. Perhaps now the error is coming into focus.</p>
+
+<p>Our <code class="language-plaintext highlighter-rouge">LinkedList</code> only had one <code class="language-plaintext highlighter-rouge">Link</code> in it, and we just deleted it! That means that the <code class="language-plaintext highlighter-rouge">head</code> that we return is just <code class="language-plaintext highlighter-rouge">null</code>. So <code class="language-plaintext highlighter-rouge">list.deleteLink(new Link("cat"))</code> evaluates to <code class="language-plaintext highlighter-rouge">null</code>, and we store <code class="language-plaintext highlighter-rouge">null</code> in the variable <code class="language-plaintext highlighter-rouge">result</code>. Then, on the next line, we attempt to dereference <code class="language-plaintext highlighter-rouge">result</code>, leading to the NPE.</p>
+
+<p>The purpose of this last NPE example was to show you that an NPE is often a sign of a bug that lives potentially quite far away from the line that results in the NPE. And furthermore, we didn’t write code that’s technically <em>wrong</em>. Sometimes you’ll write methods that can unexpectedly return <code class="language-plaintext highlighter-rouge">null</code> or modify some object’s state so that one of its fields is <code class="language-plaintext highlighter-rouge">null</code>.</p>
+
+<p>An interesting corrolary of this example is that there’s no one best way to fix this NPE. It’s possible to avoid throwing more NPEs like this by checking before an attempted dereference if the value of some variable is <code class="language-plaintext highlighter-rouge">null</code>: this is quite safe but results in a lot of extra code. Another solution is to modify the method that can return <code class="language-plaintext highlighter-rouge">null</code>. Perhaps <code class="language-plaintext highlighter-rouge">deleteLink()</code> should have a <code class="language-plaintext highlighter-rouge">void</code> return type, which makes a good deal of sense given that its job is to modify state rather than compute a specific value. These are design choices that you can make that help to avoid NPEs.</p>
+
+:ET

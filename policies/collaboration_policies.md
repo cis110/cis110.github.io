@@ -1,0 +1,92 @@
+---
+layout: default
+title: CIS 110 Policies
+active_tab: collaboration_policies
+---
+
+CIS 110 is a challenging course that requires a substantial amount of time for most students. Many of you are learning a new kind of abstraction (algorithmic thinking), a new way to express procedures (programming), and a new level of discipline in thought (precision and rigour). Working through the assignments, encountering errors and bugs, and finding the solutions yourself are absolutely essential to learning these skills. To this end, CIS 110 institutes and enforces a strict collaboration policy to ensure that all students are learning effectively. Suspected violations of this policy are systematically referred to the Office of Student Conduct, and generally incur both a disciplinary sanction and a grade deduction.
+
+This semester presents many additional challenges for students, so the course staff is taking steps to design a remote learning environment that offers students enough support and structure without exceeding a workload that would be expected during a more typical semester. We urge students to take advantage of the support available (Office Hours, Review Sessions, or reaching out for additional support if needed) so that the incentive to violate collaboration policies remains as low as possible.
+
+On the homework assignments, we use automated "cheat-checking" software to help detect plagiarism and inappropriate collaboration. This software is very, very effective. According to the Annual Report of the Penn Office of Student Conduct, there were 127 referrals for undergraduate academic misconduct in 2013–2014. 55 of these cases, or nearly 45%, were referred from CIS 110. By taking the collaboration policy as seriously as the course staff does, you will not only help reduce this number, but you will also help yourself and your fellow students learn more effectively.
+
+
+---
+
+### Collaboration Policy
+
+- You may not look at, access, or acquire a copy of anyone else's work. There are certain exceptions described in the "Appropriate Collaboration" section below.
+- You may not show your work to anyone except current CIS 110 Professors and course staff. You may not post any portion of your assignment online. This applies even after the course ends. There are certain exceptions described in the "Appropriate Collaboration" section.
+- You may not consult or ask questions in websites or online fora except the CIS 110 Piazza board.
+- Don't be clever about this policy. Instead, if you're unsure whether something is appropriate, come by instructor office hours and ask.
+
+---
+
+### Penalties for Violation of Collaboration Policy
+
+- At the first detected case, the student will receive a 50% grade deduction on the assignment in question. The student may choose to have the instructors refer this case to the Office of Student Conduct.
+
+- For every subsequent violation, the student will receieve a grade of 0% on the assignment in question. **The instructors will automatically refer the case to the Office of Student Conduct** as well.
+
+--- 
+
+### Collaboration Policy (Annotated)
+
+This annotated version of the policy includes many examples and elaborations to help you understand how to interpret the rules. It covers many situations that have come up in past semesters, but it is not exhaustive.
+
+- **You may not look at, access, or acquire a copy of anyone else's work.** There are certain exceptions as provided in the "Appropriate Collaboration" section.
+  - You should think closely about the assignment, and your work should be completely the product of your own understanding.
+  - You may not look at another student's code "for reference," then putting it aside and writing your program, even if the other student is not currently or never was in CIS 110.
+  - You may not look at code posted to online forums by people asking questions or providing (more on this below).
+  - You may not look at another person's solution to the problem in the assignment, even if it is not based on the actual assignment or is in a different programming language (e.g. you may not look at a C++ or OCaml implementation of an assignment to help you with your own Java version for CIS 110).
+  - You may not let someone else (even someone who has never taken CIS 110) explain a solution to you in so much detail that they are effectively dictating the code to you line by line, whether or not that person is looking at his or her code while doing so. If the similarity of your code to the person's who helped you is much higher than the similarity between random pairs of submissions, we must treat the case as on of inappropriate access to someone else's work.
+- **You may not show your work to anyone except current CIS 110 Professors and course staff.** You may not post any portion of your assignment online. This applies even after the course ends. There are certain exceptions as provided in the "Appropriate Collaboration" section.
+  - You may not allow anyone to look at your work, either on your computer screen or on printouts.
+  - You may not publicly post your work online anywhere.
+  - You may not store your work in any public location (a private, password-protected Dropbox account is fine, a shared Dropbox folder or public GitHub repository is not).
+  - You may not explain how you solved a problem in so much detail that you are effectively dictating the code, whether or not you are looking at your own code at the time
+  - You may not allow anyone else to access your files. It is your responsibility to properly password-protect your own computer when it is unattended. If you are working on any other computer, delete your files computer when you are done, then empty the Trash / Recycle Bin.
+- You may not consult or ask questions in websites or online fora except the CIS 110 Piazza board.
+  - The CIS 110 Piazza board is a safe space for you to discuss the assignment with the course staff.
+  - You may not search for solutions to a programming issue (e.g. an implementation solution, a bug, or an error message) online.
+  - You may not post questions on websites such as Stack Overflow or Yahoo Answers. Answers you receive will likely be snarky, irrelevant to the assignment, or detrimental to the learning goals of the assignment.
+- **You must properly and promptly acknowledge all non-trivial help you receive, all collaboration involving you, and all resources you use in your help log.**
+  - The principles behind the help log are to track your own progress to maximize your learning, acknowledge your sources, and maintain a verifiable record of your progress.
+  - A proper acknowledgment includes the date and time of the help, the full names of everyone involved (including course staff), the complete titles and authors of resources you consulted or URL(s) of websites you referred to, the question or topic you discussed, and the resolution (what you should try next, how you solved the problem, any learning outcomes from the discussion, etc.).
+  - Any help you receive help from course staff outside office hours, e.g. questions answered by your recitation TAs after recitation or by email, must be logged by you manually.
+  - Any time you participate in the question and answer of someone next to you in office hours, or get help from another student in office hours, you must log it. Being in office hours does not give you permission to work together in impermissible ways or to skip logging collaboration or help.
+  - When you work with someone else in CIS 110, both you and the other person must log each other in the help log. It is all right for both people to write the same help log entry.
+  - Any help, collaboration, or outside resource that is not properly logged in your help log or in the office hour system is a violation of the course policy. Some examples include:
+    - Not providing the full name of the person who helped you in the help log – e.g. logging "My roommate/tutor/friend/Albus helped me understand the merge sort algorithm"
+    - Not describing in detail the question and resolution – e.g. logging "quick question" for a question or "fixed it" for a resolution
+    - Not logging help you received from working with other students – e.g. you worked together with Harry Potter, Ron Weasley, and Hermione Granger in office hours, but Hermione asked all the questions in the online office hour queue system and you did not also log the same questions
+    - Not using the office hours sign-in system during office hours – e.g. receiving help from someone who is not part of the CIS 110 course staff.
+  - **The only thing that you do not need to log is the course material.** Course material is defined as follows:
+    - The assignment writeup page itself or anything directly linked to from the assignment page
+    - Any questions that you read or ask on the CIS 110 Piazza board
+    - The previous exams and their solutions
+    - The CIS 110 code style guide
+    - The PennDraw wiki or any other direct links from the Resources menu
+    - The assigned textbook and the booksite
+    - Anything taught by your recitation TAs to your recitation section at large
+    - The lectures, the lecture recordings, and the lecture slides
+  - You do not need to log questions that are not directly related to the assignment. For example, these questions do not need to be logged:
+    - Information about the course: course policies, examination information, or the arrangements for office hours, lectures, recitations, or Piazza
+    - Information about computer science in general: continuing your education in computer science, activities to become more involved in computer science, doing research, or looking for employment in the technology industry
+    - Information about finding support outside the scope of CIS 110: referrals to other University resources, academic or personal advising, counselling, or learning strategies
+- **As always, the [Penn Code of Academic Integrity](http://www.upenn.edu/academicintegrity/) applies.**
+
+These restrictions may seem artificial. After all, in the real world, computer scientists and programmers collaborate freely all the time, and so do CIS majors. In many upper-level CIS classes as well as in industry, looking up answers online, debugging code together, and sharing code are all permitted and encouraged. However, **these behaviors are forbidden in CIS 110**: CIS 110 is not an upper-level class, and it is not the real world. These restrictions help you learn.
+
+---
+
+### Appropriate collaboration
+
+The collaboration policy sounds scary because we take it very seriously. But it is not meant to prohibit all discussion and collaboration. It is intended to limit only the forms of collaboration that undermine the learning goals of the course. Here are some ways that we encourage you to work together and to get help:
+
+- **Come to office hours early and often!** CIS 110 is designed for you to learn as much as possible with the benefit of help. We want you to get stuck, ask questions, and learn how to experiment and find solutions. We also want you to learn more by taking advantage of office hours than you would be able to learn on your own.
+- **Read through each assignment with one or two friends,** and work out together what the different steps are; what you need to make sure you understand; and where to find the information you need in the assignment writeup, course web site, and textbook. Document in your help log who you discussed with, and what you concluded.
+- **Work through course notes and example code together.** Work together on example programs that are not part of the assignment to understand different concepts. For example, when you are preparing for the NBody assignment, we encourage you to work through the Bouncing Ball examples together, and modify it together to help understand animation and nested loop structures. Again, document this in your help log.
+- **Discuss together how to test your code,** and what different kinds of input might cause problems. We don't always tell you everything that could go wrong in your program; figuring that out is part of your job, and doing this together will help you understand the assignment better prepare to start programming. Log your discussions before you forget the details.
+- **Search the CIS 110 Piazza board for answers.** When you have a question, it is likely someone else has asked it already. Only post your question if you can't find a discussion thread that helps you. Answer other students' questions on Piazza, for instance by suggesting tests the other student can do to help detect and debug the issue in their code. You do not need to log the help you receive and provide on the CIS 110 Piazza.
+- **Compare output from your program and a friend's.** As long as you do not look at each other's code, we strongly encourage comparing output as a way to test your program. If you do this, you must log exactly the help that you provide.

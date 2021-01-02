@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ohApp" ng-controller="ohController">
+
+<head>
+  <!-- Stylesheets Import -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../js/jqwidgets/styles/jqx.base.css" />
+  <link rel="stylesheet" type="text/css" href="../js/jqwidgets/styles/jqx.energyblue.css" />
+
+  <style>
+    /*table { border-collapse: collapse; }
+    table, th, td { border: 1px solid #a4bed4; padding: 3px; }*/
+    input.ng-invalid { border: 3px solid red;  }
+  </style>
+
+  <title>CIS 110 Office Hour Sign-Up and Help Log</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="page-header">
+        <h1>CIS 110 Office Hour Sign-Up and Help Log</h1>
+        <h3>Your PennKey: <em>{{user}}</em></h3>
+      </div>
+    </div>
+
+    <div ng-if="status.length == 0" class="row">
+      <p>
+        You are not currently signed up for any office hour queue.  You my
+        sign up by clicking the "Sign Up" button next to the queue of your choice.
+      </p>
+    </div>
+
+    <br>
+
+    <div ng-if="status.length > 0" class="row">
+      You signed up for the queue <b>{{status[0].Name}}</b>
+      at <b>{{status[0].TStamp}}</b>.
+      <span ng-if="status[0].TAPennKey">You are currently being helped
+            by <b>{{status[0].TAPennKey}}</b>. The TA's picture is below so that you can find them.</span><br/><br/>
+
+        <div ng-if="status[0].TAPennKey">
+            <img width="100px" height="100px"
+                 ng-src="{{ 'http://cis.upenn.edu/~cis110/17fa/images/staff/' + status[0].TAPennKey + '.jpg' }}">
+        </div>
+
+
+      <span ng-if="!status[0].TAPennKey"</span>You are current <b>number
+            {{status[0].Position}}</b> in you
+            queue.<span ng-if="status[0].LastHelped">  The most recent
+            student to be helped signed in at
+            {{status[0].LastHelpeed}}</span><br/><br/></span>
+
+      <br> <br>Your question: {{status[0].Question}}<br/><br/>
+      Whare are you sitting?: {{status[0].Comments}}<br/><br/>
+      Outcome/Resolution: {{status[0].Resolution}}<br/><br/>
+
+
+      <button class="btn btn-default" ng-click="showUpdateDialog()">Update
+      Question/Location/Outcome</button> This will not affect your position in the
+      queue, but any new question must still belong in this queue.<br/><br/>
+
+      <button class="btn btn-default" ng-click="showRemoveDialog()">Remove From Queue</button> This will remove you from this
+      queue so you can sign up for another one or leave without being
+      reported as a no-show.<br/>
+    </div>
+
+    <div ng-if="queues.length > 0" class="row">
+    Active Queues:<br/>
+    <table id="ohQueueList" class="jqx-widget jqx-widget-content table">
+      <thead class="jqx-widget-header-energyblue jqx-grid-column jqx-grid-column-header-energyblue">
+        <th><!-- Sign up! --></th>
+        <th>#</th>
+        <th>Queue</th>
+        <th>Start</th>
+        <th>Last Call</th>
+        <th>End</th>
+        <th>Staff</th>
+        <th>Count</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="q in queues">
+          <td><button class="btn btn-default" ng-click="showSignUpDialog(q)" ng-if="status.length == 0">Sign Up</button></td>
+          <td>{{q.Pos}}</td>
+          <td>{{q.Name}}</td>
+          <td>{{q.StartTime}}</td>
+          <td>{{q.LastCall}}</td>
+          <td>{{q.EndTime}}</td>
+          <td>{{q.NumTAs}}</td>
+          <td>{{q.NumQueued}}</td>
+        </tr>
+      </tbody>
+    </table><br/>
+    </div>
+
+    <div ng-if="queues.length == 0" class="row">
+      <div class="alert alert-info">
+        There are currently no active office hour queues
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      Add Help Log Entry:<br/>
+      <i>You do not need to create help log entries for help that is
+      logged through the office hour sign-in system.  Your office hour
+      log and help log are automatically merged to give you a complete
+      log of your questions and collaboration.</i>
+      <div class="form-group">
+        <label>Collaborator Name/URL:</label>
+        <input class="form-control" type="text" size="100" ng-model="helplog.Source" maxLength="1000" required/><br/>
+        Good: "Anna-Nicole Smith and Jerry Springer," "en.wikipedia.org/wiki/Dijkstra's_algorithm"<br/>
+        Bad: "My roommate," "Fred," "Wikipedia," "I can't remember"<br/><br/>
+        <label>Topic/Question:</label>
+        <input class="form-control" type="text" size="100" ng-model="helplog.Question" maxLength="1000" required/><br/>
+        <label>Outcome/Resolution:</label>
+        <input class="form-control" type="text" size="100" ng-model="helplog.Resolution" maxLength="1000" required/><br/>
+        <button class="btn btn-default" type="button" ng-click="submitHelpLogEntry()">Record Entry</button>
+        <button class="btn btn-default" type="button" ng-click="clearHelpLogForm()">Clear</button>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div ng-if="history !== undefined" class="row">
+      Your Help Log and past TA office hour visits:<br/><br/>
+      <div ng-if="!history">You have never logged any help or signed in for TA office hours.</div>
+      <div ng-if="history">
+        <table class="table">
+          <thead>
+            <tr>
+              <th ng-repeat="col in history_headings">{{col}}</th>
+                <th>Update Resolution</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="row in history">
+              <td ng-repeat="col in history_headings">{{row[col]}}</td>
+                <td><button ng-if="row['Asked At']" class="btn btn-default" type="button" ng-click="showResolutionUpdateDialog(row)">Update</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="alert alert-info">
+        This page last updated at {{lastUpdate}}.
+      </div>
+    </div>
+
+    <div ng-if="queues.length > 0" class="row">
+      <div id="ohSignUpDialog" ng-jqwidgets="jqxWindow" ng-jqxsettings="{
+            width:    'auto',
+            height:   'auto',
+            maxWidth: 1000,
+            autoOpen: false,
+            }">
+        <div name="signupHeading">
+        <h3>OH Sign-Up</h3>
+        </div>
+
+        <div name="signupBody">
+        <form name="ohSignUpForm">
+          <p>
+            You have chosen to sign up for <b>{{signUpQueue.Name}}</b>.<br/><br/>
+
+            Please enter your question or problem (max 100 characters).  You
+            may update this later without losing your place in line.
+            Non-questions (e.g., "I don't have a question right now.") or
+            questions that are not relevant to this queue may cause you to
+            forfeit your spot..<br/>
+          </p>
+
+          <div class="form-group">
+            <label>Question (required):</label>
+            <input class="form-control" type="text" size="100" ng-model="signUpQueue.Question" maxlength="100" required>
+          </div>
+
+          <div class="form-group">
+            <label>Where are you sitting? (required)</label>
+            <input class="form-control" type="text" size="100" ng-model="signUpQueue.Comments" maxlength="100" required>
+          </div>
+
+          <button class="btn btn-default" type="button" ng-click="submitSignUp()">Sign Up</button>
+          <button class="btn btn-default" type="button" ng-click="$('#ohSignUpDialog').jqxWindow('close')">Cancel</button>
+        </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div ng-if="queues.length > 0" class="row">
+
+      <div id="ohUpdateDialog" ng-jqwidgets="jqxWindow" ng-jqxsettings="{
+            width:    'auto',
+            height:   'auto',
+            maxWidth: 1000,
+            autoOpen: false,
+            }">
+        <div name="updateHeading">
+        <h3>OH Update Question/Comment</h3>
+        </div>
+        
+        <div name="updateBody">
+        <form name="ohUpdateForm">
+          <p>
+            You have chosen to update your questions and comments for <b>{{signUpQueue.Name}}</b>.<br/><br/>
+
+            Please enter your question or problem (max 100 characters).  You
+            may update this later without losing your place in line.
+            Non-questions (e.g., "I don't have a question right now.") or
+            questions that are not relevant to this queue may cause you to
+            forfeit your spot.<br/>
+          </p>
+
+          <div class="form-group">
+            <label>Question (Required):</label>
+            <input class="form-control" type="text" size="100" ng-model="signUpQueue.Question" maxlength="100" required/>
+          </div>
+
+          <div class="form-group">
+            <label>
+              Please indicate where you are sitting (e.g., "I am sitting outside", max 100 characters; required):
+            </label>
+            <input class="form-control" type="text" size="100" ng-model="signUpQueue.Comments" maxlength="100" required/>
+          </div>
+
+          <div class="form-group">
+            <label>
+              What is the outcome/resolution of your question (update this once your question is resolved):
+            </label>
+            <input class="form-control" type="text" size="100" ng-model="signUpQueue.Resolution" maxlength="1000"/>
+          </div>
+
+          <button class="btn btn-default" type="button" ng-click="submitUpdate()">Update</button>
+          <button class="btn btn-default" type="button" ng-click="$('#ohUpdateQuestionDialog').jqxWindow('close')">Cancel</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ohResolutionDialog" ng-jqwidgets="jqxWindow" ng-jqxsettings="{
+            width:    'auto',
+            height:   'auto',
+            maxWidth: 1000,
+            autoOpen: false,
+            }">
+        <div name="updateHeading">
+        <h3>OH Update Question/Comment</h3>
+        </div>
+
+        <div name="updateBody">
+        <form name="ohUpdateForm">
+          <p>
+            You can use this form to update the visit that you have chosen to update.
+          </p>
+
+          <div class="form-group">
+            <label>
+              What is the updated resolution?
+            </label>
+            <input class="form-control" type="text" size="100" ng-model="resolutionUpdate.update" maxlength="1000"/>
+          </div>
+
+          <button class="btn btn-default" type="button" ng-click="submitResolutionUpdate()">Update</button>
+          <button class="btn btn-default" type="button" ng-click="$('#ohResolutionDialog').jqxWindow('close')">Cancel</button>
+        </form>
+        </div>
+  </div>
+
+  <!-- Script Imports -->
+  <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+
+  <script type="text/javascript" src="../js/jqwidgets/jqx-all.js"></script>
+  <script type="text/javascript" src="../js/ngjqxsettings.js"></script>
+  <script type="text/javascript" src="js/ohsignup.js"></script>
+
+</body>
+</html>

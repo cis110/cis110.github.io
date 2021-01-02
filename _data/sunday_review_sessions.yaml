@@ -1,0 +1,61 @@
+# General Format: delete any unused fields
+# Date - Month Day, Year
+# Topics - la la
+# Worksheet Link
+# Answers Link
+
+# this is an example of what a SRS blob shoud look like
+# - date: February 2, 2020
+#   topics: Variables, Types, Conditionals, and Loops
+#   worksheet: https://docs.google.com/document/d/1fctv5vgkZHxBGOhmds7HlaG8adDZD7m63Nf2v3apLSM/edit#
+#   answers: https://docs.google.com/document/d/17YH0dAOoozSYmswLWCMo3tHkrq4-r7Omw_dIm8oHCO8/edit#
+- date: September 13, 2020
+  topics: Variables, Types, Operators
+  worksheet: https://docs.google.com/document/d/1oBx2bFqu_KEszopb0WXR2b3mfjMekey3gttMOGahpGg/edit?usp=sharing
+  answers: https://docs.google.com/document/d/14ArOM6faWSpzxhmCxljlvWepl6ptmv8OJ_ePO9XP25A/edit?usp=sharing
+
+- date: September 20, 2020
+  topics: Scoping, Loops, Conditonals
+  worksheet: https://docs.google.com/document/d/1b4AHbGaoRjDsIqkhED79sj7hxIrPjcbP1QHqgEIfqcs/edit
+  answers: https://docs.google.com/document/d/1vNmmghtUagVdd73VzhAS5F-v4T97MMRuyQ0VcRT4XaQ/edit?usp=sharing
+
+- date: September 27, 2020
+  topics: Arrays
+  worksheet: https://docs.google.com/document/d/1OpaYLTW1eA0IxCxTzbQHv5FPu8dkF1b_mGEBhLQjrHA/edit
+  answers: https://drive.google.com/file/d/1IWa9r8Z6Em0p-k_E80Evjk_v3Sj2k5my/view?usp=sharing
+
+- date: October 4, 2020
+  topics: Functions
+  worksheet: https://docs.google.com/document/d/1DIMEhTJXqX46a8MOCEWpm-BBhtc28fvWrvKdeCUMpKI/edit
+  answers: https://drive.google.com/file/d/1qqH7Cv6FkW1dJMDUReyxejjvs-Tik9Oq/view
+
+- date: October 11, 2020
+  topics: Functions and Arrays Review, Recursion
+  worksheet: https://docs.google.com/document/d/1yPE6Xxaf5bhSMyURd-axwAxKxorMKRaPxiBm98AynQI/edit
+  answers: https://drive.google.com/file/d/1FJosr5FHQMm7DIYv642ngt7MfvupZIeM/view
+
+- date: October 18, 2020
+  topics: No SRS this week!
+
+- date: October 25, 2020
+  topics: Objects
+  worksheet: https://docs.google.com/document/d/1pP62XJ4x2RzEsoqsj7dXyP_SDEUeV2smbjlF7zLr9K4/edit?usp=sharing
+  answers: https://docs.google.com/document/d/1w-lDpOiLVwx5I_LFCwHcrmaYC6PbBO_Fj_BNbwpeOCM/edit?usp=sharing
+
+- date: November 1, 2020
+  topics: Objects
+  worksheet: https://drive.google.com/file/d/1axZPIteDAoTfi-G2ybG76GBEn8oIZIKQ/view?usp=sharing
+  answers: https://drive.google.com/file/d/1_TXetXIZ0EHOnwUbbW_8rUdir2a1Qoj-/view?usp=sharing
+
+- date: November 8, 2020
+  topics: JUnit, Linked Lists
+  worksheet: https://docs.google.com/document/d/1Xw4klrHFpEnaL48o3VGXe_N7uRb_kV6qLbyNgSPMqZw/edit
+  answers: https://docs.google.com/document/d/1gSOKjQEtd49UcPHX6IsGgkwNj3WOroh7Rbewg49alxw/edit
+
+- date: November 15, 2020
+  topics: Number systems, Binary Operators & 2D Arrays
+  worksheet: https://docs.google.com/document/d/1H5ClD8-Oo78XM2OBgO-K2JBMBJ87h6I6QJoFQO75WS0/edit
+  answers: https://docs.google.com/document/d/1-xbAo89a85c3lwGXtxFzMYsiB1NeQ6CGIitTgtZGY68/edit
+
+- date: November 22, 2020
+  topics: Open Q&A - No worksheet

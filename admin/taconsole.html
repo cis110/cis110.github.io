@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="courseApp" ng-controller="courseController">
+  <head>
+    <link href="/~cis110/CaviarDreams/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/styles.css" type="text/css" rel="stylesheet" media="screen">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script type="text/javascript" src="../js/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="../js/functions.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>CIS 110 {{FULL_TERM}} - TA Links and Info</title>
+	</head>
+
+
+	<body>
+		<h1>CIS 110 {{FULL_TERM}}: TA Links and Info</h1>
+
+    <h3>Useful Links:</h3>
+    <ul>
+      <li><anew ng-href="{{CGI}}/admin.cgi">Admin Console</anew></li>
+      <li><anew ng-href="{{CGI}}/timesheet.cgi">Timesheet Entry</anew></li>
+      <li><anew ng-href="https://fling.seas.upenn.edu/~introtas/wiki/">TA Wiki</li>
+    </ul>
+
+    <hr>
+
+    <h3>TA/Mentor Code of Conduct</h3>
+
+    <p>All course staff are expected to complete all required duties and
+    adhere to the TA code of conduct.  Remember, this is a job: if you
+    don't get your work done, your timesheets may be rejected (since
+    you haven't done your job), you may not be offered a position in
+    subsequent semesters, and we may refuse to write you a letter of
+    recommendation.</p>
+
+    <p>Ethical breaches that harm the integrity of the course are
+    likely to result in <em>immediate dismissal from the course
+    staff</em> and <em>referral to the Office of Student Conduct</em>.</p>
+    
+    <ul>
+      <li> Do not reveal confidential information (including reference implementations and grading rubrics).</li>
+      <li> Do not store confidential information (including any
+        records that identify students) in private e-mail accounts or
+        cloud storage.  For FERPA compliance, you must use your UPenn
+        e-mail and FERPA-compliant partners (Piazza and
+        Google@SEAS/SAS/Wharton).</li>
+      <li> Do not give help privately over e-mail.  Instead, direct
+        students to piazza (using a private thread if necessary).  If
+        e-mail is necessary, cc or bcc cis110@cis.  This rule is meant
+        more than anything to protect you.  It allows us to intervene
+        early to deal with problems when necessary, and avoids
+        unpleasant surprises.  For example, we have seem private
+        e-mail threads with TAs show up in OSC investigations, and
+        that can get very messy for you as well as for us.  If we're
+        in the loop, we can head this off.</li>
+      <li> <em>Never give help outside the structures of the
+        course!</em>  This includes informally helping friends or
+        students in your dorm as well as private tutoring (paid or
+        unpaid) on the side.  This is an extremely serious conflict of
+        interest and may get you fired and/or referred to the OSC.  If
+        you have time to dedicate to giving help, answer piazza posts
+        or work extra office hours (if there is demand).  This rule
+        also protects the separation between your work and private
+        lives: if students corner you in your dorm to ask question,
+        you may simply answer, <b>"I'm not allowed to help you outside
+        of office hours/piazza."</b></li>
+      <li> <em>Do not meet privately with students without our
+        knowledge.</em>  This is also an extremely serious conflict of
+        interest that may get you fired and/or referred to the OSC.
+        We routinely ask TAs to meet individually with <b>their
+        own</b> students to help them catch up; such meetings must
+        always be reported on your timesheets.  It is extremely
+        unusual for us to ask a TA or mentor to meet privately with a
+        student from a different recitation, and you should never do
+        so without our permission.
+
+        <p> It may be appropriate for you to reach out to struggling
+          students <b>in your own recitation</b> and offer to meet
+          with them.  If you do that, you must inform us immediately.
+          The easiest way to do this is to cc or bcc us on your
+          e-mail.</p></li>
+      <li> Do not contradict official course policy, homework
+        instructions, coding style guidelines, etc.  You are
+        responsible for knowing, following, and supporting everything
+        we announce to students, and following all instructions we
+        give in announcements to you or in staff meeting.  This is
+        pretty dictatorial, but you've probably had a class where the
+        TAs and instructors were not in step and know how much trouble
+        that can cause.</li>
+      <li> Complete all duties in a timely manner.  These duties may
+        include (but are not necessarily limited to):
+        <ul>
+          <li> grading;</li>
+          <li> recording grades, attendance, <em>and pariticpation</em>;</li>
+          <li> planning recitation;</li>
+          <li> teaching recitation;</li>
+          <li> holding office hours;</li>
+          <li> completing assignments by the TA deadline;</li>
+          <li> monitoring piazza; </li>
+          <li> attending staff meeting, TA training, and lecture;
+          <li> completing timesheets</li>
+        </ul>
+        <em>Make a weekly checklist for yourself of your duties.</em>
+        Failure to complete any of your duties will result in your
+        timesheets being held until you are completely caught up, and
+        may result in timesheets being rejected.</li><br><br>
+      <li> Keep in close contact with your co-TA to plan your
+        recitation and to plan ahead together for busy weeks.  It is
+        your joint responsibility to get your grading and office hours
+        done, no matter how busy are otherwise.  It is also your joint
+        responsibility to plan out how you will run your recitation
+        effectively together.  We consistently see a difference in
+        student evaluations between pairs of TAs that meet ahead of
+        each recitation to plan it in detail and pairs (even
+        experienced pairs) that "wing it."</li>
+      <li> Do your Piazza shifts.  This means reading and answering
+        all questions frequently throughout the day, and knowing what
+        questions have been asked so you refer to existing answers
+        rather than repeating them.  It is not Scott's job to do this
+        alone!</li>
+      <li> Promptly report any time conflicts or situations that may
+        prevent you from getting work done on time to us, to the head
+        TAs, and to your partner.  This does not relieve you of your
+        responsibilities, but it does help us find a way to make sure
+        they are met.</li>
+      <li> Promptly report any kudos or concerns about other members
+        of the course staff, including your partner, to the
+        instructors or head TAs.  We will not immediately fire (or
+        promote) anyone just because you tell us something, but we can
+        solve many issues early if we know about them.  For instance,
+        if we learn early that a member of the course staff is
+        frequently missing or tardy to office hours, we may be able
+        help that person get back on track.  If we only learn
+        belatedly after the problem has gotten serious, we may have no
+        alternative but to not re-hire them.</li>
+      <li> Submit all homeworks by the TA deadline.  You may work
+        together with other TAs on the assignments (with proper credit
+        in your readme), but you must complete each assignment from
+        scratch.  You may not use the reference implementation, and
+        you may not resubmit your version from a previous semester.
+        Assignments change in subtle ways each semester, and you must
+        know the current version before it goes out to students.</li>
+    </ul>
+	</body>
+</html>

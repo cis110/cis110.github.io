@@ -1,0 +1,52 @@
+# General format - Delete any unused fields, : and \n characters break things
+# term: Semester XXXX
+# questions: exam location
+# answers: answer key location
+# median: XX.X
+# total_points: XXX
+# standard_deviation: XX.XX
+# corrections: 
+  # - X - correction
+  # - X - correction...
+- term: Spring 2020
+  questions: s20.pdf
+  answers: s20_key.pdf
+  median: 93
+  total_points: 110
+  standard_deviation: 13.93
+  corrections:
+    - 3j should be "No"
+
+
+- term: Fall 2019
+  questions: f19.pdf
+  answers: f19_key.pdf
+  median: 95.5
+  total_points: 110
+  standard_deviation: 17.65
+
+- term: Fall 2018
+  questions: f18.pdf
+  answers: f18_key.pdf
+  median: 59.2
+  total_points: 70
+  standard_deviation: 10.8
+  corrections:
+  - Q2 row 7 - variable x should be named fst
+
+- term: Fall 2017
+  questions: f17.pdf
+  answers: f17_key.pdf
+  median: 56
+  total_points: 65
+  standard_deviation: 7.6
+
+- term: Fall 2016
+  questions: f16.pdf
+  answers: f16_key.pdf
+  median: 63.5
+  total_points: 75
+  standard_deviation: 12.35
+  corrections:
+  - Q2 row 5 - String a = "CIS"; a += 1 + 1 + 0 would give "CIS2".
+

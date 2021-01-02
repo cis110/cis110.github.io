@@ -1,0 +1,29 @@
+BrickBreaker
+  Paddle
+   fields: size, x, y
+   void moveRight()
+   void moveLeft()
+   void display()
+   boolean collision(Ball b)
+
+  Ball
+   fields: diameter, x, y
+   boolean bounceVertical()
+   boolean bounceHorizontal()
+   void update()  // handles bounces off walls
+   void display()
+  
+  Brick
+   fields: width, height, x, y, color
+   void display()
+   boolean collision(Ball b)
+   - break brick // save for later
+  
+  Score
+    fields: score
+    void display()
+    void increment()
+    void reset()
+    int getScore() // could eliminate
+
+  

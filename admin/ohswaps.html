@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ohApp" ng-controller="ohController">
+<head>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="../js/jqwidgets/styles/jqx.base.css" />
+  <link rel="stylesheet" type="text/css" href="../js/jqwidgets/styles/jqx.energyblue.css" />
+  <link rel="stylesheet" type="text/css" href="../js/jqwidgets/styles/jqx.bootstrap.css" />
+
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- 	@author Rohan Bhide (brohan) -->
+
+
+  <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script type="text/javascript" src="../js/jqwidgets/jqx-all.js"></script>
+  <script type="text/javascript" src="../js/ngjqxsettings.js"></script>
+  <script type="text/javascript" src="../js/ui-bootstrap-tpls-0.11.0.js"></script>
+  <script type="text/javascript" src="../js/angular.audio.js"></script>
+
+
+
+  <style>
+    input.ng-invalid { border: 2px solid red;  }
+
+    .panel .panel-default {
+      border-color: #a4bed4;
+    }
+
+    .panel-default > .panel-heading {
+      background-color: #e0e9f5;
+    }
+
+    .panel > .panel-heading:hover {
+      /*background-color: #325DA7;*/
+      cursor: pointer;
+      cursor: hand;
+    }
+
+    .escalated .panel .panel-default {
+      border-color: #d9534f;
+    }
+
+    .escalated .panel > .panel-heading {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="row">
+      <div class="page-header">
+        <h1>CIS 110 Office Hour Swap Console</h1>
+        <h3>Your PennKey: <em>{{user}}</em></h3>
+      </div>
+    </div>
+
+    <div class="row">
+        <h3>The available swap requests open - </h3>
+          <table id="ohPendingSwaps" class="table table-striped table-bordered">
+            <thead>
+            <th>Requestor</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>Location</th>
+            <th>Accept Button</th>
+            <th>Delete Button</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="r in requests['swap_pending']">
+                <td>{{r.requestorPennKey}}</td>
+                <td>{{r.date}}</td>
+                                  <td>{{r.startTime}}</td>
+                  <td>{{ r.location }}</td>
+                  <td class="text-center"><button ng-click="acceptRequest(r)" class="btn btn-default">Accept</button></td>
+                  <td class="text-center"><button ng-if="user == r.requestorPennKey" ng-click="deleteRequest(r)" class="btn btn-default">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+            <br>
+      <br>
+      <br>
+
+    <div class="row">
+      <h4>Add a Swap Request</h4>
+        <table id="ohRequest" class="table table-striped table-bordered">
+            <thead>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>Location</th>
+            <th>Ask</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div id="swapRequestDate"></div></td>
+                <td>
+                    <select ng-model="swapRequestTime">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select>
+                </td>
+                <td><input type="text" ng-model="location"></td>
+                  <td class="text-center"><button ng-click="createRequest()" class="btn btn-default">Ask</button></td>
+
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+      <br>
+      <br>
+      <br>
+
+
+      <div class="row">
+      <h4>Check the schedule for a day.</h4>
+
+          <table id="ohScheduleCheck" class="table table-striped table-bordered">
+            <tbody>
+              <tr>
+                <td><div id="scheduleDate"></div></td>
+                  <td class="text-center"><button ng-click="checkSchedule()" class="btn btn-default">Check</button></td>
+              </tr>
+            </tbody>
+          </table>
+        <table id="ohDaySchedule" ng-if="ohSchedule" class="table table-striped table-bordered">
+            <thead>
+            <th>TA's PennKey</th>
+            <th>Start Time</th>
+            <th>Day of the Week</th>
+            </thead>
+            <tbody>
+              <tr ng-if="ohSchedule" ng-repeat="r in ohSchedule">
+                  <td>{{ r.TAPennKey }}</td>
+                  <td>{{ r.startTime }}</td>
+                  <td>{{ r.day }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+            <br>
+      <br>
+      <br>
+
+      <div class="row">
+          <h3>Your previous Swap History</h3>
+          <table id="ohSwapHistory" class="table table-striped table-bordered">
+            <thead>
+            <th>Requestor</th>
+            <th>Coverer</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>Location</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="r in requests['swap_history']">
+                <td>{{r.requestorPennKey}}</td>
+                  <td>{{ r.coverPennKey }}</td>
+                <td>{{r.date}}</td>
+                <td>{{r.startTime}}</td>
+                  <td>{{ r.location }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      </div>
+  <script type="text/javascript" src="js/ohswaps.js"></script>
+
+</body>
+
+</html>

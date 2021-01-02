@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="dashApp" ng-controller="dashController">
+
+  <head>
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/angular-calendar.css"/>
+    <link rel="stylesheet" href="css/dashboard.css"/>
+
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-animate.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
+    <script type="text/javascript" src="../js/ui-bootstrap-tpls-0.11.0.js"></script>
+
+    <script type="text/javascript" src="../js/angular-calendar.js"></script>
+    <script type="text/javascript" src="js/dashboard.js"></script>
+
+    <title>{{prettyCourse}} Dashboard</title>
+  </head>
+
+  <body>
+  <div class="container">
+    <table class="table" id="student-info">
+      <tbody>
+        <tr ng-if="name !== undefined">
+          <td colspan="2"><h2>{{name}} ({{pennkey}})</h2></td>
+          <td><h2><a href="https://weblogin.pennkey.upenn.edu/logout"><button class="btn btn-primary btn-xs" ng-disabled="userParam">Logout</button></a></h2></td>
+        </tr>
+        <!-- <tr>
+          <td>PennKey:</td><td id="pennkey"><b>{{pennkey}}</b></td>
+        </tr><tr ng-if="name">
+          <td id="name">Name:</td><td><b>{{name}}</b></td>
+        </tr> -->
+        <tr ng-if="lecture">
+          <td>Lecture Section:</td><td><b>{{lecture}}</b></td>
+        </tr><tr ng-if="recitation">
+          <td>Recitation:</td><td><b>{{recitation}}</b></td>
+        </tr><tr ng-if="clickerid !== undefined">
+          <td>Clicker ID:</td><td><b>{{clickerid ? clickerid : 'Not Entered'}}</b></td>
+          <td><button class="btn btn-primary btn-xs" ng-click="enterClickerID()" ng-disabled="userParam">Change</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br/>
+
+    <accordion close-others="false">
+      <accordion-group is-open="submitAccordion">
+        <accordion-heading>
+          <div> <h5> Assignments Available for Submission </h5> </div>
+        </accordion-heading>
+        <div ng-if="tasks && tasks.length">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Extension</th>
+                <th>No Credit After</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="t in tasks">
+                <td><button ng-click="openSubmitForm(t.Task)" class="btn btn-primary btn-xs" ng-disabled="userParam">Submit</button></td>
+                <td><a class="text-danger" ng-if="t.URL" ng-href="{{t.URL}}" target="_blank">{{t.Task}}</a><span ng-if="!t.URL">{{t.Task}}</span></td>
+                <td><a class="text-danger" ng-if="t.URL" ng-href="{{t.URL}}" target="_blank">{{t.Description}}</a><span ng-if="!t.URL">{{t.Description}}</span></td>
+                <td>{{t.DueDate}}</td>
+                <td>{{t.NewDeadline}}</td>
+                <td>{{t.AbsoluteDeadline}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-if="!tasks || !tasks.length">
+          You have no assignments currently open for online submission.
+        </div>
+      </accordion-group>
+
+      <br/>
+
+      <accordion-group is-open="scoresAccordion" ng-if="scores && scores.length">
+        <accordion-heading>
+          <div><h5> Scores </h5></div>
+        </accordion-heading>
+        <table class="table table-responsive table-striped">
+          <thead>
+            <tr>
+              <th ng-repeat="s in score_headers">{{s}}</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="s in scores">
+              <td ng-repeat="val in s track by $index">{{val}}</td>
+              <!-- <td>{{s}}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </accordion-group>
+
+      <br/>
+
+      <accordion-group is-open="quizzesAccordion" ng-if="quizzes && quizzes.length">
+        <accordion-heading>
+          <div><h5> Quizzes </h5></div>
+        </accordion-heading>
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Quiz</th>
+              <th>Description</th>
+              <th>Required</th>
+              <th>Due Date</th>
+              <th>Submitted</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="q in quizzes">
+              <td><a class="text-danger" ng-if="q.URL" ng-href="{{q.URL}}" target="_blank">{{q.Task}}</a><span ng-if="!q.URL">{{q.Task}}</span></td>
+              <td><a class="text-danger" ng-if="q.URL" ng-href="{{q.URL}}" target="_blank">{{q.Description}}</a><span ng-if="!q.URL">{{q.Description}}</span></td>
+              <td>{{q.Required ? 'Required' : 'Optional'}}</td>
+              <td>{{q.DueDate}}</td>
+              <td><span ng-if="q.LastSubmission">{{q.LastSubmission}}</span><span ng-if="!q.LastSubmission" class="not_submitted">Not Submitted</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </accordion-group>
+
+      <br/>
+
+      <accordion-group is-open="clickerAccordion" ng-if="clickers && clickerid !== undefined">
+        <accordion-heading>
+          <div><h5>Clicker Participation</h5></div>
+        </accordion-heading>
+        A reasonable allowance will be made for absences due to
+        illness, religious holidays, etc., as well as for missing or
+        broken clickers.  See the course policies for any
+        course-specific details.
+        <table>
+          <tbody>
+            <tr style="vertical-align: top">
+              <td class="calendar-data" ng-repeat="m in clickermonths"><calendar for="m" status="clickers" options="clickerCalOptions"></calendar></td>
+            </tr>
+          </tbody>
+        </table>
+        <span class="dayIcon green glyphicon glyphicon-stop"></span>: all polls answered;
+        <span class="dayIcon orange glyphicon glyphicon-stop"></span>: some polls answered;
+        <span class="dayIcon red glyphicon glyphicon-stop"></span>: no polls answered
+      </accordion-group>
+
+      <br/>
+
+      <accordion-group is-open="recitationAccordion" ng-if="recitations">
+        <accordion-heading>
+          <div><h5> Recitation Attendance </h5></div>
+        </accordion-heading>
+        <table>
+          <tbody>
+            <tr style="vertical-align: top">
+              <td class="calendar-data" ng-repeat="m in recitationmonths"><calendar for="m" status="recitations" options="clickerCalOptions"></calendar></td>
+            </tr>
+          </tbody>
+        </table>
+        <span class="dayIcon red glyphicon glyphicon-stop"></span>: absent from this week's recitation;
+        <span class="dayIcon green-check"><span class="glyphicon glyphicon-ok"></span></span>: attended this week's recitation;
+        <span class="dayIcon gold-star glyphicon glyphicon-star"></span>: participated in this week's recitation<br/>
+        <i>Recitation attendence is recorded at a fixed day and time
+          each week for all students, regardless of when your actual
+          recitation is scheduled.</i>
+      </accordion-group>
+    </accordion>
+  </div>
+  <script type="text/javascript">
+    setTimeout(function(){window.location.href = window.location.href;},4200000 - ((new Date) % 3600000));
+  </script>
+  </body>
+</html>

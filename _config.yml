@@ -1,0 +1,5 @@
+exclude: ['README.md', 'START.md', 'Gemfile', '.bundle/', 'vendor/']
+timezone: US/Eastern
+markdown: kramdown
+highlighter: rouge
+baseurl: /~cis110/current

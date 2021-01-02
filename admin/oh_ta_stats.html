@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ohApp" ng-controller="ohController">
+
+<head>
+  <!-- Stylesheets Import -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../js/jqwidgets/styles/jqx.base.css" />
+  <link rel="stylesheet" type="text/css" href="../js/jqwidgets/styles/jqx.energyblue.css" />
+
+
+
+  <style>
+    /*table { border-collapse: collapse; }
+    table, th, td { border: 1px solid #a4bed4; padding: 3px; }*/
+    input.ng-invalid { border: 3px solid red;  }
+  </style>
+
+  <title>CIS 110 TA Statistics</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+      <div class="row">
+      <div class="page-header">
+        <h1>CIS 110 TA Statistics Page</h1>
+        <h3>Your PennKey: <em>{{user}}</em></h3>
+      </div>
+    </div>
+      <div class="row">
+          Your average resolution time is : <b>{{ ta_stats.average_time }}</b> minutes. <br>
+          The number of student helped by you is : <b>{{ ta_stats.number_resolved }}</b>.
+      </div>
+      <div class="row">
+          You can use the following graph to see your time period based office hour activity.
+          <h2> The number of students helped between : </h2>
+          <table  class="table table-bordred table-striped">
+              <thead>
+              <tr>
+              <th>
+                  Range Start Date
+              </th>
+              <th>
+                  Range End Date
+              </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>
+                      <div ng-jqwidgets="jqxDateTimeInput" ng-jqxsettings="{
+                         value: numStudentsHelpedStartDate,
+                         formatString: 'MM/dd/yyyy',
+                         allowNullDate: false,
+                         showWeekNumbers: false,
+                       }"></div>
+                  </td>
+                  <td>
+                      <div ng-jqwidgets="jqxDateTimeInput" ng-jqxsettings="{
+                         value: numStudentsHelpedEndDate,
+                         formatString: 'MM/dd/yyyy',
+                         allowNullDate: false,
+                         showWeekNumbers: false,
+                       }"></div>
+                  </td>
+                  <td>
+                      <button ng-click="graphNumberStudentsHelped()" class="btn btn-primary">Graph it</button>
+                  </td>
+                  </tr>
+              <tr>
+                  <td>
+                      <div ng-jqwidgets="jqxDropDownList" ng-model="num_students_time_period" ng-jqxsettings="{
+                                source: [{'name': 'days'}, {'name': 'weeks'},{'name': 'months'}],
+                                width: auto,
+                                height: auto,
+                                displayMember: 'name',
+                                valueMember: 'name',
+                            }"
+                           ng-change="draw_num_students_helped_graph()">
+                      </div>
+                  </td>
+              </tr>
+              </tbody>
+          </table>
+
+          <div class="row" id="num_students_chart" style="width: 900px; height: 500px"></div>
+      </div>
+
+      <div ng-if="history !== undefined" class="row">
+      <div ng-if="!history">You have never helped any students.</div>
+      <div ng-if="history">
+        <table class="table">
+          <thead>
+            <tr>
+              <th ng-repeat="col in historyHeadings">{{col}}</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="row in history">
+              <td ng-repeat="col in historyHeadings">{{row[col]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+  </div>
+
+  <!-- Script Imports -->
+  <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+
+  <script type="text/javascript" src="../js/jqwidgets/jqx-all.js"></script>
+  <script type="text/javascript" src="../js/ngjqxsettings.js"></script>
+  <script type="text/javascript" src="../js/ui-bootstrap-tpls-0.11.0.js"></script>
+  <script type="text/javascript" src="../js/angular.audio.js"></script>
+  <script type="text/javascript" src="../js/ngjqxsettings.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="js/oh_stats.js"></script>
+
+</body>
+</html>

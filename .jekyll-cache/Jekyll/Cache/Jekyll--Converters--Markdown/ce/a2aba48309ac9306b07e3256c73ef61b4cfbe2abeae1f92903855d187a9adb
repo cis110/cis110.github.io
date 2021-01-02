@@ -1,0 +1,60 @@
+I"�<h3 id="injava"><a href="../assets/example_programs/In.java">In.java</a></h3>
+
+<hr />
+
+<h4 id="motivation">Motivation</h4>
+
+<p><code class="language-plaintext highlighter-rouge">In.java</code> lets us read information stored in different files. As long as we know the format of a file, we can parse its contents and programmatically interact with it. The first example we will see of <code class="language-plaintext highlighter-rouge">In.java</code> is with hw02, NBody, where you will simulate a universe based upon information stored in a separate file containing the radius, positions, velocities, and image files of each of the bodies in the solar system. Crucially, you do not need to know <strong>any</strong> other information other than the format of this file in order to simulate <strong>infinitely many</strong> solar systems with your program.</p>
+
+<hr />
+
+<h4 id="downloading-and-using-injava">Downloading and Using In.java</h4>
+
+<p>To use <code class="language-plaintext highlighter-rouge">In.java</code>, save <a href="../assets/example_programs/In.java">In.java</a> to the same folder as your program. Once you add it to your folder, you should open it up and compile it.</p>
+
+<hr />
+
+<h4 id="setting-up-a-file-reader">Setting up a File Reader</h4>
+
+<p>The standard library provides the class <code class="language-plaintext highlighter-rouge">In.java</code> to support accessing information from a file. Study <code class="language-plaintext highlighter-rouge">StudentsFileProcessor.java</code>, which is contained in the <code class="language-plaintext highlighter-rouge">nbody_data.zip</code> you downloaded in Part 0. This file provides an example of reading information from a file. Compile <code class="language-plaintext highlighter-rouge">StudentsFileProcessor.java</code>, and run it from the Codio Terminal with the argument <code class="language-plaintext highlighter-rouge">students.txt</code>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">java StudentsFileProcessor students.txt</code></p>
+
+<p>In your program, declare and initialize a variable, <code class="language-plaintext highlighter-rouge">inStream</code>, as below:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">In</span> <span class="n">inStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">In</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span> <span class="c1">// creates a variable inStream of type In to read from the file</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">inStream</code> is just a variable name. You could name this variable anything, but for convenience we are giving you the name “inStream” for your file reader variable.</p>
+
+<hr />
+
+<h4 id="reading-values-from-a-file">Reading values from a file</h4>
+
+<p>Now that <code class="language-plaintext highlighter-rouge">inStream</code> is initialized, you can access/read information from it using the following function calls. These functions behave identically to those in <code class="language-plaintext highlighter-rouge">StdIn</code>. Below, you will see that each value read from the file (accessed via inStream) is immediately stored in a variable (i.e. b, i, d, s).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>     <span class="c1">// boolean value that is true if there are no more values, false otherwise</span>
+<span class="kt">int</span>     <span class="n">i</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>     <span class="c1">// reads in an int from inStream</span>
+<span class="kt">double</span>  <span class="n">d</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readDouble</span><span class="o">();</span>  <span class="c1">// reads in a double from inStream</span>
+<span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readBoolean</span><span class="o">();</span> <span class="c1">// reads in a boolean from inStream</span>
+<span class="nc">String</span>  <span class="n">s</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>  <span class="c1">// reads in a string from inStream</span>
+<span class="nc">String</span>  <span class="n">s</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>    <span class="c1">// reads in an entire line from inStream</span>
+<span class="nc">String</span>  <span class="n">s</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readAll</span><span class="o">();</span>     <span class="c1">// reads in the entire file from inStream</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">inStream</code> will start reading from the beginning of the file (top left). Each time a function like <code class="language-plaintext highlighter-rouge">readDouble()</code> is called, <code class="language-plaintext highlighter-rouge">inStream</code> attempts to read the next (unread) number as a double (an error will occur if it cannot be parsed to a double). The next time a read function is called, <code class="language-plaintext highlighter-rouge">inStream</code> moves to the next item in the file.</p>
+
+<p>For example, say that a file, <code class="language-plaintext highlighter-rouge">sample.txt</code>, is as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 5
+</code></pre></div></div>
+
+<p>The code snippet</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">In</span> <span class="n">inStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">In</span><span class="o">(</span><span class="s">"sample.txt"</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">inStream</span><span class="o">.</span><span class="na">readDouble</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>will set variable <code class="language-plaintext highlighter-rouge">x</code> to 4 and variable <code class="language-plaintext highlighter-rouge">y</code> to 5.0.</p>
+:ET
