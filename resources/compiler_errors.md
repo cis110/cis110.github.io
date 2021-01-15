@@ -4,7 +4,7 @@ title: CIS 110 Fall 2020 — Introduction to Computer Programming
 active_tab: compiler-errors-walkthrough
 ---
 
-
+**Note: This will be overwhelming to read at the beginning (and even the middle) of the semester. We leave it as is so that it may be of use to you later in the semester, or a sneak peak into debugging.**
 
 # Compiler Errors
 

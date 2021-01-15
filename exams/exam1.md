@@ -8,9 +8,9 @@ active_tab: exam1
 
 #### Details
 
-- **Date** October 23 9am - October 24 9am EDT
+- **Date** March 19 9am - March 20 1am EST
 - **Duration** 130 minutes
-- **Location** Canvas
+- **Location** Gradescope
 
 ---
 

@@ -16,7 +16,7 @@ Teaching Assistants:
 : [Course staff]({{site.baseurl}}/staff.html)
 
 Discussion Forum:
-: [Piazza](piazza.com/upenn/spring2021/cis110)
+: [Piazza](https://piazza.com/upenn/spring2021/cis110)
 
 Live Coding Lectures:
 : Monday (9-10am EST), Wednesday (9-10am EST), Friday (9-10am EST)

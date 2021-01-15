@@ -4,6 +4,8 @@ title: CIS 110 Fall 2020 — Introduction to Computer Programming
 active_tab: runtime-errors-walkthrough
 ---
 
+**Note: This will be overwhelming to read at the beginning (and even the middle) of the semester. We leave it as is so that it may be of use to you later in the semester, or a sneak peak into debugging.**
+
 - [General Example 1: Reading the stack trace of a runtime error](#general-example-1-reading-the-stack-trace-of-a-runtime-error)
   - [Compile the code](#compile-the-code)
   - [Run the code](#run-the-code)

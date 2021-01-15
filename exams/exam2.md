@@ -8,10 +8,9 @@ active_tab: exam2
 
 #### Details
 
-- **Date** December 4
-- **Duration** 2 hours
-- **Time** 12am EST - 11:59pm EST
-- **Location** Canvas
+- **Date** April 21 9am - April 22 1am EST
+- **Duration** 130 minutes
+- **Location** Gradescope
 
 ---
 

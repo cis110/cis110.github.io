@@ -21,6 +21,8 @@ Here are a handful of good ways to use this document:
 
 > You might notice that some text looks like this. When something is written in this way, it's information that you might be interested to learn but that you're not required to know. 
 
+**Note: We leave the table of contents in full, but will not fill in the relevant information until it has been taught in lecture.**
+
 Table of Contents:
 - [Introduction](#introduction)
 - [Incomplete List of Functions & Operations We Have Used](#incomplete-list-of-functions--operations-we-have-used)
@@ -99,6 +101,7 @@ Table of Contents:
 - [Comparing Objects](#comparing-objects)
 
 ---
+<!-- 
 # Incomplete List of Functions & Operations We Have Used
 - Basic operations:
   - Arithmetic
@@ -1240,4 +1243,4 @@ Secondly, now that you've committed to implementing the `Comparable` interface, 
 - a positive int (`1` by convention) when `this` comes after `other`,
 - `0` when `this` and `other` are equal.
 
-Now you can use the `.sort` methods of `Arrays` or `Lists` of `ClassName` objects to have Java automatically handle the sorting of those collections!
+Now you can use the `.sort` methods of `Arrays` or `Lists` of `ClassName` objects to have Java automatically handle the sorting of those collections! -->

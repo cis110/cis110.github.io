@@ -1,375 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: CIS 110 Fall 2020 — Introduction to Computer Programming
+active_tab: course-topic-guide
+---
 
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140907291-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+# Introduction
+This resource is presented as list of topics, functions, and patterns that we've encountered so far in CIS 110. It is reference material, and not a definitive textbook.
 
-    gtag('config', 'UA-140907291-3');
-  </script>
+Please note that this resource is **not**...
+- a comprehensive list of all information that might be tested on an exam
+- a replacement for having viewed the live & recorded material that covered these topics
+- an indication that something **not** covered here is not an important concept in learning programming & Java.
+- an example of exactly the level of detail at which you need to understand a concept.
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CIS 110 Fall 2020 — Introduction to Computer Programming</title>
+Here are a handful of good ways to use this document:
+- As a **starting point** for preparing for an exam.
+- As a way to check your understanding of a recent topic.
+- As a reference for completing homeworks, especially when you recall that we've covered something similar to the problem at hand before in the class.
+- As a way to double check why the code you're writing isn't compiling, or to remind you of some syntax rules that just won't stick in your head.
 
-  <!-- Mathjax -->
-  <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          processEscapes: true
-        }
-      });
-    </script>
-  <script type="text/javascript" charset="utf-8"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
-  <script type="text/javascript" charset="utf-8" src="https://vincenttam.github.io/javascripts/MathJaxLocal.js">
-  </script>
+> You might notice that some text looks like this. When something is written in this way, it's information that you might be interested to learn but that you're not required to know. 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/~cis110/current/assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/~cis110/current/assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/~cis110/current/assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/~cis110/current/assets/favicon/site.webmanifest">
-  <link rel="mask-icon" href="/~cis110/current/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="/~cis110/current/assets/favicon/favicon.ico">
-  <meta name="apple-mobile-web-app-title" content="CIS 110">
-  <meta name="application-name" content="CIS 110">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-config" content="/~cis110/current/assets/favicon/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
+Table of Contents:
+- [Introduction](#introduction)
+- [Incomplete List of Functions & Operations We Have Used](#incomplete-list-of-functions--operations-we-have-used)
+- [Basics of a Java Program](#basics-of-a-java-program)
+  - [Writing & Running Code](#writing--running-code)
+  - [The `main` Method & `args`](#the-main-method--args)
+  - [Code Blocks](#code-blocks)
+- [Drawing](#drawing)
+- [Variables](#variables)
+  - [What A Variable Is](#what-a-variable-is)
+  - [Declaring a Variable](#declaring-a-variable)
+  - [Assigning a Value to a Variable](#assigning-a-value-to-a-variable)
+  - [Variable Scopes](#variable-scopes)
+- [Data Types](#data-types)
+  - [What a Data Type Is](#what-a-data-type-is)
+  - [Primitive Data Types in Java](#primitive-data-types-in-java)
+    - [Table of Primitives](#table-of-primitives)
+    - [Strings](#strings)
+  - [Some Important Operators & Tools](#some-important-operators--tools)
+    - [Relational Operators](#relational-operators)
+    - [The multifaceted `+`](#the-multifaceted-)
+    - [Mod (`%`)](#mod-)
+    - [Casting](#casting)
+    - [Parsing](#parsing)
+    - [Math](#math)
+- [Conditionals](#conditionals)
+  - [When to use a Conditional](#when-to-use-a-conditional)
+  - [`if`, `else if`, and `else`](#if-else-if-and-else)
+  - [Switch Statements](#switch-statements)
+- [Loops](#loops)
+  - [Rules of Iteration in Java](#rules-of-iteration-in-java)
+  - [The While Loop](#the-while-loop)
+  - [The For Loop](#the-for-loop)
+  - [Your Loop of Choice](#your-loop-of-choice)
+  - [Break and Continue](#break-and-continue)
+- [Arrays](#arrays)
+  - [What is an Array?](#what-is-an-array)
+    - [Arrays Are Fixed-Length](#arrays-are-fixed-length)
+    - [Arrays Are Indexed](#arrays-are-indexed)
+    - [Arrays Contain Values Of One Type Only](#arrays-contain-values-of-one-type-only)
+  - [Manipulating Arrays](#manipulating-arrays)
+    - [Initializing entries of an array to random values](#initializing-entries-of-an-array-to-random-values)
+    - [Printing the values of an array](#printing-the-values-of-an-array)
+    - [Finding the maximum value in an array](#finding-the-maximum-value-in-an-array)
+    - [Finding the sum & mean of an array of doubles](#finding-the-sum--mean-of-an-array-of-doubles)
+- [Functions](#functions)
+  - [Anatomy of a Function](#anatomy-of-a-function)
+  - [Functions and Control Flow](#functions-and-control-flow)
+  - [Functions and Variable Scope](#functions-and-variable-scope)
+- [Recursion](#recursion)
+- [Object Oriented Programming](#object-oriented-programming)
+  - [Objects vs Classes](#objects-vs-classes)
+  - [Writing Classes to Define Object State & Behavior](#writing-classes-to-define-object-state--behavior)
+    - [Fields](#fields)
+    - [Methods](#methods)
+    - [Constructor](#constructor)
+  - [Principles of Object Oriented Programming](#principles-of-object-oriented-programming)
+    - [Encapsulation](#encapsulation)
+      - [Getters and Setters](#getters-and-setters)
+    - [Abstraction](#abstraction)
+    - [State](#state)
+    - [Mutability and Immutability](#mutability-and-immutability)
+  - [Abstract Data Types](#abstract-data-types)
+- [References in Java](#references-in-java)
+- [LinkNodes, Linked Lists, & Array Lists](#linknodes-linked-lists--array-lists)
+  - [Typical List Interface](#typical-list-interface)
+- [Number Systems](#number-systems)
+  - [Decimal vs. Binary](#decimal-vs-binary)
+  - [Converting from Binary to Decimal](#converting-from-binary-to-decimal)
+  - [Converting from Decimal to Binary](#converting-from-decimal-to-binary)
+  - [Encryption & XOR](#encryption--xor)
+- [2D Arrays](#2d-arrays)
+  - [Declaring and Initializing](#declaring-and-initializing)
+  - [Indexing](#indexing)
+  - [Iteration through 2D Arrays](#iteration-through-2d-arrays)
+- [Comparing Objects](#comparing-objects)
 
-  <!-- CSS -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="/~cis110/current/assets/css/style.css" rel="stylesheet">
-  <link href="/~cis110/current/assets/css/syntax.css" rel="stylesheet">
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-  <a class="sr-only" href="#content">Skip to main content</a>
-
-  <!-- Docs master nav -->
-  <header class="navbar navbar-static-top navbar-default" role="banner">
-    <div class="container">
-      <div class="row">
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <ul class="nav navbar-nav">
-            <div class="hidden-sm hidden-xs">
-              <li id="main-page"><a href="/~cis110/current/index.html" class="navbar-brand">CIS 110 - Introduction to
-                  Computer Programming</a></li>
-            </div>
-            <div class="visible-sm visible-xs">
-              <li id="main-page"><a href="/~cis110/current/index.html" class="navbar-brand">CIS 110</a></li>
-            </div>
-          </ul>
-        </div>
-        <!-- DO NOT edit this file directly. If you are editing the header, edit navigation.yaml or homework.yaml. -->
-<nav class="collapse navbar-collapse" role="navigation">
-    <ul class="nav navbar-nav">
-        <li id="Homework">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="/~cis110/current/homework.html">Homework
-    <span class="caret"></span></a>
-    <ol class="dropdown-menu">
-        <li>
-            <a href="/~cis110/current/homework/homework.html">Homework Table</a>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    </ol>
-</li>
-        
-        
-        
-        <li id="Syllabus"><a href="/~cis110/current/syllabus.html">Syllabus</a></li>
-        
-        
-        
-        <li id="Staff"><a href="/~cis110/current/staff.html">Staff</a></li>
-        
-        
-        
-        <li id="Office Hours"><a href="/~cis110/current/schedule.html">Office Hours</a></li>
-        
-        
-        
-        <li id="Grade Calculator"><a href="/~cis110/current/grade_calc.html">Grade Calculator</a></li>
-        
-        
-        
-        <li id="SRS"><a href="/~cis110/current/sunday_review_sessions.html">SRS</a></li>
-        
-        
-        
-        <li id="Policies">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="/~cis110/current/">Policies
-                <span class="caret"></span></a>
-            <ol class="dropdown-menu">
-                
-                <li><a href="/~cis110/current/policies/grading_policies.html">Grading</a></li>
-                
-                <li><a href="/~cis110/current/policies/attendance_sp21.html">Attendance</a></li>
-                
-                <li><a href="/~cis110/current/policies/homework_policies.html">Homework</a></li>
-                
-                <li><a href="/~cis110/current/policies/collaboration_policies.html">Collaboration</a></li>
-                
-            </ol>
-        </li>
-        
-        
-        
-        <li id="Exams">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="/~cis110/current/">Exams
-                <span class="caret"></span></a>
-            <ol class="dropdown-menu">
-                
-                <li><a href="/~cis110/current/exams/exam_procedures.html">Exam Procedures</a></li>
-                
-                <li><a href="/~cis110/current/exams/exam1.html">Exam 1</a></li>
-                
-                <li><a href="/~cis110/current/exams/exam2.html">Exam 2</a></li>
-                
-            </ol>
-        </li>
-        
-        
-        
-        <li id="Resources">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="/~cis110/current/">Resources
-                <span class="caret"></span></a>
-            <ol class="dropdown-menu">
-                
-                <li><a href="/~cis110/current/resources/getting_help.html">Getting Help</a></li>
-                
-                <li><a href="/~cis110/current/resources/javadocs.html">CIS 110 Javadocs</a></li>
-                
-                <li><a href="/~cis110/current/resources/topics_guide.html">Topic Glossary</a></li>
-                
-                <li><a href="/~cis110/current/resources/runtime_errors.html">Runtime Errors Walkthrough</a></li>
-                
-                <li><a href="/~cis110/current/resources/compiler_errors.html">Compilation Errors Walkthrough</a></li>
-                
-                <li><a href="/~cis110/current/resources/style.html">Style Guide</a></li>
-                
-                <li><a href="/~cis110/current/resources/penndraw.html">PennDraw.java</a></li>
-                
-                <li><a href="/~cis110/current/resources/in.html">In.java</a></li>
-                
-                <li><a href="/~cis110/current/resources/accommodations.html">Accommodations</a></li>
-                
-            </ol>
-        </li>
-        
-        
-        
-        <li id="Wellness"><a href="/~cis110/current/wellness.html">Wellness</a></li>
-        
-        
-    </ul>
-</nav>
-      </div>
-    </div>
-  </header>
-
-  <div class="container">
-    
-    <h1 id="introduction">Introduction</h1>
-<p>This resource is presented as list of topics, functions, and patterns that we’ve encountered so far in CIS 110. It is reference material, and not a definitive textbook.</p>
-
-<p>Please note that this resource is <strong>not</strong>…</p>
-<ul>
-  <li>a comprehensive list of all information that might be tested on an exam</li>
-  <li>a replacement for having viewed the live &amp; recorded material that covered these topics</li>
-  <li>an indication that something <strong>not</strong> covered here is not an important concept in learning programming &amp; Java.</li>
-  <li>an example of exactly the level of detail at which you need to understand a concept.</li>
-</ul>
-
-<p>Here are a handful of good ways to use this document:</p>
-<ul>
-  <li>As a <strong>starting point</strong> for preparing for an exam.</li>
-  <li>As a way to check your understanding of a recent topic.</li>
-  <li>As a reference for completing homeworks, especially when you recall that we’ve covered something similar to the problem at hand before in the class.</li>
-  <li>As a way to double check why the code you’re writing isn’t compiling, or to remind you of some syntax rules that just won’t stick in your head.</li>
-</ul>
-
-<blockquote>
-  <p>You might notice that some text looks like this. When something is written in this way, it’s information that you might be interested to learn but that you’re not required to know.</p>
-</blockquote>
-
-<p><strong>Note: We leave the table of contents in full, but will not fill in the relevant information until it has been taught in lecture.</strong></p>
-
-<p>Table of Contents:</p>
-<ul>
-  <li><a href="#introduction">Introduction</a></li>
-  <li><a href="#incomplete-list-of-functions--operations-we-have-used">Incomplete List of Functions &amp; Operations We Have Used</a></li>
-  <li><a href="#basics-of-a-java-program">Basics of a Java Program</a>
-    <ul>
-      <li><a href="#writing--running-code">Writing &amp; Running Code</a></li>
-      <li><a href="#the-main-method--args">The <code class="language-plaintext highlighter-rouge">main</code> Method &amp; <code class="language-plaintext highlighter-rouge">args</code></a></li>
-      <li><a href="#code-blocks">Code Blocks</a></li>
-    </ul>
-  </li>
-  <li><a href="#drawing">Drawing</a></li>
-  <li><a href="#variables">Variables</a>
-    <ul>
-      <li><a href="#what-a-variable-is">What A Variable Is</a></li>
-      <li><a href="#declaring-a-variable">Declaring a Variable</a></li>
-      <li><a href="#assigning-a-value-to-a-variable">Assigning a Value to a Variable</a></li>
-      <li><a href="#variable-scopes">Variable Scopes</a></li>
-    </ul>
-  </li>
-  <li><a href="#data-types">Data Types</a>
-    <ul>
-      <li><a href="#what-a-data-type-is">What a Data Type Is</a></li>
-      <li><a href="#primitive-data-types-in-java">Primitive Data Types in Java</a>
-        <ul>
-          <li><a href="#table-of-primitives">Table of Primitives</a></li>
-          <li><a href="#strings">Strings</a></li>
-        </ul>
-      </li>
-      <li><a href="#some-important-operators--tools">Some Important Operators &amp; Tools</a>
-        <ul>
-          <li><a href="#relational-operators">Relational Operators</a></li>
-          <li><a href="#the-multifaceted-">The multifaceted <code class="language-plaintext highlighter-rouge">+</code></a></li>
-          <li><a href="#mod-">Mod (<code class="language-plaintext highlighter-rouge">%</code>)</a></li>
-          <li><a href="#casting">Casting</a></li>
-          <li><a href="#parsing">Parsing</a></li>
-          <li><a href="#math">Math</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#conditionals">Conditionals</a>
-    <ul>
-      <li><a href="#when-to-use-a-conditional">When to use a Conditional</a></li>
-      <li><a href="#if-else-if-and-else"><code class="language-plaintext highlighter-rouge">if</code>, <code class="language-plaintext highlighter-rouge">else if</code>, and <code class="language-plaintext highlighter-rouge">else</code></a></li>
-      <li><a href="#switch-statements">Switch Statements</a></li>
-    </ul>
-  </li>
-  <li><a href="#loops">Loops</a>
-    <ul>
-      <li><a href="#rules-of-iteration-in-java">Rules of Iteration in Java</a></li>
-      <li><a href="#the-while-loop">The While Loop</a></li>
-      <li><a href="#the-for-loop">The For Loop</a></li>
-      <li><a href="#your-loop-of-choice">Your Loop of Choice</a></li>
-      <li><a href="#break-and-continue">Break and Continue</a></li>
-    </ul>
-  </li>
-  <li><a href="#arrays">Arrays</a>
-    <ul>
-      <li><a href="#what-is-an-array">What is an Array?</a>
-        <ul>
-          <li><a href="#arrays-are-fixed-length">Arrays Are Fixed-Length</a></li>
-          <li><a href="#arrays-are-indexed">Arrays Are Indexed</a></li>
-          <li><a href="#arrays-contain-values-of-one-type-only">Arrays Contain Values Of One Type Only</a></li>
-        </ul>
-      </li>
-      <li><a href="#manipulating-arrays">Manipulating Arrays</a>
-        <ul>
-          <li><a href="#initializing-entries-of-an-array-to-random-values">Initializing entries of an array to random values</a></li>
-          <li><a href="#printing-the-values-of-an-array">Printing the values of an array</a></li>
-          <li><a href="#finding-the-maximum-value-in-an-array">Finding the maximum value in an array</a></li>
-          <li><a href="#finding-the-sum--mean-of-an-array-of-doubles">Finding the sum &amp; mean of an array of doubles</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#functions">Functions</a>
-    <ul>
-      <li><a href="#anatomy-of-a-function">Anatomy of a Function</a></li>
-      <li><a href="#functions-and-control-flow">Functions and Control Flow</a></li>
-      <li><a href="#functions-and-variable-scope">Functions and Variable Scope</a></li>
-    </ul>
-  </li>
-  <li><a href="#recursion">Recursion</a></li>
-  <li><a href="#object-oriented-programming">Object Oriented Programming</a>
-    <ul>
-      <li><a href="#objects-vs-classes">Objects vs Classes</a></li>
-      <li><a href="#writing-classes-to-define-object-state--behavior">Writing Classes to Define Object State &amp; Behavior</a>
-        <ul>
-          <li><a href="#fields">Fields</a></li>
-          <li><a href="#methods">Methods</a></li>
-          <li><a href="#constructor">Constructor</a></li>
-        </ul>
-      </li>
-      <li><a href="#principles-of-object-oriented-programming">Principles of Object Oriented Programming</a>
-        <ul>
-          <li><a href="#encapsulation">Encapsulation</a>
-            <ul>
-              <li><a href="#getters-and-setters">Getters and Setters</a></li>
-            </ul>
-          </li>
-          <li><a href="#abstraction">Abstraction</a></li>
-          <li><a href="#state">State</a></li>
-          <li><a href="#mutability-and-immutability">Mutability and Immutability</a></li>
-        </ul>
-      </li>
-      <li><a href="#abstract-data-types">Abstract Data Types</a></li>
-    </ul>
-  </li>
-  <li><a href="#references-in-java">References in Java</a></li>
-  <li><a href="#linknodes-linked-lists--array-lists">LinkNodes, Linked Lists, &amp; Array Lists</a>
-    <ul>
-      <li><a href="#typical-list-interface">Typical List Interface</a></li>
-    </ul>
-  </li>
-  <li><a href="#number-systems">Number Systems</a>
-    <ul>
-      <li><a href="#decimal-vs-binary">Decimal vs. Binary</a></li>
-      <li><a href="#converting-from-binary-to-decimal">Converting from Binary to Decimal</a></li>
-      <li><a href="#converting-from-decimal-to-binary">Converting from Decimal to Binary</a></li>
-      <li><a href="#encryption--xor">Encryption &amp; XOR</a></li>
-    </ul>
-  </li>
-  <li><a href="#2d-arrays">2D Arrays</a>
-    <ul>
-      <li><a href="#declaring-and-initializing">Declaring and Initializing</a></li>
-      <li><a href="#indexing">Indexing</a></li>
-      <li><a href="#iteration-through-2d-arrays">Iteration through 2D Arrays</a></li>
-    </ul>
-  </li>
-  <li><a href="#comparing-objects">Comparing Objects</a></li>
-</ul>
-
-<hr />
-<!-- 
+---
 # Incomplete List of Functions & Operations We Have Used
 - Basic operations:
   - Arithmetic
@@ -1511,26 +1240,4 @@ Secondly, now that you've committed to implementing the `Comparable` interface, 
 - a positive int (`1` by convention) when `this` comes after `other`,
 - `0` when `this` and `other` are equal.
 
-Now you can use the `.sort` methods of `Arrays` or `Lists` of `ClassName` objects to have Java automatically handle the sorting of those collections! -->
-
-    
-  </div>
-
-  <footer class="text-center text-muted">
-    <hr>
-    
-    
-    <br>
-  </footer>
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("#course-topic-guide").addClass("active");
-      
-    });
-  </script>
-</body>
-
-</html>
+Now you can use the `.sort` methods of `Arrays` or `Lists` of `ClassName` objects to have Java automatically handle the sorting of those collections!
