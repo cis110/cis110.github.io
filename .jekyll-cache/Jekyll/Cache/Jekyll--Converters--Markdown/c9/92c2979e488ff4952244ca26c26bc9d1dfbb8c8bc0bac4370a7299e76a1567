@@ -1,4 +1,4 @@
-I"Ø•<div class="container-fluid">
+I"è–<div class="container-fluid">
   <div class="row">
   
       <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
@@ -1242,20 +1242,28 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/java.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/ebergamo.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Enzo Bergamo</b> <em></em>
+            <b>Enzo Bergamo</b> <em>he/him/his</em>
             
           </li>
           <li>
             <em>OH TA</em>
           </li>
           
+            <li>
+              <b>Additional Languages:</b> Portuguese
+            </li>
+          
           <!--  -->
           
+          
+            <li>
+                <b>Email:</b> <a href="mailto:ebergamo@seas.upenn.edu"><code>ebergamo@seas.upenn.edu</code></a>
+            </li>
           
         </ul>
       </div>
