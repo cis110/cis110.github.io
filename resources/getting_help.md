@@ -6,7 +6,7 @@ active_tab: getting-help
 
 ### Getting Help in CIS 110
 
-The CIS 110 teaching staff works very hard to provide as much support as we can for the students of the course. Below, we've outlined the best ways to seek out extra help in the course.
+The CIS 110 teaching staff works very hard to provide as much support as we can for the students of the course. Below, we've outlined the best ways to seek out help in the course.
 
 ---
 
@@ -40,4 +40,4 @@ The tutoring centor at Penn is another great way to get help in the course. Tuto
 
 #### Contacting Head Staff
 
-In private matters that cannot be posted on piazza, please email the [head staff](mailto:sharry@seas.upenn.edu?&cc=efouh@cis.upenn.edu&cc=hackett1@sas.upenn.edu&cc=cabezag@wharton.upenn.edu&cc=jupierce@seas.upenn.edu&cc=brobinov@seas.upenn.edu).
+In private matters that cannot be posted on piazza, please email the [head staff](mailto:sharry@seas.upenn.edu?&cc=hackett1@sas.upenn.edu&cc=cabezag@wharton.upenn.edu&cc=jupierce@seas.upenn.edu&cc=brobinov@seas.upenn.edu).

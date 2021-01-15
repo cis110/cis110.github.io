@@ -8,13 +8,12 @@ active_tab: grading_policies
 
 The grading for the course will _tentatively_ consist of:
 
-- Homework Assignments - 60%
-- Midterm 1 Exam - 10%
-- Midterm 2 Exam - 10%
+- Homework Assignments and Project - 64%
+- Midterm 1 Exam - 12%
+- Midterm 2 Exam - 12%
 - Check-in Quizzes - 12%
-- Live Coding Submissions - 8%
 
-    **The professors reserve the right to adjust grading policies. Final grade determinations are made by the professors.**
+    **The professor reserves the right to adjust grading policies. Final grade determinations are made by the professor.**
 
 ---
 Homework Grades
@@ -22,11 +21,7 @@ Homework Grades
 
 ---
 Exam Grades
-: Exam grades are typically curved. Your raw score will be posted to grade scope, while your curved score is posted to the Dashboard. CIS 110 exams are usually challenging, and curved scores are almost always higher than raw scores.
-
----
-Live Coding Submissions
-: You are scored based on your weekly submission of an assignment that is completed collaboratively between students and instructors during one of the week's Live Coding sessions. These are graded on basic completion.
+: We publish raw exam grades and do not curve exams. Instead, we curve the class at the end of the semester if necessary. CIS 110 exams are usually challenging, so a low raw score is not cause for panic.
 
 ---
 Check-in Quizzes
@@ -43,7 +38,6 @@ Grounds for failure
 : A serious lack of effort may be grounds for failure in the course. If you find yourself in any of the situations below, you should meet with an instructor promptly to discuss your situation:
 
 - Numerous missed assignments or substantially blank assignments.
-- Missed midterm or final exam. Be prepared to provide documentation of a serious emergency to justify any unexcused exam absence.
 - Academic dishonesty (see the collaboration tab). If you believe you may have violated the collaboration policy, you are encouraged to explain what happened to the instructor. Even if your actions constitute a serious violation, the sanctions are likely to be considerably less if you turn yourself in.
 
 ---
