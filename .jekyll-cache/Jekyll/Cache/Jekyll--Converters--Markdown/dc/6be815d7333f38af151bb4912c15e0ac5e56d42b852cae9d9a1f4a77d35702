@@ -1,29 +1,6 @@
-I"®—<div class="container-fluid">
+I"Ø•<div class="container-fluid">
   <div class="row">
   
-      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
-        <ul class="list-unstyled">
-          <li>
-          
-            <img src="assets/img/staff/efouh.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
-          
-          </li>
-          <li>
-            
-            <b><a href="http://ericfouh.com/">Eric Fouh</a></b> <em>he/him/his</em>
-            
-          </li>
-          <li>
-            <em>Professor</em>
-          </li>
-          
-          <!--  -->
-          
-          <li>
-            <b>Email:</b> <a href="mailto:efouh@cis.upenn.edu"><code>efouh@cis.upenn.edu</code></a></li>
-        </ul>
-      </div>
-    
       <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
         <ul class="list-unstyled">
           <li>
@@ -42,8 +19,11 @@
           
           <!--  -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:sharry@seas.upenn.edu"><code>sharry@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:sharry@seas.upenn.edu"><code>sharry@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -70,8 +50,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:hackett1@sas.upenn.edu"><code>hackett1@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:hackett1@sas.upenn.edu"><code>hackett1@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -98,8 +81,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:jupierce@seas.upenn.edu"><code>jupierce@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:jupierce@seas.upenn.edu"><code>jupierce@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -130,8 +116,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:brobinov@seas.upenn.edu"><code>brobinov@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:brobinov@seas.upenn.edu"><code>brobinov@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -158,8 +147,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:cabezag@seas.upenn.edu"><code>cabezag@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:cabezag@seas.upenn.edu"><code>cabezag@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -190,8 +182,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:aaks07@sas.upenn.edu"><code>aaks07@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:aaks07@sas.upenn.edu"><code>aaks07@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -218,8 +213,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:okemgbo@seas.upenn.edu"><code>okemgbo@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:okemgbo@seas.upenn.edu"><code>okemgbo@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -250,8 +248,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:agusgar@seas.upenn.edu"><code>agusgar@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:agusgar@seas.upenn.edu"><code>agusgar@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -278,8 +279,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:aexes@sas.upenn.edu"><code>aexes@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:aexes@sas.upenn.edu"><code>aexes@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -306,8 +310,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:ayang015@seas.upenn.edu"><code>ayang015@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:ayang015@seas.upenn.edu"><code>ayang015@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -334,8 +341,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:alxshaw@seas.upenn.edu"><code>alxshaw@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:alxshaw@seas.upenn.edu"><code>alxshaw@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -366,8 +376,41 @@
             </li>
            -->
           
+          
+            <li>
+                <b>Email:</b> <a href="mailto:amysun21@wharton.upenn.edu"><code>amysun21@wharton.upenn.edu</code></a>
+            </li>
+          
+        </ul>
+      </div>
+    
+      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
+        <ul class="list-unstyled">
           <li>
-            <b>Email:</b> <a href="mailto:amysun21@wharton.upenn.edu"><code>amysun21@wharton.upenn.edu</code></a></li>
+          
+            <img src="assets/img/staff/anshulc.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+          
+          </li>
+          <li>
+            
+            <b>Anshul Choudhari</b> <em>he/him/his</em>
+            
+          </li>
+          <li>
+            <em>TA</em>
+          </li>
+          
+            <li>
+              <b>Additional Languages:</b> Hindi
+            </li>
+          
+          <!--  -->
+          
+          
+            <li>
+                <b>Email:</b> <a href="mailto:anshulc@seas.upenn.edu"><code>anshulc@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -398,8 +441,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:anushsh@seas.upenn.edu"><code>anushsh@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:anushsh@seas.upenn.edu"><code>anushsh@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -430,8 +476,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:mendrala@sas.upenn.edu"><code>mendrala@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:mendrala@sas.upenn.edu"><code>mendrala@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -439,12 +488,12 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/efeayhan.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/davisdt.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Efe Ayhan</b> <em>he/him/his</em>
+            <b>Davis Tran</b> <em>he/him/his</em>
             
           </li>
           <li>
@@ -452,18 +501,46 @@
           </li>
           
             <li>
-              <b>Additional Languages:</b> Turkish
+              <b>Additional Languages:</b> Vietnamese
             </li>
           
-          <!-- 
+          <!--  -->
+          
+          
             <li>
-              <b> Recitation:</b> 
-              <a href="recitations.html">Coming Soon!</a>
+                <b>Email:</b> <a href="mailto:davisdt@seas.upenn.edu"><code>davisdt@seas.upenn.edu</code></a>
             </li>
-           -->
           
+        </ul>
+      </div>
+    
+      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
+        <ul class="list-unstyled">
           <li>
-            <b>Email:</b> <a href="mailto:efeayhan@seas.upenn.edu"><code>efeayhan@seas.upenn.edu</code></a></li>
+          
+            <img src="assets/img/staff/elliekim.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+          
+          </li>
+          <li>
+            
+            <b>Ellie Kim</b> <em>she/her/hers</em>
+            
+          </li>
+          <li>
+            <em>TA</em>
+          </li>
+          
+            <li>
+              <b>Additional Languages:</b> Korean
+            </li>
+          
+          <!--  -->
+          
+          
+            <li>
+                <b>Email:</b> <a href="mailto:elliekim@seas.upenn.edu"><code>elliekim@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -494,8 +571,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:emilysap@seas.upenn.edu"><code>emilysap@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:emilysap@seas.upenn.edu"><code>emilysap@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -522,8 +602,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:fawad@sas.upenn.edu"><code>fawad@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:fawad@sas.upenn.edu"><code>fawad@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -554,40 +637,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:imranidz@wharton.upenn.edu"><code>imranidz@wharton.upenn.edu</code></a></li>
-        </ul>
-      </div>
-    
-      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
-        <ul class="list-unstyled">
-          <li>
-          
-            <img src="assets/img/staff/ivanes.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
-          
-          </li>
-          <li>
-            
-            <b>Ivan</b> <em>he/him/his</em>
-            
-          </li>
-          <li>
-            <em>TA</em>
-          </li>
           
             <li>
-              <b>Additional Languages:</b> Spanish
+                <b>Email:</b> <a href="mailto:imranidz@wharton.upenn.edu"><code>imranidz@wharton.upenn.edu</code></a>
             </li>
           
-          <!-- 
-            <li>
-              <b> Recitation:</b> 
-              <a href="recitations.html">Coming Soon!</a>
-            </li>
-           -->
-          
-          <li>
-            <b>Email:</b> <a href="mailto:ivanes@seas.upenn.edu"><code>ivanes@seas.upenn.edu</code></a></li>
         </ul>
       </div>
     
@@ -614,8 +668,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:jkalyan@wharton.upenn.edu"><code>jkalyan@wharton.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:jkalyan@wharton.upenn.edu"><code>jkalyan@wharton.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -623,27 +680,25 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/jpesce.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/karlei.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Jill Pesce</b> <em>she/her/hers</em>
+            <b>Karlei Kongsiri</b> <em>she/her/hers</em>
             
           </li>
           <li>
             <em>TA</em>
           </li>
           
-          <!-- 
-            <li>
-              <b> Recitation:</b> 
-              <a href="recitations.html">Coming Soon!</a>
-            </li>
-           -->
+          <!--  -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:jpesce@seas.upenn.edu"><code>jpesce@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:karlei@seas.upenn.edu"><code>karlei@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -670,8 +725,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:kfree3@seas.upenn.edu"><code>kfree3@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:kfree3@seas.upenn.edu"><code>kfree3@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -679,31 +737,25 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/lanting.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/lena318.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Lanting Chiang</b> <em>she/her/hers</em>
+            <b>Lena Armstrong</b> <em>she/her/hers</em>
             
           </li>
           <li>
             <em>TA</em>
           </li>
           
+          <!--  -->
+          
+          
             <li>
-              <b>Additional Languages:</b> Mandarin
+                <b>Email:</b> <a href="mailto:lena318@sas.upenn.edu"><code>lena318@sas.upenn.edu</code></a>
             </li>
           
-          <!-- 
-            <li>
-              <b> Recitation:</b> 
-              <a href="recitations.html">Coming Soon!</a>
-            </li>
-           -->
-          
-          <li>
-            <b>Email:</b> <a href="mailto:lanting@seas.upenn.edu"><code>lanting@seas.upenn.edu</code></a></li>
         </ul>
       </div>
     
@@ -730,8 +782,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:hosey@seas.upenn.edu"><code>hosey@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:hosey@seas.upenn.edu"><code>hosey@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -762,8 +817,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:mayaio@sas.upenn.edu"><code>mayaio@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:mayaio@sas.upenn.edu"><code>mayaio@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -790,8 +848,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:mayahp@seas.upenn.edu"><code>mayahp@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:mayahp@seas.upenn.edu"><code>mayahp@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -822,8 +883,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:michecao@wharton.upenn.edu"><code>michecao@wharton.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:michecao@wharton.upenn.edu"><code>michecao@wharton.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -850,8 +914,37 @@
             </li>
            -->
           
+          
+            <li>
+                <b>Email:</b> <a href="mailto:nicriv@wharton.upenn.edu"><code>nicriv@wharton.upenn.edu</code></a>
+            </li>
+          
+        </ul>
+      </div>
+    
+      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
+        <ul class="list-unstyled">
           <li>
-            <b>Email:</b> <a href="mailto:nicriv@wharton.upenn.edu"><code>nicriv@wharton.upenn.edu</code></a></li>
+          
+            <img src="assets/img/staff/oodwyer.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+          
+          </li>
+          <li>
+            
+            <b>Olivia O'Dwyer</b> <em>she/her/hers</em>
+            
+          </li>
+          <li>
+            <em>TA</em>
+          </li>
+          
+          <!--  -->
+          
+          
+            <li>
+                <b>Email:</b> <a href="mailto:oodwyer@seas.upenn.edu"><code>oodwyer@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -878,8 +971,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:rmarko@sas.upenn.edu"><code>rmarko@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:rmarko@sas.upenn.edu"><code>rmarko@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -906,8 +1002,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:edshan@sas.upenn.edu"><code>edshan@sas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:edshan@sas.upenn.edu"><code>edshan@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -938,8 +1037,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:shivin@wharton.upenn.edu"><code>shivin@wharton.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:shivin@wharton.upenn.edu"><code>shivin@wharton.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -966,8 +1068,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:stewalsh@seas.upenn.edu"><code>stewalsh@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:stewalsh@seas.upenn.edu"><code>stewalsh@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -994,8 +1099,37 @@
             </li>
            -->
           
+          
+            <li>
+                <b>Email:</b> <a href="mailto:millersy@seas.upenn.edu"><code>millersy@seas.upenn.edu</code></a>
+            </li>
+          
+        </ul>
+      </div>
+    
+      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
+        <ul class="list-unstyled">
           <li>
-            <b>Email:</b> <a href="mailto:millersy@seas.upenn.edu"><code>millersy@seas.upenn.edu</code></a></li>
+          
+            <img src="assets/img/staff/taylorcu.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+          
+          </li>
+          <li>
+            
+            <b>Taylor Cunningham</b> <em>she/her/hers</em>
+            
+          </li>
+          <li>
+            <em>TA</em>
+          </li>
+          
+          <!--  -->
+          
+          
+            <li>
+                <b>Email:</b> <a href="mailto:taylorcu@sas.upenn.edu"><code>taylorcu@sas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -1026,8 +1160,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:vsahani@wharton.upenn.edu"><code>vsahani@wharton.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:vsahani@wharton.upenn.edu"><code>vsahani@wharton.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -1058,8 +1195,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:yadelzm@wharton.upenn.edu"><code>yadelzm@wharton.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:yadelzm@wharton.upenn.edu"><code>yadelzm@wharton.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -1090,8 +1230,11 @@
             </li>
            -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:killa@seas.upenn.edu"><code>killa@seas.upenn.edu</code></a></li>
+          
+            <li>
+                <b>Email:</b> <a href="mailto:killa@seas.upenn.edu"><code>killa@seas.upenn.edu</code></a>
+            </li>
+          
         </ul>
       </div>
     
@@ -1099,26 +1242,21 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/anshulc.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/java.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Anshul Choudhari</b> <em>he/him/his</em>
+            <b>Enzo Bergamo</b> <em></em>
             
           </li>
           <li>
             <em>OH TA</em>
           </li>
           
-            <li>
-              <b>Additional Languages:</b> Hindi
-            </li>
-          
           <!--  -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:anshulc@seas.upenn.edu"><code>anshulc@seas.upenn.edu</code></a></li>
+          
         </ul>
       </div>
     
@@ -1126,39 +1264,12 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/davisdt.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/dohj0109.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Davis Tran</b> <em>he/him/his</em>
-            
-          </li>
-          <li>
-            <em>OH TA</em>
-          </li>
-          
-            <li>
-              <b>Additional Languages:</b> Vietnamese
-            </li>
-          
-          <!--  -->
-          
-          <li>
-            <b>Email:</b> <a href="mailto:davisdt@seas.upenn.edu"><code>davisdt@seas.upenn.edu</code></a></li>
-        </ul>
-      </div>
-    
-      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
-        <ul class="list-unstyled">
-          <li>
-          
-            <img src="assets/img/staff/elliekim.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
-          
-          </li>
-          <li>
-            
-            <b>Ellie Kim</b> <em>she/her/hers</em>
+            <b>James Doh</b> <em>he/him/his</em>
             
           </li>
           <li>
@@ -1171,35 +1282,11 @@
           
           <!--  -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:elliekim@seas.upenn.edu"><code>elliekim@seas.upenn.edu</code></a></li>
-        </ul>
-      </div>
-    
-      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
-        <ul class="list-unstyled">
-          <li>
-          
-            <img src="assets/img/staff/hmkyeung.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
-          
-          </li>
-          <li>
-            
-            <b>Helen Yeung</b> <em>she/her/hers</em>
-            
-          </li>
-          <li>
-            <em>OH TA</em>
-          </li>
           
             <li>
-              <b>Additional Languages:</b> Mandarin, Cantonese
+                <b>Email:</b> <a href="mailto:dohj0109@seas.upenn.edu"><code>dohj0109@seas.upenn.edu</code></a>
             </li>
           
-          <!--  -->
-          
-          <li>
-            <b>Email:</b> <a href="mailto:hmkyeung@wharton.upenn.edu"><code>hmkyeung@wharton.upenn.edu</code></a></li>
         </ul>
       </div>
     
@@ -1207,12 +1294,12 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/karlei.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/java.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Karlei Kongsiri</b> <em>she/her/hers</em>
+            <b>Lydia Ma</b> <em></em>
             
           </li>
           <li>
@@ -1221,8 +1308,7 @@
           
           <!--  -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:karlei@seas.upenn.edu"><code>karlei@seas.upenn.edu</code></a></li>
+          
         </ul>
       </div>
     
@@ -1230,12 +1316,12 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/lena318.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/java.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Lena Armstrong</b> <em>she/her/hers</em>
+            <b>Martin Alijaj</b> <em></em>
             
           </li>
           <li>
@@ -1244,8 +1330,7 @@
           
           <!--  -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:lena318@sas.upenn.edu"><code>lena318@sas.upenn.edu</code></a></li>
+          
         </ul>
       </div>
     
@@ -1253,12 +1338,12 @@
         <ul class="list-unstyled">
           <li>
           
-            <img src="assets/img/staff/oodwyer.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
+            <img src="assets/img/staff/java.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
           
           </li>
           <li>
             
-            <b>Olivia O'Dwyer</b> <em>she/her/hers</em>
+            <b>Priya Deliwala</b> <em></em>
             
           </li>
           <li>
@@ -1267,31 +1352,7 @@
           
           <!--  -->
           
-          <li>
-            <b>Email:</b> <a href="mailto:oodwyer@seas.upenn.edu"><code>oodwyer@seas.upenn.edu</code></a></li>
-        </ul>
-      </div>
-    
-      <div class="col-lg-4 col-md-6 col-xs-12" style="margin-bottom: 20px; height: 350px;">
-        <ul class="list-unstyled">
-          <li>
           
-            <img src="assets/img/staff/taylorcu.jpg" alt="" class="img-circle" style="height: 100%; width: 100%; max-height: 250px; max-width: 250px" />
-          
-          </li>
-          <li>
-            
-            <b>Taylor Cunningham</b> <em>she/her/hers</em>
-            
-          </li>
-          <li>
-            <em>OH TA</em>
-          </li>
-          
-          <!--  -->
-          
-          <li>
-            <b>Email:</b> <a href="mailto:taylorcu@sas.upenn.edu"><code>taylorcu@sas.upenn.edu</code></a></li>
         </ul>
       </div>
     

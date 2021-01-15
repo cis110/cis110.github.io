@@ -42,8 +42,11 @@ active_tab: staff
               <b>Office Hours:</b> {{ staff.office_hours | inline_markdownify }}
             </li>
           {% endif %}
-          <li>
-            <b>Email:</b> <a href="mailto:{{staff.email}}"><code>{{ staff.email }}</code></a></li>
+          {% if staff.email %}
+            <li>
+                <b>Email:</b> <a href="mailto:{{staff.email}}"><code>{{ staff.email }}</code></a>
+            </li>
+          {% endif %}
         </ul>
       </div>
     {% endfor %}

@@ -1,11 +1,3 @@
-- name: Eric Fouh
-  pennkey: efouh
-  li: http://ericfouh.com/
-  pic: efouh.jpg
-  pronouns: he/him/his
-  email: efouh@cis.upenn.edu
-  title: Professor
-
 - name: Harry Smith
   pennkey: sharry
   li: https://ourpropeller.com/
@@ -110,6 +102,14 @@
   title: TA
   recitation: Coming Soon!
 
+- name: Anshul Choudhari
+  pennkey: anshulc
+  pic: anshulc.jpg
+  pronouns: he/him/his
+  languages: Hindi
+  email: anshulc@seas.upenn.edu
+  title: TA
+
 - name: Anushrut Shah
   pennkey: anushsh
   pic: anushsh.jpg
@@ -128,14 +128,21 @@
   title: TA
   recitation: Coming Soon!
 
-- name: Efe Ayhan
-  pennkey: efeayhan
-  pic: efeayhan.jpg
+- name: Davis Tran
+  pennkey: davisdt
+  pic: davisdt.jpg
   pronouns: he/him/his
-  languages: Turkish
-  email: efeayhan@seas.upenn.edu
+  languages: Vietnamese
+  email: davisdt@seas.upenn.edu
   title: TA
-  recitation: Coming Soon!
+
+- name: Ellie Kim
+  pennkey: elliekim
+  pic: elliekim.jpg
+  languages: Korean
+  pronouns: she/her/hers
+  email: elliekim@seas.upenn.edu
+  title: TA
 
 - name: Emily Saperstein
   pennkey: emilysap
@@ -164,15 +171,6 @@
   title: TA
   recitation: Coming Soon!
 
-- name: Ivan
-  pennkey: ivanes
-  pic: ivanes.jpg
-  pronouns: he/him/his
-  languages: Spanish
-  email: ivanes@seas.upenn.edu
-  title: TA
-  recitation: Coming Soon!
-
 - name: Janani Kalyan
   pennkey: jkalyan
   pic: jkalyan.jpg
@@ -181,13 +179,12 @@
   title: TA
   recitation: Coming Soon!
 
-- name: Jill Pesce
-  pennkey: jpesce
-  pic: jpesce.jpg
+- name: Karlei Kongsiri
+  pennkey: karlei
+  pic: karlei.jpg
   pronouns: she/her/hers
-  email: jpesce@seas.upenn.edu
+  email: karlei@seas.upenn.edu
   title: TA
-  recitation: Coming Soon!
 
 - name: Katherine Freeman
   pennkey: kfree3
@@ -197,14 +194,21 @@
   title: TA
   recitation: Coming Soon!
 
-- name: Lanting Chiang
-  pennkey: lanting
-  pic: lanting.jpg
+# - name: Lanting Chiang
+#   pennkey: lanting
+#   pic: lanting.jpg
+#   pronouns: she/her/hers
+#   languages: Mandarin
+#   email: lanting@seas.upenn.edu
+#   title: TA
+#   recitation: Coming Soon!
+
+- name: Lena Armstrong
+  pennkey: lena318
+  pic: lena318.jpg
   pronouns: she/her/hers
-  languages: Mandarin
-  email: lanting@seas.upenn.edu
+  email: lena318@sas.upenn.edu
   title: TA
-  recitation: Coming Soon!
 
 - name: Liam Hosey
   pennkey: hosey
@@ -249,6 +253,13 @@
   title: TA
   recitation: Coming Soon!
 
+- name: Olivia O'Dwyer
+  pennkey: oodwyer
+  pic: oodwyer.jpg
+  pronouns: she/her/hers
+  email: oodwyer@seas.upenn.edu
+  title: TA
+
 - name: Rachel Markowitz
   pennkey: rmarko
   pic: rmarko.jpg
@@ -290,6 +301,13 @@
   title: TA
   recitation: Coming Soon!
 
+- name: Taylor Cunningham
+  pennkey: taylorcu
+  pic: taylorcu.jpg
+  pronouns: she/her/hers
+  email: taylorcu@sas.upenn.edu
+  title: TA
+
 - name: Vatsal Sahani
   pennkey: vsahani
   pic: vsahani.jpg
@@ -317,62 +335,34 @@
   title: TA
   recitation: Coming Soon!
 
-- name: Anshul Choudhari
-  pennkey: anshulc
-  pic: anshulc.jpg
-  pronouns: he/him/his
-  languages: Hindi
-  email: anshulc@seas.upenn.edu
+- name: Enzo Bergamo
+  pennkey: ebergamo
   title: OH TA
 
-- name: Davis Tran
-  pennkey: davisdt
-  pic: davisdt.jpg
-  pronouns: he/him/his
-  languages: Vietnamese
-  email: davisdt@seas.upenn.edu
-  title: OH TA
+# - name: Helen Yeung
+#   pennkey: hmkyeung
+#   pic: hmkyeung.jpg
+#   pronouns: she/her/hers
+#   languages: Mandarin, Cantonese
+#   email: hmkyeung@wharton.upenn.edu
+#   title: OH TA
 
-- name: Ellie Kim
-  pennkey: elliekim
-  pic: elliekim.jpg
+- name: James Doh
+  pennkey: dohj0109
+  email: dohj0109@seas.upenn.edu
+  pronouns: he/him/his
   languages: Korean
-  pronouns: she/her/hers
-  email: elliekim@seas.upenn.edu
+  pic: dohj0109.jpg
   title: OH TA
 
-- name: Helen Yeung
-  pennkey: hmkyeung
-  pic: hmkyeung.jpg
-  pronouns: she/her/hers
-  languages: Mandarin, Cantonese
-  email: hmkyeung@wharton.upenn.edu
+- name: Lydia Ma
+  pennkey: malydia
   title: OH TA
 
-- name: Karlei Kongsiri
-  pennkey: karlei
-  pic: karlei.jpg
-  pronouns: she/her/hers
-  email: karlei@seas.upenn.edu
+- name: Martin Alijaj
+  pennkey: malijaj
   title: OH TA
 
-- name: Lena Armstrong
-  pennkey: lena318
-  pic: lena318.jpg
-  pronouns: she/her/hers
-  email: lena318@sas.upenn.edu
-  title: OH TA
-
-- name: Olivia O'Dwyer
-  pennkey: oodwyer
-  pic: oodwyer.jpg
-  pronouns: she/her/hers
-  email: oodwyer@seas.upenn.edu
-  title: OH TA
-
-- name: Taylor Cunningham
-  pennkey: taylorcu
-  pic: taylorcu.jpg
-  pronouns: she/her/hers
-  email: taylorcu@sas.upenn.edu
+- name: Priya Deliwala
+  pennkey: priyadel
   title: OH TA

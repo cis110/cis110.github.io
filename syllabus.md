@@ -21,7 +21,6 @@ active_tab: syllabus
             <th>HW Due</th>
             <th>Lecture Recording</th>
             <th>Module Videos</th>
-            <th>Recitation Materials</th>
             <th>Announcements</th>
         </tr>
     </thead>
@@ -81,15 +80,6 @@ active_tab: syllabus
                     <a target="_blank" href="{{ module.link }}"> {{ module.name }}</a>
                     {% endif %}
                 {% endfor %}
-                {% endif %}
-            </td>
-            <td>
-                {% if lecture.recitation_slides %}
-                    {% if lecture.recitation_url %}
-                        <a target="_blank" href="{{ lecture.recitation_url }}">{{ lecture.recitation_slides }}</a>
-                    {% else %}
-                        {{ lecture.recitation_slides }}
-                    {% endif %}
                 {% endif %}
             </td>
             <td>

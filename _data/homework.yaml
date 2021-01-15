@@ -8,80 +8,80 @@
 
 - homework_number: 0
   name: Hello, World!
-  link: hello_world.html
-  release_date: September 4, 2020
-  due_date: September 17, 2020
-  faq_name: HW00 FAQ
-  faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=31
+  # link: hello_world.html
+  release_date: January 22, 2021
+  due_date: February 4, 2021
+  # faq_name: HW00 FAQ
+  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=31
 
 - homework_number: 1
   name: Rivalry + ClickArt
-  link: rivalry_click_art.html
-  faq_name: HW01 FAQ
-  faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=255
-  release_date: September 18, 2020
-  due_date: September 24, 2020
+  # link: rivalry_click_art.html
+  # faq_name: HW01 FAQ
+  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=255
+  release_date: February 5, 2021
+  due_date: February 11, 2021
 
 - homework_number: 2
   name: NBody
-  link: nbody.html
-  faq_name: HW02 FAQ
-  faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=543
-  release_date: September 25, 2020
-  due_date: October 1, 2020
+  # link: nbody.html
+  # faq_name: HW02 FAQ
+  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=543
+  release_date: February 13, 2021
+  due_date: February 25, 2021
 
 - homework_number: 3
   name: Hail, Caesar!
-  link: caesar.html
-  release_date: October 2, 2020
-  due_date: October 8, 2020
-  faq_name: HW03 FAQ
-  faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=621
+  # link: caesar.html
+  release_date: February 26, 2021
+  due_date: March 4, 2021
+  # faq_name: HW03 FAQ
+  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=621
 
 - homework_number: 4
   name: Recursive Finger Exercises + Sierpinski
-  link: sierpinski.html
-  release_date: October 9, 2020
-  due_date: October 15, 2020
-  faq_name: HW04 FAQ
-  faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=1420
+  # link: sierpinski.html
+  release_date: March 5, 2021
+  due_date: March 15, 2021
+  # faq_name: HW04 FAQ
+  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=1420
 
 - homework_number: 5
   name: NBody Objects
-  link: nbody_objects.html
-  release_date: October 23, 2020
-  due_date: October 29, 2020
-  faq_name: HW05 FAQ
-  faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=1903
+  # link: nbody_objects.html
+  release_date: March 19, 2021
+  due_date: March 25, 2021
+  # faq_name: HW05 FAQ
+  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=1903
 
 - homework_number: 6
-  name: Lights, Cameras, Objects!
-  link: theater.html
-  release_date: October 30, 2020
-  due_date: November 6, 2020
-  faq_name: HW06 FAQ
-  faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=2375
+  name: Image Steganography - Part 1
+  # link: TBD.html
+  release_date: March 26, 2021
+  due_date: April 1, 2021
+  # faq_name: HW06 FAQ
+  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=2375
 
 - homework_number: 7
   name: TSP
-  link: tsp.html
-  release_date: November 6, 2020
-  due_date: November 12, 2020
+  # link: tsp.html
+  release_date: April 2, 2021
+  due_date: April 8, 2021
   # faq_name: HW07 FAQ
   # faq_link: TBD
 
 - homework_number: 8
-  name: Image Steganography
-  link: steg.html
-  release_date: November 13, 2020
-  due_date: November 25, 2020
+  name: Image Steganography - Part 2
+  # link: steg.html
+  release_date: April 9, 2021
+  due_date: April 15, 2021
   # faq_name: HW08 FAQ
   # faq_link: TBD
 
 - homework_number: 9
   name: Project
-  link: project.html
-  release_date: December 4, 2020
-  due_date: December 18, 2020
+  # link: project.html
+  release_date: April 21, 2021
+  due_date: May TBD, 2021
   # faq_name: HW09 FAQ
   # faq_link: TBD
