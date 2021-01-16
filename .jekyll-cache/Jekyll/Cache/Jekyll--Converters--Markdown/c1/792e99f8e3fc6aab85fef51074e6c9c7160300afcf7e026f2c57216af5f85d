@@ -1,0 +1,1697 @@
+I"¹{<h3 id="cis-110-syllabus">CIS 110 Syllabus</h3>
+
+<ul>
+  <li>This is a tentative syllabus and schedule.  Topics, reading assignments, and due dates are subject to change.  This syllabus will be updated throughout the semester, so please reload this page before lectures to get the up to date version.</li>
+  <li>Lecture recordings are available to registered students on the <a href="https://canvas.upenn.edu/courses/1507941">course canvas page</a>. Recordings are added within an hour of lectureâ€™s end.</li>
+</ul>
+
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Topics</th>
+            <th>Example Code</th>
+            <th>HW Assigned</th>
+            <th>HW Due</th>
+            <th>Lecture Recording</th>
+            <th>Module Videos</th>
+            <th>Announcements</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Jan 20, 2021</td>
+            <td> 
+                
+                    
+                        Introduction
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    First Day of Classes!
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Jan 22, 2021</td>
+            <td> 
+                
+                    
+                        Drawing
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW00 - Hello, World!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Jan 25, 2021</td>
+            <td> 
+                
+                    
+                        Variables &amp; Types
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Jan 27, 2021</td>
+            <td> 
+                
+                    
+                        Variables &amp; Types
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Jan 29, 2021</td>
+            <td> 
+                
+                    
+                        Variables &amp; Types
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Feb 1, 2021</td>
+            <td> 
+                
+                    
+                        Conditionals
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="warning">
+        
+            <td>Tue, Feb 2, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    Course Selections ends!
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Feb 3, 2021</td>
+            <td> 
+                
+                    
+                        Conditionals
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Feb 4, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW00 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Feb 5, 2021</td>
+            <td> 
+                
+                    
+                        Loops
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW01 - Rivalry + ClickArt
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Feb 8, 2021</td>
+            <td> 
+                
+                    
+                        Loops
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Feb 10, 2021</td>
+            <td> 
+                
+                    
+                        Arrays
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Feb 11, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW01 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Fri, Feb 12, 2021</td>
+            <td> 
+                
+                    
+                        Engagement Day - No class, No OH, No Piazza
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Sat, Feb 13, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW02 - NBody
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Feb 15, 2021</td>
+            <td> 
+                
+                    
+                        Arrays
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Feb 17, 2021</td>
+            <td> 
+                
+                    
+                        Arrays &amp; Strings
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Feb 19, 2021</td>
+            <td> 
+                
+                    
+                        Functions
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Feb 22, 2021</td>
+            <td> 
+                
+                    
+                        Functions
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Feb 24, 2021</td>
+            <td> 
+                
+                    
+                        Searching with Functions
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Feb 25, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW02 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Feb 26, 2021</td>
+            <td> 
+                
+                    
+                        Recursion
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Mar 1, 2021</td>
+            <td> 
+                
+                    
+                        Recursion
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Mar 3, 2021</td>
+            <td> 
+                
+                    
+                        Recursion
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Mar 4, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW03 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Mar 5, 2021</td>
+            <td> 
+                
+                    
+                        Recursion
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW04 - Recursive Exercises
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Mar 8, 2021</td>
+            <td> 
+                
+                    
+                        Unit Testing
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="warning">
+        
+            <td>Wed, Mar 10, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    No Class - Spring Term Break. No OH or Piazza.
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Mar 12, 2021</td>
+            <td> 
+                
+                    
+                        Object Oriented Programming
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Mon, Mar 15, 2021</td>
+            <td> 
+                
+                    
+                        Object Oriented Programming
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW04 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Mar 17, 2021</td>
+            <td> 
+                
+                    
+                        Class Design
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="warning">
+        
+            <td>Fri, Mar 19, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW05 - NBody with Objects
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    P/F Deadline
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Mar 22, 2021</td>
+            <td> 
+                
+                    
+                        Abstract Data Types &amp; Interfaces
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Mar 24, 2021</td>
+            <td> 
+                
+                    
+                        Reference Types
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Mar 25, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW05 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Mar 26, 2021</td>
+            <td> 
+                
+                    
+                        Nodes
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW06 - Steg pt1
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Mar 29, 2021</td>
+            <td> 
+                
+                    
+                        List ADT &amp; Linked Lists
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Mar 31, 2021</td>
+            <td> 
+                
+                    
+                        Linked Lists
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Apr 1, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW06 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Apr 2, 2021</td>
+            <td> 
+                
+                    
+                        Array Lists
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW07 - TSP
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Apr 5, 2021</td>
+            <td> 
+                
+                    
+                        Number Systems
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Apr 7, 2021</td>
+            <td> 
+                
+                    
+                        LFSR
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Apr 8, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW07 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Apr 9, 2021</td>
+            <td> 
+                
+                    
+                        2D Arrays
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW08 - Steg pt2
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="warning">
+        
+            <td>Mon, Apr 12, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    Engagement Day - No Class, No OH, No Piazza
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Apr 14, 2021</td>
+            <td> 
+                
+                    
+                        2D Arrays
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Apr 15, 2021</td>
+            <td> 
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    HW08 @ 11:59pm!
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Apr 16, 2021</td>
+            <td> 
+                
+                    
+                        Comparing Objects
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Apr 19, 2021</td>
+            <td> 
+                
+                    
+                        Comparing Algorithms
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="warning">
+        
+            <td>Wed, Apr 21, 2021</td>
+            <td> 
+                
+                    
+                        Midterm Two
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    Project
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Fri, Apr 23, 2021</td>
+            <td> 
+                
+                    
+                        Project Planning
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Mon, Apr 26, 2021</td>
+            <td> 
+                
+                    
+                        Project Practice
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="">
+        
+            <td>Wed, Apr 28, 2021</td>
+            <td> 
+                
+                    
+                        Special Topics
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        
+        
+        <tr class="success">
+        
+            <td>Thu, Apr 29, 2021</td>
+            <td> 
+                
+                    
+                        Special Topics
+                    
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+                    Last Day of Classes - Congratulations on finishing CIS110!
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+:ET
