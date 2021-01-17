@@ -27,6 +27,9 @@ Office Hours Queue:
 IDE:
 : [Codio](https://codio.com/p/join-course?token=normal-spain) - or use join token normal-spain
 
+Community Slack:
+: [CIS 110 21sp Slack](https://join.slack.com/t/cis11021sp/shared_invite/zt-l24fmous-EXaEjOLzbpMxdvCXwiWn8w)
+
 ---
 
 CIS 110 Spring 2021: Introduction to Computer Programming
