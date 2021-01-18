@@ -42,7 +42,7 @@ Grounds for failure
 
 ---
 Conversion to letter grades
-: All graded work is converted to a percentage grade between 0% and 100%. Exams are converted based on a curve. Homeworks are converted by dividing your score by 50 (the maximum number of points per assignment). Here is how the percentage grades will map to final letter grades:
+: All graded work is converted to a percentage grade between 0% and 100%. Homeworks are converted by dividing your score by 50 (the maximum number of points per assignment). Here is approximately how the percentage grades will map to final letter grades:
 
 - 97% <= A+ (4.0)
 - 93% <= A (4.0)

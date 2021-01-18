@@ -14,19 +14,10 @@ active_tab: exam2
 
 ---
 
-#### Makeup Requests
-
-You must have a valid conflict with another exam to request a makeup.
-
-- Post a private question to Piazza in the **exam1-makeup-request** folder no later than **TBD @ 11:59 pm**. Include the reason for your request in your post, and your availability (including time ranges) on **June TBD, TBD, and TBD**. Give the reasons for every conflict.
-- We will respond to your post at some point after TBD to tell you if you have permission to take the makeup exam, and with the time and location.
-- After TBD @ 11:59 pm we will only authorize makeups in exceptional circumstances, with supporting documentation.
-
----
 
 #### Topics Covered
 
-- **What will be on the exam?** Anything we have covered in lecture, homeworks, the reading assignments, and/or recitation is fair game for the exam. It is reasonable to assume that topics we have dealt with more extensively are likely to feature more prominently than topics we have only touched on, although anything is possible.
+- **What will be on the exam?** Anything we have covered in lecture, homeworks, and/or  reading assignments is fair game for the exam. It is reasonable to assume that topics we have dealt with more extensively are likely to feature more prominently than topics we have only touched on, although anything is possible.
 
 - **Will X be on the exam?** Please refer to the previous section. To ensure all students receive identical information about what will and will not be on the exam, course staff have been instructed to refer students to this page without commenting further.
 

@@ -12,7 +12,7 @@ CIS 110 exams are governed by rules designed to prevent distraction to other exa
 
 #### Asynchronous Exams
 
-CIS 110 exams for the Spring 2021 semester will be taken on Gradescope. Students must take the exam **alone**, although the exams will be open-note. Students are given a window to complete an exam which, upon starting, students will have just over 2 hours to complete. Exams are meant to take 110 minutes, and we provision 20 minutes as a buffer for potential technical issues. On the day of the exam, we will switch the piazza to private posts only. TAs will be heavily active monitoring for exam questions. Once you have completed the exam, you are forbidden from speaking about the exam to other students or posting on Piazza publicly after the exam window has concluded. Doing so directly violates our academic integrity policy and will result in a failure for the exam.
+CIS 110 exams for the Spring 2021 semester will be taken on Gradescope. Students must take the exam **alone**, although the exams will be open-note. Students are given a window to complete an exam which, upon starting, students will have just over 2 hours to complete. Exams are meant to take 110 minutes, and we provision 20 minutes as a buffer for potential technical issues. On the day of the exam, we will switch the piazza to private posts only. TAs will be heavily active monitoring for exam questions. Once you have completed the exam, you may not speak about the exam to other students or post on Piazza publicly about it after the exam window has concluded. Doing so directly violates our academic integrity policy and will result in a failure for the exam.
 
 ---
 

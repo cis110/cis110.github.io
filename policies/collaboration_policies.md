@@ -8,7 +8,7 @@ CIS 110 is a challenging course that requires a substantial amount of time for m
 
 This semester presents many additional challenges for students, so the course staff is taking steps to design a remote learning environment that offers students enough support and structure without exceeding a workload that would be expected during a more typical semester. We urge students to take advantage of the support available (Office Hours, Review Sessions, or reaching out for additional support if needed) so that the incentive to violate collaboration policies remains as low as possible.
 
-On the homework assignments, we use automated "cheat-checking" software to help detect plagiarism and inappropriate collaboration. This software is very, very effective. According to the Annual Report of the Penn Office of Student Conduct, there were 127 referrals for undergraduate academic misconduct in 2013–2014. 55 of these cases, or nearly 45%, were referred from CIS 110. By taking the collaboration policy as seriously as the course staff does, you will not only help reduce this number, but you will also help yourself and your fellow students learn more effectively.
+On the homework assignments, we use automated "cheat-checking" software to help detect plagiarism and inappropriate collaboration. This software is very, very effective. We are able to reliably detect all sorts of violations beyond just direct copying from another student or source. According to the Annual Report of the Penn Office of Student Conduct, there were 127 referrals for undergraduate academic misconduct in 2013–2014. 55 of these cases, or nearly 45%, were referred from CIS 110. By taking the collaboration policy as seriously as the course staff does, you will not only help reduce this number, but you will also help yourself and your fellow students learn more effectively.
 
 
 ---
@@ -24,7 +24,11 @@ On the homework assignments, we use automated "cheat-checking" software to help 
 
 ### Penalties for Violation of Collaboration Policy
 
-- At the first detected case, the student will receive a 50% grade deduction on the assignment in question. The student may choose to have the instructors refer this case to the Office of Student Conduct.
+The role of the CIS 110 course staff is to educate students about Computer Science. The following penalties are designed to disincentivize plagiarism and improper collaboration. The basic principle is that you will not receive credit for work that you did not individually generate.
+
+The staff is **not** invested in or responsible for investigations of the cases beyond the details that we first detect. Neither is the instructor interested in notions of punitive justice. To that end, CIS 110 leans heavily on the Office of Student Conduct for contested or repeated cases. [You can learn more about their processes, and their emphasis on _restorative practices_ on their website.](https://www.osc.upenn.edu/understanding-process-landing-page)
+
+- At the first detected case, the student will receive a 50% grade deduction on the assignment in question. If the student contests the case, then the case is automatically referred to the Office of Student Conduct for investigation and determination.
 
 - For every subsequent violation, the student will receieve a grade of 0% on the assignment in question. **The instructors will automatically refer the case to the Office of Student Conduct** as well.
 
