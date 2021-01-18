@@ -8,7 +8,7 @@ active_tab: exam2
 
 #### Details
 
-- **Date** April 21 9am - April 22 1am EST
+- **Date** April 21 9am - April 22 1am EDT
 - **Duration** 130 minutes
 - **Location** Gradescope
 

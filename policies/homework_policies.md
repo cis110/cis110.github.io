@@ -27,7 +27,7 @@ It is imperative to understand that computer programming is not a spectator spor
 ---
 **Late Submissions:**
 
-_The following details apply only for homework assignments, e.g. HW00-HW08. Quizzes cannot be submitted late._
+_The following details apply only for homework assignments, e.g. HW00-HW08. Quizzes and the final project cannot be submitted late._
 
 - Deadlines are automatically enforced. Forty-eight (48) hours after the deadline, the submission link will disappear. (E.g., if an assignment is due on Thursday at 11:59pm, the submission link will disappear Saturday at 11:59pm). It is up to you to keep track of your late days - submitting past your remaining late days will result in a 0 on the assignment.
 - If the deadline is approaching, submit! Remember, it is much better to submit an incomplete assignment than nothing. You can always resubmit later if you make further progress before the deadline.
