@@ -54,30 +54,6 @@ This annotated version of the policy includes many examples and elaborations to 
   - The CIS 110 Piazza board is a safe space for you to discuss the assignment with the course staff.
   - You may not search for solutions to a programming issue (e.g. an implementation solution, a bug, or an error message) online.
   - You may not post questions on websites such as Stack Overflow or Yahoo Answers. Answers you receive will likely be snarky, irrelevant to the assignment, or detrimental to the learning goals of the assignment.
-- **You must properly and promptly acknowledge all non-trivial help you receive, all collaboration involving you, and all resources you use in your help log.**
-  - The principles behind the help log are to track your own progress to maximize your learning, acknowledge your sources, and maintain a verifiable record of your progress.
-  - A proper acknowledgment includes the date and time of the help, the full names of everyone involved (including course staff), the complete titles and authors of resources you consulted or URL(s) of websites you referred to, the question or topic you discussed, and the resolution (what you should try next, how you solved the problem, any learning outcomes from the discussion, etc.).
-  - Any help you receive help from course staff outside office hours, e.g. questions answered by your recitation TAs after recitation or by email, must be logged by you manually.
-  - Any time you participate in the question and answer of someone next to you in office hours, or get help from another student in office hours, you must log it. Being in office hours does not give you permission to work together in impermissible ways or to skip logging collaboration or help.
-  - When you work with someone else in CIS 110, both you and the other person must log each other in the help log. It is all right for both people to write the same help log entry.
-  - Any help, collaboration, or outside resource that is not properly logged in your help log or in the office hour system is a violation of the course policy. Some examples include:
-    - Not providing the full name of the person who helped you in the help log – e.g. logging "My roommate/tutor/friend/Albus helped me understand the merge sort algorithm"
-    - Not describing in detail the question and resolution – e.g. logging "quick question" for a question or "fixed it" for a resolution
-    - Not logging help you received from working with other students – e.g. you worked together with Harry Potter, Ron Weasley, and Hermione Granger in office hours, but Hermione asked all the questions in the online office hour queue system and you did not also log the same questions
-    - Not using the office hours sign-in system during office hours – e.g. receiving help from someone who is not part of the CIS 110 course staff.
-  - **The only thing that you do not need to log is the course material.** Course material is defined as follows:
-    - The assignment writeup page itself or anything directly linked to from the assignment page
-    - Any questions that you read or ask on the CIS 110 Piazza board
-    - The previous exams and their solutions
-    - The CIS 110 code style guide
-    - The PennDraw wiki or any other direct links from the Resources menu
-    - The assigned textbook and the booksite
-    - Anything taught by your recitation TAs to your recitation section at large
-    - The lectures, the lecture recordings, and the lecture slides
-  - You do not need to log questions that are not directly related to the assignment. For example, these questions do not need to be logged:
-    - Information about the course: course policies, examination information, or the arrangements for office hours, lectures, recitations, or Piazza
-    - Information about computer science in general: continuing your education in computer science, activities to become more involved in computer science, doing research, or looking for employment in the technology industry
-    - Information about finding support outside the scope of CIS 110: referrals to other University resources, academic or personal advising, counselling, or learning strategies
 - **As always, the [Penn Code of Academic Integrity](http://www.upenn.edu/academicintegrity/) applies.**
 
 These restrictions may seem artificial. After all, in the real world, computer scientists and programmers collaborate freely all the time, and so do CIS majors. In many upper-level CIS classes as well as in industry, looking up answers online, debugging code together, and sharing code are all permitted and encouraged. However, **these behaviors are forbidden in CIS 110**: CIS 110 is not an upper-level class, and it is not the real world. These restrictions help you learn.
@@ -89,8 +65,8 @@ These restrictions may seem artificial. After all, in the real world, computer s
 The collaboration policy sounds scary because we take it very seriously. But it is not meant to prohibit all discussion and collaboration. It is intended to limit only the forms of collaboration that undermine the learning goals of the course. Here are some ways that we encourage you to work together and to get help:
 
 - **Come to office hours early and often!** CIS 110 is designed for you to learn as much as possible with the benefit of help. We want you to get stuck, ask questions, and learn how to experiment and find solutions. We also want you to learn more by taking advantage of office hours than you would be able to learn on your own.
-- **Read through each assignment with one or two friends,** and work out together what the different steps are; what you need to make sure you understand; and where to find the information you need in the assignment writeup, course web site, and textbook. Document in your help log who you discussed with, and what you concluded.
-- **Work through course notes and example code together.** Work together on example programs that are not part of the assignment to understand different concepts. For example, when you are preparing for the NBody assignment, we encourage you to work through the Bouncing Ball examples together, and modify it together to help understand animation and nested loop structures. Again, document this in your help log.
+- **Read through each assignment with one or two friends,** and work out together what the different steps are; what you need to make sure you understand; and where to find the information you need in the assignment writeup, course web site, and textbook. Document in your readme who you discussed with, and what you concluded.
+- **Work through course notes and example code together.** Work together on example programs that are not part of the assignment to understand different concepts. For example, when you are preparing for the NBody assignment, we encourage you to work through the Bouncing Ball examples together, and modify it together to help understand animation and nested loop structures.
 - **Discuss together how to test your code,** and what different kinds of input might cause problems. We don't always tell you everything that could go wrong in your program; figuring that out is part of your job, and doing this together will help you understand the assignment better prepare to start programming. Log your discussions before you forget the details.
-- **Search the CIS 110 Piazza board for answers.** When you have a question, it is likely someone else has asked it already. Only post your question if you can't find a discussion thread that helps you. Answer other students' questions on Piazza, for instance by suggesting tests the other student can do to help detect and debug the issue in their code. You do not need to log the help you receive and provide on the CIS 110 Piazza.
-- **Compare output from your program and a friend's.** As long as you do not look at each other's code, we strongly encourage comparing output as a way to test your program. If you do this, you must log exactly the help that you provide.
+- **Search the CIS 110 Piazza board for answers.** When you have a question, it is likely someone else has asked it already. Only post your question if you can't find a discussion thread that helps you. Answer other students' questions on Piazza, for instance by suggesting tests the other student can do to help detect and debug the issue in their code. You do not need to log the help you receive and provide on the CIS 110 Piazza in your readme.
+- **Compare output from your program and a friend's.** As long as you do not look at each other's code, we strongly encourage comparing output as a way to test your program. If you do this, you must log exactly the help that you provide in the readme.

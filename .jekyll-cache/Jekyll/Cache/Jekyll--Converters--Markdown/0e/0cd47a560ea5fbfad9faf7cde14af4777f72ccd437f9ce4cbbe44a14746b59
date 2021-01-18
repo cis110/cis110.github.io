@@ -1,23 +1,11 @@
-I"^<h3 id="exam-2">Exam 2</h3>
+I"á<h3 id="exam-1">Exam 1</h3>
 
 <h4 id="details">Details</h4>
 
 <ul>
-  <li><strong>Date</strong> April 21 9am - April 22 1am EST</li>
+  <li><strong>Date</strong> March 19 9am - March 20 1am EST</li>
   <li><strong>Duration</strong> 130 minutes</li>
   <li><strong>Location</strong> Gradescope</li>
-</ul>
-
-<hr />
-
-<h4 id="makeup-requests">Makeup Requests</h4>
-
-<p>You must have a valid conflict with another exam to request a makeup.</p>
-
-<ul>
-  <li>Post a private question to Piazza in the <strong>exam1-makeup-request</strong> folder no later than <strong>TBD @ 11:59 pm</strong>. Include the reason for your request in your post, and your availability (including time ranges) on <strong>June TBD, TBD, and TBD</strong>. Give the reasons for every conflict.</li>
-  <li>We will respond to your post at some point after TBD to tell you if you have permission to take the makeup exam, and with the time and location.</li>
-  <li>After TBD @ 11:59 pm we will only authorize makeups in exceptional circumstances, with supporting documentation.</li>
 </ul>
 
 <hr />
@@ -26,7 +14,7 @@
 
 <ul>
   <li>
-    <p><strong>What will be on the exam?</strong> Anything we have covered in lecture, homeworks, the reading assignments, and/or recitation is fair game for the exam. It is reasonable to assume that topics we have dealt with more extensively are likely to feature more prominently than topics we have only touched on, although anything is possible.</p>
+    <p><strong>What will be on the exam?</strong> Anything we have covered in lecture, homeworks, and/or  reading assignments is fair game for the exam. It is reasonable to assume that topics we have dealt with more extensively are likely to feature more prominently than topics we have only touched on, although anything is possible.</p>
   </li>
   <li>
     <p><strong>Will X be on the exam?</strong> Please refer to the previous section. To ensure all students receive identical information about what will and will not be on the exam, course staff have been instructed to refer students to this page without commenting further.</p>
@@ -57,20 +45,20 @@
   <tbody>
     
       <tr style="text-align: left">
-        <td>Fall 2019</td>
+        <td>Spring 2020</td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f19.pdf">Questions</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/s20.pdf">Questions</a>
           
         </td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f19_key.pdf">Answers</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/s20_key.pdf">Answers</a>
           
         </td>
         <td>
           
-            64.25
+            93
           
         </td>
         <td>
@@ -80,7 +68,45 @@
         </td>
         <td>
           
-            16.85
+            13.93
+          
+        </td>
+        <td>
+          
+          <ul class="list-unstlyed">
+            
+              <li> 3j should be "No" </li>
+            
+          </ul>
+          
+        </td>
+      </tr>
+    
+      <tr style="text-align: left">
+        <td>Fall 2019</td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f19.pdf">Questions</a>
+          
+        </td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f19_key.pdf">Answers</a>
+          
+        </td>
+        <td>
+          
+            95.5
+          
+        </td>
+        <td>
+          
+            110
+          
+        </td>
+        <td>
+          
+            17.65
           
         </td>
         <td>
@@ -92,34 +118,34 @@
         <td>Fall 2018</td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f18.pdf">Questions</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f18.pdf">Questions</a>
           
         </td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f18_key.pdf">Answers</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f18_key.pdf">Answers</a>
           
         </td>
         <td>
           
-            74.25
+            59.2
           
         </td>
         <td>
           
-            110
+            70
           
         </td>
         <td>
           
-            20.5
+            10.8
           
         </td>
         <td>
           
           <ul class="list-unstlyed">
             
-              <li> 1 - Q7 - Sneaky Move 2 looks for the largest among even indices. </li>
+              <li> Q2 row 7 - variable x should be named fst </li>
             
           </ul>
           
@@ -130,27 +156,27 @@
         <td>Fall 2017</td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f17.pdf">Questions</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f17.pdf">Questions</a>
           
         </td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f17_key.pdf">Answers</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f17_key.pdf">Answers</a>
           
         </td>
         <td>
           
-            52.5
+            56
           
         </td>
         <td>
           
-            80
+            65
           
         </td>
         <td>
           
-            11.6
+            7.6
           
         </td>
         <td>
@@ -162,30 +188,36 @@
         <td>Fall 2016</td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f16.pdf">Questions</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f16.pdf">Questions</a>
           
         </td>
         <td>
           
-            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f16_key.pdf">Answers</a>
+            <a target="_blank" href="/~cis110/current/assets/exams/exam1/f16_key.pdf">Answers</a>
           
         </td>
         <td>
           
-            64
+            63.5
           
         </td>
         <td>
           
-            92
+            75
           
         </td>
         <td>
           
-            12.32
+            12.35
           
         </td>
         <td>
+          
+          <ul class="list-unstlyed">
+            
+              <li> Q2 row 5 - String a = "CIS"; a += 1 + 1 + 0 would give "CIS2". </li>
+            
+          </ul>
           
         </td>
       </tr>
