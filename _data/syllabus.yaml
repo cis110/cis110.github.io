@@ -46,6 +46,10 @@
 
 - date: 2021-01-20
   topics: Introduction
+  slides: 00_Introduction-Codio.pdf
+  examples:
+    - example_code: HelloWorld.java
+      example_code_url: HelloWorld.java
   announcement: First Day of Classes!
 
 - date: 2021-01-22
@@ -57,7 +61,7 @@
 
 - date: 2021-01-27
   topics: Variables & Types
-  
+
 - date: 2021-01-29
   topics: Variables & Types
 
@@ -109,10 +113,8 @@
 - date: 2021-02-24
   topics: Searching with Functions
 
-
 - date: 2021-02-25
   hw_due: HW02
-
 
 - date: 2021-02-26
   topics: Recursion
@@ -227,8 +229,6 @@
   topics: Special Topics
   announcement: Last Day of Classes - Congratulations on finishing CIS110!
   flag: success
-
-
 # - date: 2020-09-02
 #   topics: Introduction
 #   slides: 00_Introduction.pdf
@@ -718,7 +718,7 @@
 #   flag: success
 #   lecture_recording: Recording
 #   lecture_url: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4cade208-babe-4b14-9cff-ac8d012e97a0
-  
+
 # - date: 2020-12-18
 #   hw_due: HW09 - Project
 #   announcement: Congratulations on finishing CIS 110!

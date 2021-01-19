@@ -1,22 +1,19 @@
-/*  Name: Eric Fouh
- *  PennKey: efouh
- *  Recitation: Towne 313 Fisher-Bennett 141
+/*  Name: Harry Smith
+ *  PennKey: sharry
  *
  *  Execution: java HelloWorld 
  *
- *  Prints "Hello, World". By tradition, this is everyone's first program.
+ *  Prints "Hello, World!". By tradition, this is everyone's first program.
  *
  */
 
-public class HelloWorld
-{   
-    public static void main(String args[])
+public class HelloWorld {
     /**
-      * This method prints Hello World
-      */
-    {
-        
-        System.out.println("Hello World!"); 
-        //Prints Hello World! to the console
+     * This is a comment, it is not code.
+     */
+
+    // this is also a comment
+    public static void main(String args[]) {
+
     }
 }
