@@ -19,7 +19,7 @@ Discussion Forum:
 : [Piazza](https://piazza.com/upenn/spring2021/cis110)
 
 Live Coding Lectures:
-: Monday (9-10am EST), Wednesday (9-10am EST), Friday (9-10am EST)
+: [Monday (9-10am EST), Wednesday (9-10am EST), Friday (9-10am EST)](https://upenn.zoom.us/j/91762588691)
 
 Office Hours Queue:
 : [Office Hours Queue](https://ohq.io/) - search for CIS 110
