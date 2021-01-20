@@ -50,6 +50,8 @@
   examples:
     - example_code: HelloWorld.java
       example_code_url: HelloWorld.java
+  lecture_recording: Lecture Recording
+  lecture_url: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8e6d5d2a-6571-4ed7-9aa8-acb60105aca9
   announcement: First Day of Classes!
 
 - date: 2021-01-22
