@@ -1,0 +1,422 @@
+I"��<h2 id="guitar-hero">Guitar Hero</h2>
+
+<hr />
+
+<h3 id="0-getting-started">0. Getting Started</h3>
+
+<hr />
+
+<h4 id="a-goals">A. Goals</h4>
+
+<p>The purpose of this assignment is to practice using object types and learn about object-oriented design principles. The specific goals are to:</p>
+<ul>
+  <li>Learn how to create user-defined data types in Java.</li>
+  <li>Implement and use a data structure.</li>
+  <li>Simulate a musical instrument using your computer’s keyboard using an algorithm.</li>
+  <li>Learn about digital audio.</li>
+</ul>
+
+<hr />
+
+<h4 id="b-background">B. Background</h4>
+
+<p>When you pluck a string on a musical instrument, the middle of the string bounces wildly up and down. Over time, the tension in the string causes it to move more regularly and less violently, until it finally comes to rest. High frequency strings have greater tension, which causes them to vibrate faster, but also to come to rest more quickly. Low frequency strings are looser, and vibrate longer.</p>
+
+<p>In this assignment, you will write a program to simulate plucking a guitar string using the Karplus-Strong algorithm. This algorithm played a seminal role in the emergence of physically modeled sound synthesis (in which a physical description of a musical instrument is used to synthesize sound electronically).</p>
+
+<p>From a mathematical physics viewpoint, the Karplus-Strong algorithm approximately solves the 1D wave equation, which describes the transverse motion of the string as a function of time.</p>
+
+<hr />
+
+<h4 id="c-your-program">C. Your program</h4>
+
+<p>You will write a program <code class="language-plaintext highlighter-rouge">Guitar.java</code> that uses a <code class="language-plaintext highlighter-rouge">RingBuffer</code> class and a MandolinString class to create a simulation of a guitar, implementing the Karplus-Strong algorithm.</p>
+
+<hr />
+
+<h4 id="d-getting-started">D. Getting started</h4>
+
+<p>In Codio, you should see <code class="language-plaintext highlighter-rouge">RingBuffer.java</code>, <code class="language-plaintext highlighter-rouge">GuitarString.java</code>, and <code class="language-plaintext highlighter-rouge">MiniGuitar.java</code> <code class="language-plaintext highlighter-rouge">MiniGuitar.java</code> will help you test <code class="language-plaintext highlighter-rouge">RingBuffer</code> and <code class="language-plaintext highlighter-rouge">GuitarString</code>, and serve as a starting point for the full <code class="language-plaintext highlighter-rouge">Guitar</code> program that you will write.</p>
+
+<hr />
+
+<h3 id="1-understanding-the-assignment">1. Understanding the Assignment</h3>
+
+<p>The components that make the Karplus-Strong algorithm work are the ring buffer feedback mechanism and the averaging operation.</p>
+
+<hr />
+
+<h4 id="a-the-ring-buffer">A. The Ring Buffer</h4>
+
+<p>We model the position of the string using a <strong>ring buffer</strong> data structure. The ring buffer models the medium (a string tied down at both ends) in which the energy travels back and forth. Sonically, the feedback mechanism reinforces only the fundamental frequency and its harmonics (frequencies at integer multiples of the fundamental).</p>
+
+<p>We model a guitar string by sampling its displacement from the rest position at <code class="language-plaintext highlighter-rouge">numSamples</code> points that are equally spaced points in time. The displacement is a real number between -1/2 and +1/2 (0 represents the rest position itself), and <code class="language-plaintext highlighter-rouge">numSamples</code> is calculated as the <strong>sampling rate</strong> (44,100 Hz) divided by the fundamental frequency (rounding the quotient <strong>up</strong> to the nearest integer). For instance, each point in the image below represents a displacement of the string from the rest position.</p>
+
+<p><img src="images/wave.png" alt="" /></p>
+
+<p>A pluck of the string is modeled by filling the ring buffer with random values, just as a physical string bounces wildly when plucked. The string can contain energy at any frequency. We simulate a pluck with <strong>white noise</strong> by setting each of these <code class="language-plaintext highlighter-rouge">numSamples</code> displacements to a random real number between -1/2 and +1/2.</p>
+
+<p><img src="images/wave_displacements.png" alt="" /></p>
+
+<hr />
+
+<h4 id="b-the-karplus-strong-algorithm">B. The Karplus-Strong Algorithm</h4>
+
+<p>After the string is plucked, it vibrates. The pluck causes a displacement which spreads wave-like over time. The Karplus-Strong algorithm simulates this vibration by repeatedly deleting the first sample from the ring buffer (.2 in the below example) and adding to the end of the buffer the average of the first two samples (.2 and .4), scaled by an <strong>energy decay factor</strong> of 0.991.</p>
+
+<p><img src="images/karplus_strong_update.png" alt="" /></p>
+
+<p>Averaging neighboring samples brings them closer together, which means the changes between neighboring samples become smaller and more regular. The decay factor reduces the overall amount that a given point on the string moves, so that it eventually comes to rest. The averaging operation serves as a gentle low-pass filter, removing higher frequencies while allowing lower frequencies to pass. Because it is in the path of the feedback, this has the effect of gradually attenuating the higher harmonics while keeping the lower ones, which corresponds closely with how a plucked guitar string sounds.</p>
+
+<p>The ring buffer length determines the fundamental frequency of the note played by the string. Longer ring buffers are analogous to longer strings on practical instruments, which produce notes with lower frequencies. A long ring buffer goes through more random samples before getting to the first round of averaged samples. The result is that it will take more steps for the values in the buffer to become regular and to die out, modeling the longer reverberation time of a low string.</p>
+
+<hr />
+
+<h3 id="2-help-resources">2. Help Resources</h3>
+
+<hr />
+
+<h4 id="a-frequently-asked-questions">A. Frequently Asked Questions</h4>
+
+<p><a href="https://docs.google.com/document/d/1rJj1TsKtGvAnP0hMfZNKUKJaOlahUxk34Zs689ajXkM/edit?usp=sharing">This document</a> features a list of frequently asked questions about this assignment. Please refer to it if you have a question to see if the question is answered here <em>before</em> posting on Piazza.</p>
+
+<hr />
+
+<h4 id="b-help-video">B. Help Video</h4>
+
+<p>To help understand the role of the RingBuffer better, take a look at this <a href="https://www.youtube.com/watch?v=QjQvqg26qvM#action=share">video</a> made by a previous CIS 110 professor. Please watch the video before asking questions about RingBuffer on Piazza or in office hours.</p>
+
+<hr />
+
+<h3 id="3-ringbuffer">3. <code class="language-plaintext highlighter-rouge">RingBuffer</code></h3>
+
+<p>In this section you will write <code class="language-plaintext highlighter-rouge">RingBuffer</code> and test it in <code class="language-plaintext highlighter-rouge">RingBufferTest</code>. The ring buffer is the data structure that underpins the Karplus-Strong algorithm. <code class="language-plaintext highlighter-rouge">RingBuffer</code> will implement the following API:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RingBuffer</span>
+<span class="o">-----------------------------------------------------------------------------------------</span>
+<span class="nc">RingBuffer</span><span class="o">(</span><span class="kt">int</span> <span class="n">capacity</span><span class="o">)</span>  <span class="c1">// create an empty ring buffer, with given max capacity</span>
+<span class="kt">int</span> <span class="nf">getFirst</span><span class="o">()</span>            <span class="c1">// get the value of the first variable - this is ONLY used for testing</span>
+<span class="kt">int</span> <span class="nf">getLast</span><span class="o">()</span>             <span class="c1">// get the value of the last variable - this is ONLY used for testing</span>
+<span class="kt">double</span><span class="o">[]</span> <span class="nf">getBuffer</span><span class="o">()</span>      <span class="c1">// get the array stored in bufferArray - this is ONLY used for testing </span>
+<span class="kt">int</span> <span class="nf">currentSize</span><span class="o">()</span>         <span class="c1">// return number of items currently in the buffer</span>
+<span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span>         <span class="c1">// is the buffer empty?</span>
+<span class="kt">boolean</span> <span class="nf">isFull</span><span class="o">()</span>          <span class="c1">// is the buffer full?</span>
+<span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">)</span>    <span class="c1">// add item x to the end</span>
+<span class="kt">double</span> <span class="nf">dequeue</span><span class="o">()</span>          <span class="c1">// delete and return item from the front</span>
+<span class="kt">double</span> <span class="nf">peek</span><span class="o">()</span>             <span class="c1">// return (but do not delete) item from the front</span>
+</code></pre></div></div>
+
+<p>Start with the provided <code class="language-plaintext highlighter-rouge">RingBuffer.java</code> skeleton, then fill in the constructors and methods one by one. Compile frequently, and add code to <code class="language-plaintext highlighter-rouge">RingBufferTest</code> to test each method as you write it.</p>
+
+<p><strong>You must follow the API above.</strong> We will be testing the methods in the API directly. If your method has a different signature or does not behave as specified, you will lose a substantial number of points. You may not add public methods or instance variables to the API; however, you may add private methods (which are only accessible in the class in which they are declared). You may also add private instance variables for data that must be shared between methods.</p>
+
+<p>In the skeleton file, we have already declared some instance variables for you:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RingBuffer</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">double</span><span class="o">[]</span> <span class="n">bufferArray</span><span class="o">;</span> <span class="c1">// items in the buffer</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">first</span><span class="o">;</span>            <span class="c1">// index for the next dequeue or peek</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">last</span><span class="o">;</span>             <span class="c1">// index for the next enqueue</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">currentSize</span><span class="o">;</span>      <span class="c1">// number of items in the buffer</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="a-constructor">A. Constructor</h4>
+
+<p><strong><code class="language-plaintext highlighter-rouge">RingBuffer(int capacity)</code></strong> constructs a new ring buffer with the given <code class="language-plaintext highlighter-rouge">capacity</code> by allocating and initializing the <code class="language-plaintext highlighter-rouge">double</code> array <code class="language-plaintext highlighter-rouge">bufferArray</code> with length <code class="language-plaintext highlighter-rouge">capacity</code>. Observe that this allocation of <code class="language-plaintext highlighter-rouge">bufferArray</code> must occur in the constructor (and not when you declare the instance variables), since otherwise you would not know how big to make the array.</p>
+
+<hr />
+
+<h4 id="b-ring-buffer-help-video">B. Ring Buffer Help Video</h4>
+
+<p>This <a href="https://youtu.be/QjQvqg26qvM">video</a> should help you understand how RingBuffer works.</p>
+
+<hr />
+
+<h4 id="c-methods">C. Methods</h4>
+
+<p>Write the remaining methods of <code class="language-plaintext highlighter-rouge">RingBuffer</code>.</p>
+
+<p>On this assignment, you are required to test every function. You must write tests in <code class="language-plaintext highlighter-rouge">RingBufferTest.java</code>. This file will include JUnit tests for all your methods. The explicit testing requirements are below in section D. We encourage you to look at them as you are writing each method.</p>
+
+<p>We recommend using Test Driven Development. That is, write the test that checks for the correct behavior BEFORE you attempt to code that behavior. We obviously cannot check what order your write your code in, but we encourage you to try it for this part of the assignment.</p>
+
+<p>Every time you implement a method, immediately add code to test it through JUnit. We have also included a private method <code class="language-plaintext highlighter-rouge">printBufferContents()</code> that prints out the contents of a <code class="language-plaintext highlighter-rouge">RingBuffer</code> object for inspection. You can use this function in <code class="language-plaintext highlighter-rouge">main</code> to help you debug, but this function should not be used in your JUnit tests. If you add any instance variables of your own, you will need to update this method to print them out too.</p>
+
+<p><strong>Test cases are a great area for collaboration!</strong> You may not look at each other’s code, but you are encouraged to discuss what test cases to implement with your classmates, and also to compare the output of your tests with each other. Just remember to note this in your readme. That is, note who you design test cases with.</p>
+
+<p>For performance reasons, your implementation of <code class="language-plaintext highlighter-rouge">RingBuffer</code> must <strong>wrap around</strong> in the array. To do this, maintain one integer instance variable <code class="language-plaintext highlighter-rouge">first</code> that stores the index of the least recently inserted item; maintain a second integer instance variable <code class="language-plaintext highlighter-rouge">last</code> that stores the index one beyond the most recently inserted item. <em>Ring buffers that wrap around like this are very common in audio and graphics applications because they avoid allocating data or moving memory around. Remember that you will be updating your ring buffers 44,100 times per second. To manage that, each update has to do as little work as possible.</em></p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">getFirst()</code></strong>,<strong><code class="language-plaintext highlighter-rouge">getLast()</code></strong>, and <strong><code class="language-plaintext highlighter-rouge">getBuffer()</code></strong> should be simple getters (a.k.a., accessors) that return the value of the variables first, last, and buffer. These should ONLY be used in your JUnit tests (inside the <code class="language-plaintext highlighter-rouge">RingBuffer</code> class, you should just use the variables <code class="language-plaintext highlighter-rouge">first</code>, <code class="language-plaintext highlighter-rouge">last</code>, and <code class="language-plaintext highlighter-rouge">bufferArray</code> directly.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">isFull()</code></strong> and <strong><code class="language-plaintext highlighter-rouge">isEmpty()</code></strong> return whether buffer is at capacity and whether it is completely empty. Go ahead and write these now. You can do a little bit of testing already by checking whether the buffer created in <code class="language-plaintext highlighter-rouge">main</code> is full or empty. It should always be empty since you haven’t added anything to it yet. Likewise, it should only be full if <code class="language-plaintext highlighter-rouge">capacity</code> is zero. Once you implement <code class="language-plaintext highlighter-rouge">enqueue</code> you’ll be able fill up your buffers.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">enqueue(double x)</code></strong> inserts the value of <code class="language-plaintext highlighter-rouge">x</code> at the end of the ring buffer, putting it at index <code class="language-plaintext highlighter-rouge">last</code> (and incrementing <code class="language-plaintext highlighter-rouge">last</code>). Test it by enqueuing a variety of different values in <code class="language-plaintext highlighter-rouge">main</code> and printing the contents of the object. Think about what situations might trigger errors and make sure you test them.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">dequeue()</code></strong> removes an item, taking it from index <code class="language-plaintext highlighter-rouge">first</code> (and incrementing <code class="language-plaintext highlighter-rouge">first</code>). Mix calls to <code class="language-plaintext highlighter-rouge">dequeue()</code> with calls to <code class="language-plaintext highlighter-rouge">enqueue()</code> in your testing code. Print out values you <code class="language-plaintext highlighter-rouge">dequeue()</code> as well as the remaining contents of the buffer.</p>
+
+<p>When either the <code class="language-plaintext highlighter-rouge">first</code> or <code class="language-plaintext highlighter-rouge">last</code> index is equal to the <code class="language-plaintext highlighter-rouge">capacity</code>, make that index wrap around by changing its value to <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">peek()</code></strong> returns the first item in the buffer without removing it. Mix some calls to <code class="language-plaintext highlighter-rouge">peek()</code> in with the rest of your testing code in <code class="language-plaintext highlighter-rouge">main</code>, and print what it returns to help test it.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">currentSize()</code></strong> returns the number of items in the buffer. Keep in mind that the current size of the <code class="language-plaintext highlighter-rouge">RingBuffer</code> (the number of items in it) is not necessarily the same as the length of the array. To get an accurate count of the number of items in your <code class="language-plaintext highlighter-rouge">RingBuffer</code>, increment the instance variable <code class="language-plaintext highlighter-rouge">currentSize</code> each time you add an item, and decrement it each time you remove.</p>
+
+<p>Here is a demonstration of how the <code class="language-plaintext highlighter-rouge">enqueue()</code> and <code class="language-plaintext highlighter-rouge">dequeue()</code> methods work:</p>
+<ul>
+  <li><strong>Initial state</strong>
+<img src="images/initial_state_ringbuffer.png" alt="" /></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">enqueue(0.5)</code></strong>
+<img src="images/enqueue_1.png" alt="" /></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">enqueue(0.1)</code></strong>
+<img src="images/enqueue_2.png" alt="" /></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">dequeue()</code></strong>
+<img src="images/dequeue.png" alt="" /></li>
+</ul>
+
+<p>In the skeleton file, we have included exception-throwing statements that crash your program when the client attempts to <code class="language-plaintext highlighter-rouge">dequeue()</code> from an empty buffer or <code class="language-plaintext highlighter-rouge">enqueue()</code> into a full buffer. This is a mechanism for generating run-time errors in your program, and will help you identify bugs. (Remember: once your code is working properly, these conditions should never occur, so your program should never crash. But if you has a bug while you’re developing it, you’d like your program to crash immediately so it’s easier to debug.) The following is an example of a throw statement:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"ERROR: Attempting to dequeue from an empty buffer."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Leave these statements in your code, as they will be useful when debugging future sections of the assignment.</p>
+
+<hr />
+
+<h4 id="d-mandatory-testing">D. Mandatory Testing</h4>
+
+<p>You must also submit <code class="language-plaintext highlighter-rouge">RingBufferTest.java</code>. It must test the following methods. You need to create this file from scratch. When writing your tests, use <code class="language-plaintext highlighter-rouge">getFirst()</code>, <code class="language-plaintext highlighter-rouge">getLast()</code>, <code class="language-plaintext highlighter-rouge">currentSize()</code> and <code class="language-plaintext highlighter-rouge">getBuffer()</code> to test the value of your RingBuffer fields. You will find it useful to write a boolean function in your test program that takes in two arrays and returns true if they are equal (same length and contents) and false if they are unequal. This is what you can use to test your <code class="language-plaintext highlighter-rouge">bufferArray</code> values.</p>
+<ul>
+  <li>You are required to write at least one test for the constructor.</li>
+  <li>You must write at least two tests each for <code class="language-plaintext highlighter-rouge">isEmpty()</code> and <code class="language-plaintext highlighter-rouge">isFull()</code> (so 4 tests total). You should have one test for both that returns false, and one test for both that returns true.</li>
+  <li>You must have at least 3 tests each for <code class="language-plaintext highlighter-rouge">enqueue</code> and <code class="language-plaintext highlighter-rouge">dequeue</code> (so 6 tests total). At least one test for each must test the wrap-around effect of RingBuffer. At least one test for each must test the error condition (we covered JUnit tests for error conditions in class, check the code posted for March 15).</li>
+  <li>You must have at least 2 tests for <code class="language-plaintext highlighter-rouge">peek()</code>. One of the tests should check for an error.</li>
+</ul>
+
+<p><strong>Please add the following import statement after whatever existing imports you already have in RingBuferTest.java</strong>. It is paramount that you do this as our submission tests will not work without it.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>For testing, you do have to check the array contents.</p>
+
+<hr />
+
+<h3 id="4-guitarstring">4. <code class="language-plaintext highlighter-rouge">GuitarString</code></h3>
+
+<p>Next, write and test <code class="language-plaintext highlighter-rouge">GuitarString</code>, which uses <code class="language-plaintext highlighter-rouge">RingBuffer</code> to implement the Karplus-Strong algorithm. <code class="language-plaintext highlighter-rouge">GuitarString</code> should implement the following API:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GuitarString</span>
+<span class="o">-------------------------------------------------------------------------------------------</span>
+<span class="nc">GuitarString</span><span class="o">(</span><span class="kt">double</span> <span class="n">frequency</span><span class="o">)</span>       <span class="c1">// create a guitar string of the given frequency, </span>
+                                   <span class="c1">// using a sampling rate of 44,100</span>
+<span class="kt">void</span> <span class="nf">pluck</span><span class="o">()</span>                       <span class="c1">// set the buffer to white noise</span>
+<span class="kt">void</span> <span class="nf">tic</span><span class="o">()</span>                         <span class="c1">// advance the simulation one time step</span>
+<span class="kt">double</span> <span class="nf">sample</span><span class="o">()</span>                    <span class="c1">// return the current sample</span>
+<span class="kt">int</span> <span class="nf">time</span><span class="o">()</span>                         <span class="c1">// return the total amount of tics</span>
+</code></pre></div></div>
+
+<p>The design of your <code class="language-plaintext highlighter-rouge">GuitarString</code> class should look like the provided <code class="language-plaintext highlighter-rouge">GuitarString.java</code> skeleton, except that you will need to fill in all of the constructors and methods.</p>
+
+<p>Again, <strong>you must follow the API above</strong>. We will be testing the methods in the API directly. If your method has a different signature or does not behave as specified, you will lose a substantial number of points. You may not add public methods or instance variables to the API; however, you may add private methods (which are only accessible in the class in which they are declared). You may also add private instance variables for data that must be shared between methods.</p>
+
+<hr />
+
+<h4 id="a-constructor-1">A. Constructor</h4>
+
+<p><strong><code class="language-plaintext highlighter-rouge">GuitarString(double frequency)</code></strong> creates a <code class="language-plaintext highlighter-rouge">RingBuffer</code> of capacity <code class="language-plaintext highlighter-rouge">numSamples</code>, where <code class="language-plaintext highlighter-rouge">numSamples</code> is the sampling rate of 44,100 Hz divided by <code class="language-plaintext highlighter-rouge">frequency</code>, rounded <strong>up</strong> to the nearest integer. (Hint: Check out <code class="language-plaintext highlighter-rouge">Math.ceil()</code>) The constructor then fills the <code class="language-plaintext highlighter-rouge">RingBuffer</code> to represent a guitar string at rest by enqueueing <code class="language-plaintext highlighter-rouge">numSamples</code> zeros. The constant <code class="language-plaintext highlighter-rouge">44100</code> should be declared as a <code class="language-plaintext highlighter-rouge">static</code> variable (because it is a constant value that is shared by all guitar strings that you create) in your <code class="language-plaintext highlighter-rouge">GuitarString</code> class. Do not hardcode it in your constructor. Remember that proper style for static variable names is to write them in all-caps with underscores to separate words.</p>
+
+<p>Writing a reasonable test case for <code class="language-plaintext highlighter-rouge">GuitarString</code> is a bit of a pain, so we’ve included a <code class="language-plaintext highlighter-rouge">main</code> function to get you started. You are not required to use JUnit testing for GuitarString, and honestly we wouldn’t recommend trying, since it requires more advanced JUnit techniques we haven’t covered in class. Eventually you may to think about cases that aren’t covered by what we provide you and add them. For now though – if your constructor works – the test we provide should at least create a string with a capacity of 10 that is initially full. The rest of the test that tics through a bunch of samples won’t work until you implement the remaining methods.</p>
+
+<hr />
+
+<h4 id="b-methods">B. Methods</h4>
+
+<p><strong>Reminder: none of these methods should call <code class="language-plaintext highlighter-rouge">getFirst()</code>, <code class="language-plaintext highlighter-rouge">getLast()</code>, or <code class="language-plaintext highlighter-rouge">getBuffer()</code>, as those methods only existed for the sake of testing in your JUnit files.</strong> You should not use any of those three functions in <code class="language-plaintext highlighter-rouge">GuitarString</code> for any reason However, you will definitely need to use the other methods, such as <code class="language-plaintext highlighter-rouge">enqueue</code> and <code class="language-plaintext highlighter-rouge">dequeue</code>.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">sample()</code></strong> should return the value of the item at the front of the ring buffer.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">pluck()</code></strong> should replace all <code class="language-plaintext highlighter-rouge">numSamples</code> items in the ring buffer with <code class="language-plaintext highlighter-rouge">numSamples</code> random values between <code class="language-plaintext highlighter-rouge">-0.5</code> inclusive and <code class="language-plaintext highlighter-rouge">+0.5</code> exclusive. To implement this, use a combination of the <code class="language-plaintext highlighter-rouge">RingBuffer</code> methods to replace the buffer with random values between <code class="language-plaintext highlighter-rouge">-0.5</code> and <code class="language-plaintext highlighter-rouge">+0.5</code>.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">tic()</code></strong> should apply the Karplus-Strong update: compute the average of the first two samples of the ring buffer, multiplied by the energy decay factor (<code class="language-plaintext highlighter-rouge">0.991</code>), delete the sample at the front of the ring buffer, then add the new sample to the end. The constant <code class="language-plaintext highlighter-rouge">0.991</code> should be declared as a static variable in your <code class="language-plaintext highlighter-rouge">GuitarString</code> class. Hint: don’t rewrite functions you have already implemented.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">time()</code></strong> should return the total number of times tic() was called.</p>
+
+<hr />
+
+<h4 id="c-checkpoint">C. Checkpoint</h4>
+
+<p>To test your <code class="language-plaintext highlighter-rouge">GuitarString</code> class, run it with the given test code in <code class="language-plaintext highlighter-rouge">main</code> with a command-line argument <code class="language-plaintext highlighter-rouge">numSamples</code>. The given test code creates a <code class="language-plaintext highlighter-rouge">GuitarString</code> from some samples, then runs <code class="language-plaintext highlighter-rouge">tic()</code> <code class="language-plaintext highlighter-rouge">numSamples</code> times, printing the values of <code class="language-plaintext highlighter-rouge">time()</code> and <code class="language-plaintext highlighter-rouge">sample()</code>.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">NullPointerException</code></strong> – Check the line number provided in the stack trace. An object you are using in this line has not been initialized correctly, and thus has the value of <code class="language-plaintext highlighter-rouge">null</code>. Attempting to access variables or call functions on a <code class="language-plaintext highlighter-rouge">null</code> object will throw a <code class="language-plaintext highlighter-rouge">NullPointerException</code>.</p>
+
+<p>This <code class="language-plaintext highlighter-rouge">main()</code> method does not test all methods. You may want to write your own code in <code class="language-plaintext highlighter-rouge">main()</code> to test all aspects of this class and convince yourself that everything is functioning properly. However, we will not be grading tests written for the <code class="language-plaintext highlighter-rouge">GuitarString</code> class. (You need not comment out any testing code that you add <strong>in <code class="language-plaintext highlighter-rouge">main()</code></strong>).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span> <span class="nc">GuitarString</span> <span class="mi">25</span>
+<span class="n">testString</span><span class="o">.</span><span class="na">buffer</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">():</span> <span class="kc">false</span>
+<span class="n">testString</span><span class="o">.</span><span class="na">buffer</span><span class="o">.</span><span class="na">isFull</span><span class="o">():</span>  <span class="kc">true</span>
+     <span class="mi">0</span>   <span class="mf">0.2000</span>
+     <span class="mi">1</span>   <span class="mf">0.4000</span>
+     <span class="mi">2</span>   <span class="mf">0.5000</span>
+     <span class="mi">3</span>   <span class="mf">0.3000</span>
+     <span class="mi">4</span>  <span class="o">-</span><span class="mf">0.2000</span>
+     <span class="mi">5</span>   <span class="mf">0.4000</span>
+     <span class="mi">6</span>   <span class="mf">0.3000</span>
+     <span class="mi">7</span>   <span class="mf">0.0000</span>
+     <span class="mi">8</span>  <span class="o">-</span><span class="mf">0.1000</span>
+     <span class="mi">9</span>  <span class="o">-</span><span class="mf">0.3000</span>
+    <span class="mi">10</span>   <span class="mf">0.2973</span>
+    <span class="mi">11</span>   <span class="mf">0.4460</span>
+    <span class="mi">12</span>   <span class="mf">0.3964</span>
+    <span class="mi">13</span>   <span class="mf">0.0495</span>
+    <span class="mi">14</span>   <span class="mf">0.0991</span>
+    <span class="mi">15</span>   <span class="mf">0.3469</span>
+    <span class="mi">16</span>   <span class="mf">0.1487</span>
+    <span class="mi">17</span>  <span class="o">-</span><span class="mf">0.0496</span>
+    <span class="mi">18</span>  <span class="o">-</span><span class="mf">0.1982</span>
+    <span class="mi">19</span>  <span class="o">-</span><span class="mf">0.0013</span>
+    <span class="mi">20</span>   <span class="mf">0.3683</span>
+    <span class="mi">21</span>   <span class="mf">0.4174</span>
+    <span class="mi">22</span>   <span class="mf">0.2210</span>
+    <span class="mi">23</span>   <span class="mf">0.0737</span>
+    <span class="mi">24</span>   <span class="mf">0.2210</span>
+</code></pre></div></div>
+<hr />
+
+<h3 id="5-guitar">5. <code class="language-plaintext highlighter-rouge">Guitar</code></h3>
+
+<p>Write a program <code class="language-plaintext highlighter-rouge">Guitar.java</code> that simulates a 37-string guitar with notes ranging from 109 Hz to 872 Hz.</p>
+
+<hr />
+
+<h4 id="a-miniguitar">A. MiniGuitar</h4>
+
+<p>Read <code class="language-plaintext highlighter-rouge">MiniGuitar.java</code>. <code class="language-plaintext highlighter-rouge">MiniGuitar</code> is a two-string version of <code class="language-plaintext highlighter-rouge">Guitar</code> that you can use to test your <code class="language-plaintext highlighter-rouge">RingBuffer</code> and <code class="language-plaintext highlighter-rouge">GuitarString</code> classes before moving on to write <code class="language-plaintext highlighter-rouge">Guitar</code>.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">MiniGuitar</code>, and type the lowercase letters a and c into the PennDraw window to pluck the two strings. If you have completed <code class="language-plaintext highlighter-rouge">RingBuffer</code> and <code class="language-plaintext highlighter-rouge">GuitarString</code> correctly, run <code class="language-plaintext highlighter-rouge">MiniGuitar</code> to check to see that everything works properly. You should hear two different pitches corresponding to A and C every time you press the a and c keys.</p>
+
+<p><code class="language-plaintext highlighter-rouge">MiniGuitar</code> uses <code class="language-plaintext highlighter-rouge">PennDraw</code> to receive keystrokes and <code class="language-plaintext highlighter-rouge">StdAudio</code> to play sound.</p>
+
+<p>Notice that <code class="language-plaintext highlighter-rouge">MiniGuitar</code> adds the samples of the <code class="language-plaintext highlighter-rouge">GuitarString</code>s (i.e. superposes them) to compute the sound sample to play.</p>
+
+<p>Notice how <code class="language-plaintext highlighter-rouge">MiniGuitar</code> uses an infinite loop to continually receive keystrokes from the user and generate new music samples. This infinite loop ends when the program terminates.</p>
+
+<p><strong>Error: <code class="language-plaintext highlighter-rouge">dequeue/peek from an empty buffer</code> in <code class="language-plaintext highlighter-rouge">MiniGuitar</code></strong> – You may not have initialized the ring buffer to contain <code class="language-plaintext highlighter-rouge">numSamples</code> zeros in your <code class="language-plaintext highlighter-rouge">GuitarString(double frequency)</code> constructor.</p>
+
+<p><strong>Lack of sound when running <code class="language-plaintext highlighter-rouge">MiniGuitar</code> for the first time</strong> – Make sure you have tested <code class="language-plaintext highlighter-rouge">GuitarString</code> with the <code class="language-plaintext highlighter-rouge">main()</code> provided in the skeleton file. If that works, it is likely something wrong with <code class="language-plaintext highlighter-rouge">pluck()</code> since the <code class="language-plaintext highlighter-rouge">main()</code> provided for <code class="language-plaintext highlighter-rouge">GuitarString</code> does not test that method. To diagnose the problem, print out the values of <code class="language-plaintext highlighter-rouge">sample()</code> and check that they become nonzero after you type the <strong>lower case</strong> characters a and c.</p>
+
+<p><strong>Clicking when running <code class="language-plaintext highlighter-rouge">MiniGuitar</code> (either one click, or continual clicking)</strong> – It’s likely that <code class="language-plaintext highlighter-rouge">pluck()</code> is working, but <code class="language-plaintext highlighter-rouge">tic()</code> is not. The best test is to run the <code class="language-plaintext highlighter-rouge">main()</code> provided for <code class="language-plaintext highlighter-rouge">GuitarString</code>.</p>
+
+<hr />
+
+<h4 id="b-guitar">B. <code class="language-plaintext highlighter-rouge">Guitar</code></h4>
+
+<p>Model your <code class="language-plaintext highlighter-rouge">Guitar</code> class on the given <code class="language-plaintext highlighter-rouge">MiniGuitar</code> code. Where <code class="language-plaintext highlighter-rouge">MiniGuitar</code> had two <code class="language-plaintext highlighter-rouge">GuitarString</code>s, <code class="language-plaintext highlighter-rouge">Guitar</code> has 37.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Guitar</code> should behave such that when a character of <code class="language-plaintext highlighter-rouge">NOTE_MAPPING</code> (defined below) is pressed, <code class="language-plaintext highlighter-rouge">Guitar</code> plays the corresponding note. The character at index <em>i</em> of <code class="language-plaintext highlighter-rouge">NOTE_MAPPING</code> corresponds to a <code class="language-plaintext highlighter-rouge">GuitarString</code> frequency of 436 × 2<sup>(i - 24) / 12</sup>, so that the character <code class="language-plaintext highlighter-rouge">'q'</code> (character index <code class="language-plaintext highlighter-rouge">0</code> of <code class="language-plaintext highlighter-rouge">NOTE_MAPPING</code>) is 110 Hz, <code class="language-plaintext highlighter-rouge">'i'</code> (index <code class="language-plaintext highlighter-rouge">12</code>) is 218 Hz, <code class="language-plaintext highlighter-rouge">'v'</code> (index <code class="language-plaintext highlighter-rouge">24</code>) is 436 Hz, and <code class="language-plaintext highlighter-rouge">' '</code> (index <code class="language-plaintext highlighter-rouge">36</code>) is 872 Hz. You should declare a static variable in <code class="language-plaintext highlighter-rouge">Guitar</code> for the value <code class="language-plaintext highlighter-rouge">436.0</code> and for <code class="language-plaintext highlighter-rouge">NOTE_MAPPING</code> (but you need not do so for <code class="language-plaintext highlighter-rouge">24</code> and <code class="language-plaintext highlighter-rouge">12</code>).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="no">NOTE_MAPPING</span> <span class="o">=</span> <span class="s">"q2we4r5ty7u8i9op-[=zxdcfvgbnjmk,.;/' "</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>This keyboard arrangement imitates a piano keyboard: the “white keys” are on the qwertyuiop[ and zxcvbnm’./ rows and the “black keys” on the 1234567890-= and asdfghjkl;, rows of the standard US QWERTY keyboard layout.
+<img src="images/keyboard.png" alt="" /> <img src="images/keyboard_2.png" alt="" /></p>
+
+<p>The number <code class="language-plaintext highlighter-rouge">37</code> should not appear anywhere in your code. Don’t even think of using 37 individual <code class="language-plaintext highlighter-rouge">GuitarString</code> variables or a 37-way <code class="language-plaintext highlighter-rouge">if</code> statement. Instead, create an array of <code class="language-plaintext highlighter-rouge">GuitarString</code> objects and use <code class="language-plaintext highlighter-rouge">NOTE_MAPPING.indexOf(key)</code> to figure out which key was typed, if any. Make sure your program does not crash if a key is played that is not one of your notes. (<code class="language-plaintext highlighter-rouge">indexOf()</code> returns <code class="language-plaintext highlighter-rouge">-1</code> if the string does not contain the character <code class="language-plaintext highlighter-rouge">key</code>.)</p>
+
+<p>You need not worry about calling <code class="language-plaintext highlighter-rouge">StdAudio.play()</code> with a value greater than 1.0 or less than -1.0. <code class="language-plaintext highlighter-rouge">StdAudio.play()</code> automatically clips the value to within the range <code class="language-plaintext highlighter-rouge">1.0</code> to <code class="language-plaintext highlighter-rouge">-1.0</code>.</p>
+
+<hr />
+
+<h4 id="c-checkpoint-1">C. Checkpoint</h4>
+
+<p><strong>Comment out all print statements in your loop when testing <code class="language-plaintext highlighter-rouge">Guitar</code></strong>. Because print statements take time, they delay the computation of samples, and so your speaker will not receive samples at the rate of 44,100 per second needed to make a meaningful sound.</p>
+
+<p>Once you’ve completed <code class="language-plaintext highlighter-rouge">Guitar</code>, try playing this familiar melody by pressing the keys below, pressing space where <code class="language-plaintext highlighter-rouge">S</code> is denoted.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nn</span><span class="c1">//SS/ ..,,mmn //..,,m //..,,m nn//SS/ ..,,mmn</span>
+</code></pre></div></div>
+
+<p>Type the following into your guitar to get the beginning of Led Zeppelin’s <strong>Stairway to Heaven</strong>. Multiple notes in a column are dyads and chords.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                              <span class="n">w</span> <span class="n">q</span> <span class="n">q</span>
+        <span class="mi">8</span>       <span class="n">u</span>       <span class="mi">7</span>       <span class="n">y</span>             <span class="n">o</span> <span class="n">p</span> <span class="n">p</span>
+<span class="n">i</span> <span class="n">p</span> <span class="n">z</span> <span class="n">v</span> <span class="n">b</span> <span class="n">z</span> <span class="n">p</span> <span class="n">b</span> <span class="n">n</span> <span class="n">z</span> <span class="n">p</span> <span class="n">n</span> <span class="n">d</span> <span class="o">[</span> <span class="n">i</span> <span class="n">d</span> <span class="n">z</span> <span class="n">p</span> <span class="n">i</span> <span class="n">p</span> <span class="n">z</span> <span class="n">p</span> <span class="n">i</span> <span class="n">u</span> <span class="n">i</span> <span class="n">i</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="6-extra-credit">6. Extra Credit</h3>
+
+<p>There are many ways to build on <code class="language-plaintext highlighter-rouge">Guitar.java</code>. Some of these can earn extra credit. Others cannot, but are included below for you to implement if you are interested.</p>
+
+<hr />
+
+<h4 id="a-extra-credit-1">A. Extra Credit 1</h4>
+
+<p>Write a program <code class="language-plaintext highlighter-rouge">VisualGuitar.java</code> (by modifying <code class="language-plaintext highlighter-rouge">Guitar.java</code>) that plots the sound wave in real-time using <code class="language-plaintext highlighter-rouge">PennDraw</code>, as the user is playing the keyboard guitar. The output could look something like this, but change over time. You are free to be as creative as you wish with your visualization, as long as the visualization is driven by the sound samples being emitted.</p>
+
+<p><img src="images/wave.png" alt="" /></p>
+
+<p>There are lots of different ways to visualize the sound, and any kind of animation that is tied to the sound samples is just fine. If you want to plot the sound wave similar to the figure above, you’ll find the <code class="language-plaintext highlighter-rouge">PennDraw.point()</code> and <code class="language-plaintext highlighter-rouge">PennDraw.polyLine()</code> functions useful, although there are other options that also work fine.</p>
+
+<p>If you draw lots of points, first call <code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius(0)</code> once. This ensures that each point is a single pixel, and they will draw faster. (This is not conceptually interesting; it’s a performance hack in the <code class="language-plaintext highlighter-rouge">PennDraw</code> implementation.)</p>
+
+<p>Do not redraw the wave (or whatever animation you choose to make) on every sample because <code class="language-plaintext highlighter-rouge">PennDraw</code> will not be able to keep up. Instead, set a lower frame rate, and draw a batch of samples at a time. (For instance, you might set the frame rate to 44.1 and draw a new image every 1000 sound samples.) Experiment with different frame rates to find one that you think looks good and draws smoothly. There is more than one way to handle the drawing – there is no “right” way to do this.</p>
+
+<hr />
+
+<h4 id="b-extra-credit-2">B. Extra Credit 2</h4>
+
+<p>Come to office hours the week after this homework is due and perform a piece for your TA. You may perform in groups if you wish, and you may use a modified version of your program for the performance if you wish.</p>
+
+<hr />
+
+<h4 id="c-challenge-for-the-bored">C. Challenge for the Bored</h4>
+
+<p>The ideas below are purely for you own enjoyment if you want to explore further. They are not worth any extra credit, and you will not submit them. They’re just for fun.</p>
+
+<p><strong>Do not make these modifications in the version of the <code class="language-plaintext highlighter-rouge">RingBuffer.java</code>, <code class="language-plaintext highlighter-rouge">GuitarString.java</code>, or <code class="language-plaintext highlighter-rouge">Guitar.java</code> that you submit. Instead, make new copies of these files with different names, and experiment in your new files.</strong></p>
+
+<p>Modify the Karplus-Strong algorithm to synthesize a different instrument. Consider changing the excitation of the string (from white noise to something more structured) or changing the averaging formula (from the average of the first two samples to a more complicated rule) or anything else you might imagine. This is a challenge for the bored, so you will not receive extra credit for it, but you may use these suggestions as the basis for your visualization or your performance in class.</p>
+
+<p>Alexander Strong suggests a few simple variants you can try:</p>
+<ul>
+  <li><strong>Stretched tuning</strong> – The frequency formula in the assignment uses “perfect tuning” that does not sound equally good in every key. Instead, most musicians use stretched tuning that equalizes the distortions across all keys. To get stretched tuning, using the formula <em>f</em> = 440 × 1.05956<sup>i - 24</sup>. Try experimenting a bit with the base of the exponent to see what sounds best.</li>
+  <li><strong>Extra notes</strong> – Add additional keys to your keyboard string to play additional notes (higher or lower). Higher notes, especially, will benefit from stretched tuning. You will need to update the <code class="language-plaintext highlighter-rouge">24</code> in your frequency formula to change the frequency of the lowest note.</li>
+  <li><strong>Better decay factors</strong> – Make the decay factor dependent on the string frequency. Lower notes should have a higher decay factor; higher notes should have a smaller decay. Try different formulas and see what sounds best.</li>
+  <li><strong>Harp strings</strong> – Using a decay factor of <code class="language-plaintext highlighter-rouge">-0.997</code> in <code class="language-plaintext highlighter-rouge">tic()</code> will change the sound from guitar-like to harp-like. You may want to play with the decay factors and note frequencies to improve the realism.</li>
+  <li><strong>Drums</strong> – Randomly flipping (with probability 0.5) the sign of the new value before enqueueing it in <code class="language-plaintext highlighter-rouge">tic()</code> will produce a drum sound. You will need lower frequencies for the drums than for the guitar and guitar, and will want to use a decay factor of 1.0 (no decay). The note frequencies for the drums should also be spaced further apart.</li>
+  <li><strong>Mix and match</strong> – Assign some keyboard keys to drums, others to guitar, and still others to guitar (or any other instruments you invent) so you can play an ensemble.</li>
+</ul>
+
+<hr />
+
+<h4 id="d-enrichment">D. Enrichment</h4>
+<ul>
+  <li><strong>Citation</strong> – The original paper describing this algorithm, including many variants and a mathematical derivation of why it works: Kevin Karplus, and Alexander Strong. “<a href="http://www.jstor.org/stable/3680062">Digital Synthesis of Plucked-String and Drum Timbres</a>”. Computer Music Journal Vol. 7, No. 2 (Summer 1983), pp. 43-55. To access the full article, follow the link, then, click on “Login” in the upper right. Select “University of Pennsylvania” as your institution, and you will be able to log in with using your PennKey. (If you are on the Penn network, you may not need to log in.)</li>
+  <li><strong>ChucK</strong> – <a href="http://chuck.cs.princeton.edu/">ChucK</a> is a specialized programming language for real-time synthesis, composition, and performance, originated by <a href="https://ccrma.stanford.edu/~ge">Ge Wang</a> and <a href="http://www.cs.princeton.edu/~prc/">Perry Cook</a> at Princeton University. Here’s the <a href="http://chuck.cs.princeton.edu/doc/examples/deep/plu.ck">Karplus-Strong algorithm in ChucK</a>.</li>
+  <li><strong>Slide flute</strong> – Here is a description of a physically modeled <a href="http://ccrma.stanford.edu/software/clm/compmus/clm-tutorials/pm.html">slide flute</a> by Perry Cook.</li>
+</ul>
+
+<hr />
+
+<h3 id="7-readme-and-submission">7. Readme and Submission</h3>
+
+<hr />
+
+<h4 id="a-readme">A. Readme</h4>
+
+<p>Complete <code class="language-plaintext highlighter-rouge">readme_guitarhero.txt</code> in the same way that you have done for previous assignments.</p>
+
+<hr />
+
+<h4 id="b-submission">B. Submission</h4>
+
+<p>Submit <code class="language-plaintext highlighter-rouge">RingBuffer.java</code>, <code class="language-plaintext highlighter-rouge">RingBufferTest.java</code>, <code class="language-plaintext highlighter-rouge">GuitarString.java</code>, <code class="language-plaintext highlighter-rouge">Guitar.java</code>, and <code class="language-plaintext highlighter-rouge">readme_guitarhero.txt</code> on Gradescope.</p>
+
+<p>You may also submit <code class="language-plaintext highlighter-rouge">VisualGuitar.java</code> for Extra Credit 1. If your <code class="language-plaintext highlighter-rouge">VisualGuitar</code> program requires any additional files, you may submit them in a compressed file named <code class="language-plaintext highlighter-rouge">extra.zip</code>.</p>
+
+<p><strong>You may not submit any modifications from the “Challenge for the Bored” section in the <code class="language-plaintext highlighter-rouge">RingBuffer.java</code>, <code class="language-plaintext highlighter-rouge">GuitarString.java</code>, or <code class="language-plaintext highlighter-rouge">Guitar.java</code> files.</strong></p>
+:ET

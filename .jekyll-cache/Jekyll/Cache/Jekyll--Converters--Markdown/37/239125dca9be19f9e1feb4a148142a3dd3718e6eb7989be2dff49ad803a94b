@@ -1,0 +1,183 @@
+I"e<h3 id="exam-2">Exam 2</h3>
+
+<h4 id="details">Details</h4>
+
+<ul>
+  <li><strong>Date</strong> April 21 9am - April 22 1am EDT</li>
+  <li><strong>Duration</strong> 130 minutes</li>
+  <li><strong>Location</strong> Gradescope</li>
+</ul>
+
+<hr />
+
+<h4 id="topics-covered">Topics Covered</h4>
+
+<ul>
+  <li>
+    <p><strong>What will be on the exam?</strong> Anything we have covered in lecture, homeworks, and/or  reading assignments is fair game for the exam. It is reasonable to assume that topics we have dealt with more extensively are likely to feature more prominently than topics we have only touched on, although anything is possible.</p>
+  </li>
+  <li>
+    <p><strong>Will X be on the exam?</strong> Please refer to the previous section. To ensure all students receive identical information about what will and will not be on the exam, course staff have been instructed to refer students to this page without commenting further.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="current-and-previous-exams">Current and Previous Exams</h4>
+
+<ul>
+  <li>Please remember that the selection and order of topics varies somewhat from semester to semester, so previous exams may include questions that are not relevant to this semester, and they may not cover all topics that may be examined this semester.</li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Questions</th>
+      <th>Answers</th>
+      <th>Median</th>
+      <th>Total Points</th>
+      <th>Standard Deviation</th>
+      <th>Corrections</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    
+      <tr style="text-align: left">
+        <td>Fall 2019</td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f19.pdf">Questions</a>
+          
+        </td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f19_key.pdf">Answers</a>
+          
+        </td>
+        <td>
+          
+            64.25
+          
+        </td>
+        <td>
+          
+            110
+          
+        </td>
+        <td>
+          
+            16.85
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    
+      <tr style="text-align: left">
+        <td>Fall 2018</td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f18.pdf">Questions</a>
+          
+        </td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f18_key.pdf">Answers</a>
+          
+        </td>
+        <td>
+          
+            74.25
+          
+        </td>
+        <td>
+          
+            110
+          
+        </td>
+        <td>
+          
+            20.5
+          
+        </td>
+        <td>
+          
+          <ul class="list-unstlyed">
+            
+              <li> 1 - Q7 - Sneaky Move 2 looks for the largest among even indices. </li>
+            
+          </ul>
+          
+        </td>
+      </tr>
+    
+      <tr style="text-align: left">
+        <td>Fall 2017</td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f17.pdf">Questions</a>
+          
+        </td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f17_key.pdf">Answers</a>
+          
+        </td>
+        <td>
+          
+            52.5
+          
+        </td>
+        <td>
+          
+            80
+          
+        </td>
+        <td>
+          
+            11.6
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    
+      <tr style="text-align: left">
+        <td>Fall 2016</td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f16.pdf">Questions</a>
+          
+        </td>
+        <td>
+          
+            <a target="_blank" href="/~cis110/current/assets/exams/exam2/f16_key.pdf">Answers</a>
+          
+        </td>
+        <td>
+          
+            64
+          
+        </td>
+        <td>
+          
+            92
+          
+        </td>
+        <td>
+          
+            12.32
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+:ET

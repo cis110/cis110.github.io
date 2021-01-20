@@ -1,0 +1,1645 @@
+I"0�<h1 id="introduction">Introduction</h1>
+<p>This resource is presented as list of topics, functions, and patterns that we’ve encountered so far in CIS 110. It is reference material, and not a definitive textbook.</p>
+
+<p>Please note that this resource is <strong>not</strong>…</p>
+<ul>
+  <li>a comprehensive list of all information that might be tested on an exam</li>
+  <li>a replacement for having viewed the live &amp; recorded material that covered these topics</li>
+  <li>an indication that something <strong>not</strong> covered here is not an important concept in learning programming &amp; Java.</li>
+  <li>an example of exactly the level of detail at which you need to understand a concept.</li>
+</ul>
+
+<p>Here are a handful of good ways to use this document:</p>
+<ul>
+  <li>As a <strong>starting point</strong> for preparing for an exam.</li>
+  <li>As a way to check your understanding of a recent topic.</li>
+  <li>As a reference for completing homeworks, especially when you recall that we’ve covered something similar to the problem at hand before in the class.</li>
+  <li>As a way to double check why the code you’re writing isn’t compiling, or to remind you of some syntax rules that just won’t stick in your head.</li>
+</ul>
+
+<blockquote>
+  <p>You might notice that some text looks like this. When something is written in this way, it’s information that you might be interested to learn but that you’re not required to know.</p>
+</blockquote>
+
+<p>Table of Contents:</p>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#incomplete-list-of-functions--operations-we-have-used">Incomplete List of Functions &amp; Operations We Have Used</a></li>
+  <li><a href="#basics-of-a-java-program">Basics of a Java Program</a>
+    <ul>
+      <li><a href="#writing--running-code">Writing &amp; Running Code</a></li>
+      <li><a href="#the-main-method--args">The <code class="language-plaintext highlighter-rouge">main</code> Method &amp; <code class="language-plaintext highlighter-rouge">args</code></a></li>
+      <li><a href="#code-blocks">Code Blocks</a></li>
+    </ul>
+  </li>
+  <li><a href="#drawing">Drawing</a></li>
+  <li><a href="#variables">Variables</a>
+    <ul>
+      <li><a href="#what-a-variable-is">What A Variable Is</a></li>
+      <li><a href="#declaring-a-variable">Declaring a Variable</a></li>
+      <li><a href="#assigning-a-value-to-a-variable">Assigning a Value to a Variable</a></li>
+      <li><a href="#variable-scopes">Variable Scopes</a></li>
+    </ul>
+  </li>
+  <li><a href="#data-types">Data Types</a>
+    <ul>
+      <li><a href="#what-a-data-type-is">What a Data Type Is</a></li>
+      <li><a href="#primitive-data-types-in-java">Primitive Data Types in Java</a>
+        <ul>
+          <li><a href="#table-of-primitives">Table of Primitives</a></li>
+          <li><a href="#strings">Strings</a></li>
+        </ul>
+      </li>
+      <li><a href="#some-important-operators--tools">Some Important Operators &amp; Tools</a>
+        <ul>
+          <li><a href="#relational-operators">Relational Operators</a></li>
+          <li><a href="#the-multifaceted-">The multifaceted <code class="language-plaintext highlighter-rouge">+</code></a></li>
+          <li><a href="#mod-">Mod (<code class="language-plaintext highlighter-rouge">%</code>)</a></li>
+          <li><a href="#casting">Casting</a></li>
+          <li><a href="#parsing">Parsing</a></li>
+          <li><a href="#math">Math</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#conditionals">Conditionals</a>
+    <ul>
+      <li><a href="#when-to-use-a-conditional">When to use a Conditional</a></li>
+      <li><a href="#if-else-if-and-else"><code class="language-plaintext highlighter-rouge">if</code>, <code class="language-plaintext highlighter-rouge">else if</code>, and <code class="language-plaintext highlighter-rouge">else</code></a></li>
+      <li><a href="#switch-statements">Switch Statements</a></li>
+    </ul>
+  </li>
+  <li><a href="#loops">Loops</a>
+    <ul>
+      <li><a href="#rules-of-iteration-in-java">Rules of Iteration in Java</a></li>
+      <li><a href="#the-while-loop">The While Loop</a></li>
+      <li><a href="#the-for-loop">The For Loop</a></li>
+      <li><a href="#your-loop-of-choice">Your Loop of Choice</a></li>
+      <li><a href="#break-and-continue">Break and Continue</a></li>
+    </ul>
+  </li>
+  <li><a href="#arrays">Arrays</a>
+    <ul>
+      <li><a href="#what-is-an-array">What is an Array?</a>
+        <ul>
+          <li><a href="#arrays-are-fixed-length">Arrays Are Fixed-Length</a></li>
+          <li><a href="#arrays-are-indexed">Arrays Are Indexed</a></li>
+          <li><a href="#arrays-contain-values-of-one-type-only">Arrays Contain Values Of One Type Only</a></li>
+        </ul>
+      </li>
+      <li><a href="#manipulating-arrays">Manipulating Arrays</a>
+        <ul>
+          <li><a href="#initializing-entries-of-an-array-to-random-values">Initializing entries of an array to random values</a></li>
+          <li><a href="#printing-the-values-of-an-array">Printing the values of an array</a></li>
+          <li><a href="#finding-the-maximum-value-in-an-array">Finding the maximum value in an array</a></li>
+          <li><a href="#finding-the-sum--mean-of-an-array-of-doubles">Finding the sum &amp; mean of an array of doubles</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#functions">Functions</a>
+    <ul>
+      <li><a href="#anatomy-of-a-function">Anatomy of a Function</a></li>
+      <li><a href="#functions-and-control-flow">Functions and Control Flow</a></li>
+      <li><a href="#functions-and-variable-scope">Functions and Variable Scope</a></li>
+    </ul>
+  </li>
+  <li><a href="#recursion">Recursion</a></li>
+  <li><a href="#object-oriented-programming">Object Oriented Programming</a>
+    <ul>
+      <li><a href="#objects-vs-classes">Objects vs Classes</a></li>
+      <li><a href="#writing-classes-to-define-object-state--behavior">Writing Classes to Define Object State &amp; Behavior</a>
+        <ul>
+          <li><a href="#fields">Fields</a></li>
+          <li><a href="#methods">Methods</a></li>
+          <li><a href="#constructor">Constructor</a></li>
+        </ul>
+      </li>
+      <li><a href="#principles-of-object-oriented-programming">Principles of Object Oriented Programming</a>
+        <ul>
+          <li><a href="#encapsulation">Encapsulation</a>
+            <ul>
+              <li><a href="#getters-and-setters">Getters and Setters</a></li>
+            </ul>
+          </li>
+          <li><a href="#abstraction">Abstraction</a></li>
+          <li><a href="#state">State</a></li>
+          <li><a href="#mutability-and-immutability">Mutability and Immutability</a></li>
+        </ul>
+      </li>
+      <li><a href="#abstract-data-types">Abstract Data Types</a></li>
+    </ul>
+  </li>
+  <li><a href="#references-in-java">References in Java</a></li>
+  <li><a href="#linknodes-linked-lists--array-lists">LinkNodes, Linked Lists, &amp; Array Lists</a>
+    <ul>
+      <li><a href="#typical-list-interface">Typical List Interface</a></li>
+    </ul>
+  </li>
+  <li><a href="#number-systems">Number Systems</a>
+    <ul>
+      <li><a href="#decimal-vs-binary">Decimal vs. Binary</a></li>
+      <li><a href="#converting-from-binary-to-decimal">Converting from Binary to Decimal</a></li>
+      <li><a href="#converting-from-decimal-to-binary">Converting from Decimal to Binary</a></li>
+      <li><a href="#encryption--xor">Encryption &amp; XOR</a></li>
+    </ul>
+  </li>
+  <li><a href="#2d-arrays">2D Arrays</a>
+    <ul>
+      <li><a href="#declaring-and-initializing">Declaring and Initializing</a></li>
+      <li><a href="#indexing">Indexing</a></li>
+      <li><a href="#iteration-through-2d-arrays">Iteration through 2D Arrays</a></li>
+    </ul>
+  </li>
+  <li><a href="#comparing-objects">Comparing Objects</a></li>
+</ul>
+
+<hr />
+<h1 id="incomplete-list-of-functions--operations-we-have-used">Incomplete List of Functions &amp; Operations We Have Used</h1>
+<ul>
+  <li>Basic operations:
+    <ul>
+      <li>Arithmetic
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">+, -, *, /</code> on numeric types</li>
+          <li><code class="language-plaintext highlighter-rouge">%</code>, the <a href="#mod-">mod operator</a> for numeric types</li>
+        </ul>
+      </li>
+      <li>Logical
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">&amp;&amp;</code>, <code class="language-plaintext highlighter-rouge">||</code> for booleans</li>
+        </ul>
+      </li>
+      <li>Relational
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">==, !=</code> for all primitive data types</li>
+          <li><code class="language-plaintext highlighter-rouge">&lt;, &gt;, &lt;=, =&gt;</code> for numeric primitive types</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Math</code> operations
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Math.pow</code> for exponentiation (don’t use for squaring, though!)</li>
+      <li><code class="language-plaintext highlighter-rouge">Math.sqrt</code> for square roots</li>
+      <li><code class="language-plaintext highlighter-rouge">Math.abs</code> for absolute values</li>
+      <li><code class="language-plaintext highlighter-rouge">Math.min</code>, <code class="language-plaintext highlighter-rouge">Math.max</code> for finding the smaller/larger of two values</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw</code> functions
+    <ul>
+      <li>These are numerous, so review <a href="https://www.cis.upenn.edu/~cis110/current/resources/penndraw.html">our PennDraw guide</a> for the full listing</li>
+      <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenColor</code>, <code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius</code> for changing drawing properties</li>
+      <li><code class="language-plaintext highlighter-rouge">PennDraw.clear</code> to clear the screen, draw backgrounds</li>
+      <li><code class="language-plaintext highlighter-rouge">PennDraw.setScale</code>, <code class="language-plaintext highlighter-rouge">PennDraw.setXScale</code>, <code class="language-plaintext highlighter-rouge">PennDraw.setYScale</code> for changing drawing scales.</li>
+      <li>Shapes range from simple (<code class="language-plaintext highlighter-rouge">PennDraw.point</code>) to complex (<code class="language-plaintext highlighter-rouge">PennDraw.polygon</code>)</li>
+      <li><code class="language-plaintext highlighter-rouge">PennDraw.enableAnimation</code> and <code class="language-plaintext highlighter-rouge">PennDraw.advance</code> are essential for animation</li>
+      <li>Interactivity:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">PennDraw.mousePressed</code>, <code class="language-plaintext highlighter-rouge">PennDraw.mouseX</code>, and <code class="language-plaintext highlighter-rouge">PennDraw.mouseY</code> for mouse inputs</li>
+          <li><code class="language-plaintext highlighter-rouge">PennDraw.hasNextKeyTyped</code> and <code class="language-plaintext highlighter-rouge">PennDraw.nextKeyTyped</code> for keyboard inputs</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Reading inputs with <code class="language-plaintext highlighter-rouge">In</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">isEmpty</code> for checking if there is anything left to read in the file</li>
+      <li><code class="language-plaintext highlighter-rouge">readInt, readDouble, readBoolean, readString, readLine</code> all read &amp; parse the next single value in the file as the desired data type. These all read one value at a time.</li>
+      <li><code class="language-plaintext highlighter-rouge">readAll</code> consumes the rest of the text in the file and returns it to you as a (potentially very long) <code class="language-plaintext highlighter-rouge">String</code>.</li>
+    </ul>
+  </li>
+  <li>Printing
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">System.out.println</code> prints its input, followed by a line break (an <code class="language-plaintext highlighter-rouge">'\n'</code> character).</li>
+      <li><code class="language-plaintext highlighter-rouge">System.out.print</code> prints its input exactly, with no space add afterwards.</li>
+    </ul>
+  </li>
+  <li>Arrays
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">arr.length</code> evaluates to the length of the array <code class="language-plaintext highlighter-rouge">arr</code> as an <code class="language-plaintext highlighter-rouge">int</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">arr[i]</code> evaluates to the value stored at index <code class="language-plaintext highlighter-rouge">i</code> within array <code class="language-plaintext highlighter-rouge">arr</code>.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">String</code>s
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">+</code> is used for <em>concatenating</em> a value with a <code class="language-plaintext highlighter-rouge">String</code>. More on this <a href="#the-multifaceted-">here.</a></li>
+      <li><code class="language-plaintext highlighter-rouge">s.length()</code> returns the length of the <code class="language-plaintext highlighter-rouge">String</code> as an <code class="language-plaintext highlighter-rouge">int</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">s.charAt(i)</code> returns the <code class="language-plaintext highlighter-rouge">char</code> at index <code class="language-plaintext highlighter-rouge">i</code> in <code class="language-plaintext highlighter-rouge">String s</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">s.toUpperCase()</code> and <code class="language-plaintext highlighter-rouge">s.toLowerCase()</code> return a new <code class="language-plaintext highlighter-rouge">String</code> with all alphabetic <code class="language-plaintext highlighter-rouge">char</code>s in <code class="language-plaintext highlighter-rouge">s</code> converted to uppercase and lowercase, respectively.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h1 id="basics-of-a-java-program">Basics of a Java Program</h1>
+
+<h2 id="writing--running-code">Writing &amp; Running Code</h2>
+<ul>
+  <li>Java code is written in <code class="language-plaintext highlighter-rouge">.java</code> files.</li>
+  <li>Code must be compiled before it can be run.
+    <ul>
+      <li>To compile your code, press the “Compile” button on the top bar in Codio.</li>
+      <li>Every time you change your code, you must re-compile your code before running it so that the changes are executed.</li>
+    </ul>
+  </li>
+  <li>To run a Java program that has been compiled, you must meet several important criteria. If the program is <code class="language-plaintext highlighter-rouge">ExampleFile.java</code>, then the layout of the program must match the following:
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This file is named ExampleFile.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleFile</span> <span class="o">{</span>
+    <span class="c1">// Other code &amp; functions can come before or after main, too</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="c1">// Other code &amp; functions can come before or after main, too</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Specifically, the name of the file and the top-level class name must match.</li>
+      <li>Additionally, the program needs a main function to be run directly.</li>
+    </ul>
+  </li>
+  <li>A program, once compiled, can be run with <code class="language-plaintext highlighter-rouge">java ExampleFile</code> from the Codio terminal, optionally passing in command line arguments as well.</li>
+</ul>
+
+<h2 id="the-main-method--args">The <code class="language-plaintext highlighter-rouge">main</code> Method &amp; <code class="language-plaintext highlighter-rouge">args</code></h2>
+<p>This is the entry point to a program. That is, when you run <code class="language-plaintext highlighter-rouge">java Apples fuji macintosh pink-lady</code>, you’re doing the following:</p>
+<ul>
+  <li>Java finds the method defined as <code class="language-plaintext highlighter-rouge">public static void main(String[] args)</code> from <code class="language-plaintext highlighter-rouge">Apples.java</code></li>
+  <li>The execution of the program starts at the beginning of the <code class="language-plaintext highlighter-rouge">main</code> method, and continues until <code class="language-plaintext highlighter-rouge">main</code> returns, including any potential method calls in <code class="language-plaintext highlighter-rouge">main</code>.</li>
+  <li>The input argument to <code class="language-plaintext highlighter-rouge">main</code> called <code class="language-plaintext highlighter-rouge">args</code> is an array of Strings representing the list of arguments passed in from the run command. In this case, <code class="language-plaintext highlighter-rouge">args</code> would be equal to <code class="language-plaintext highlighter-rouge">{"fuji", "macintosh", "pink-lady"}</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">args</code> is always an array of <code class="language-plaintext highlighter-rouge">String</code>s. If you intend to interpret the input as numbers, you’ll need to use <em>parsing</em> on the relevant members of <code class="language-plaintext highlighter-rouge">args</code> (<code class="language-plaintext highlighter-rouge">Integer.parseInt(s)</code>, <code class="language-plaintext highlighter-rouge">Double.parseDouble(s)</code>).</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="code-blocks">Code Blocks</h2>
+<p>Java programs are essentially sequences of nested code blocks. Code blocks are groups of lines of code that live between an open brace (this character: <code class="language-plaintext highlighter-rouge">{</code> ) and its corresponding close brace (this character: <code class="language-plaintext highlighter-rouge">}</code>). Note that a block of code does not necessarily end at the first <code class="language-plaintext highlighter-rouge">}</code> character following a <code class="language-plaintext highlighter-rouge">{</code> character in the case of nested code.<br />
+An illustration follows, with each comment specifying which code block that line would belong to. Note the fact that code blocks can nest, and how this is represented here with the decimal notation (block 1.2.1 is the first block inside the second block inside the first block, for example).</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CodeBlockExample</span> <span class="o">{</span>
+  <span class="c1">// BLOCK 1</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// BLOCK 1.1</span>
+    <span class="k">for</span> <span class="o">(...)</span> <span class="o">{</span>
+      <span class="c1">// BLOCK 1.1.1</span>
+    <span class="o">}</span>
+    <span class="c1">// BLOCK 1.1</span>
+    <span class="k">while</span> <span class="o">(...)</span> <span class="o">{</span>
+      <span class="c1">// BLOCK 1.1.2</span>
+    <span class="o">}</span>
+    <span class="c1">// BLOCK 1.1</span>
+  <span class="o">}</span>
+  <span class="c1">// BLOCK 1</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">tester</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// BLOCK 1.2</span>
+    <span class="k">for</span> <span class="o">(...)</span> <span class="o">{</span>
+      <span class="c1">// BLOCK 1.2.1</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// BLOCK 1.2</span>
+    <span class="c1">// BLOCK 1.2</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="drawing">Drawing</h1>
+<p>A complete reference to drawing with PennDraw is <a href="https://www.cis.upenn.edu/~cis110/current/resources/penndraw.html">already available on the course site.</a> Some key points:</p>
+<ul>
+  <li>The default coordinate system for PennDraw canvases has <code class="language-plaintext highlighter-rouge">(0, 0)</code> in the bottom left corner and <code class="language-plaintext highlighter-rouge">(1, 1)</code> at the top right corner. You can use <code class="language-plaintext highlighter-rouge">PennDraw.setScale()</code> to change this as makes sense to your program.</li>
+  <li>All shapes (from points to polygons) are drawn to the color specified by the PennDraw <code class="language-plaintext highlighter-rouge">penColor</code>. To change the color of a shape, you must add a call to <code class="language-plaintext highlighter-rouge">PennDraw.setPenColor()</code> at some point before the line where you draw the shape.</li>
+  <li>Animation is disabled by default.
+    <ul>
+      <li>A call to <code class="language-plaintext highlighter-rouge">PennDraw.enableAnimation(frameRate)</code> turns on animation at the specified framerate.</li>
+      <li>If animations are enabled, nothing will be actually drawn to the screen until <code class="language-plaintext highlighter-rouge">PennDraw.advance()</code> is called. When this function is called, any shape or text drawing commands run since the last call to <code class="language-plaintext highlighter-rouge">advance()</code> will have their outputs drawn to the screen.</li>
+    </ul>
+  </li>
+  <li>PennDraw also allows you to capture user input through mouse clicks and key presses. The protocols for these steps are listed <a href="https://www.cis.upenn.edu/~cis110/current/resources/penndraw.html#keyboard-and-mouse">here</a> and you should take care to familiarize yourself with them.
+    <ul>
+      <li>Mouse presses are simple to read: calling <code class="language-plaintext highlighter-rouge">mousePressed()</code> works regardless of the previous user inputs and represents the state of the mouse at the current frame.</li>
+      <li>PennDraw tracks all key presses and saves them for you until you ask for them. Following the examples of how to use <code class="language-plaintext highlighter-rouge">hasNextKeyTyped()</code> and <code class="language-plaintext highlighter-rouge">nextKeyTyped()</code> are important for understanding how to read sequences of user input, which stores the state from previous frames.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="variables">Variables</h1>
+
+<h2 id="what-a-variable-is">What A Variable Is</h2>
+<p>Variables are just names for individual pieces of data in Java. You provide the name and type of a variable to Java, and Java will keep track of that name for you. You can then assign (and reassign) data to the variable for later use. Variables in Java are mutable, meaning that you are able to change the values that the variables contain. This is the big reason why they are so useful!</p>
+
+<h2 id="declaring-a-variable">Declaring a Variable</h2>
+<p>The syntax for declaring a variable is a two part statement: <code class="language-plaintext highlighter-rouge">type name</code>, where <code class="language-plaintext highlighter-rouge">type</code> is the data type of the variable and <code class="language-plaintext highlighter-rouge">name</code> is the name of the variable. When a variable is declared without having a value assigned to it, the variable will have a default value. The default value depends on the data type that variable, but the result is that whenever you reference the variable after it is declared, it will have some (potentially <code class="language-plaintext highlighter-rouge">null</code> value). Once a variable has been declared, it is not possible to declare a variable of the same name in the same scope.<br />
+Some examples:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">lastName</span><span class="o">;</span>
+<span class="kt">char</span> <span class="n">middleInitial</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">isFinished</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h2 id="assigning-a-value-to-a-variable">Assigning a Value to a Variable</h2>
+<p>This is done with the use of the assignment operator, <code class="language-plaintext highlighter-rouge">=</code>. The syntax for assigning a value to a variable is: providing the name of the variable, followed by the assignment operator, followed by an expression that will be the new value of the variable (examples to follow). It is possible to assign a value to a variable at the moment it is declared, although this is not required. This means that it is possible to assign to a variable when or after it is declared, but it is not possible to assign a value to a name of a variable that has never been declared. Variables can also be assigned in terms of themselves, and this is a powerful asset in the case of trying to count or store intermediate results of computation.<br />
+Some examples:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">53</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">age</span> <span class="o">*</span> <span class="mf">2.5</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">lastName</span><span class="o">;</span>
+<span class="n">lastName</span> <span class="o">=</span> <span class="s">"Fouh"</span><span class="o">;</span>
+<span class="n">middleInitial</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="n">middleInitial</span> <span class="o">+</span> <span class="mi">2</span><span class="o">);</span>
+<span class="kt">boolean</span> <span class="n">isFinished</span><span class="o">;</span>
+<span class="n">isFinished</span> <span class="o">=</span> <span class="o">!</span><span class="n">isFinished</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h2 id="variable-scopes">Variable Scopes</h2>
+<p>The scope of a variable is the set of lines in the Java program where Java will recognize the name of that variable. A variable is generally in scope for the entire code block in which it is defined following its definition, and it is also in scope for all code blocks nested inside after its definition.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// x is not in scope</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"not yet"</span><span class="o">);</span>
+  <span class="kt">boolean</span> <span class="n">x</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// x begins scope here</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// this is a nested code block within the previous one</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// x is in scope here</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Just once."</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="c1">// we're back in the original block; x is in scope</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+<span class="o">}</span> <span class="c1">// x's original code block ends.</span>
+<span class="c1">// x is not in scope here</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">tester</span><span class="o">()</span> <span class="o">{</span>
+  <span class="c1">// x is not in scope here</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="data-types">Data Types</h1>
+
+<h2 id="what-a-data-type-is">What a Data Type Is</h2>
+<p>In Java, <strong>every expression that stores or calculates to a value has a data type</strong>. A data type is a formal classification for how Java represents and handles any piece of information. This is a broad and almost philosophical definition. A more practical one looks like this: a data type in Java is a definition of the range that a particular value can belong to, and what operations are valid to perform on that value. Operators and functions in Java specify what data types they can work with. If you are not careful with tracking the data types of the inputs to different functions and operators, you can end up with code that won’t compile.</p>
+
+<h2 id="primitive-data-types-in-java">Primitive Data Types in Java</h2>
+<p>There are a number of primitive Data Types available in Java. To say that a data type is primitive means that the type is predefined by Java to be included in the language. In this class we focus on studying four primitive data types: <code class="language-plaintext highlighter-rouge">boolean</code>, <code class="language-plaintext highlighter-rouge">char</code>, <code class="language-plaintext highlighter-rouge">int</code>, and <code class="language-plaintext highlighter-rouge">double</code>. In addition, we are also heavily interested in the <code class="language-plaintext highlighter-rouge">String</code> Data Type which, while not technically a primitive one, can be used in many similar ways to the primitive data types.</p>
+
+<h3 id="table-of-primitives">Table of Primitives</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data Type</th>
+      <th>Range</th>
+      <th>Default</th>
+      <th>Usage</th>
+      <th>Key Operations (not exhaustive)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td>[-32,768, 32,767]</td>
+      <td>0</td>
+      <td>integers</td>
+      <td>+,-,*,/,%,&gt;,&lt;,&lt;=,=&gt;,==,!=</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">double</code></td>
+      <td>a very negative number up to a very positive number</td>
+      <td>0.0</td>
+      <td>numbers, including fractional parts</td>
+      <td>+,-,*,/,%,&gt;,&lt;,&lt;=,=&gt;,==,!=</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>{<code class="language-plaintext highlighter-rouge">true</code>, <code class="language-plaintext highlighter-rouge">false</code>}</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>truth values</td>
+      <td>==, !=, !, &amp;&amp; , ||</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">char</code></td>
+      <td>[0, 65535]</td>
+      <td>0, or <code class="language-plaintext highlighter-rouge">'\u0000'</code></td>
+      <td>single characters of text (letters, numbers, punctuation, spaces) represented as small integers</td>
+      <td>similar to <code class="language-plaintext highlighter-rouge">int</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="strings">Strings</h3>
+<p><code class="language-plaintext highlighter-rouge">String</code>s are effectively sequences of <code class="language-plaintext highlighter-rouge">char</code>s. The default value of a <code class="language-plaintext highlighter-rouge">String</code> is <code class="language-plaintext highlighter-rouge">null</code> (more on this later). <code class="language-plaintext highlighter-rouge">String</code>s are how we represent text and language in Java. The operations defined on <code class="language-plaintext highlighter-rouge">String</code>s are numerous, but an important basic one is the <code class="language-plaintext highlighter-rouge">+</code> operator, which represents concatenation when applied to one or more <code class="language-plaintext highlighter-rouge">String</code>s.</p>
+
+<p><code class="language-plaintext highlighter-rouge">String</code>s are immutable in Java, meaning that when you perform some operation on a <code class="language-plaintext highlighter-rouge">String</code>, an entirely new <code class="language-plaintext highlighter-rouge">String</code> will be returned.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">first</span> <span class="o">=</span> <span class="s">"Maya"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">second</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">();</span> <span class="c1">// Capitalize all letters in string</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"first is still "</span> <span class="o">+</span> <span class="n">first</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"second is "</span> <span class="o">+</span> <span class="n">second</span><span class="o">);</span>
+</code></pre></div></div>
+<p>Running the above code demonstrates that <code class="language-plaintext highlighter-rouge">String first</code> was unchanged after the call to <code class="language-plaintext highlighter-rouge">toUpperCase()</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> first is still Maya
+<span class="o">&gt;</span> second is MAYA
+</code></pre></div></div>
+
+<h2 id="some-important-operators--tools">Some Important Operators &amp; Tools</h2>
+<p>Many of the operators available for each data type will prove useful at some point. This section represents a brief overview of some of these, as well as other function tools. For a more complete overview of the behaviors of operations among different types, make sure to look at the exercises at the end of <a href="https://www.cis.upenn.edu/~cis110/current/lectures/1VariablesDataTypes.pdf">this presentation</a>.</p>
+
+<h3 id="relational-operators">Relational Operators</h3>
+<p>All of <code class="language-plaintext highlighter-rouge">&gt;,&lt;,&lt;=,=&gt;,==,!=</code> are operators that accept two values of primitive data types and return a <code class="language-plaintext highlighter-rouge">boolean</code> result. These comparison tools are often essential for defining the control flow of your programs in <code class="language-plaintext highlighter-rouge">if</code> statements and in loops.</p>
+
+<h3 id="the-multifaceted-">The multifaceted <code class="language-plaintext highlighter-rouge">+</code></h3>
+<ul>
+  <li>When <code class="language-plaintext highlighter-rouge">+</code> is used between two numeric types (<code class="language-plaintext highlighter-rouge">int</code> and <code class="language-plaintext highlighter-rouge">double</code>), the resulting operation <em>addition</em>. If a <code class="language-plaintext highlighter-rouge">double</code> is in the mix, then the resulting type will be <code class="language-plaintext highlighter-rouge">double</code>; otherwise, <code class="language-plaintext highlighter-rouge">int</code>.</li>
+  <li>When <code class="language-plaintext highlighter-rouge">+</code> is used between one <code class="language-plaintext highlighter-rouge">String</code> and any other primitive type, the result is <em>concatenation</em>.
+Concatenation converts the other data type in the operation to a <code class="language-plaintext highlighter-rouge">String</code> representation and then appends that to the other <code class="language-plaintext highlighter-rouge">String</code>.
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"hoods"</span><span class="o">;</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">str</span><span class="o">);</span>
+<span class="c1">// Output: "falsehoods"</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">+</code> can be used as addition between a <code class="language-plaintext highlighter-rouge">char</code> and another <code class="language-plaintext highlighter-rouge">char</code> or an <code class="language-plaintext highlighter-rouge">int</code>. This uses the underlying integer representation of the <code class="language-plaintext highlighter-rouge">char</code> to do the arithmetic. Using an <code class="language-plaintext highlighter-rouge">int</code> in this operation gives the output type <code class="language-plaintext highlighter-rouge">int</code></li>
+</ul>
+
+<h3 id="mod-">Mod (<code class="language-plaintext highlighter-rouge">%</code>)</h3>
+<p>Another name for mod would be “remainder after division”. Major uses for this operation include constraining <code class="language-plaintext highlighter-rouge">int</code>s to wrap around within a certain range, testing for whether a number is even or odd, or checking to see if a number is a multiple of another. Remember that <code class="language-plaintext highlighter-rouge">%</code> with one negative argument leads to a negative result.</p>
+
+<h3 id="casting">Casting</h3>
+<p><em>Casting</em> is the process of interpreting a value of some data type as a different data type. In this course, when we refer to casting we are referring to the manual process of converting from a type with a wider range of values into a type with a smaller range of values.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">justTheInt</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="mf">51.564</span><span class="o">;</span>
+<span class="kt">char</span> <span class="n">asLetter</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)</span> <span class="n">justTheInt</span><span class="o">;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>Although we usually refer to it as “type promotion” in CIS 110, some sources will refer to conversions going in the other direction as casting, too. This is the automatic process of converting a <code class="language-plaintext highlighter-rouge">char</code> into an <code class="language-plaintext highlighter-rouge">int</code> or an <code class="language-plaintext highlighter-rouge">int</code> into a <code class="language-plaintext highlighter-rouge">double</code> that Java will do for you. This works automatically when the original type is “smaller” than the new, “larger” type.</p>
+</blockquote>
+
+<h3 id="parsing">Parsing</h3>
+<p><em>Parsing</em> is the process of interpreting the value of a <code class="language-plaintext highlighter-rouge">String</code> as a representation of a value in some other data type. The primary ways that we use parsing with respect to data types are with the following two examples:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">fromString42</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">"42"</span><span class="o">);</span>
+<span class="kt">double</span> <span class="n">fromStringThreePointOneFour</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="s">"3.14159265"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="math">Math</h3>
+<p>The basic arithmetic operators represent only a small fraction of the math that you can do in Java. Using the <code class="language-plaintext highlighter-rouge">Math</code> library, operations like <code class="language-plaintext highlighter-rouge">abs</code>, <code class="language-plaintext highlighter-rouge">min</code>, <code class="language-plaintext highlighter-rouge">max</code>, trigonometric functions, exponentiation, <code class="language-plaintext highlighter-rouge">round</code>, and <code class="language-plaintext highlighter-rouge">random</code> are available. There’s a good listing of these at the end of <a href="https://www.cis.upenn.edu/~cis110/current/lectures/1VariablesDataTypes.pdf">this presentation</a>.</p>
+
+<h1 id="conditionals">Conditionals</h1>
+<p>Conditionals are the simplest means we have to influence control flow in our programs. By default, Java programs execute sequentially, with each line being run in the order it’s written. When you add conditionals to your program, you decide among several options for which lines of code to be run next based on the state of some specified values.</p>
+
+<h2 id="when-to-use-a-conditional">When to use a Conditional</h2>
+<ul>
+  <li>To match some value to one out of several possible values</li>
+  <li>To make a choice about what to do based on user input</li>
+  <li>To make a decision about whether to break out of a loop</li>
+  <li>To check to see if you’ve hit some special state, perhaps</li>
+</ul>
+
+<h2 id="if-else-if-and-else"><code class="language-plaintext highlighter-rouge">if</code>, <code class="language-plaintext highlighter-rouge">else if</code>, and <code class="language-plaintext highlighter-rouge">else</code></h2>
+<p>Control flow can be influenced using if, else if, and else statements.</p>
+
+<ul>
+  <li>An if statement consists of the <code class="language-plaintext highlighter-rouge">if</code> keyword, a condition, and a body. The condition is an expression, possibly containing several values and variables, that evaluates to a boolean.
+    <ul>
+      <li>If the condition evaluates to <code class="language-plaintext highlighter-rouge">true</code>, then the code in the body of the if statement is executed. - If not, then the code is skipped entirely.</li>
+    </ul>
+  </li>
+  <li>An else if statement is exactly like an if statement in syntax (it requires a condition and a body), with the only difference being that the required keyword is <code class="language-plaintext highlighter-rouge">else if</code> (rather than <code class="language-plaintext highlighter-rouge">if</code> alone).
+    <ul>
+      <li>An else if statement can only be used directly following an if statement or another else if statement.</li>
+      <li>When the condition of the else if statement evaluated to <code class="language-plaintext highlighter-rouge">true</code> <strong>and all previous if and else if statements were not executed</strong>, the body of the statement will be executed.</li>
+    </ul>
+  </li>
+  <li>An else statement is slightly different. Only the <code class="language-plaintext highlighter-rouge">else</code> keyword is required, along with a body.
+    <ul>
+      <li>An else statement can only be used <em>once</em> directly following an if statement or an else if statement</li>
+      <li>The body of an else statement will be executed only if all previous if and else if statements failed to execute.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Goodbye"</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"So long"</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Farewell"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// These next if statements are unrelated to the first chain and to each other.</span>
+<span class="c1">// Either of them will be run when their conditions are true, independent of prior conditionals.</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">u</span> <span class="o">&amp;&amp;</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="mi">10</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">me</span> <span class="o">&amp;&amp;</span> <span class="n">u</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="mi">20</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="switch-statements">Switch Statements</h2>
+<p>Switch statements are conditionals designed for the purpose of checking the value of some variable or expression against several enumerated outcomes. We do not require you to use a switch statement in this class, although you are certainly welcome to. An example that demonstrates the complete syntax of a switch statement is presented here.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="s">"Harry"</span><span class="o">:</span> <span class="k">case</span> <span class="s">"Eric"</span><span class="o">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s">"Professor"</span><span class="o">;</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="s">"Jules"</span><span class="o">:</span> <span class="k">case</span> <span class="s">"Michael"</span><span class="o">:</span> <span class="k">case</span> <span class="s">"Gian"</span><span class="o">:</span> <span class="k">case</span> <span class="s">"Ben"</span><span class="o">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s">"Head TA"</span><span class="o">;</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Name not matched, default case used"</span><span class="o">);</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s">"TA"</span><span class="o">;</span>
+    <span class="k">break</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>This example checks to see if <code class="language-plaintext highlighter-rouge">name</code> is the name of a professor, a head TA, or a TA.</p>
+
+<h1 id="loops">Loops</h1>
+<p>Loops are the way that we implement iteration in Java. They are the tools by which we are able to write programs that perform one task many, many times. It is from this ability to write in repetition (with controlled variation) that the power of computation emerges.</p>
+
+<h2 id="rules-of-iteration-in-java">Rules of Iteration in Java</h2>
+
+<p>Any loop that we use in Java is controlled by three components:</p>
+<ol>
+  <li><strong>An initialization</strong> of a loop control variable (or perhaps several variables).</li>
+  <li><strong>A termination condition</strong> defined over the control variable(s). When the loop control variable reaches a particular value or state, the termination condition will evaluate to <code class="language-plaintext highlighter-rouge">false</code> and the iteration of the <code class="language-plaintext highlighter-rouge">loop</code> will stop.</li>
+  <li><strong>A modification</strong> of the loop control variable(s). By modifying the control variable(s), we can eventually reach the state outlined in the termination condition, indicating that the loop should cease repeating.</li>
+</ol>
+
+<h2 id="the-while-loop">The While Loop</h2>
+<p>As outlined in the previous section, a while loop must include an initialization component, a termination condition, and a modification step.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">40</span><span class="o">;</span> <span class="c1">// initialization (i is the loop control variable)</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// termination condition</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+  <span class="n">i</span><span class="o">--;</span> <span class="c1">// modification step</span>
+<span class="o">}</span>
+
+<span class="kt">boolean</span> <span class="n">hasPressed</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// initialization (hasPressed is the loop control variable)</span>
+<span class="k">while</span> <span class="o">(!</span><span class="n">hasPressed</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// termination condition</span>
+  <span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledRectangle</span><span class="o">(...);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">mousePressed</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">hasPressed</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// modification</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Some takeaways from these two examples:</p>
+<ul>
+  <li>You will usually need to perform the initialization step outside of the body of the loop. Otherwise, loop control variable will have its value reset every iteration of the loop, leading to bugs.</li>
+  <li>The termination condition is the only essential component of iteration that’s actually required by the syntax of the while loop.</li>
+  <li>The loop control variable need not be modified every iteration of the while loop, although sometimes it makes sense to. Compare how many times <code class="language-plaintext highlighter-rouge">hasPressed</code> would be changed with how many times <code class="language-plaintext highlighter-rouge">i</code> would be changed.</li>
+</ul>
+
+<p>The termination condition is checked before every iteration of the loop, including before the (potential) first iteration.</p>
+<h2 id="the-for-loop">The For Loop</h2>
+<p>A for loop must again include an initialization step, a termination condition, and a modification. Unlike a while loop, though, a for loop has space for these steps built into its very syntax.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//  |INITIALIZATION   | TERMINATION COND. | MODIFICATION|</span>
+<span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">line</span> <span class="o">=</span> <span class="s">"."</span><span class="o">;</span> <span class="n">line</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">line</span> <span class="o">+=</span> <span class="sc">'.'</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//  |INIT.         | TERM. |  MODIF.|</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span> <span class="n">k</span> <span class="o">/=</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">k</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//  |INIT.    | TERM.          | MOD|</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A variable initialized during the intialization step is in scope only in the body of the loop. The termination condition is checked before every iteration of the loop, including before the (potential) first iteration. The modification step is performed after each iteration.</p>
+<h2 id="your-loop-of-choice">Your Loop of Choice</h2>
+<p>It is possible to convert a loop of one variety into an equivalent loop of the other variety. This is always true, although it usually is somewhat more natural to use one type in certain circumstances.</p>
+
+<p>It’s often more natural to write a <strong>while loop</strong> when:</p>
+<ul>
+  <li>You’re doing animation</li>
+  <li>You’re waiting indefinitely for user input</li>
+  <li>The purpose of your iteration is not to traverse over some data of fixed length, or you’re traversing over some data that has an unknown length</li>
+  <li>You will perform different modification steps over the course of the loop execution based on different states</li>
+</ul>
+
+<p>It’s often more natural to write a <strong>for loop</strong> when:</p>
+<ul>
+  <li>You’re looping over the indices of data of some fixed length</li>
+  <li>You need to generate a range of numbers</li>
+  <li>You have a specific number of times that you want your loop to execute.</li>
+</ul>
+
+<p>Perhaps the most salient point here: if your problem can be phrased as “examine every x in y” or “for every element of this array/this string, do something”, this is a good sign that a for loop would fit nicely. These are just general guidelines, and you should keep in mind that you can always make either loop work.</p>
+
+<h2 id="break-and-continue">Break and Continue</h2>
+<p><em>break</em> is a statement that, when executed in the body of a loop, causes that loop to immediately stop executing. The current iteration is halted, and no further iterations are executed. The control of the program resumes immediately after the body of the loop.</p>
+
+<p><em>continue</em> is a statement that, when executed in the body of a loop, causes that iteration of the loop to immediately cease. In the case of the for loop, this causes the modification step to be applied. As long as the termination condition has not been met, the next iteration of the loop will commence.</p>
+
+<p><code class="language-plaintext highlighter-rouge">break</code> exits a loop entirely, <code class="language-plaintext highlighter-rouge">continue</code> skips to the next iteration.</p>
+
+<h1 id="arrays">Arrays</h1>
+
+<h2 id="what-is-an-array">What is an Array?</h2>
+<p>In Java, an array is an fixed-length, indexed sequence of values that are all of the same type. Each value in this sequence can be modified and overwritten. An array is a data type of its own, and the type of an array is different from the type of the elements it contains. In particular, <code class="language-plaintext highlighter-rouge">int x = 4;</code> defines a variable of type <code class="language-plaintext highlighter-rouge">int</code>, whereas <code class="language-plaintext highlighter-rouge">int[] xs = {3, 4, 5};</code> defines a variable of type <code class="language-plaintext highlighter-rouge">int[]</code> (note the difference in brackets).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">[]</span> <span class="n">ages</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">320</span><span class="o">];</span> <span class="c1">// an array of 320 ints</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">60</span><span class="o">];</span> <span class="c1">// a new array of 60 ints. It is valid to store a new array in ages.</span>
+
+<span class="kt">double</span><span class="o">[]</span> <span class="n">xPositions</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+
+<span class="nc">String</span><span class="o">[]</span> <span class="n">suits</span> <span class="o">=</span> <span class="o">{</span><span class="s">"spades"</span><span class="o">,</span> <span class="s">"hearts"</span><span class="o">,</span> <span class="s">"diamonds"</span><span class="o">,</span> <span class="s">"clubs"</span><span class="o">};</span>
+</code></pre></div></div>
+
+<h3 id="arrays-are-fixed-length">Arrays Are Fixed-Length</h3>
+<p>When you create an array, you must also specify its length. This can be done with implicit initialization (e.g. <code class="language-plaintext highlighter-rouge">new char[4]</code>) or explicit (e.g. <code class="language-plaintext highlighter-rouge">{4, 3, 2, 1}</code>). In both of these example cases, the arrays have a length of 4. It is not possible to add another element to this array without first creating a new, larger array.</p>
+
+<h3 id="arrays-are-indexed">Arrays Are Indexed</h3>
+<p>Arrays in Java are 0-indexed, meaning that we refer to the first element of an array as being at index 0. Using <code class="language-plaintext highlighter-rouge">.length</code> on the end of the array, we have an expression for the length of an array. If we have some array <code class="language-plaintext highlighter-rouge">arr</code>, and we say that <code class="language-plaintext highlighter-rouge">n</code> is equal to <code class="language-plaintext highlighter-rouge">arr.length</code>, then each integer between <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">n</code> (but not including <code class="language-plaintext highlighter-rouge">n</code>) is a valid index for that array.</p>
+
+<p>The syntax for indexing into arrays in Java is to append <code class="language-plaintext highlighter-rouge">[index]</code> to the end of a variable containing an array. Taking our example from above with <code class="language-plaintext highlighter-rouge">suits</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[]</span> <span class="n">suits</span> <span class="o">=</span> <span class="o">{</span><span class="s">"spades"</span><span class="o">,</span> <span class="s">"hearts"</span><span class="o">,</span> <span class="s">"diamonds"</span><span class="o">,</span> <span class="s">"clubs"</span><span class="o">};</span>
+</code></pre></div></div>
+
+<p>Then the following table represents the indices of <code class="language-plaintext highlighter-rouge">suits</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">suits[0]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"spades"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">suits[1]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"hearts"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">suits[2]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"diamonds"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">suits[3]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"clubs"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">suits[4]</code>, <code class="language-plaintext highlighter-rouge">suits[5]</code>, …</td>
+      <td>Leads to <code class="language-plaintext highlighter-rouge">ArrayIndexOutOfBoundsException</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">suits[-1]</code>, <code class="language-plaintext highlighter-rouge">suits[-2]</code>, …</td>
+      <td>Leads to <code class="language-plaintext highlighter-rouge">ArrayIndexOutOfBoundsException</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="arrays-contain-values-of-one-type-only">Arrays Contain Values Of One Type Only</h3>
+<p>When an array is initialized without explicit values, we use the syntax <code class="language-plaintext highlighter-rouge">new type[length]</code>, where <code class="language-plaintext highlighter-rouge">type</code> represents some valid data type (<code class="language-plaintext highlighter-rouge">String</code>, <code class="language-plaintext highlighter-rouge">boolean</code>, etc). The array that is created thus has the data type <code class="language-plaintext highlighter-rouge">type[]</code>, which reads in English as “an array of <code class="language-plaintext highlighter-rouge">type</code>s” or a “<code class="language-plaintext highlighter-rouge">type</code> array”. This new array can only contain values of data type <code class="language-plaintext highlighter-rouge">type</code> from now on.<br />
+This also means that when initializing arrays with explicit values, those explicit values must all be of the same type.<br />
+When declaring a variable that will contain an array, you must declare the variable of the correct type. Refer the previous examples under “What is an Array?”.</p>
+
+<h2 id="manipulating-arrays">Manipulating Arrays</h2>
+<p>Presented here are a few examples of how to manipulate arrays. These are taken directly from the website of the course’s textbook. All credit to Sedgewick and Wayne. Refer to the <a href="https://introcs.cs.princeton.edu/java/14array/">booksite’s section on arrays</a> for a fuller listing of patterns related to using arrays.</p>
+
+<h3 id="initializing-entries-of-an-array-to-random-values">Initializing entries of an array to random values</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="kt">double</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="printing-the-values-of-an-array">Printing the values of an array</h3>
+<p>Assumes the existence of some array <code class="language-plaintext highlighter-rouge">a</code>, like the one from the first example.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a[]"</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-------------------"</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="o">}</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="finding-the-maximum-value-in-an-array">Finding the maximum value in an array</h3>
+<p>Assumes the existence of some array <code class="language-plaintext highlighter-rouge">a</code>, like the one from the first example.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">max</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">NEGATIVE_INFINITY</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="o">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="o">}</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"max = "</span> <span class="o">+</span> <span class="n">max</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="finding-the-sum--mean-of-an-array-of-doubles">Finding the sum &amp; mean of an array of doubles</h3>
+<p>Assumes the existence of some array <code class="language-plaintext highlighter-rouge">a</code>, like the one from the first example.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="o">}</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"average = "</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">n</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h1 id="functions">Functions</h1>
+<p>Functions (or methods) are the basic building blocks of Java programs. <code class="language-plaintext highlighter-rouge">main</code> is a function, <code class="language-plaintext highlighter-rouge">Math.abs</code> is a function, <code class="language-plaintext highlighter-rouge">PennDraw.filledRectangle</code> is a function, and you can write your own functions. In CIS 110, we use the terms “function” and “method” to refer to the same thing. Both the term “function” and the term “method” have broader and diverging meanings outside of the scope of the course, but in CIS 110 we can use them interchangably.</p>
+
+<blockquote>
+  <p>In JavaScript, it’s not the case that every function is a method although the reverse is basically true. Going by the definitions outlined in, say, <a href="http://www.cs.cornell.edu/courses/cs1130/2012sp/1130selfpaced/module2/module2part1/methodHeaders.html">Cornell’s CS1130 Course</a>, Java has it so that not every method is a function even though every function is indeed a method. This is vague notation.</p>
+</blockquote>
+
+<p>Functions in Java are similar to functions in mathematics. Fundamentally, functions are tools that take some inputs, do some work based on the inputs, and produce some output.</p>
+
+<h2 id="anatomy-of-a-function">Anatomy of a Function</h2>
+<p>A function has…</p>
+<ol>
+  <li>a header. A header consists of several pieces:
+    <ol>
+      <li>One or more optional modifiers, like <code class="language-plaintext highlighter-rouge">public</code> and <code class="language-plaintext highlighter-rouge">static</code>. You should continue to include these words at the beginning of your functions, even though we haven’t covered their meanings yet.</li>
+      <li>A return type. This specifies the data type that the function is guaranteed to output.
+        <ol>
+          <li>If a function has a return type of <code class="language-plaintext highlighter-rouge">int</code>, for example, the function is guaranteed to return an <code class="language-plaintext highlighter-rouge">int</code>.</li>
+          <li>It is possible for a function to have a return type of <code class="language-plaintext highlighter-rouge">void</code>, which is a guarantee that the function will not return any data at all.</li>
+        </ol>
+      </li>
+      <li>A name. This specifies how you can refer to this function and use it later.</li>
+      <li>A list of arguments type &amp; name pairs
+        <ol>
+          <li>Each argument must have its type specified first</li>
+          <li>The name of the argument in the header puts variables with these names in scope in the body of the function.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>a body. The body of a function is a just another block of code where execution starts at the top.</li>
+  <li>one or more <code class="language-plaintext highlighter-rouge">return</code> statements.
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">return</code> is a keyword in Java that indicates that the function should stop executing.</li>
+      <li><code class="language-plaintext highlighter-rouge">return</code> is coupled with a value. For example, a full <code class="language-plaintext highlighter-rouge">return</code> statement might look like <code class="language-plaintext highlighter-rouge">return true;</code>, <code class="language-plaintext highlighter-rouge">return x + 4;</code>, or <code class="language-plaintext highlighter-rouge">return str.toUpperCase()</code>. In each case, the type of the value being returned must match the return type of the function.</li>
+      <li>A function with a non-void return type must end with a <code class="language-plaintext highlighter-rouge">return</code>. Reaching the end of a function without hitting <code class="language-plaintext highlighter-rouge">return</code> will result in an error.</li>
+      <li>The only exception to these rules are in the case of a function with return type <code class="language-plaintext highlighter-rouge">void</code>. In this case, <code class="language-plaintext highlighter-rouge">return</code> cannot be paired with a value, since <code class="language-plaintext highlighter-rouge">void</code> indicates that no data is returned. In functions with return type <code class="language-plaintext highlighter-rouge">void</code>, it is possible to use no <code class="language-plaintext highlighter-rouge">return</code> statements at all, and when Java reaches the end of the function body, Java will <code class="language-plaintext highlighter-rouge">return</code> implicitly.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>To illustrate these rules, we examine a searching function:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * indexOfValue attempts to find value in an array of chars
+ * called list. If we find value, return its index. If we
+ * don't find value, return -1 to indicate that value is 
+ * not in list.
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">indexOfValue</span><span class="o">(</span><span class="kt">char</span> <span class="n">value</span><span class="o">,</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>The header is <code class="language-plaintext highlighter-rouge">public static int indexOfValue(char value, char[] list)</code>
+    <ul>
+      <li>The return type of this function is <code class="language-plaintext highlighter-rouge">int</code></li>
+      <li>The name of the function is <code class="language-plaintext highlighter-rouge">indexOfValue</code></li>
+      <li>The input argument consists of a <code class="language-plaintext highlighter-rouge">char</code> named <code class="language-plaintext highlighter-rouge">value</code> and an array of chars (a <code class="language-plaintext highlighter-rouge">char[]</code>) named <code class="language-plaintext highlighter-rouge">list</code>.</li>
+    </ul>
+  </li>
+  <li>The body of the function lives between the first open brace and the last close brace. <code class="language-plaintext highlighter-rouge">list</code> and <code class="language-plaintext highlighter-rouge">value</code>, the input arguments, are in scope in the body.</li>
+  <li>This function has two <code class="language-plaintext highlighter-rouge">return</code> statements, and both of them return some <code class="language-plaintext highlighter-rouge">int</code> value. No matter the inputs, one of these <code class="language-plaintext highlighter-rouge">return</code>s will be reached.</li>
+</ul>
+
+<h2 id="functions-and-control-flow">Functions and Control Flow</h2>
+<p>Java programs start executing at <code class="language-plaintext highlighter-rouge">main</code> when run from the command line, as we do in CIS 110. Control is passed between functions with <em>function calls</em>, which happen where we write the name of the function followed by a list of input argument values in parentheses.</p>
+
+<p>Considering the example below, we have a function <code class="language-plaintext highlighter-rouge">public static int addTwo(int x)</code>. We can call <code class="language-plaintext highlighter-rouge">addTwo</code> like so: <code class="language-plaintext highlighter-rouge">addTwo(4)</code>. In this case, <code class="language-plaintext highlighter-rouge">4</code> is the value that will be bound to the variable <code class="language-plaintext highlighter-rouge">x</code> at the start of <code class="language-plaintext highlighter-rouge">addTwo</code>’s body.</p>
+
+<p>The execution of the most recent function call must be completed before control is passed back to the point where that call was made. This results in a <em>call stack</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Functions</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Starting main."</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">six</span> <span class="o">=</span> <span class="n">addTwo</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"four plus two is "</span> <span class="o">+</span> <span class="n">six</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">eight</span> <span class="o">=</span> <span class="n">addThree</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"five plus three is "</span> <span class="o">+</span> <span class="n">eight</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Leaving main"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwo</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Starting addTwo with input "</span> <span class="o">+</span> <span class="n">x</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Leaving addTwo"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addThree</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Starting addThree with input "</span> <span class="o">+</span> <span class="n">x</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">addTwo</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Leaving addThree"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">temp</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<p>The output:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>java Functions
+Starting main.
+Starting addTwo with input 4
+Leaving addTwo
+four plus two is 6
+Starting addThree with input 5
+Starting addTwo with input 5
+Leaving addTwo
+Leaving addThree
+five plus three is 8
+Leaving main
+</code></pre></div></div>
+<p>Observe how this output illustrates the call stack. <code class="language-plaintext highlighter-rouge">main</code> is called first. From <code class="language-plaintext highlighter-rouge">main</code>, we call <code class="language-plaintext highlighter-rouge">addTwo</code>, which returns <code class="language-plaintext highlighter-rouge">6</code> without calling another function. Then from <code class="language-plaintext highlighter-rouge">main</code>, we call <code class="language-plaintext highlighter-rouge">addThree</code>, which in turn calls <code class="language-plaintext highlighter-rouge">addTwo</code>. <code class="language-plaintext highlighter-rouge">addThree</code>’s call to <code class="language-plaintext highlighter-rouge">addTwo</code> is resolved before <code class="language-plaintext highlighter-rouge">addThree</code> returns the result back to <code class="language-plaintext highlighter-rouge">main</code>. Then, <code class="language-plaintext highlighter-rouge">main</code> finishes execution without a return statement, which is acceptable because <code class="language-plaintext highlighter-rouge">main</code> always has return type <code class="language-plaintext highlighter-rouge">void</code>.</p>
+
+<h2 id="functions-and-variable-scope">Functions and Variable Scope</h2>
+<p>When a function is called and its body is executed, Java creates a new scope. Generally speaking, the only variables that will be in scope at the start of the function execution will be the input arguments to that function.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Scope</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">200</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"before newScope, main's c = "</span> <span class="o">+</span> <span class="n">c</span><span class="o">);</span>
+        <span class="n">newScope</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+        <span class="c1">// the variable c declared in newScope is out of scope</span>
+        <span class="c1">// back here in main.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"after newScope, main's c = "</span> <span class="o">+</span> <span class="n">c</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">newScope</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"STARTING newScope"</span><span class="o">);</span>
+        <span class="c1">// x and y are in scope</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"x = "</span> <span class="o">+</span> <span class="n">x</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"y = "</span> <span class="o">+</span> <span class="n">y</span><span class="o">);</span>
+
+        <span class="c1">// a, b, and c are not in scope here.</span>
+        <span class="c1">// we can declare a variable c here</span>
+        <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">40</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"newScope's c = "</span> <span class="o">+</span> <span class="n">c</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"ENDING newScope"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Output:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java Scope
+before newScope, main's c = 200
+STARTING newScope
+x = 50
+y = 100
+newScope's c = 40
+ENDING newScope
+after newScope, main's c = 200
+</code></pre></div></div>
+
+<h1 id="recursion">Recursion</h1>
+<p>The Codio lecture notes for this topic are very detailed, and they’re even interactive! You should refresh yourself on rules about recursion there.</p>
+
+<h1 id="object-oriented-programming">Object Oriented Programming</h1>
+<p>Object Oriented Programming is a paradigm that views programs as collections of entities called objects that are comprised of and interact with each other.</p>
+
+<blockquote>
+  <p>Contrast this with our previous notion of programming, which is called procedural programming. This just views programs as lines of code to be run, one after the other, with functions representing procedures that implement a specific task. Procedural programming is actually an effective way of thinking about drawing as we did it in the early parts of the semester: it’s not not necessary to view a program that sketches a scene as one made of many objects interacting with each other. Sometimes code is, after all, just a list of instructions.</p>
+</blockquote>
+
+<h2 id="objects-vs-classes">Objects vs Classes</h2>
+<p>Objects in Java are representations of real-world entities. Objects have state and behavior, and these are defined by classes. We say that objects are individual instances of a class. Therefore, a class is a blueprint for how to create objects of that underlying type.</p>
+
+<p>Here we have a class called <code class="language-plaintext highlighter-rouge">Soda</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Soda</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">container</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">flavor</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Soda</span><span class="o">(</span><span class="nc">String</span> <span class="n">container</span><span class="o">,</span> <span class="nc">String</span> <span class="n">flavor</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">container</span> <span class="o">=</span> <span class="n">container</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">flavor</span> <span class="o">=</span> <span class="n">flavor</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="c1">// rest of class omitted for space</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>In another program, <code class="language-plaintext highlighter-rouge">SodaFountain.java</code>, we might have the following lines:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Soda</span> <span class="n">sprite</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Soda</span><span class="o">(</span><span class="s">"glass bottle"</span><span class="o">,</span> <span class="s">"lemon-lime"</span><span class="o">);</span>
+<span class="nc">Soda</span> <span class="n">coke</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Soda</span><span class="o">(</span><span class="s">"can"</span><span class="o">,</span> <span class="s">"hard to describe"</span><span class="o">);</span>
+</code></pre></div></div>
+<p>In this case, we say that <code class="language-plaintext highlighter-rouge">sprite</code> and <code class="language-plaintext highlighter-rouge">coke</code> are objects, and that <code class="language-plaintext highlighter-rouge">Soda</code> is the class from which they have been instantiated.</p>
+
+<h2 id="writing-classes-to-define-object-state--behavior">Writing Classes to Define Object State &amp; Behavior</h2>
+<p>Now that we have the difference between a class and an object, it’s time to think about how classes are written. Classes are made up of fields, methods, and (optionally) constructors.</p>
+
+<h3 id="fields">Fields</h3>
+<p>A class’ fields represent the data that an instance of the class can store. These are effectively variables that belong to instances (objects) of this class. To that end, we sometimes refer to them as instance variables. Fields belong at the top of a class by convention.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tree</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">species</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">height</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">width</span><span class="o">;</span>
+
+  <span class="c1">// rest of class omitted for space</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>In this class <code class="language-plaintext highlighter-rouge">Tree</code>, we have four fields. These are: <code class="language-plaintext highlighter-rouge">age</code>, <code class="language-plaintext highlighter-rouge">species</code>, <code class="language-plaintext highlighter-rouge">height</code>, and <code class="language-plaintext highlighter-rouge">width</code>. Observe that they have a type associated with them just like any other variable. Additionally, they have a privacy modifier (in this case, all but age are <code class="language-plaintext highlighter-rouge">private</code>). By convention, fields will normally be <code class="language-plaintext highlighter-rouge">private</code>, and this is explained further in the section on Encapsulation.</p>
+
+<p>A field can be accessed inside of a class definition using its name alone, or with this as a way to specify that you’re referring to the field in the case that multiple variables in the same scope share the same name (this is called shadowing).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">+</span> <span class="mi">34</span><span class="o">;</span>
+<span class="c1">// if the RHS variable height shadows the field named </span>
+<span class="c1">// height, this example stores the value of the local</span>
+<span class="c1">// variable height in the field called height.</span>
+<span class="k">this</span><span class="o">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span> 
+</code></pre></div></div>
+<p>Outside of the object’s class, only its fields are directly accessible without the use of getter methods. Imagining we have some function <code class="language-plaintext highlighter-rouge">generateTree</code> that returns some <code class="language-plaintext highlighter-rouge">Tree</code> object, consider the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Tree</span> <span class="n">t</span> <span class="o">=</span> <span class="n">generateTree</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">age</span><span class="o">);</span> <span class="c1">// this compiles</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">width</span><span class="o">);</span> <span class="c1">// this does not</span>
+</code></pre></div></div>
+<h3 id="methods">Methods</h3>
+<p>Methods are the functions of a class and they represent what the object can do and how it can change. These follow the rules of functions as we have discussed before.
+When viewing methods from the object oriented approach, it’s important to recall that the methods in a class have access to that class’ fields. Continuing our <code class="language-plaintext highlighter-rouge">Tree</code> example from before:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tree</span> <span class="o">{</span>
+  <span class="c1">// ... same field definitions from above</span>
+
+  <span class="c1">// estimate volume of trunk using cylinder formula.</span>
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">estimateTrunkVolume</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">*</span> <span class="o">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">*</span> <span class="n">height</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Observe that the <code class="language-plaintext highlighter-rouge">estimateTrunkVolume</code> method of a <code class="language-plaintext highlighter-rouge">Tree</code> has access to the <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> fields of the <code class="language-plaintext highlighter-rouge">Tree</code> class. These variables are accessible in the body of the method without being passed in as input arguments.</p>
+
+<p>Methods will be, in the context of this class, either <code class="language-plaintext highlighter-rouge">public</code> or <code class="language-plaintext highlighter-rouge">private</code>. Like with fields, <code class="language-plaintext highlighter-rouge">private</code> methods are only accessible inside the class itself whereas <code class="language-plaintext highlighter-rouge">public</code> methods are available from any instance of the class in another file.</p>
+
+<p>If a method is <code class="language-plaintext highlighter-rouge">public</code>, it can be called from any instance of the class:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Tree</span> <span class="n">narrow</span> <span class="o">=</span> <span class="n">generateTree</span><span class="o">();</span>
+<span class="kt">double</span> <span class="n">volume</span> <span class="o">=</span> <span class="n">narrow</span><span class="o">.</span><span class="na">estimateTrunkVolume</span><span class="o">();</span>
+</code></pre></div></div>
+<p>Methods with private designation are generally helper methods. For better understanding of <code class="language-plaintext highlighter-rouge">public</code> vs. <code class="language-plaintext highlighter-rouge">private</code> in methods, refer to notes on Encapsulation.</p>
+
+<h3 id="constructor">Constructor</h3>
+<p>Constructors are the tools that we use to actually instantiate an object from a class. Constructors are essentially special methods that take the name of the class itself. When a constructor is called with the <code class="language-plaintext highlighter-rouge">new</code> keyword, Java will provide the space in memory to create a new instance of the desired class and it will use the constructor to set up the new instance in the specified manner.</p>
+
+<p>Let’s return once more to our <code class="language-plaintext highlighter-rouge">Tree</code> example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tree</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">species</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">height</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">width</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Tree</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">,</span> <span class="nc">String</span> <span class="n">species</span><span class="o">,</span> <span class="kt">double</span> <span class="n">height</span><span class="o">,</span> <span class="kt">double</span> <span class="n">width</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">species</span> <span class="o">=</span> <span class="n">species</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Our constuctor is written right beneath the class’ fields (this is conventional). Note that it looks like a method named <code class="language-plaintext highlighter-rouge">Tree</code> without a specified return type. This is what indicates to Java that this thing is a constructor: no return type and sharing its name with the class itself. Notice how the input arguments to the constructor match the fields of the class: this is a typical pattern, where we have a constructor that assigns each of its inputs to the corresponding fields of the new object. A constructor can take fewer input arguments than fields in the class or vice versa. A constructor does not need a return statement.</p>
+
+<h2 id="principles-of-object-oriented-programming">Principles of Object Oriented Programming</h2>
+<h3 id="encapsulation">Encapsulation</h3>
+<p>Encapsulation is the principle that an object should hide the details of how they work by providing a barrier between the interface of the object (what it can do) and its implementation (how it does what it does). The concept of separating implementation from interface is central to the notion of Abstraction as well, but Encapsulation focuses primarily on the tools that we use to hide the machinery of an object from the client that uses it.</p>
+
+<p>Encapsulation is achieved in Java by use of Access Control, which itself is defined with visibility modifiers <code class="language-plaintext highlighter-rouge">public</code> and <code class="language-plaintext highlighter-rouge">private</code>. When a field or method is tagged with <code class="language-plaintext highlighter-rouge">private</code>, that field or method will only be accessible from within the file where it is defined. <code class="language-plaintext highlighter-rouge">public</code> fields and methods are, by contrast, available in any other file.</p>
+
+<p>The public interface of a class is therefore the set of fields and methods available in the class that are defined as <code class="language-plaintext highlighter-rouge">public</code>. These are the methods that a user can call at will. If any fields are part of the public interface, then a user can access &amp; modify these directly.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>In this class <code class="language-plaintext highlighter-rouge">Person</code>, the field <code class="language-plaintext highlighter-rouge">age</code> would be considered part of the public interface. This is concerning, though, because a client using <code class="language-plaintext highlighter-rouge">Person</code> objects could do the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Person</span> <span class="n">harry</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">24</span><span class="o">);</span>
+<span class="n">harry</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>It doesn’t make sense for a <code class="language-plaintext highlighter-rouge">Person</code> to have a negative age, so a <code class="language-plaintext highlighter-rouge">Person</code> object shouldn’t be able to have their age be 0 or less. Leaving <code class="language-plaintext highlighter-rouge">age</code> as <code class="language-plaintext highlighter-rouge">public</code> allows anyone with access to a <code class="language-plaintext highlighter-rouge">Person</code> object to put that object into a nonsensical state. Thus, it makes better sense to do the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ageOneYear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>By keeping age <code class="language-plaintext highlighter-rouge">private</code>, modifying the constructor, and adding methods <code class="language-plaintext highlighter-rouge">getAge</code> and <code class="language-plaintext highlighter-rouge">ageOneYear</code> to the public interface, we keep <code class="language-plaintext highlighter-rouge">age</code> as a field that’s just part of the implementation. If a user wants to see a <code class="language-plaintext highlighter-rouge">Person</code>’s <code class="language-plaintext highlighter-rouge">age</code>, they can use the <code class="language-plaintext highlighter-rouge">getAge</code> method (a getter) to see it. If they want to change it, we are specifying with <code class="language-plaintext highlighter-rouge">ageOneYear</code> that a <code class="language-plaintext highlighter-rouge">Person</code> can only age one year at a time, and our constructor makes it so that making a <code class="language-plaintext highlighter-rouge">Person</code> with a negative <code class="language-plaintext highlighter-rouge">age</code> is impossible.</p>
+
+<h4 id="getters-and-setters">Getters and Setters</h4>
+<p>Getters and setters are special types of methods that help implement Encapsulation in a class. A getter is a method that returns the value of some data stored by an instance of the class. Note that this could be returning a field directly, or it could return some piece of data stored implicitly by an instance.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="o">;</span>
+
+  <span class="c1">// Constructor omitted for space...</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getRadius</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">radius</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getDiameter</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">radius</span> <span class="o">*</span> <span class="mi">2</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getArea</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">radius</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">radius</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>In this Circle example, we have defined three getters: <code class="language-plaintext highlighter-rouge">getRadius</code>, <code class="language-plaintext highlighter-rouge">getDiameter</code>, and <code class="language-plaintext highlighter-rouge">getArea</code>. Notice that the only field of the class, <code class="language-plaintext highlighter-rouge">radius</code>, is <code class="language-plaintext highlighter-rouge">private</code>. The only way to access this data is therefore using <code class="language-plaintext highlighter-rouge">getRadius</code>. There are no fields for the diameter or the area of the shape, but we might also call <code class="language-plaintext highlighter-rouge">getDiameter</code> and <code class="language-plaintext highlighter-rouge">getArea</code> getters for their corresponding data anyway.</p>
+
+<p>Setters work similarly, but they provide controlled means of updating the values of data stored in an object.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="o">;</span>
+
+  <span class="c1">// Constructor &amp; getters omitted for space...</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setRadius</span><span class="o">(</span><span class="kt">double</span> <span class="n">radius</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">radius</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">radius</span> <span class="o">=</span> <span class="n">radius</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>In this example, <code class="language-plaintext highlighter-rouge">setRadius</code> is a setter for the <code class="language-plaintext highlighter-rouge">radius</code> field that allows us to update that piece of data without risking the client filling the field with a negative (nonsensical) value.</p>
+
+<p>Careful choices for <code class="language-plaintext highlighter-rouge">public</code> and <code class="language-plaintext highlighter-rouge">private</code> on the fields and methods of a class combined with getters and setters for <code class="language-plaintext highlighter-rouge">private</code> fields allow you to define an interface that hides and protects the implementation that you’ve chosen.</p>
+
+<h3 id="abstraction">Abstraction</h3>
+<p><em>Abstraction</em> is the process of representing real-world entities with properties relevant to the client that will be using it. The properties that we choose to represent an entity become the fields of the object. These chosen properties, along with our view of the stakeholder’s desired use of the object, then help to define the interface that will be available to users of the object.</p>
+
+<p>Abstraction is fundamental to solving interesting problems with Computer Science: it is not possible to directly manipulate a Movie, a Movie Ticket, or a Movie Theater with Java code, but we can keep track of abstract instances of these things to solve problems about them (selling and tracking tickets for film screenings, for example).</p>
+
+<p>When designing a class, we use abstraction to make conscientious choices about how a class will represent an entity.</p>
+
+<h3 id="state">State</h3>
+<p>Classes are defined with fields. When we talk about fields in the context of instantiated objects, we often refer to them as instance variables. These instance variables, like all variables we’ve been working with so far, store values and can change through time (unless they’re <em>constants</em>). Looking at the values of all of the instance variables in a particular object at a particular time defines its <em>state</em>. In most cases, classes are written so that the objects defined from them can change through time, representing different states of the entities that the objects are designed to represent.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">address</span><span class="o">;</span>
+
+  <span class="c1">// constructors, getters, setters, &amp; more omitted</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>A <code class="language-plaintext highlighter-rouge">Person</code> class might have fields for a name and an address. The state of any particular instance of <code class="language-plaintext highlighter-rouge">Person</code>, perhaps <code class="language-plaintext highlighter-rouge">harry</code>, would then be that <code class="language-plaintext highlighter-rouge">Person</code>’s name and address. At the time of this writing, <code class="language-plaintext highlighter-rouge">harry</code>’s address would be in Philadelphia, but when <code class="language-plaintext highlighter-rouge">harry</code> moves in a couple of years, we could call some method <code class="language-plaintext highlighter-rouge">harry.moveTo("New York City")</code>. Then, we’ve updated <code class="language-plaintext highlighter-rouge">harry</code>’s state to reflect his new location.</p>
+
+<h3 id="mutability-and-immutability">Mutability and Immutability</h3>
+<p>Variables (and thus fields) are mutable, or changeable, by default in Java. This means that any user with access to an object’s fields will generally have the ability to change the state of that object. We have already addressed this to a limited extent in our discussion of <a href="#encapsulation">encapsulation</a>: using privacy modifiers and carefully chosen getters, setters, and other methods, we can limit the access that a user has to the state of an object. But limited access is not the same thing as immutability; indeed, the presence of any setter or other <code class="language-plaintext highlighter-rouge">public</code> method that modifies the instance variables of an object implies that the object is mutable from the perspective of the end user.</p>
+
+<p>Consider, then, the example of the <code class="language-plaintext highlighter-rouge">String</code> data type in Java. <code class="language-plaintext highlighter-rouge">String</code>s are objects, and we consider them to be immutable. Now we can understand that this is because users of the <code class="language-plaintext highlighter-rouge">String</code> class have no ability to change the fields of any <code class="language-plaintext highlighter-rouge">String</code> object: there are no getters and setters for the class, and all of the methods that manipulate a <code class="language-plaintext highlighter-rouge">String</code> return a new version of the <code class="language-plaintext highlighter-rouge">String</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">bookTitle</span> <span class="o">=</span> <span class="s">"In The Dream House"</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bookTitle</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">());</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bookTitle</span><span class="o">);</span>
+</code></pre></div></div>
+<p>This results in:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"IN THE DREAM HOUSE"
+"In The Dream House"
+</code></pre></div></div>
+<p>Even the methods available in <code class="language-plaintext highlighter-rouge">String</code> that manipulate some instance of a <code class="language-plaintext highlighter-rouge">String</code> do not modify the original <code class="language-plaintext highlighter-rouge">String</code>: calling <code class="language-plaintext highlighter-rouge">.toUpperCase()</code> left <code class="language-plaintext highlighter-rouge">bookTitle</code> the same for when we printed it out again afterwards. In this way, the <code class="language-plaintext highlighter-rouge">String</code> class achieves <em>immutability</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Receipt</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">recipient</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span><span class="o">[]</span> <span class="n">amounts</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">items</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Receipt</span><span class="o">(</span><span class="nc">String</span> <span class="n">recipient</span><span class="o">,</span> <span class="kt">double</span><span class="o">[]</span> <span class="n">amounts</span><span class="o">,</span> <span class="nc">String</span> <span class="o">[])</span> <span class="o">{...}</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">computeSubtotal</span><span class="o">()</span> <span class="o">{...}</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">computeGrandTotal</span><span class="o">(</span><span class="kt">double</span> <span class="n">taxRate</span><span class="o">)</span> <span class="o">{...}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printReceipt</span><span class="o">()</span> <span class="o">{...}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>The above class for <code class="language-plaintext highlighter-rouge">Receipt</code> (with method implementations left implied for space) describes another immutable object. A <code class="language-plaintext highlighter-rouge">Receipt</code> object, once instantiated, cannot be modified. A user can only tally up the <code class="language-plaintext highlighter-rouge">Receipt</code> or print a nice, readable version of it, but neither of these actions change the state of the <code class="language-plaintext highlighter-rouge">Receipt</code>.</p>
+
+<h2 id="abstract-data-types">Abstract Data Types</h2>
+<p>In many cases, it’s not very important how some object works, as long as it does what we expect it to do. This is true in real life: when it comes to a car, you know that it can accelerate, brake, park, get in and out without worrying too much about what’s under the hood (literally). <em>Abstract Data Types</em> (ADTs) are ways that we can employ this principle in programming.</p>
+
+<p>In Java, we write ADTs using <em>interfaces</em>. If a class <em>implements</em> an interface, we say that the class is a subtype of the ADT’s interface or that the ADT is a supertype of the class.</p>
+
+<p>Interfaces look like classes, but instead of fields and methods, interfaces are comprised of:</p>
+<ol>
+  <li><strong>abstract methods</strong>, or method signatures without bodies</li>
+  <li><strong>constants</strong>, or variables declared with keywords <code class="language-plaintext highlighter-rouge">static</code> and <code class="language-plaintext highlighter-rouge">final</code> that cannot be changed after they are declared.</li>
+</ol>
+
+<p>The abstract methods are doing the heavy lifting here. These method signatures without bodies to the functions define exactly what an object of this ADT must be able to do, but they don’t specify how it happens.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Car</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="no">KM_PER_MILE</span> <span class="o">=</span> <span class="mf">1.609</span><span class="o">;</span>
+
+  <span class="kt">void</span> <span class="nf">enter</span><span class="o">(</span><span class="nc">String</span> <span class="n">passenger</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">accelerateTo</span><span class="o">(</span><span class="kt">double</span> <span class="n">targetSpeed</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">brake</span><span class="o">(</span><span class="kt">double</span> <span class="n">targetSpeed</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Here’s a basic example of a <code class="language-plaintext highlighter-rouge">Car</code> ADT. This tells us that any object of type <code class="language-plaintext highlighter-rouge">Car</code> can do these things: you can enter a car, you can speed upp, and you can slow down. Any object of type <code class="language-plaintext highlighter-rouge">Car</code> will also have access to the constant <code class="language-plaintext highlighter-rouge">KM_PER_MILE</code>, which might be useful in dealing with speeds for cars in different parts of the world.</p>
+
+<p>It’s important to recognize that we can’t instantiate a <code class="language-plaintext highlighter-rouge">Car</code> directly: there’s no constructor in this interface, and we couldn’t write one even if we wanted to. Instead, we can only instantiate objects of types that implement the <code class="language-plaintext highlighter-rouge">Car</code> interface. The following snippet is the beginning of a <code class="language-plaintext highlighter-rouge">StationWagon</code> interface.</p>
+
+<blockquote>
+  <p>A note from Harry: A station wagon is not a particularly stylish variety of car. It has a boxy shape, a sluggish disposition, and plenty of trunk space. I note all of this with pride and nostalgia: my first car was a ‘98 Volvo station wagon.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StationWagon</span> <span class="kd">implements</span> <span class="nc">Car</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">manufacturer</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">topSpeedMPH</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">currentSpeedMPH</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">numDoors</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">numPassengers</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">passengers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="mi">6</span><span class="o">];</span>
+
+  <span class="kd">public</span> <span class="nf">StationWagon</span><span class="o">(</span><span class="nc">String</span> <span class="n">manufacturer</span><span class="o">,</span> <span class="kt">double</span> <span class="n">topSpeed</span><span class="o">,</span> <span class="kt">int</span> <span class="n">numDoors</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// implemented but omitted for length</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enter</span><span class="o">(</span><span class="nc">String</span> <span class="n">passenger</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">numPassengers</span> <span class="o">&lt;</span> <span class="n">passengers</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">passengers</span><span class="o">[</span><span class="n">numPassengers</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span><span class="n">passenger</span><span class="o">];</span>
+      <span class="n">numPassengers</span><span class="o">++;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Car's full!"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerateTo</span><span class="o">(</span><span class="kt">double</span> <span class="n">targetSpeed</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// implemented but omitted for length</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brake</span><span class="o">(</span><span class="kt">double</span> <span class="n">targetSpeed</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// implemented but omitted for length</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getSpeedMPH</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">currentSpeedMPH</span><span class="o">;</span>
+  <span class="o">}</span>
+  
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getSpeedKMPH</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">currentSpeedMPH</span> <span class="o">*</span> <span class="no">KM_PER_MILE</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Some important things to highlight here about how <code class="language-plaintext highlighter-rouge">StationWagon</code> implements <code class="language-plaintext highlighter-rouge">Car</code>.</p>
+<ul>
+  <li>Note that the class definition on line 1 includes the statement that <code class="language-plaintext highlighter-rouge">StationWagon implements Car</code>: this tells Java that <code class="language-plaintext highlighter-rouge">Car</code> is the interface that <code class="language-plaintext highlighter-rouge">StationWagon</code> should implement.</li>
+  <li>We were able to add our own fields to <code class="language-plaintext highlighter-rouge">StationWagon</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">StationWagon</code> contains a constructor. This lets us instantiate <code class="language-plaintext highlighter-rouge">StationWagon</code>s that are also <code class="language-plaintext highlighter-rouge">Car</code>s. This is the only way we have written to instantiate a <code class="language-plaintext highlighter-rouge">Car</code> object of any kind.</li>
+  <li>All of the methods in <code class="language-plaintext highlighter-rouge">Car</code> are implemented in <code class="language-plaintext highlighter-rouge">StationWagon</code>. These are annotated with the <code class="language-plaintext highlighter-rouge">@Override</code> decorator, which is an optional feature that tells Java to double check that the method you’re writing corresponds to a signature from the interface.</li>
+  <li>There are methods in <code class="language-plaintext highlighter-rouge">StationWagon</code> that were not outlined in <code class="language-plaintext highlighter-rouge">Car</code>, and that’s OK! <code class="language-plaintext highlighter-rouge">getSpeedMPH</code> and <code class="language-plaintext highlighter-rouge">getSpeedKMPH</code> are getters that are not present in the <code class="language-plaintext highlighter-rouge">Car</code> interface, but there’s no problem with including them in <code class="language-plaintext highlighter-rouge">StationWagon</code> as long as we don’t add the <code class="language-plaintext highlighter-rouge">@Override</code> tag above them.</li>
+</ul>
+
+<p>Thus, the <code class="language-plaintext highlighter-rouge">StationWagon</code> class can instantiate any number of different <code class="language-plaintext highlighter-rouge">StationWagon</code> objects that represent different vehicles. Importantly, all <code class="language-plaintext highlighter-rouge">StationWagon</code>s are <em>also</em> all <code class="language-plaintext highlighter-rouge">Car</code>s—this is an example of the subtype-supertype relationship.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Car</span> <span class="n">harrysVolvo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StationWagon</span><span class="o">(</span><span class="s">"Volvo"</span><span class="o">,</span> <span class="mi">85</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+<span class="nc">StationWagon</span> <span class="n">otherCar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StationWagon</span><span class="o">(</span><span class="s">"Volkswagen"</span><span class="o">,</span> <span class="mi">99</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+</code></pre></div></div>
+<p>In the above snippet, we instantiate two new objects. In both lines, we call the <code class="language-plaintext highlighter-rouge">StationWagon</code> constructor. For <code class="language-plaintext highlighter-rouge">harrysVolvo</code>, we store the resulting object we create in a variable of type <code class="language-plaintext highlighter-rouge">Car</code>. This works because a <code class="language-plaintext highlighter-rouge">StationWagon</code> is indeed a <code class="language-plaintext highlighter-rouge">Car</code>. For <code class="language-plaintext highlighter-rouge">otherCar</code>, we store the <code class="language-plaintext highlighter-rouge">StationWagon</code> in a variable of type <code class="language-plaintext highlighter-rouge">StationWagon</code>. This is also acceptable, and it means that <code class="language-plaintext highlighter-rouge">otherCar</code> can be used as a <code class="language-plaintext highlighter-rouge">StationWagon</code> more specifically than as a <code class="language-plaintext highlighter-rouge">Car</code>.</p>
+
+<h1 id="references-in-java">References in Java</h1>
+<p>Like for recursion, our Codio course has excellent and interactive notes on how to think about references in Java. Please refer to those notes for a better understanding of the material. Just a few definitions to leave here for reference, then:</p>
+<ul>
+  <li><em>reference variables</em> are variables for data types that are not primitive. Reference variables store as their values a reference to the location in memory where a particular object lives.</li>
+  <li><em>references</em> are locations where a particular object lives in memory.</li>
+  <li><em>pointees</em> are the objects that are being referred to by references.</li>
+  <li>Variables are <em>sharing</em> or are <em>aliases</em> when they contain references to the same pointee.</li>
+  <li>Two variables are <em>deep copies</em> of each other when
+    <ul>
+      <li>they contain two separate references to two different pointees</li>
+      <li>their two pointees are <em>structurally</em> equal objects that represent the same entity.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Java is a pass-by-value language</strong>. When you call a function in Java and give it an argument, the value of that argument is copied and handed along to the body of the function that’s being called. When dealing with reference variables in Java, or variables that themselves contain a reference to some object’s location in memory, a <em>copy</em> of this reference is passed into the function being called. Thus, the input parameter to the function call and the local variable available in the body of the function are <em>aliases</em> for each other.</p>
+
+<h1 id="linknodes-linked-lists--array-lists">LinkNodes, Linked Lists, &amp; Array Lists</h1>
+<p>Lists in Java are covered quite thoroughly in our interactive Codio course. Please explore them there!</p>
+
+<h2 id="typical-list-interface">Typical List Interface</h2>
+<p>A brief overview of a typical List interface, defined over some arbitrary example object called Item:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">add</code>, which can be implemented in multiple ways:
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">void add(Item i, int index)</code> adds <code class="language-plaintext highlighter-rouge">Item i</code> to the list at position <code class="language-plaintext highlighter-rouge">index</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">boolean add(Item i)</code> simply adds <code class="language-plaintext highlighter-rouge">Item i</code> to the end of the list and returns <code class="language-plaintext highlighter-rouge">true</code>, or returns <code class="language-plaintext highlighter-rouge">false</code> if there is no room.</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">boolean remove(Item i)</code> removes <code class="language-plaintext highlighter-rouge">Item i</code> from the list and returns <code class="language-plaintext highlighter-rouge">true</code>, or returns <code class="language-plaintext highlighter-rouge">false</code> if there is no such item. If there are duplicates of <code class="language-plaintext highlighter-rouge">i</code> in the list, the behavior may vary. Typically this results in removing the first matching <code class="language-plaintext highlighter-rouge">Item</code>, although this depends on the specifications.</li>
+  <li><code class="language-plaintext highlighter-rouge">boolean contains(Item i)</code> returns <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">Item i</code> appears in the list, and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li>
+  <li><code class="language-plaintext highlighter-rouge">boolean isEmpty()</code> returns <code class="language-plaintext highlighter-rouge">true</code> if the list is empty and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li>
+  <li><code class="language-plaintext highlighter-rouge">int size()</code> returns the number of items in the list as an <code class="language-plaintext highlighter-rouge">int</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">int get(Item i)</code> returns the index of <code class="language-plaintext highlighter-rouge">Item i</code> in the list. If there are duplicates of <code class="language-plaintext highlighter-rouge">i</code> in the list, the behavior may vary. Typically this results in finding the index of the first matching <code class="language-plaintext highlighter-rouge">Item</code>, although this depends on the specifications.</li>
+</ol>
+
+<h1 id="number-systems">Number Systems</h1>
+<p>Some quick definitions:</p>
+
+<ul>
+  <li>a <em>digit</em> is a single numerical symbol. We’re most typically familiar with digits <code class="language-plaintext highlighter-rouge">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</code>.</li>
+  <li>In a number, the <em>most significant digit</em> is the leftmost non-zero digit. The <em>least significant digit</em> is the rightmost digit. In the number <code class="language-plaintext highlighter-rouge">1234</code>, <code class="language-plaintext highlighter-rouge">1</code> is the most significant digit and <code class="language-plaintext highlighter-rouge">4</code> is the least significant digit.</li>
+</ul>
+
+<h2 id="decimal-vs-binary">Decimal vs. Binary</h2>
+<p><em>Decimal</em>, also referred to as base-10, is our typical way of dealing with numbers. The decimal number system consists of digits <code class="language-plaintext highlighter-rouge">0-9</code>. For an integer (we won’t handle fractional numbers in other systems in CIS 110), we might call the position of the least significant digit (the right-most digit) the “ones place”, then moving to the left we get the “tens place” and the “hundreds place” and so on. This reflects how we read numbers in decimal: <code class="language-plaintext highlighter-rouge">5,839</code> is equivalent <code class="language-plaintext highlighter-rouge">5*1000 + 8*100 + 3*10 + 9*1</code>.</p>
+
+<p><em>Binary</em> is the base-2 number system, where our only digits are <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">1</code>. These “<strong>b</strong>inary dig<strong>its</strong>” are also called <em>bits</em>. Counting in binary proceeds as follows: <code class="language-plaintext highlighter-rouge">0, 1, 10, 11, 100, 101, 110, 111, 1000</code>, and so on. Instead of a “tens place” and a “hundreds place” as in decimal numbers, we have a “twos place” and a “fours place”. That is, if we want to convert the binary number <code class="language-plaintext highlighter-rouge">1011</code> into a decimal interpretation, we view it in the following way: <code class="language-plaintext highlighter-rouge">1101</code> in binary is <code class="language-plaintext highlighter-rouge">1*8 + 1*4 + 0*2 + 1*1 = 13</code> in decimal.</p>
+
+<h2 id="converting-from-binary-to-decimal">Converting from Binary to Decimal</h2>
+<p>As discussed right above, it’s simple to convert from binary to decimal by considering the binary number to be a sum of powers of two.</p>
+
+<p>The algorithm for converting is as follows:</p>
+<ul>
+  <li>Start at position <code class="language-plaintext highlighter-rouge">p = 0</code> (the rightmost position) and initialize an accumulator variable <code class="language-plaintext highlighter-rouge">sum = 0</code>.</li>
+  <li>Take the bit <code class="language-plaintext highlighter-rouge">b</code> at the current position. Multiply <code class="language-plaintext highlighter-rouge">b * 2^p</code> and add the result to <code class="language-plaintext highlighter-rouge">sum</code>.</li>
+  <li>increment <code class="language-plaintext highlighter-rouge">p</code> and move one position to the left, continuing until you perform the multiplication and addition step on the most sigificant bit.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">110101</code> becomes, then <code class="language-plaintext highlighter-rouge">1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 + 1*2^4 + 1*2^5</code>, which is <code class="language-plaintext highlighter-rouge">1 + 4 + 16 + 32 = 53</code>.</p>
+
+<h2 id="converting-from-decimal-to-binary">Converting from Decimal to Binary</h2>
+<p>Going in this direction, we recommend the following algorithm: starting with the decimal number to convert, and while the quotient is greater than 0, perform integer division, keeping track of the remainder. This is perhaps better explained through example (see the slides for an image version):</p>
+
+<ol>
+  <li>Start at 157. Divide this by 2 to get 78 remainder 1.</li>
+  <li>Divide 78 by 2 to get 39 remainder 0.</li>
+  <li>Divide 39 by 2 to get 19 remainder 1.</li>
+  <li>Divide 19 by 2 to get 9 remainder 1.</li>
+  <li>Divide 9 by 2 to get 4 remainder 1.</li>
+  <li>Divide 4 by 2 to get 2 remainder 0.</li>
+  <li>Divide 2 by 2 to get 1 remainder 0.</li>
+  <li>Divide 1 by 2 to get 0 remainder 1, and we’re done dividing.</li>
+  <li>Read the remainders in reverse: <code class="language-plaintext highlighter-rouge">10011101</code>.</li>
+</ol>
+
+<p>We can verify that this is correct:
+<code class="language-plaintext highlighter-rouge">10011101 (binary) = 1 + 4 + 8 + 16 + 128 = 157 (decimal)</code>.</p>
+
+<h2 id="encryption--xor">Encryption &amp; XOR</h2>
+<p>We can interpret any piece of data as a sequence of bits. Thus, data of all types (ints, doubles, Strings, images, text files, videos, PDFs, etc) are interpretable as binary numbers! We can leverage this interpretation to carefully encrypt the data.</p>
+
+<p>Supposing we have some message <code class="language-plaintext highlighter-rouge">m</code> that is the binary representation of some String. We can use the bitwise XOR operation, written in Java as <code class="language-plaintext highlighter-rouge">^</code>, to encrypt <code class="language-plaintext highlighter-rouge">m</code> using some secret key <code class="language-plaintext highlighter-rouge">k</code> of the same length as <code class="language-plaintext highlighter-rouge">m</code>.</p>
+
+<p>Here is the truth table for XOR:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>x^y (result)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Say that <code class="language-plaintext highlighter-rouge">m = 10111010</code>, and <code class="language-plaintext highlighter-rouge">k</code> is a randomly generated bit String of the same length <code class="language-plaintext highlighter-rouge">11011010</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>String name</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>m (message)</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>k (random key)</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>m ^ k</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Crucially, this process is reversible using the same key for encryption and decryption:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>String name</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>m ^ k</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>k (random key)</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>m ^ k ^ k = m (message)</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="2d-arrays">2D Arrays</h1>
+
+<h2 id="declaring-and-initializing">Declaring and Initializing</h2>
+<p>Put simply, 2D arrays are arrays of arrays. The syntax for declaring a variable for a 2D array of ints is as follows:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">[][]</span> <span class="n">ages</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>2D arrays can be initialized implicitly or explicitly, just like how we’ve used arrays previously:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">[][]</span> <span class="n">ages</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">5</span><span class="o">];</span>
+</code></pre></div></div>
+<p>This is implicit initialization, and it results in <code class="language-plaintext highlighter-rouge">ages</code> being an array containing <code class="language-plaintext highlighter-rouge">3</code> other arrays, each of which has <code class="language-plaintext highlighter-rouge">5</code> elements. The result is a 2D array that looks like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can use explicit initialization instead:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">[][]</span> <span class="n">ages</span> <span class="o">=</span> <span class="o">{</span> 
+                 <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span>
+                 <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span>
+                 <span class="o">{</span><span class="mi">0</span><span class="o">},</span>
+                 <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">}</span>
+                <span class="o">};</span>
+</code></pre></div></div>
+<p>This results in a <em>jagged</em> array, where not all rows are of the same length. This works perfectly well!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="indexing">Indexing</h2>
+<p>By convention in this class, we refer to 2D arrays in <em>row-major order</em>, where the first index of the array refers to the “row” number and the second index to the “column”. Further, the first row is the top one in the visualizations we’ve given before. For example, let’s visualize the following 2D array:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">String</span><span class="o">[][]</span> <span class="n">seatingChart</span> <span class="o">=</span> <span class="o">{</span>
+                              <span class="o">{</span><span class="s">"Harry"</span><span class="o">,</span> <span class="s">"Eric"</span><span class="o">,</span> <span class="s">"Jules"</span><span class="o">},</span> 
+                              <span class="o">{</span><span class="s">"Gian"</span><span class="o">,</span> <span class="s">"Ben"</span><span class="o">,</span> <span class="s">"Michael"</span><span class="o">}</span>
+                           <span class="o">};</span>
+</code></pre></div></div>
+
+<p>For the purposes of this class, we’ll view <code class="language-plaintext highlighter-rouge">seatingChart</code> like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>“Harry”</td>
+      <td>“Eric”</td>
+      <td>“Jules”</td>
+    </tr>
+    <tr>
+      <td>“Gian”</td>
+      <td>“Ben”</td>
+      <td>“Michael”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Independent of how we view the 2D array in text, we have that <code class="language-plaintext highlighter-rouge">seatingChart[0][0]</code> evaluates to <code class="language-plaintext highlighter-rouge">"Harry"</code> and <code class="language-plaintext highlighter-rouge">seatingChart[1][2]</code> evaluates to <code class="language-plaintext highlighter-rouge">"Michael"</code>.</p>
+
+<p>If you are working in a context where the 2D space analogy of rows and columns is not useful, or if this notation is confusion, recall that 2D arrays are just arrays of arrays, and so the following table holds for <code class="language-plaintext highlighter-rouge">double[][] prices</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>expression</th>
+      <th>expression data type</th>
+      <th>data type interpretation</th>
+      <th>2D analogy interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">prices</code></td>
+      <td><code class="language-plaintext highlighter-rouge">double[][]</code></td>
+      <td>array with elements of type <code class="language-plaintext highlighter-rouge">double[]</code></td>
+      <td>2D array / matrix</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">prices[i]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">double[]</code></td>
+      <td>array with elements of type <code class="language-plaintext highlighter-rouge">double</code></td>
+      <td>row <code class="language-plaintext highlighter-rouge">i</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">prices[i][j]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">double</code></td>
+      <td>a single <code class="language-plaintext highlighter-rouge">double</code></td>
+      <td>a single entry at row <code class="language-plaintext highlighter-rouge">i</code>, column <code class="language-plaintext highlighter-rouge">j</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="iteration-through-2d-arrays">Iteration through 2D Arrays</h2>
+<p>2D arrays are (I’ll write it again!) arrays of arrays, so it makes sense to use nested loops to iterate through them. Presented below is a snippet that’s safe to use on both jagged and rectangular 2D arrays. The purpose of the snippet is to go through and print out every entry of the 2D array, although it can easily be adapted for other purposes:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Item</span><span class="o">[][]</span> <span class="n">itemArr</span> <span class="o">=</span> <span class="n">generateItemArray</span><span class="o">();</span>
+
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">itemArr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">itemArr</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">itemArr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Observe that the inner loop iterates from <code class="language-plaintext highlighter-rouge">0</code> up to the length of the current row, so jagged arrays are handled automatically without throwing <code class="language-plaintext highlighter-rouge">ArrayIndexOutOfBoundsException</code>.</p>
+
+<h1 id="comparing-objects">Comparing Objects</h1>
+<p>When you write a class for a data type, it’s possible that the instances of that class can be compared to one another in some reasonable way. One <code class="language-plaintext highlighter-rouge">Student</code> might be compared to another <code class="language-plaintext highlighter-rouge">Student</code> based on their first names: <code class="language-plaintext highlighter-rouge">Student ruth</code> comes alphabetically after <code class="language-plaintext highlighter-rouge">Student prabh</code> but before <code class="language-plaintext highlighter-rouge">Student xianHan</code>.</p>
+
+<p>To make it so an object is automatically comparable for the purposes of several built-in Java methods, you must first specify that the class implements <code class="language-plaintext highlighter-rouge">Comparable</code>.</p>
+
+<p>Specifically, you must have:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">ClassName</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">ClassName</span><span class="o">&gt;</span>
+</code></pre></div></div>
+<p>as the first line of the class definition. Note that because <code class="language-plaintext highlighter-rouge">Comparable</code> is a generic type, you need to append the <code class="language-plaintext highlighter-rouge">&lt;ClassName&gt;</code> to the end of it. The reasons why are beyond the scope of the course, you just need to remember that you have to include it for now.</p>
+
+<p>Secondly, now that you’ve committed to implementing the <code class="language-plaintext highlighter-rouge">Comparable</code> interface, you need to make sure that your class implements the methods included in <code class="language-plaintext highlighter-rouge">Comparable</code>. Fortunately, there’s only one: <code class="language-plaintext highlighter-rouge">int compareTo(ClassName other)</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">compareTo</code> should return:</p>
+<ul>
+  <li>a negative int (<code class="language-plaintext highlighter-rouge">-1</code> by convention) when <code class="language-plaintext highlighter-rouge">this</code> comes before <code class="language-plaintext highlighter-rouge">other</code>,</li>
+  <li>a positive int (<code class="language-plaintext highlighter-rouge">1</code> by convention) when <code class="language-plaintext highlighter-rouge">this</code> comes after <code class="language-plaintext highlighter-rouge">other</code>,</li>
+  <li><code class="language-plaintext highlighter-rouge">0</code> when <code class="language-plaintext highlighter-rouge">this</code> and <code class="language-plaintext highlighter-rouge">other</code> are equal.</li>
+</ul>
+
+<p>Now you can use the <code class="language-plaintext highlighter-rouge">.sort</code> methods of <code class="language-plaintext highlighter-rouge">Arrays</code> or <code class="language-plaintext highlighter-rouge">Lists</code> of <code class="language-plaintext highlighter-rouge">ClassName</code> objects to have Java automatically handle the sorting of those collections!</p>
+:ET

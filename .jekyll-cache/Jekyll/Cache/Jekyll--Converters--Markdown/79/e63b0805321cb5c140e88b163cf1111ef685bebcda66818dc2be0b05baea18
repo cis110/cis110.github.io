@@ -1,0 +1,403 @@
+I"c�<h2 id="part-one-recursive-exercises">Part One: Recursive Exercises</h2>
+
+<hr />
+
+<h3 id="motivation">Motivation</h3>
+
+<p>Recursion is one of the most powerful tools in computer science. It takes a problem that may be very difficult to solve all at once and lets us solve just one part of it. Then we recursively use that logic on the rest of the problem. In the end, we have solved the greater problem just by doing a little bit of work at each step. Recursion can be used to solve enormous problems with just a few lines of code. In fact, there exist problems that can feasibly <em>only</em> be solved recursively!
+Recursion plays a major role in not just problem solving, but data structures too, which we will see later in the course. Although it’s conceptually difficult, recursion is an incredibly cool and rewarding to learn.</p>
+
+<h3 id="applications-to-other-fields">Applications to Other Fields</h3>
+
+<p>Recursion doesn’t exist only in computer science. Other fields, like math, linguistics, and logic, all use recursion. In linguistics, for example, we can build sentences out of phrases, and these phrases can contain themselves as subphrases. For example, we can have a phrase of “big friendly giant”, which consists of an adjective, “big”, and a subphrase of “friendly giant”, which consists of an adjective, being “friendly”, and a subphrase, being “giant”. This fact means that we can make sentences that are infinitely long - all we have to do is add another level of recursion to our phrases!</p>
+
+<hr />
+
+<h3 id="goals">Goals</h3>
+
+<p>The purpose of this assignment is to gain practice with recursion. The specific goals are to:</p>
+
+<ul>
+  <li>Complete a set of recursion exercises</li>
+  <li>Practice writing recursive functions (and helper functions)</li>
+  <li>Use recursion to draw a cool fractal system (Sierpinski carpet) (optional)</li>
+</ul>
+
+<hr />
+
+<h3 id="setting-up">Setting Up</h3>
+
+<p>In the <strong>Recursion Finger Exercise</strong> portion of this assignment, you will create a class of functions that each perform a different task in a recursive fashion. <em>Solutions using iteration (for/while loops) will be given no credit</em>. You are responsible for writing proper header comments for the class and for all the functions you will write.</p>
+
+<p>You will be able to test your functions using the autograder on Gradescope, but you should absolutely write tests yourself in <code class="language-plaintext highlighter-rouge">main()</code> to go over various inputs, as the tests we will show on gradescope are not comprehensive nor representative of our complete testing suite.</p>
+
+<p>You should create two (initially empty) java files in Codio - <code class="language-plaintext highlighter-rouge">FingerExercises.java</code> and, if you want to do the optional ungraded portion of the assignment, <code class="language-plaintext highlighter-rouge">Sierpinski.java</code>.</p>
+
+<hr />
+
+<h3 id="finger-exercises">Finger Exercises</h3>
+
+<p>For the exercises below, we have provided the method header and problem description. You may find it necessary to write <strong>helper methods</strong> for these methods if you think you need more input parameters than the provided public methods have.</p>
+
+<p><strong>Important:</strong> Note that, although there are 7 problems outlined, you only need to choose 5 of them to implement. If you implement more than 5, we will grade the first 5 functions in <code class="language-plaintext highlighter-rouge">FingerExercises.java</code> only. Any additional functions will automatically fail the autograder - if you’d like to see the tests for later functions, comment out the first ones you did.</p>
+
+<p>Here’s an example of a problem that doesn’t use a helper method. In the code below, <code class="language-plaintext highlighter-rouge">String.substring(x,y)</code> is inclusive for x and exclusive for y.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">// base case - length is 0 or 1, and therefore is a palindrome.</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// check if first and last are the same</span>
+    <span class="kt">char</span> <span class="n">firstChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="kt">char</span> <span class="n">lastChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="kt">boolean</span> <span class="n">firstAndLastMatch</span> <span class="o">=</span> <span class="n">firstChar</span> <span class="o">==</span> <span class="n">lastChar</span><span class="o">;</span>
+
+    <span class="c1">// if they match, recurse on the string without the first and last letters</span>
+    <span class="k">return</span> <span class="n">firstAndLastMatch</span> <span class="o">&amp;&amp;</span> <span class="n">isPalindrome</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We of course could have solved this with a helper like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">// return our recursive helper since we want another parameter</span>
+    <span class="k">return</span> <span class="nf">isPalindromeHelper</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">word</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindromeHelper</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">// base case is we are halfway through the word and it's still a palindrome</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kt">char</span> <span class="n">firstChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="kt">char</span> <span class="n">lastChar</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">index</span><span class="o">);</span>
+    <span class="kt">boolean</span> <span class="n">firstAndLastMatch</span> <span class="o">=</span> <span class="n">firstChar</span> <span class="o">==</span> <span class="n">lastChar</span><span class="o">;</span>
+
+    <span class="c1">// recurse on rest if they match - otherwise, we will return false</span>
+    <span class="k">return</span> <span class="n">firstAndLastMatch</span> <span class="o">&amp;&amp;</span> <span class="n">isPalindromeHelper</span><span class="o">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">word</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Both solutions are equally valid - if you want to solve a problem using a helper method, you will not be penalized for doing so if there exists an implementation without the helper. You should approach these problems in the way that makes the most sense to you.</p>
+
+<p><strong>Tip:</strong> Remember to start by thinking about the base case — the smallest, simplest problem possible. From there, work out a way to get from a larger input down to the base case.</p>
+
+<hr />
+
+<h4 id="1-greatest-common-denominator-gcd">1. Greatest Common Denominator (GCD)</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int gcd(int a, int b)</code></p>
+
+<p><strong>Problem Description:</strong> The Greatest Common Denominator (GCD) of two integers, $a$ and $b$, is the largest number that divides both values. One way to solve this problem is to find the prime factorization of both $a$ and $b$ and return the product of the common factors. That way takes a long time, and we can do it smarter! Euclid came up with an algorithm for this problem long before computer science existed.</p>
+
+<ol>
+  <li>If $a &lt; b$, return $GCD(b,a)$</li>
+  <li>If $a = b$, return $b$</li>
+  <li>If $b = 0$ return $a$.</li>
+  <li>Otherwise, return $GCD(b, a \% b)$</li>
+</ol>
+
+<p><strong>Algorithm Explanation</strong>: One way to do GCD would be to start at 1 and keep track of the largest number that divides both values at each level. When we do that, we definitely get the right answer. Another way to think about it is subtracting by the smaller value until the bigger number is less than or equal to the smaller number. For example, say we have 40 and 12. 40 - 12 is 28, 28 - 12 is 16, 16 - 12 is 4, so the answer is 4. This process is very similar to take a modulo, as we essentially are finding the remainder after dividing the value.</p>
+
+<p>This relies on the principle that the GCD of two values will not change if you replace the larger one with the difference of the larger and the smaller one. The intuition behind this is that if my GCD divides x and y, then it must be true that it will divide x−y, because x and y are just integer multiples of the GCD, so x−y is equivalent to some integer multiple of the GCD as well! For example, with 40 and 12, the GCD is 4. Let’s have the GCD be z, let 40=x, and 12=y. We therefore can say x−y=10z−3z=7z, and 7z is of course an integer multiple of the GCD!</p>
+
+<p>If you’re still curious to learn more about <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm#Proof_of_validity">Euclid’s algorithm</a>, take a look at its wikipedia page, specifically the “Description” and “Proof of Validity” subsections!</p>
+
+<p><strong>Invariant:</strong> You may assume that both $a$ and $b$ are positive numbers (0 is not positive).</p>
+
+<hr />
+
+<h4 id="2-cumulative-sum">2. Cumulative Sum</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int sumBetween(int a, int b)</code></p>
+
+<p><strong>Problem Description:</strong> The goal is to find the sum of the values from $a$ to $b$. In math, we would write this problem as $\sum_{i=a}^{b} i$. You must also do 2.1 if you choose this question.</p>
+
+<p><strong>Invariants:</strong> You can assume that $a \leq b$ for all inputs.</p>
+
+<hr />
+
+<h4 id="21">2.1</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int sumTo(int x)</code></p>
+
+<p><strong>Problem Description:</strong> Now, write another method to find the sum of values from 1 to $x$. Think about how you can take advantage of prior code to solve this problem.</p>
+
+<p><strong>Invariants:</strong> You can assume that $x &gt;= 1$.</p>
+
+<hr />
+
+<h4 id="3-find-second-largest">3. Find Second Largest</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int findSecondLargestHelper(int largest, int secondLargest, int index, int[] nums)</code></p>
+
+<p><strong>Problem Description:</strong> Given an array of integers, find the second largest value in the array. We are going to be implementing a helper function for this - you should add this to your program as the <code class="language-plaintext highlighter-rouge">public</code> method and then write the helper function with the method header presented above.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findSecondLargest</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">findSecondLargestHelper</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">nums</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Invariants:</strong> You may assume that the array is not null and has at least 2 different elements.</p>
+
+<p>Important: If the array is something like <code class="language-plaintext highlighter-rouge">[2, 2, 1]</code>, you should return 2. The reason for this is as that if we removed the largest element, the new largest element would still be 2.</p>
+
+<hr />
+
+<h4 id="4-sum-of-digits">4. Sum of Digits</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int sumOfDigits(int x)</code></p>
+
+<p><strong>Problem Description:</strong> Write a recursive function to calculate the sum of the digits of number. For example, <code class="language-plaintext highlighter-rouge">sumOfDigits(74296)</code> should return 28 as 7 + 4 + 2 + 9 + 6 = 28.</p>
+
+<p><strong>Invariants:</strong> You may assume that $x \geq 0$.</p>
+
+<hr />
+
+<h4 id="5-count-ways-to-climb-stairs">5. Count Ways to Climb Stairs</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int countWaysToClimb(int stairs)</code></p>
+
+<p><strong>Problem Description:</strong> Given an amount of stairs to climb, calculate the number of ways to climb taking either 1 or 2 steps at a time. For example, if there are 4 stairs, we would return 5, as there are the following options:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span>
+<span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span>
+<span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span>
+<span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span>
+<span class="mi">2</span><span class="o">,</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p><strong>Invariants:</strong> You may assume that the <code class="language-plaintext highlighter-rouge">stairs &gt;= 0</code>. If <code class="language-plaintext highlighter-rouge">stairs</code> is 0, you should return 1.</p>
+
+<hr />
+
+<h4 id="6-log">6. Log</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int log(int base, int n)</code></p>
+
+<p><strong>Problem Description:</strong> A log operation is the inverse of an exponential operation. As a refresher, given some base $b$ and some value $n$, we can calculate $log_{b}n$ by seeing how many times we have to multiply $b$ by itself until we reach $n$. For example, $log_{10}1000 = 3$, and $log_{b}1 = 0$ for all $b$.</p>
+
+<p><strong>Invariants:</strong> Although you cannot assume that there exists an exact solution <code class="language-plaintext highlighter-rouge">x</code> such that $base^x = n$, you can assume that <code class="language-plaintext highlighter-rouge">base &lt;= n</code> for all inputs, that <code class="language-plaintext highlighter-rouge">base</code> and <code class="language-plaintext highlighter-rouge">n</code> are positive integers greater than 1. That means no natural logs!</p>
+
+<p>If there is no exact integer solution <code class="language-plaintext highlighter-rouge">x</code>, you should return the truncated answer - that is, if we are given <code class="language-plaintext highlighter-rouge">log(2, 33)</code>, we should return 5, not 6. This is not as complicated as it sounds, and if you write out what the recursion would look like by hand, you’ll see why.</p>
+
+<hr />
+
+<h4 id="7-countsubstrings">7. CountSubstrings</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int countSubstrings(String sequence, String word)</code></p>
+
+<p><strong>Problem Description:</strong> We want to find how many times a sequence appears in a particular word. For example, in the word “banana”, the sequence “na” appears two times, with “baNAna” and “banaNA”. We also have “ana” appear two times, being “bANAna” and “banANA” - note that this means that we can have overlaps between the starts of our sequences (this actually makes the problem easier!)</p>
+
+<p><strong>Invariants:</strong> You may assume that neither <code class="language-plaintext highlighter-rouge">sequence</code> nor <code class="language-plaintext highlighter-rouge">word</code> are null, and that both have positive lengths (0 is not positive.) You may also assume that the strings are both all lowercase.</p>
+
+<p><strong>Hint:</strong> The function <code class="language-plaintext highlighter-rouge">String.substring(x, y)</code> will be helpful here.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Example:</span>
+<span class="nc">String</span> <span class="n">className</span> <span class="o">=</span> <span class="s">"cis110"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">department</span> <span class="o">=</span> <span class="n">className</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">number</span> <span class="o">=</span> <span class="n">className</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">className</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">department</span><span class="o">);</span> <span class="c1">// prints "cis"</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">number</span><span class="o">);</span> <span class="c1">// prints "110"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="extra-credit">Extra Credit</h3>
+
+<h4 id="how-different">How Different?</h4>
+
+<p><strong>Method Header:</strong> <code class="language-plaintext highlighter-rouge">public static int howDifferent(String one, String two)</code></p>
+
+<p><strong>Problem Description:</strong> This is the most interesting problem of what we’ve seen so far. Given two strings, we want to find out what the least amount of changes we would have to make to one of the strings to get to the other. There are three ways we can change a string. 1, we can replace a letter with another letter. 2, we can delete a letter. 3, we can add a letter. Here are some examples to help make this clear.</p>
+
+<p><strong>Example 1:</strong> code, coder. We can add one letter to the first string, being an r, to make the strings match, so this should return 1.</p>
+
+<p><strong>Example 2:</strong> mouse, must. We see that both share the same first letter, so we don’t have to make any changes there. Then, we can delete the o in mouse, then, the next letter is s for both strings, and then we can change the e into a t to make both into must. That’s a total of 2 changes. There are other ways we could have transformed the first string into the second, but this is the one with the least changes, and that’s what we’re interested in.</p>
+
+<hr />
+
+<h2 id="part-two-sierpinski-optional-assignment">Part Two: Sierpinski: Optional Assignment</h2>
+
+<p>In this assignment, you will write a program <code class="language-plaintext highlighter-rouge">Sierpinski.java</code> that recursively draws a Sierpinski carpet using <code class="language-plaintext highlighter-rouge">PennDraw</code>. These instructions will walk you through the process step by step.You are not allowed to use <code class="language-plaintext highlighter-rouge">PennDraw.setXScale()</code>, <code class="language-plaintext highlighter-rouge">PennDraw.setYScale()</code>, or any scale changing in this assignment. Doing so will only make the assignment harder.</p>
+
+<hr />
+
+<h3 id="a-the-main-function">A. The <code class="language-plaintext highlighter-rouge">main()</code> function</h3>
+
+<p>Write a <code class="language-plaintext highlighter-rouge">main()</code> function that calls the <code class="language-plaintext highlighter-rouge">PennDraw.filledSquare()</code> function to draw a square with sides of length 1.0 / 3.0 with the center vertex located at (0.5, 0.5). Later, you will modify <code class="language-plaintext highlighter-rouge">main()</code> to draw the full Sierpinski carpet.</p>
+
+<p>When you compile and run your program, you should see a square in the center of your window.</p>
+
+<hr />
+
+<h3 id="b-setting-up-the-recursive-structure-of-sierpinski">B. Setting up the recursive structure of <code class="language-plaintext highlighter-rouge">sierpinski()</code></h3>
+
+<p>Write a function <code class="language-plaintext highlighter-rouge">sierpinski()</code> that takes two parameters, <code class="language-plaintext highlighter-rouge">numLevels</code> and <code class="language-plaintext highlighter-rouge">halfSideLength</code>. Your function should print both parameters, before recursively calling itself eight times with the arguments <code class="language-plaintext highlighter-rouge">numLevels</code> - 1 and <code class="language-plaintext highlighter-rouge">halfSideLength</code> / 3. The recursion should stop when <code class="language-plaintext highlighter-rouge">numLevels</code> is less than 1. Later, you will replace the print statements with a call to <code class="language-plaintext highlighter-rouge">PennDraw.filledSquare()</code>.
+Modify main() to interpret its first command-line argument as <code class="language-plaintext highlighter-rouge">numLevels</code>. Have it call <code class="language-plaintext highlighter-rouge">sierpinski(numLevels, 1.0 / 6.0)</code>. You may assume that your program will be run with exactly one command-line argument that is a positive integer.</p>
+
+<hr />
+
+<h3 id="c-checkpoint">C. Checkpoint</h3>
+
+<p>Running your program with the following command-line arguments should produce the following output:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span> <span class="nc">Sierpinski</span> <span class="mi">0</span>
+<span class="o">(</span><span class="n">no</span> <span class="n">output</span><span class="o">)</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span> <span class="nc">Sierpinski</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mf">0.16666666666666666</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span> <span class="nc">Sierpinski</span> <span class="mi">2</span>
+<span class="mi">2</span> <span class="mf">0.16666666666666666</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.05555555555555555</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span> <span class="nc">Sierpinski</span> <span class="mi">3</span>
+<span class="mi">3</span> <span class="mf">0.16666666666666666</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">2</span> <span class="mf">0.05555555555555555</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+<span class="mi">1</span> <span class="mf">0.018518518518518517</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="d-drawing-the-sierpinski-carpet-in-sierpinski">D. Drawing the Sierpinski carpet in <code class="language-plaintext highlighter-rouge">sierpinski()</code></h3>
+
+<p>Comment out the print statements from <code class="language-plaintext highlighter-rouge">sierpinski()</code>.</p>
+
+<p>Modify <code class="language-plaintext highlighter-rouge">sierpinski()</code> to take two additional arguments, <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>, and draw a Sierpinski carpet of order <code class="language-plaintext highlighter-rouge">numLevels</code> of size <code class="language-plaintext highlighter-rouge">2 * halfSideLength</code> centered at <code class="language-plaintext highlighter-rouge">(x, y)</code>. Remember that if you have more than 85 characters on a single line, you need to break the line up. This can be done by putting a linebreak between arguments. Your recursive calls may be in any order you like.</p>
+
+<p>Think recursively. A Sierpinski carpet of order <code class="language-plaintext highlighter-rouge">numLevels</code> comprises just a solid square and eight smaller Sierpinski carpets, each one third the size of the original, each of order <code class="language-plaintext highlighter-rouge">numLevels</code> - 1, to the four cardinal directions plus the four diagonals relative to the center square. The distance between the center of the original square and the center of the smaller squares should be <code class="language-plaintext highlighter-rouge">2 * halfSideLength</code> of the original in both the $x$ and $y$ directions. You have already written the function to draw the square and the recursion code from the previous steps – now, you only need to make the correct function calls.</p>
+
+<p><strong>Warning:</strong> Do not call <code class="language-plaintext highlighter-rouge">PennDraw.setCanvasSize()</code>, or <code class="language-plaintext highlighter-rouge">PennDraw.save()</code>. These functions will break our test scripts, and you will receive a large point deduction.</p>
+
+<hr />
+
+<h3 id="e-checkpoint">E. Checkpoint</h3>
+
+<p>Running your program with the command-line arguments below should produce the following output.</p>
+
+<h4 id="input-java-sierpinski-1">Input: java sierpinski 1</h4>
+
+<p><img src="hw04_base/sier_photos/sier1.png" alt="" /></p>
+
+<h4 id="input-java-sierpinski-2">Input: java sierpinski 2</h4>
+
+<p><img src="hw04_base/sier_photos/sier2.png" alt="" /></p>
+
+<h4 id="input-java-sierpinski-3">Input: java sierpinski 3</h4>
+
+<p><img src="hw04_base/sier_photos/sier3.png" alt="" /></p>
+
+<h4 id="input-java-sierpinski-4">Input: java sierpinski 4</h4>
+
+<p><img src="hw04_base/sier_photos/sier4.png" alt="" /></p>
+
+<h4 id="input-java-sierpinski-5">Input: java sierpinski 5</h4>
+
+<p><img src="hw04_base/sier_photos/sier5.png" alt="" /></p>
+
+<h4 id="input-java-sierpinski-6">Input: java sierpinski 6</h4>
+
+<p><img src="hw04_base/sier_photos/sier6.png" alt="" /></p>
+
+<hr />
+
+<h3 id="f-animating">F. Animating</h3>
+
+<p>Once you have your Sierpinski carpet working, add calls to <code class="language-plaintext highlighter-rouge">PennDraw.enableAnimation()</code> and <code class="language-plaintext highlighter-rouge">PennDraw.advance()</code> into your <code class="language-plaintext highlighter-rouge">sierpinski()</code> function. (You are not required to animate your Sierpinski carpet, and it is not worth any points, but it is fun and will help you visualize the recursion. If you do add animation, leave it in your code: it will not affect our grading scripts.)
+Experiment with different arrangements of the recursive calls to <code class="language-plaintext highlighter-rouge">sierpinski()</code>.</p>
+
+<hr />
+
+<h3 id="submissions">Submissions</h3>
+
+<p>Please complete the readme and then submit <code class="language-plaintext highlighter-rouge">FingerExercises.java</code> and <code class="language-plaintext highlighter-rouge">recursive_readme.txt</code> on Gradescope.</p>
+
+<p><strong>Note that we will only run tests for the first 5 finger exercises you completed - the rest will automatically fail. If your grade is a 35, that means you’ve passed all the tests that you should have.</strong></p>
+:ET

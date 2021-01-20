@@ -1,0 +1,475 @@
+I"��<h3 id="penndrawjava"><a href="../assets/example_programs/PennDraw.java">PennDraw.java</a></h3>
+
+<hr />
+
+<h4 id="penndraw-reference-page">PennDraw Reference Page</h4>
+
+<p><code class="language-plaintext highlighter-rouge">PennDraw</code> is an expanded ersion of <code class="language-plaintext highlighter-rouge">StdDraw</code> from Sedgewick and Wayne’s <em>Introduction to Programming in Java: An Interdisciplinary Approach</em>. It supports everything that <code class="language-plaintext highlighter-rouge">StdDraw</code> supports, plus additional drawing and animation commands.</p>
+
+<hr />
+
+<h4 id="downloading-and-using-penndraw">Downloading and Using PennDraw</h4>
+
+<p>To use <code class="language-plaintext highlighter-rouge">PennDraw</code>, save <a href="../assets/example_programs/PennDraw.java">PennDraw.java</a> to the same folder as your program. Once you add it to your folder, you should open it up and compile it.</p>
+
+<hr />
+
+<h4 id="getting-started-a-simple-program">Getting Started: A Simple Program</h4>
+
+<p>Here’s a simple program that draws a line and a point:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PennDrawTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw</code> takes care of creating a window for you as soon as you start drawing. You don’t need to do anything special to set up besides putting <code class="language-plaintext highlighter-rouge">PennDraw.java</code> in the folder with your program.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.line(0, 0, 1, 1)</code>; draws a line from near the lower-left corner to the near the upper-right corner.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.point(0, 1)</code>; draws a point near the upper left corner</li>
+</ul>
+
+<p><strong>Why aren’t (0, 0) and (1, 1) at the actual corners of the window?</strong> Most CIS 110 assignments that involve drawing will require you to keep your drawing within the “unit square” defined by the corners (0, 0) and (1, 1). The margin that PennDraw adds makes it easy to visually verify that you stay inside this square: just draw the unit square (<code class="language-plaintext highlighter-rouge">PennDraw.square(0.5, 0.5, 0.5)</code>; — see below) and make sure your drawing is completely inside it.</p>
+
+<hr />
+
+<h4 id="window-size-and-scale">Window Size and Scale</h4>
+
+<p>By default, the <code class="language-plaintext highlighter-rouge">PennDraw</code> window is 512×512 pixels. To change this, use</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">setCanvasSize</span><span class="o">(</span><span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>width and height are the width and height of the drawing area in pixels (including the drawing area’s “margin”, but not including the window title or window borders).</li>
+  <li>Calling <code class="language-plaintext highlighter-rouge">PennDraw.setCanvasSize()</code> will erase everything in your window, and reset your line width, color, and font. It’s best to use it only once at the very beginning of your programming.</li>
+  <li>Most CIS 110 assignments require you to use the default window size and forbid using <code class="language-plaintext highlighter-rouge">PennDraw.setCanvaseSize()</code> to make grading a little bit easier for the TAs.</li>
+</ul>
+
+<p>You can also change the window’s coordinate system, which can make it much easier to compute the coordinates for your shapes:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">setXscale</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setYscale</span><span class="o">(</span><span class="n">bottom</span><span class="o">,</span> <span class="n">top</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setScale</span><span class="o">(</span><span class="n">left</span><span class="o">/</span><span class="n">bottom</span><span class="o">,</span> <span class="n">right</span><span class="o">/</span><span class="n">top</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setScale</span><span class="o">();</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">left</code> is the x-coordinate of the left edge, <code class="language-plaintext highlighter-rouge">right</code> is the x-coordinate of the right edge, <code class="language-plaintext highlighter-rouge">bottom</code> is the y-coordinate of the bottom edge, and <code class="language-plaintext highlighter-rouge">top</code> is the y-coordinate of the top edge. <code class="language-plaintext highlighter-rouge">PennDraw.setScale(left/bottom, right/top);</code> is similar to calling both <code class="language-plaintext highlighter-rouge">PennDraw.setXScale(left, right);</code> and <code class="language-plaintext highlighter-rouge">PennDraw.setYScale(bottom, top);</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setScale();</code> resets the scale to the default. It is equivalent to <code class="language-plaintext highlighter-rouge">PennDraw.setScale(0, 1);</code></li>
+  <li><em>left, right, top, and bottom</em> can all be fractional or negative numbers, such as 1.2, 3.14159, or -2.71828.</li>
+</ul>
+
+<p><strong>Trying out the scale functions:</strong></p>
+
+<ul>
+  <li>Create a folder for testing <code class="language-plaintext highlighter-rouge">PennDraw</code>. Cut and paste the <code class="language-plaintext highlighter-rouge">PennDrawScaleTest</code> program below into a blank file in Codio (or your favorite Java editor), and save it into that folder under the name <code class="language-plaintext highlighter-rouge">PennDrawTest.java</code>. Make sure the capitalization matches exactly.</li>
+  <li>Save <code class="language-plaintext highlighter-rouge">PennDraw.java</code> into the same folder.</li>
+  <li>Compile <code class="language-plaintext highlighter-rouge">PennDrawScaleTest</code>. When you run it, you should see the figure below (with a thinner line and a smaller point). Note that the line now ends in the top middle of the image: the call to <code class="language-plaintext highlighter-rouge">PennDraw.setXscale(0, 2);</code> redefined the right margin to have x-coordinate 2, so the x-coordinate 1 now refers to the middle of the window.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PennDrawScaleTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setXscale</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Play with different values in the call to PennDraw.setXscale(). Each time you make a change, save your file, compile, and run to see the effect it has on the image.</li>
+  <li>Replace the class to <code class="language-plaintext highlighter-rouge">PennDraw.setXscale()</code> with a call to PennDraw.setYscale(). Play with different values to see the effect on the image.</li>
+  <li>Specifically, try <code class="language-plaintext highlighter-rouge">PennDraw.setYscale(1, 0)</code>. This should flip your image vertically—it defines the <em>top</em> margin to have y-coordinate 0 and the <em>bottom</em> margin to have y-coordinate 1.</li>
+  <li>Try calling <code class="language-plaintext highlighter-rouge">PennDraw.setScale(left/top, right/bottom);</code> and see what it does with different values.</li>
+  <li>Try calling <code class="language-plaintext highlighter-rouge">PennDraw.setXscale()</code> and <code class="language-plaintext highlighter-rouge">PennDraw.setYscale()</code> in the same program.</li>
+</ul>
+
+<hr />
+
+<h4 id="pointline-thickness-and-color">Point/Line Thickness and Color</h4>
+
+<p>These calls adjust the line thickness:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenRadius</span><span class="o">();</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenRadius</span><span class="o">(</span><span class="n">radius</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenWidthInPoints</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius;</code> resets the line thickness to the default, which is fairly arbitrarily defined as 0.002.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius(radius);</code> sets the line width to the value radius. To get a line that is twice as thick as the default, use <code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius(0.004);</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenWidthInPoints(width);</code> set the line width to width points. (A point is 1/72 of an inch.) Most screens are not properly calibrated for size, so lines may come out thicker or thinner tha you expect. But the thicknesses will at least be consistent with font sizes on your screen.</li>
+</ul>
+
+<p>You can also change the line color:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">();</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="n">red</span><span class="o">,</span> <span class="n">green</span><span class="o">,</span> <span class="n">blue</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="n">red</span><span class="o">,</span> <span class="n">green</span><span class="o">,</span> <span class="n">blue</span><span class="o">,</span> <span class="n">alpha</span><span class="o">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenColor();</code> resets the pen color to the default (black).</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenColor(color);</code> sets the color the the specified, named color. color must be one of <code class="language-plaintext highlighter-rouge">PennDraw.BLACK</code>, <code class="language-plaintext highlighter-rouge">PennDraw.BLUE</code>, <code class="language-plaintext highlighter-rouge">PennDraw.CYAN</code>, <code class="language-plaintext highlighter-rouge">PennDraw.DARK_GRAY</code>, <code class="language-plaintext highlighter-rouge">PennDraw.GRAY</code>, <code class="language-plaintext highlighter-rouge">PennDraw.GREEN</code>, <code class="language-plaintext highlighter-rouge">PennDraw.LIGHT_GRAY</code>, <code class="language-plaintext highlighter-rouge">PennDraw.MAGENTA</code>, <code class="language-plaintext highlighter-rouge">PennDraw.ORANGE</code>, <code class="language-plaintext highlighter-rouge">PennDraw.PINK</code>, <code class="language-plaintext highlighter-rouge">PennDraw.RED</code>, <code class="language-plaintext highlighter-rouge">PennDraw.WHITE</code>, <code class="language-plaintext highlighter-rouge">PennDraw.YELLOW</code>, <code class="language-plaintext highlighter-rouge">PennDraw.BOOK_BLUE</code>, <code class="language-plaintext highlighter-rouge">PennDraw.BOOK_LIGHT_BLUE</code>, or <code class="language-plaintext highlighter-rouge">PennDraw.BOOK_RED</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenColor(red, green, blue);</code> sets the pen color to the specified <em>(red, ,green, ,blue)</em> value. <em>red</em>, <em>green</em>, and <em>blue</em> should be integers (whole numbers) between 0 and 255. For black, set all three to 0; for white set all three to 255. You can easily figure out the correct values using any of the myriad color pickers available on the web. <a href="http://johndyer.name/lab/colorpicker/">Here’s one color picker</a> that works great.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.setPenColor(red, green, blue, alpha);</code> set the pen color to the specified (red, ,green, ,blue) value and the specified transparency <em>alpha</em>. All four numbers should be integers between 0 and 1. Set <em>alpha</em> to 0 to make the color fully transparent (invisible), or 255 to make it fully opaque (solid). Anything in between will be translucent.</li>
+</ul>
+
+<p><strong>Trying out line thickness and color functions:</strong></p>
+
+<ul>
+  <li>Create a folder for you test program, and save <a href="../hw00_base/PennDraw.java"><code class="language-plaintext highlighter-rouge">PennDraw.java</code></a> into it.</li>
+  <li>Cut and paste the sample program below into a blank file, and save it into your folder as <code class="language-plaintext highlighter-rouge">PennDrawPenTest.java</code>. Compile and run it. You should see a figure similar to the one below (the blue line should be thicker than the black line).</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PennDrawLineTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenRadius</span><span class="o">(</span><span class="mf">0.005</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Try out different values for <code class="language-plaintext highlighter-rouge">PennDraw.setPenColor()</code>, including different named colors, red/green/blue values, and red/green/blue/alpha values. See how each one affects the second line’s color.</li>
+  <li>Try specifying the color <code class="language-plaintext highlighter-rouge">PennDraw.setPenColor(PennDraw.blue);</code>. Your program will not compile, and you will get an error along the lines of</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDrawPenTest</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">5</span><span class="o">:</span> <span class="nl">error:</span> <span class="n">cannot</span> <span class="n">find</span> <span class="n">symbol</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">blue</span><span class="o">);</span>
+                             <span class="o">^</span>
+        <span class="nl">symbol:</span>   <span class="n">variable</span> <span class="n">blue</span>
+        <span class="nl">location:</span> <span class="kd">class</span> <span class="nc">PennDraw</span>
+</code></pre></div></div>
+
+<p>This is a <strong>compiler error</strong>, and is roughly analagous to a spelling or grammar error in English. <strong>Moral: CAPITALIZATION MATTERS!!!</strong></p>
+
+<ul>
+  <li>Try specifying a fractional value for red/green/blue/alpha, like 0.5. You should get a different compiler error along the lines of</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDrawPenTest</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">5</span><span class="o">:</span> <span class="nl">error:</span> <span class="n">no</span> <span class="n">suitable</span> <span class="n">method</span> <span class="n">found</span> <span class="k">for</span> <span class="nf">setPenColor</span><span class="o">(</span><span class="kt">double</span><span class="o">,</span><span class="kt">double</span><span class="o">,</span><span class="kt">double</span><span class="o">,</span><span class="kt">double</span><span class="o">)</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">);</span>
+                <span class="o">^</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Try specifying <code class="language-plaintext highlighter-rouge">PennDraw.setPenColor(-5, 0, 0);</code>. Your program should compile, but the second line will not draw, and you will see a run-time error or “<em>exception</em>” along the lines of</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Exception</span> <span class="n">in</span> <span class="n">thread</span> <span class="s">"main"</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalArgumentException</span><span class="o">:</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">red</span> <span class="n">must</span> <span class="n">be</span> <span class="n">between</span> <span class="mi">0</span> <span class="n">and</span> <span class="mi">255</span>
+        <span class="n">at</span> <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">435</span><span class="o">)</span>
+        <span class="n">at</span> <span class="nc">PennDrawPennTest</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="nc">PennDrawPennTest</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">5</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>This is Java’s way of saying that you have specified a color value that looks ok at first sight (everything is whole numbers), but is in fact bogus. It’s analagous to an English sentence that is grammatically correct and made up of real words, but is total gibberish. (“Green blackbirds cha-cha solemnly from dawn to Australia.”)</p>
+
+<ul>
+  <li>Try different values for <code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius()</code> and see how they affect the second line’s thickness.</li>
+  <li>Call <code class="language-plaintext highlighter-rouge">PennDraw.setPenWidthInPoints()</code> instead of <code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius()</code> and see how it affects the line width.</li>
+</ul>
+
+<hr />
+
+<h4 id="clearing-the-window">Clearing the Window</h4>
+
+<p>To clear the window, use: <code class="language-plaintext highlighter-rouge">PennDraw.clear()</code>;</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">red</span><span class="o">,</span> <span class="n">green</span><span class="o">,</span> <span class="n">blue</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">red</span><span class="o">,</span> <span class="n">green</span><span class="o">,</span> <span class="n">blue</span><span class="o">,</span> <span class="n">alpha</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">PennDraw.clear()</code> erases everything on the screen and makes the entire window background white. If you want to set the window background to a different color, you can specify the color by name, or as red, green, and blue values, just like line colors. You can even specify transparency on your background color, in which case whatever was already drawn on the window will show through.</p>
+
+<hr />
+
+<h4 id="points-and-lines">Points and Lines</h4>
+
+<p>Draw points and lines using:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">point</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="n">xstart</span><span class="o">,</span> <span class="n">ystart</span><span class="o">,</span> <span class="n">xend</span><span class="o">,</span> <span class="n">yend</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code>, <code class="language-plaintext highlighter-rouge">xstart</code>, <code class="language-plaintext highlighter-rouge">ystart</code>, <code class="language-plaintext highlighter-rouge">xend</code>, and <code class="language-plaintext highlighter-rouge">yend</code> are the coordinates of the point and the start and end of the line. The sample programs in the previous section illustrate their use.</p>
+
+<p><strong>How do I draw a bunch of one-pixel points really fast?</strong> When you draw a point, you are actually drawing a little circle whose size depends on the current line thickness. If you want the point to be exactly one pixel in size, you should first call <code class="language-plaintext highlighter-rouge">PennDraw.setPenRadius(0);</code>. This will ensure the points are exactly one pixel in size and get draw really fast. (The speed only matters when you want to animate hundreds of points at once.)</p>
+
+<hr />
+
+<h4 id="squares-and-circles">Squares and Circles</h4>
+
+<p>Draw squares and circles using:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">square</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">square</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledSquare</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledSquare</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">circle</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">radius</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledCircle</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">radius</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">xcenter</code> and <code class="language-plaintext highlighter-rouge">ycenter</code> are the coordinates of the <code class="language-plaintext highlighter-rouge">center</code> of the square, <strong>not</strong> one of its corners! <code class="language-plaintext highlighter-rouge">angle</code> gives the amount of <strong>counter-clockwise</strong> rotation in degrees The <code class="language-plaintext highlighter-rouge">PennDraw.square()</code> functions draw an outline in the current line color. The <code class="language-plaintext highlighter-rouge">PennDraw.filledSquare()</code> functions draw a square filled with the current line color.</p>
+
+<p><strong>Sample square program:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PennDrawSquareTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// solid black square centered at (.5, .5)</span>
+        <span class="c1">// with sides of length .6 (half-width of .3)</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledSquare</span><span class="o">(</span><span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">);</span>
+
+        <span class="c1">// blue square outline centered at (.7, .3)</span>
+        <span class="c1">// with sides of length .4</span>
+        <span class="c1">// rotated 30 degrees counter-clockwise</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">square</span><span class="o">(.</span><span class="mi">7</span><span class="o">,</span> <span class="o">.</span><span class="mi">3</span><span class="o">,</span> <span class="o">.</span><span class="mi">2</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="rectangles-and-ellipses">Rectangles and Ellipses</h4>
+
+<p>Draw rectangles using:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">rectangle</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">rectangle</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledRectangle</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledRectangle</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">ellipse</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">ellipse</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledEllipse</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledEllipse</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">halfWidth</span><span class="o">,</span> <span class="n">halfHeight</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">xcenter</code> and <code class="language-plaintext highlighter-rouge">ycenter</code> are the coordinates of the <code class="language-plaintext highlighter-rouge">center</code> of the rectangle, <strong>not</strong> one of its corners! angle gives the amount of <strong>counter-clockwise</strong> rotation in degrees The <code class="language-plaintext highlighter-rouge">PennDraw.rectangle()</code> functions draw an outline in the current line color. The <code class="language-plaintext highlighter-rouge">PennDraw.filledRectangle()</code> functions draw a square filled with the current line color.</p>
+
+<p><strong>Sample rectangle program:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PennDrawRectangleTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// solid black square centered at (.5, .5)</span>
+        <span class="c1">// with sides of length .6 (half-width of .3)</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledRectangle</span><span class="o">(</span><span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">,</span> <span class="o">.</span><span class="mi">15</span><span class="o">);</span>
+
+        <span class="c1">// blue square outline centered at (.7, .3)</span>
+        <span class="c1">// with sides of length .4</span>
+        <span class="c1">// rotated 30 degrees counter-clockwise</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">rectangle</span><span class="o">(.</span><span class="mi">7</span><span class="o">,</span> <span class="o">.</span><span class="mi">3</span><span class="o">,</span> <span class="o">.</span><span class="mi">2</span><span class="o">,</span> <span class="o">.</span><span class="mi">1</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="arcs-closed-arcs-and-pies">Arcs, Closed Arcs, and Pies</h4>
+
+<p><code class="language-plaintext highlighter-rouge">PennDraw</code> support <em>circular</em> arcs—arcs that are part of a circle. Specify them by given the center and radius of a circle, and the start and end angles of the arc you want to draw. You can also close the arc with a straight line or chord (a “closed arc”), or by connected the ends of the arc back to the center of the circle (a “pie”):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">arc</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">startAngle</span><span class="o">,</span> <span class="n">endAngle</span><span class="o">);</span>
+
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">closedArc</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">startAngle</span><span class="o">,</span> <span class="n">endAngle</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledArc</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">startAngle</span><span class="o">,</span> <span class="n">endAngle</span><span class="o">);</span>
+
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">pie</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">startAngle</span><span class="o">,</span> <span class="n">endAngle</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledPie</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">startAngle</span><span class="o">,</span> <span class="n">endAngle</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><strong>Sample arc program:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PennArcTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// black arc</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">arc</span><span class="o">(</span><span class="mf">0.15</span><span class="o">,</span> <span class="mf">0.6</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+
+        <span class="c1">// blue closed arc and filled arc</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">closedArc</span><span class="o">(</span><span class="mf">0.15</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledArc</span><span class="o">(</span><span class="mf">0.15</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+
+        <span class="c1">// red pie and filled pie</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">RED</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">pie</span><span class="o">(</span><span class="mf">0.65</span><span class="o">,</span> <span class="mf">0.6</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledPie</span><span class="o">(</span><span class="mf">0.65</span><span class="o">,</span> <span class="mf">0.1</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="polylines-and-polygons">Polylines and Polygons</h4>
+
+<p>Polygons and polylines are closely related: for both you specify a list of coordinates that are connected in order by straight line segments. The difference is that a polygon connects the last point back to the first one to create a closed shape. There are two forms for specifying the points, and you can use whichever form is most convenient in your program.</p>
+
+<p><strong>Form 1:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">polyline</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">,</span> <span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">,</span> <span class="n">x3</span><span class="o">,</span> <span class="n">y3</span><span class="o">,</span> <span class="o">...);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">polygon</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">,</span> <span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">,</span> <span class="n">x3</span><span class="o">,</span> <span class="n">y3</span><span class="o">,</span> <span class="o">...);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledPolygon</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">,</span> <span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">,</span> <span class="n">x3</span><span class="o">,</span> <span class="n">y3</span><span class="o">,</span> <span class="o">...);</span>
+</code></pre></div></div>
+
+<p>In form 1, the arguments are the alternating x and y coordinates of the points. You can specify as many points as you like.</p>
+
+<p><strong>Form 2:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">polyline</span><span class="o">(</span><span class="n">xcoordsArray</span><span class="o">[],</span> <span class="n">ycoordsArray</span><span class="o">[]);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">polygon</span><span class="o">(</span><span class="n">xcoordsArray</span><span class="o">[],</span> <span class="n">ycoordsArray</span><span class="o">[]);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">filledPolygon</span><span class="o">(</span><span class="n">xcoordsArray</span><span class="o">[],</span> <span class="n">ycoordsArray</span><span class="o">[]);</span>
+</code></pre></div></div>
+
+<p>In form 2, you specify two arrays of values. The first is a list of the x-coordinates of all the points, and the second is the list of all the y-coordinates.</p>
+
+<p><strong>Sample polyline/polygon program:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PennArcTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// three-segment (four-point) black polyline</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">polyline</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mf">0.25</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">.</span><span class="mi">25</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+
+        <span class="c1">// blue, five-sided polygon</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">setPenColor</span><span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">xcoords</span> <span class="o">=</span> <span class="o">{</span> <span class="mf">0.5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span>  <span class="o">,</span> <span class="mf">0.75</span><span class="o">,</span> <span class="mf">0.5</span> <span class="o">};</span>
+        <span class="kt">double</span><span class="o">[]</span> <span class="n">ycoords</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">0</span>  <span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mf">0.7</span><span class="o">,</span> <span class="mi">1</span>   <span class="o">,</span> <span class="mf">0.7</span> <span class="o">};</span>
+        <span class="nc">PennDraw</span><span class="o">.</span><span class="na">polygon</span><span class="o">(</span><span class="n">xcoords</span><span class="o">,</span> <span class="n">ycoords</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="images">Images</h4>
+
+<p>Drawing images is quite easy:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">picture</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">filename</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">picture</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">filename</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">picture</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">filename</span><span class="o">,</span> <span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">picture</span><span class="o">(</span><span class="n">xcenter</span><span class="o">,</span> <span class="n">ycenter</span><span class="o">,</span> <span class="n">filename</span><span class="o">,</span> <span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">xcenter</code> and <code class="language-plaintext highlighter-rouge">ycenter</code> are the coordinate where the image should be centered.</li>
+  <li><code class="language-plaintext highlighter-rouge">filename</code> is the name of the picture file, this file should be written in quotations with file extensions, for example “dog.jpg” would be a valid filename.</li>
+  <li>If this point is outside the window, the image will not be drawn at all.</li>
+  <li><em>angle</em> is the amount to rotate the image counter-clockwise, in degrees</li>
+  <li>The image will be drawn full size unless you specify width and height. The width and height values are in <strong>pixels</strong>. If both values are specified, the image will be squashed or stretched to fit. If one of the values is zero, the image will be scaled to fit the other one.</li>
+  <li>Use negative <code class="language-plaintext highlighter-rouge">width</code> and/or <code class="language-plaintext highlighter-rouge">height</code> values to flip the image.</li>
+</ul>
+
+<hr />
+
+<h4 id="text">Text</h4>
+
+<p><strong>Drawing Text:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">text</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">text</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">textLeft</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">text</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">textLeft</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">text</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">textRight</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">text</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">textRight</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">text</span><span class="o">,</span> <span class="n">angle</span><span class="o">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>text must be a single line of text. To draw multiple lines of text, you need to call the <code class="language-plaintext highlighter-rouge">text()</code> functions once per line, using different y coordinates.</li>
+  <li>Text will be drawn in the current line color.</li>
+  <li>Remember that text is a string and therefore should be in quotes.</li>
+</ul>
+
+<p>For example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="mf">0.4</span><span class="o">,</span> <span class="mf">0.2</span><span class="o">,</span> <span class="s">"abc"</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><strong>Changing the font and size:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">setFont</span><span class="o">(</span><span class="n">fontName</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setFont</span><span class="o">(</span><span class="n">fontName</span><span class="o">,</span> <span class="n">pointSize</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setFontSize</span><span class="o">(</span><span class="n">pointSize</span><span class="o">);</span>
+
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setFontPlain</span><span class="o">();</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setFontBold</span><span class="o">();</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setFontItalic</span><span class="o">();</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">setFontBoldItalic</span><span class="o">();</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Font sizes are specified in points.</li>
+  <li>In CIS 110 we recommend that you do not change font <strong>names</strong> because the grading computers have different fonts installed than your PC. If you switch fonts, your drawing is likely to look different to your TA than it does to you. It <em>is</em> safe to change the size using <code class="language-plaintext highlighter-rouge">setFontSize()</code> and to turn bold and italic on and off.</li>
+</ul>
+
+<p><strong>Finding out what font names you can use:</strong></p>
+
+<p>The available fonts vary system by system, and it can be a little difficult to figure out what the names to give <code class="language-plaintext highlighter-rouge">setFont()</code>. We provide the following function to help you:</p>
+
+<p><code class="language-plaintext highlighter-rouge">PennDraw.listFonts();</code></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.listFonts()</code> prints out a list of all the font names you can use to the Terminal or Command Prompt. Every PC has different fonts installed, so changing fonts is a little dangerous if you want other people to run your program and see the same drawing. (If you ask for a font that isn’t installed, Java will substitute another font that may well look completely different.)</li>
+</ul>
+
+<hr />
+
+<h4 id="animation">Animation</h4>
+
+<p><code class="language-plaintext highlighter-rouge">PennDraw</code> provides three functions for creating animations:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PennDraw</span><span class="o">.</span><span class="na">disableAnimation</span><span class="o">();</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">enableAnimation</span><span class="o">(</span><span class="n">frameRate</span><span class="o">);</span>
+<span class="nc">PennDraw</span><span class="o">.</span><span class="na">advance</span><span class="o">();</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.disableAnimation();</code> turns off animation. Any drawing commands will show up immediately when animation is disabled. (Animation is disabled by default.)</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.enableAnimation(frameRate);</code> turns on animation at a speed of <code class="language-plaintext highlighter-rouge">frameRate</code> frames/second. Common frame rates are 24 (film), 30 (TV), and 60 (HDTV), but you can specify lower or higher frame rates to change the speed of your animation.</li>
+  <li>Drawing commands will not immediately show up on the screen in animation mode. Instead the drawing will be created in memory, and will only be shown when you call <code class="language-plaintext highlighter-rouge">PennDraw.advance()</code>. Moreover, <code class="language-plaintext highlighter-rouge">PennDraw</code> will ensure that new frames are not shown faster than the frame rate you specified.</li>
+  <li>If your drawing takes to long to prepare in memory (usually because you have lots of complicated drawing commands), it will not be possible to maintain the frame rate you specified. In this case your animation will be slow and jerky. Your options are to simplify the drawing so it completes faster, or slow down the frame rate to give yourself more time.</li>
+</ul>
+
+<p><strong>What about</strong> <code class="language-plaintext highlighter-rouge">StdDraw.show()</code>? The <code class="language-plaintext highlighter-rouge">StdDraw</code> library on which <code class="language-plaintext highlighter-rouge">PennDraw</code> is based uses a function called <code class="language-plaintext highlighter-rouge">StdDraw.show()</code> for animation. We have split this into the three functions above for clarity. <code class="language-plaintext highlighter-rouge">PennDraw</code> supports <code class="language-plaintext highlighter-rouge">StdDraw</code>’s <code class="language-plaintext highlighter-rouge">show()</code> function to make it easy to convert programs, but we recommend against using it.</p>
+
+<hr />
+
+<h4 id="keyboard-and-mouse">Keyboard and Mouse</h4>
+
+<p><code class="language-plaintext highlighter-rouge">PennDraw</code> has very basic support for keyboard and mouse input. It is much less powerful than most user interface libraries provide, but also much simpler.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.mousePressed();</code> returns <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code> to indicate whether a mouse button is currently pressed. Use this inside an animation loop to determine if the user is currently clicking.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.mouseX();</code> returns the x-coordinate of the mouse cursor’s current position. It uses the same coordinate system as the drawing commands.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.mouseY();</code> returns the y-coordinate of the mouse cursor’s current position.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.hasNextKeyTyped();</code> returns true or false to indicate whether the user has typed anything on the keyboard that your program has not yet processed. If the user types lots of characters, they will all be saved in a list for you to read in character-by-character.</li>
+  <li><code class="language-plaintext highlighter-rouge">PennDraw.nextKeyTyped();</code> returns the next character in order that the user typed. If the user hasn’t typed anything, or you have already processed everything the user has typed (by calling <code class="language-plaintext highlighter-rouge">PennDraw.nextKeyTyped()</code>), it will generate a run-time error and your program will crash.</li>
+</ul>
+
+<p>To read in everything a user has typed so far, you need to call <code class="language-plaintext highlighter-rouge">PennDraw.nextKeyTyped()</code> once for each character the user has typed. The following example builds a String of everything the user has typed so far, then prints it out:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">hasNextKeyTyped</span><span class="o">())</span> <span class="o">{</span>  <span class="c1">// make sure there is keyboard input to process</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="nc">PennDraw</span><span class="o">.</span><span class="na">nextKeyTyped</span><span class="o">();</span>  <span class="c1">// read in one character of keyboard input and add it to the end of s</span>
+    <span class="o">}</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>             <span class="c1">// print out the string</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Sometimes you want to ignore everything the user has typed, and only pay attention to what gets typed going forward. To do this, you need to read in everything the user has typed and do nothing with it:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="o">(</span><span class="nc">PennDraw</span><span class="o">.</span><span class="na">hasNextKeyTyped</span><span class="o">())</span> <span class="o">{</span>  <span class="c1">// as long as there is keyboard input to process</span>
+    <span class="nc">PennDraw</span><span class="o">.</span><span class="na">nextKeyTyped</span><span class="o">();</span>          <span class="c1">// read in one character of keyboard input, but don't save it</span>
+<span class="o">}</span>
+</code></pre></div></div>
+:ET

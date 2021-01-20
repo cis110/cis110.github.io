@@ -1,0 +1,396 @@
+I"+�<h2 id="cis110-javadocs">CIS110 JavaDocs</h2>
+
+<hr />
+
+<p>Welcome to CIS110’s JavaDocs!  This will serve as a means to document what functions are fair game for student usage to better assist with homework and exam prep.  As always, please direct all questions to Piazza and/or Office Hours!</p>
+
+<p>Notes before reading the docs:</p>
+
+<ul>
+  <li>Functions are the ones that end with parenthesis (), while static values such as <code class="language-plaintext highlighter-rouge">Integer.MAX_VALUE</code>, <code class="language-plaintext highlighter-rouge">Math.PI</code> etc. are constants with some value.</li>
+  <li>All headers have a JavaDocs reference link if anyone wants to explore more. They will have more functions and values, but we have this doc to highlight the most common ones used in this class.</li>
+  <li>Files <code class="language-plaintext highlighter-rouge">In.java</code> and <code class="language-plaintext highlighter-rouge">PennDraw.java</code> have their own reference pages linked in the headers.</li>
+  <li>Each function call / value has a description with some examples of usage and common errors. They are not exhaustive but just highlight commonly usecases.</li>
+</ul>
+
+<hr />
+
+<h3 id="double"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html">Double</a></h3>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="no">MAX_VALUE</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Maximum value a double can store</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">max_value</span><span class="o">;</span> <span class="c1">// Error (it’s case sensitive)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="no">MIN_VALUE</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Minimum value a double can store</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">min_value</span><span class="o">;</span> <span class="c1">// Error (it’s case sensitive)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="no">NEGATIVE_INFINITY</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Representation on negative infinity (\(-\infty\)) in Java</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">NEGATIVE_INFINITY</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">negative_infinity</span><span class="o">;</span> <span class="c1">// Error (case sensitive)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">double</span> <span class="nf">parseDouble</span><span class="o">()</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">parseDouble()</code> reads a string and returns a number if it contains one, else throws a <code class="language-plaintext highlighter-rouge">NumberFormatException</code> if string has no number, or <code class="language-plaintext highlighter-rouge">NullPointerException</code> if the string is null</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="s">"110"</span><span class="o">);</span> <span class="c1">// returns 110.0</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="s">"cis110"</span><span class="o">);</span> <span class="c1">// NumberFormatException</span>
+<span class="nc">String</span> <span class="n">s</span><span class="o">;</span> <span class="c1">// s is null</span>
+<span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="c1">// NullPointerException</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="no">POSITIVE_INFINITY</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Representation on positive infinity (\(\infty\)) in Java</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">positive_infinity</span><span class="o">;</span> <span class="c1">// Error (case sensitive)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="integer"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">Integer</a></h3>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">int</span> <span class="nf">parseInt</span><span class="o">()</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">parseInt()</code> reads a <code class="language-plaintext highlighter-rouge">String</code> and returns a number if it contains one, else throws a <code class="language-plaintext highlighter-rouge">NumberFormatException</code></p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">"-110"</span><span class="o">);</span> <span class="c1">// returns -110</span>
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">"cis110"</span><span class="o">);</span> <span class="c1">// NumberFormatException</span>
+<span class="nc">String</span> <span class="n">s</span><span class="o">;</span> <span class="c1">// s is null</span>
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="c1">// NumberFormatException </span>
+<span class="c1">// (NOT a NullPointerException as seen in Double.parseDouble()</span>
+<span class="c1">// with a null string)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="no">MAX_VALUE</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Maximum value an int can store (\(2^{31} - 1\))</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">max_value</span><span class="o">;</span> <span class="c1">// Error (it’s case sensitive)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="no">MIN_VALUE</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>Definiton:</strong> Minimum value an int can store (\(-2^{31}\))</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">min_value</span><span class="o">;</span> <span class="c1">// Error (it’s case sensitive)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="math"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html">Math</a></h3>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">abs</span><span class="o">(</span><span class="kt">double</span><span class="o">/</span><span class="kt">int</span> <span class="n">a</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Takes in a <code class="language-plaintext highlighter-rouge">double</code> or <code class="language-plaintext highlighter-rouge">int</code> as argument, and returns absolute value of respective type</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(-</span><span class="mi">3</span><span class="o">);</span> <span class="c1">// returns 3</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(-</span><span class="mf">245.34</span><span class="o">);</span> <span class="c1">// returns 245.34</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(-</span><span class="mf">2.3</span><span class="o">);</span> <span class="c1">// Error (type mismatch)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">ceil</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Returns the smallest <code class="language-plaintext highlighter-rouge">double</code> value \(\geq a\) which is an integer</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(-</span><span class="mf">5.5</span><span class="o">);</span> <span class="c1">// returns -5.0</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="mf">3.2</span><span class="o">);</span> <span class="c1">// returns 4.0</span>
+<span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="c1">// returns 2.0</span>
+<span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="mf">2.4</span><span class="o">);</span> <span class="c1">// Error (assigning double to int)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">floor</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Returns the largest <code class="language-plaintext highlighter-rouge">double</code> value \(\leq a\) which is an integer</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(-</span><span class="mf">5.5</span><span class="o">);</span> <span class="c1">// returns -6.0</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="mf">3.2</span><span class="o">);</span> <span class="c1">// returns 3.0</span>
+<span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="c1">// returns 2.0</span>
+<span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="mf">2.4</span><span class="o">);</span> <span class="c1">// Error (assigning double to int)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">max</span><span class="o">(</span><span class="kt">double</span><span class="o">/</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">double</span><span class="o">/</span><span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Returns the larger of 2 values. (In case of doubles, +0 &gt; -0)</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">maxVal</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span> <span class="c1">// returns 7</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">min</span><span class="o">(</span><span class="kt">double</span><span class="o">/</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">double</span><span class="o">/</span><span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Returns the smaller of 2 values. (In case of doubles, -0 &lt; +0)</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">minVal</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span> <span class="c1">// returns 3</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">random</span><span class="o">()</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Generates a pseudo-random <code class="language-plaintext highlighter-rouge">double</code> [0, 1) (1 isn’t possible result, 0 is).</p>
+
+<h4 id="change-possible-values">Change Possible Values</h4>
+
+<p>Let’s say we wanted to generate \([3,\ldots,6]\) inclusive, as integers, we would do the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="mi">3</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">*</span> <span class="mi">4</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>More generally for range \([\texttt{low},\ldots,\texttt{high}]\):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">range</span> <span class="o">=</span> <span class="n">low</span> <span class="o">+</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">*</span> <span class="o">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span>
+</code></pre></div></div>
+
+<p><strong>Other Use Cases:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">();</span> <span class="c1">// can store in variable</span>
+<span class="k">if</span> <span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span> <span class="c1">// or, can call it directly</span>
+
+<span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// ALWAYS true</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="no">PI</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Stores the value of \(\pi\)</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">PI</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pi</span><span class="o">;</span> <span class="c1">// Error (case sensitive)</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">pow</span><span class="o">(</span><span class="kt">double</span> <span class="n">base</span><span class="o">,</span> <span class="kt">double</span> <span class="n">exponent</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Returns \(\texttt{base}^{\texttt{exponent}}\).</p>
+
+<p><em>Note Inefficiency</em> - squaring and cubing should instead be \(x * x\) and \(x * x * x\), as <code class="language-plaintext highlighter-rouge">Math.pow()</code> is inefficient for low powers.</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(-</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span> <span class="c1">// returns -27.0</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span> <span class="c1">// returns 4.0</span>
+<span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// returns 0.25</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">sqrt</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> Returns \(\sqrt a\)</p>
+
+<p><em>Note:</em> <code class="language-plaintext highlighter-rouge">Math.sqrt()</code> of a negative number just gives you <code class="language-plaintext highlighter-rouge">NaN</code> (Not a Number).</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span> <span class="c1">// returns 5.0</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="c1">// returns 1.4142135623730951</span>
+<span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(-</span><span class="mi">4</span><span class="o">);</span> <span class="c1">// returns NaN</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="string"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></h3>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">char</span> <span class="nf">charAt</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">charAt</code> returns the character at the specified index of the <code class="language-plaintext highlighter-rouge">String</code>variable.  Make sure the index is within the bounds of the String!</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"CIS110"</span><span class="o">;</span>
+<span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// returns ‘C’</span>
+<span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span> <span class="c1">// throws IndexOutOfBoundsException</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="nc">Object</span> <span class="n">anObject</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">equals</code> will compare the <code class="language-plaintext highlighter-rouge">String</code> with another <code class="language-plaintext highlighter-rouge">String</code> passed into the function and check for equality.  Make sure to use <code class="language-plaintext highlighter-rouge">.equals()</code> rather than comparing two strings with ==.</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"CIS110"</span><span class="o">;</span>
+<span class="n">s</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"CIS110"</span><span class="o">);</span> <span class="c1">// returns true</span>
+<span class="n">s</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"CIS120"</span><span class="o">);</span> <span class="c1">// returns false</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">int</span> <span class="nf">indexOf</span><span class="o">(</span><span class="kt">int</span> <span class="n">ch</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">indexOf</code> will return the <em>first</em> index that the character (represented as an integer) <code class="language-plaintext highlighter-rouge">ch</code> appears at in the <code class="language-plaintext highlighter-rouge">String</code>.  If the character does not appear in the <code class="language-plaintext highlighter-rouge">String</code>, then <code class="language-plaintext highlighter-rouge">indexOf</code> returns -1.</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"CIS110"</span><span class="o">;</span>
+<span class="n">s</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'C'</span><span class="o">);</span> <span class="c1">// returns 0</span>
+<span class="n">s</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'2'</span><span class="o">);</span> <span class="c1">// returns -1</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">int</span> <span class="nf">length</span><span class="o">()</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> length returns the length of this <code class="language-plaintext highlighter-rouge">String</code>.</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"CIS110"</span><span class="o">;</span>
+<span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="c1">// returns 6</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">String</span> <span class="nf">substring</span><span class="o">(</span><span class="kt">int</span> <span class="n">beginIndex</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">substring(int beginIndex)</code> will return a substring of this <code class="language-plaintext highlighter-rouge">String</code> that begins at the index <code class="language-plaintext highlighter-rouge">beginIndex</code> and ends at the end of the <code class="language-plaintext highlighter-rouge">String</code>.  <code class="language-plaintext highlighter-rouge">substring()</code> is overloaded.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">String</span> <span class="nf">substring</span><span class="o">(</span><span class="kt">int</span> <span class="n">beginIndex</span><span class="o">,</span> <span class="kt">int</span> <span class="n">endIndex</span><span class="o">)</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">substring(int beginIndex, int endIndex)</code> returns a substring of this <code class="language-plaintext highlighter-rouge">String</code> that begins at the index <code class="language-plaintext highlighter-rouge">beginIndex</code> and ends at the index <code class="language-plaintext highlighter-rouge">endIndex - 1</code> inclusive (that is, <code class="language-plaintext highlighter-rouge">endIndex</code> is not included).</p>
+
+<p>In both cases, if <code class="language-plaintext highlighter-rouge">beginIndex</code> or <code class="language-plaintext highlighter-rouge">endIndex</code> are out of bounds of the String’s length, or if <code class="language-plaintext highlighter-rouge">beginIndex</code> &gt; <code class="language-plaintext highlighter-rouge">endIndex</code>, <code class="language-plaintext highlighter-rouge">substring()</code> will throw an <code class="language-plaintext highlighter-rouge">IndexOutOfBoundsException</code>.</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"CIS110"</span><span class="o">;</span>
+<span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>     <span class="c1">// returns “110”</span>
+<span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>  <span class="c1">// returns “S11”</span>
+<span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(-</span><span class="mi">4</span><span class="o">);</span>    <span class="c1">// throws IndexOutOfBoundsException</span>
+<span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span> <span class="c1">// throws IndexOutOfBoundsException</span>
+<span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>  <span class="c1">// throws IndexOutOfBoundsException</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">String</span> <span class="nf">toLowerCase</span><span class="o">()</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">toLowerCase()</code> converts all the characters in the <code class="language-plaintext highlighter-rouge">String</code> to lowercase characters.  Don’t worry about non-letter characters, such as numbers and punctuation.</p>
+
+<p><strong>Use Case:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"CIS110"</span><span class="o">;</span>
+<span class="n">s</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">();</span> <span class="c1">// returns “cis110”</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="c1">// prints "CIS110" becuase strings are immutable</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="c1">// now prints "cis110"</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">String</span> <span class="nf">toUpperCase</span><span class="o">()</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p><strong>Definition:</strong> <code class="language-plaintext highlighter-rouge">toUpperCase()</code> converts all the characters in the <code class="language-plaintext highlighter-rouge">String</code> to uppercase characters.  Again, don’t worry about non-letter characters, such as numbers and punctuation.</p>
+
+<p><strong>Use Case</strong>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"cis110"</span><span class="o">;</span>
+<span class="n">s</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">();</span> <span class="c1">// returns “CIS110”</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="c1">// prints "cis110" becuase strings are immutable</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="c1">// now prints "CIS110"</span>
+</code></pre></div></div>
+:ET
