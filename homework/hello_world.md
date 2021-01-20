@@ -82,7 +82,7 @@ To do this part of your HW:
 
 We have provided you with example code in `MyHouse.java` to make sure that drawing is working on your computer. It also gives you some examples of what can be drawn using the PennDraw library. Read the [PennDraw wiki](../resources/penndraw.html) to see what you can draw (i.e. shapes, images, text…) using PennDraw. The wiki page lists all of the functions you can use and explains how to use them.
 
-Open the file `MyHouse.java` in Codio. Make sure to update the header section so that it is your name, PennKey, and ensure that the provided code compiles and runs on your computer. Pay attention to the comments in the code (the text that begins with “//” which appears in green) as they will help you understand what each line of code contributes to the drawing you see.
+Open the file `MyHouse.java` in Codio. Ensure that the provided code compiles and runs on your computer. Pay attention to the comments in the code (the text that begins with “//” which appears in green) as they will help you understand what each line of code contributes to the drawing you see.
 
 ---
 
@@ -96,7 +96,7 @@ Create a new file in Codio (File -> New File) and name it `MySketch.java`. Use y
 
 **This is your very first program, so here are some guidelines:**
 
-- Make a header section with your name, pennkey etc similar to what you have done in `HelloWorld.java` and in `MyHouse.java`.
+- Make a header section with your name, pennkey etc similar to what you have done in `HelloWorld.java`.
 - To begin writing actual code (rather than comments), refer to your `HelloWorld.java` and `MyHouse.java` programs
   - **HINT**: Notice how both files follow the format “public class [name of program]”... and have the statement “public static void main(String [] args)”
 - Make sure that it is at least 500 pixels by 500 pixels. The dimensions can vary depending upon your design, but make sure that it is not "small".
@@ -135,9 +135,9 @@ Every assignment will have an accompanying `readme` file that you will fill out 
 
 All homework will be submitted to Gradescope. Some time this week, you should have received an email from Gradescope notifying you that you’ve been added to “CIS110 Fall 2020 on Gradescope”. The email contains a link to set up your password. Once you set your password, you will have an account linked to your Penn email (the one which received the email) and you’re all set up to submit. Complete the following steps to submit your HW00 assignment:
 
-- On Codio, download `HelloWorld.java`, `MyHouse.java`, `MySketch.java`, and `readme_hello.txt` by right clicking on the file name and selecting Download.
+- On Codio, download `HelloWorld.java`, `MySketch.java`, and `readme_hello.txt` by right clicking on the file name and selecting Download.
 - On Gradescope, under the “Assignments” tab for CIS110 (on the left of your window), select HW00
-- Upload `HelloWorld.java`, `MyHouse.java`, `MySketch.java`, and `readme_hello.txt`
+- Upload `HelloWorld.java`, `MySketch.java`, and `readme_hello.txt`
 - Click "Submit" to submit your homework.
 - **All program file names should match the required names exactly, including capitalization. Make sure you submit the .java files, NOT the .class files**. Java is extremely picky about file names and capitalization; if your file name doesn't match what we expect, your program will probably fail our automated tests. It may also be a sign that you submitted the wrong file (e.g. HelloWorld.**class** instead of HelloWorld.**java**). You can always re-submit to correct such errors.
 - The confirmation page shows you the recorded submission time, which files have just been uploaded, which were previously uploaded, and which have not yet been submitted.
