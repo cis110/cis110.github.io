@@ -1,4 +1,10 @@
-I"=9<h2 id="hello-world">Hello World</h2>
+I".<<h2 id="hw00-quiz">HW00 Quiz</h2>
+
+<p>Please navigate to the course Gradescope and complete the quiz “Quiz 0: Checkpoint, Collaboration, and Style Questions” to ensure that you fully understand our course policies. You will be able to see your results immediately and retake the quiz as many times as necessary. For aid in completing the quiz, you should utilize the tabs under the “Policies” dropdown on the course website, as well as our <a href="../resources/style.html">Style Guide</a>.</p>
+
+<hr />
+
+<h2 id="hello-world">Hello World</h2>
 
 <hr />
 
@@ -20,9 +26,15 @@
 
 <hr />
 
+<h4 id="preface">Preface</h4>
+
+<p>If you find yourself needing help with this or any other assignment, please refer to our <a href="../resources/getting_help.html">getting help</a> page for the resources we have available.</p>
+
+<hr />
+
 <h4 id="piazza">Piazza</h4>
 
-<p>The class discussion board is hosted on Piazza. If you are not enrolled in the Piazza course, you may sign up <a href="piazza.com/upenn/fall2020/cis1102020c">here</a>.</p>
+<p>The class discussion board is hosted on Piazza. If you are not enrolled in the Piazza course, you may sign up <a href="https://piazza.com/upenn/spring2021/cis110">here</a>.</p>
 
 <p><strong>Use Piazza to:</strong></p>
 

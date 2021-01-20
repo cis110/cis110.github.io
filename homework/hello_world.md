@@ -4,6 +4,12 @@ title: CIS 110 Fall 2020 — Introduction to Computer Programming
 active_tab: hello_world
 ---
 
+## HW00 Quiz
+
+Please navigate to the course Gradescope and complete the quiz "Quiz 0: Checkpoint, Collaboration, and Style Questions" to ensure that you fully understand our course policies. You will be able to see your results immediately and retake the quiz as many times as necessary. For aid in completing the quiz, you should utilize the tabs under the "Policies" dropdown on the course website, as well as our [Style Guide](../resources/style.html).
+
+---
+
 ## Hello World
 
 ---
@@ -24,9 +30,15 @@ The purpose of this assignment is to introduce you to coding in Java and familia
 
 ---
 
+#### Preface
+
+If you find yourself needing help with this or any other assignment, please refer to our [getting help](../resources/getting_help.html) page for the resources we have available.
+
+---
+
 #### Piazza
 
-The class discussion board is hosted on Piazza. If you are not enrolled in the Piazza course, you may sign up [here](piazza.com/upenn/fall2020/cis1102020c).
+The class discussion board is hosted on Piazza. If you are not enrolled in the Piazza course, you may sign up [here](https://piazza.com/upenn/spring2021/cis110).
 
 **Use Piazza to:**
 
