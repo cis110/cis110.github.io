@@ -61,7 +61,7 @@ active_tab: syllabus
             </td>
             <td>
                 {% if lecture.quiz_due %}
-                    {{ lecture.quiz_due }} due @ 8:59pm!
+                    {{ lecture.quiz_due }} due @ 8:59am!
                     <br>
                 {% endif %}
                 {% if lecture.hw_due %}
