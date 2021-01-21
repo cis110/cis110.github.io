@@ -59,10 +59,19 @@
 
 - date: 2021-01-22
   topics: Drawing
+  slides: PennDraw_21sp.pdf
+  examples:
+    - example_code: MyHouse.java
+      example_code_url: MyHouse.java
+
   hw_assigned: HW00 - Hello, World!
 
 - date: 2021-01-25
   topics: Variables & Types
+  slides: 1VariablesDataTypes.pdf
+  examples:
+    - example_code: TypeAndOperationWorkspace.java
+      example_code_url: TypeAndOperationWorkspace.java
   quiz_due: Quiz
 
 - date: 2021-01-27
