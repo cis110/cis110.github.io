@@ -82,6 +82,7 @@ active_tab: syllabus
                 {% for module in lecture.modules %}
                     {% if module.link %}
                     <a target="_blank" href="{{ module.link }}"> {{ module.name }}</a>
+                    <br>
                     {% endif %}
                 {% endfor %}
                 {% endif %}
