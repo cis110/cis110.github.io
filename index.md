@@ -10,7 +10,7 @@ Course:
 : CIS 110: Spring 2021
 
 Instructors:
-: Harry Smith
+: Harry Smith [(OH Link)](https://upenn.zoom.us/j/4321577849)
 
 Teaching Assistants:
 : [Course staff]({{site.baseurl}}/staff.html)
