@@ -5,6 +5,8 @@
 # example_code: example name
 # example_code_url: examples url
 # hw_assigned: HWX - HW Name
+# hw_due: HWX - HW Name
+# quiz_due: Quiz
 # recitation_slides: Recitation X
 # recitation_url: recitation slides url
 # lecture_recording: __ Lecture Recording
@@ -40,9 +42,10 @@
 #   recitation_slides: Recitation 0 - Variables and Types
 #   recitation_url: https://docs.google.com/presentation/d/1-o6nT6flrI-nPOzZWReX1S3_MOa_5Ty3Lw8LUGgAsXI/edit?usp=sharing
 
-# this is how you would mark a homework deadline
+# this is how you would mark a homework deadline or quiz deadline
 # - date: 2020-01-30
 #   hw_due: HW00
+#   quiz_due: Quiz
 
 - date: 2021-01-20
   topics: Introduction
@@ -60,6 +63,7 @@
 
 - date: 2021-01-25
   topics: Variables & Types
+  quiz_due: Quiz
 
 - date: 2021-01-27
   topics: Variables & Types
@@ -69,6 +73,7 @@
 
 - date: 2021-02-01
   topics: Conditionals
+  quiz_due: Quiz
 
 - date: 2021-02-02
   announcement: Course Selections ends!
@@ -86,6 +91,7 @@
 
 - date: 2021-02-08
   topics: Loops
+  quiz_due: Quiz
 
 - date: 2021-02-10
   topics: Arrays
@@ -102,6 +108,7 @@
 
 - date: 2021-02-15
   topics: Arrays
+  quiz_due: Quiz
 
 - date: 2021-02-17
   topics: Arrays & Strings
@@ -111,6 +118,7 @@
 
 - date: 2021-02-22
   topics: Functions
+  quiz_due: Quiz
 
 - date: 2021-02-24
   topics: Searching with Functions
@@ -124,6 +132,7 @@
 
 - date: 2021-03-01
   topics: Recursion
+  quiz_due: Quiz
 
 - date: 2021-03-03
   topics: Recursion
@@ -137,6 +146,7 @@
 
 - date: 2021-03-08
   topics: Unit Testing
+  quiz_due: Quiz
 
 - date: 2021-03-10
   flag: warning
@@ -148,6 +158,7 @@
 - date: 2021-03-15
   topics: Object Oriented Programming
   hw_due: HW04
+  quiz_due: Quiz
 
 - date: 2021-03-17
   topics: Class Design
@@ -160,6 +171,7 @@
 
 - date: 2021-03-22
   topics: Abstract Data Types & Interfaces
+  quiz_due: Quiz
 
 - date: 2021-03-24
   topics: Reference Types
@@ -173,6 +185,7 @@
 
 - date: 2021-03-29
   topics: List ADT & Linked Lists
+  quiz_due: Quiz
 
 - date: 2021-03-31
   topics: Linked Lists
@@ -186,6 +199,7 @@
 
 - date: 2021-04-05
   topics: Number Systems
+  quiz_due: Quiz
 
 - date: 2021-04-07
   topics: LFSR
@@ -203,6 +217,7 @@
 
 - date: 2021-04-14
   topics: 2D Arrays
+  quiz_due: Quiz
 
 - date: 2021-04-15
   hw_due: HW08

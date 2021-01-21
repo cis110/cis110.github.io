@@ -18,7 +18,7 @@ active_tab: syllabus
             <th>Topics</th>
             <th>Example Code</th>
             <th>HW Assigned</th>
-            <th>HW Due</th>
+            <th>Due Dates</th>
             <th>Lecture Recording</th>
             <th>Module Videos</th>
             <th>Announcements</th>
@@ -60,6 +60,10 @@ active_tab: syllabus
                 {% endif %}
             </td>
             <td>
+                {% if lecture.quiz_due %}
+                    {{ lecture.quiz_due }} due @ 8:59pm!
+                    <br>
+                {% endif %}
                 {% if lecture.hw_due %}
                     {{ lecture.hw_due }} @ 11:59pm!
                 {% endif %}
