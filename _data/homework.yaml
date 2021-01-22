@@ -8,11 +8,11 @@
 
 - homework_number: 0
   name: Hello, World!
-  # link: hello_world.html
+  link: hello_world.html
   release_date: January 22, 2021
   due_date: February 4, 2021
-  # faq_name: HW00 FAQ
-  # faq_link: https://piazza.com/class/kcxlthxrzbw1eb?cid=31
+  faq_name: HW00 FAQ
+  faq_link: https://piazza.com/class/kjj89ke54dloh?cid=17
 
 - homework_number: 1
   name: Rivalry + ClickArt
