@@ -63,7 +63,8 @@
   examples:
     - example_code: MyHouse.java
       example_code_url: MyHouse.java
-
+  lecture_recording: Recording
+  lecture_url: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=605c4a96-36c6-49df-9df2-acb800fbc781
   hw_assigned: HW00 - Hello, World!
 
 - date: 2021-01-25
@@ -81,8 +82,6 @@
       link: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=740bee30-286f-4602-b635-acb501840a41
     - name: 4 - Primitive Data Types
       link: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2cb75dce-4ac4-46ba-aec0-acb501840ae4
-  lecture_recording: Recording
-  lecture_url: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=605c4a96-36c6-49df-9df2-acb800fbc781
   quiz_due: Quiz
 
 - date: 2021-01-27
