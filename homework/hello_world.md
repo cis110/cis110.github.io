@@ -6,7 +6,7 @@ active_tab: hello_world
 
 ## HW00 Quiz
 
-Please navigate to the course Gradescope and complete the quiz "Quiz 0: Checkpoint, Collaboration, and Style Questions" to ensure that you fully understand our course policies. You will be able to see your results immediately and retake the quiz as many times as necessary. For aid in completing the quiz, you should utilize the tabs under the "Policies" dropdown on the course website, as well as our [Style Guide](../resources/style.html).
+Please navigate to the course Gradescope and complete the quiz "HW 00 Checkpoint, Collaboration, and Style Questions" to ensure that you fully understand our course policies. You will be able to see your results immediately and retake the quiz as many times as necessary. For aid in completing the quiz, you should utilize the tabs under the "Policies" dropdown on the course website, as well as our [Style Guide](../resources/style.html).
 
 ---
 

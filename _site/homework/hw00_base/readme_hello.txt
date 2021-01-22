@@ -32,7 +32,7 @@ Why are you interested in taking computer science?
 What other interests do you have?
 
 /**********************************************************************
- *  Have you read the CIS 110 style guide?
+ *  Have you completed the HW00 quiz on Gradescope?
  **********************************************************************/
 
 
