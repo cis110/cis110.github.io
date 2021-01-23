@@ -7,7 +7,7 @@ attribution: Site adapted from CIS 121 by Michael Hackett, Sierra Mills, and Jul
 
 {: .dl-horizontal}
 Course:
-: CIS 110: Spring 2021
+: CIS 110: Spring 2021 
 
 Instructors:
 : Harry Smith [(OH Link)](https://upenn.zoom.us/j/4321577849)
