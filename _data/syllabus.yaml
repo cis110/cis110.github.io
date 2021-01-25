@@ -73,6 +73,10 @@
   examples:
     - example_code: TypeAndOperationWorkspace.java
       example_code_url: TypeAndOperationWorkspace.java
+    - example_code: Pacman.java
+      example_code_url: Pacman.java
+  lecture_recording: Recording
+  lecture_url: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=76178697-784e-4d0a-a0ed-acbb00fa1f9a
   modules:
     - name: 1 - Intro to Variables and Data Types
       link: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec318c1a-888e-4538-97e3-acb501840b7a
