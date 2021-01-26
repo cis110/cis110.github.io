@@ -90,6 +90,9 @@
 
 - date: 2021-01-27
   topics: Variables & Types
+  examples:
+    - example_code: DigitReversal.java
+      example_code_url: DigitReversal.java
 
 - date: 2021-01-29
   topics: Variables & Types
