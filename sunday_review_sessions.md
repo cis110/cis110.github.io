@@ -6,7 +6,10 @@ active_tab: sundady_review_sessions
 
 ### Sunday Review Sessions
 
-Each week, we will post the worksheet and answers for the sunday review sesion held. See Piazza for SRS scheduling.
+Each week, we will post the worksheet and answers for the sunday review sesion held. Here are the weekly SRS times and zoom links:
+- 10am - 12pm ET: [Zoom link](https://upenn.zoom.us/j/98657403898?pwd=dU5iWnN6Z2lveFcveEMwQUZWM2h6dz09)
+- 2pm - 4pm ET: [Zoom link](https://upenn.zoom.us/j/96303051832?pwd=bnE0cUNremxCVStrUXpsMnpFaUtRQT09)
+- 5pm - 7pm ET: [Zoom link](https://upenn.zoom.us/j/95393869543?pwd=RzZzL0M0WVlKWFlYbTZialEwMmxSZz09)
 
 ---
 
