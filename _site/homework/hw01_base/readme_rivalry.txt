@@ -1,6 +1,6 @@
 /**********************************************************************
  *  readme template
- *  HW1: Rivalry and Click Art
+ *  HW1: Rivalry
  **********************************************************************/
 
 Name:
@@ -24,38 +24,6 @@ Hours to complete assignment (optional):
 
 
 
-
-/**********************************************************************
- *  Problem A:  What is the output of the following code?
- * 
- *     for (int i = 1; i < 8; i = i * 2) { 
- *         for (int j = 0; j < i; j++) {
- *             System.out.print(i * j); 
- *         } 
- *         System.out.println(); 
- *     }
- * 
- *  You should work your answer out by hand first.  Once you've
- *  traced through the code manually, you can confirm it using Codio.
- *********************************************************************/
-
-
-
-
-
-
-/**********************************************************************
- *  Problem B:  Translate the following while loop into an equivalent 
- *  for loop, without changing the initial value of n, so that the same
- *  values print.  Once you have done the conversion by hand, verify 
- *  your answer using Codio.
- * 
- *     int n = 1024; 
- *     while (n > 0) { 
- *         n /= 2;
- *         System.out.println(n); 
- *     } 
- *********************************************************************/
 
 
 
