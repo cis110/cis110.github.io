@@ -17,6 +17,7 @@ The general goal of this assignment is to write three Java programs which make u
 - Learn more about `PennDraw`
   - Animation
   - Mouse input
+- Learn to read detailed program specifications and translate them into code
 - Learn to declare, assign, and operate on variables
 - Learn about loops and conditionals
 - Learn how to use `Math.random()` to simulate random behavior
@@ -37,7 +38,7 @@ The canvas should be blank until the first key is pressed. Then, the most recent
 ![LetterViewer Demo](images/LetterViewer.gif)
 
 Some notes:
-- Your canvas should be sized 500x500
+- Your canvas should have the default size of 512x512 pixels.
 - The font size should be 64 point and the font color should be black.
 - Pressing Spacebar or Return will effectively clear the screen. It's OK if non-alphanumeric characters respond strangely.
 
@@ -51,7 +52,7 @@ The canvas will be blank until the first mouse click. The first line should be d
 ![LetterViewer Demo](images/LineDrawingTool.gif)
 
 Some notes:
-- Your canvas should be sized 500x500
+- Your canvas should have the default size of 512x512 pixels.
 - The pen radius should be set to `0.01`.
 - It doesn't matter what color the line is if you manage to click precisely in the middle of the screen.
 - Don't worry about the behavior when the user clicks and drags the mouse. Assume that the user will click without holding down the mouse button.
@@ -88,6 +89,7 @@ Use the specifications from below, along with the skeleton code, to create the r
 ---
 
 #### Rivalry Specifications
+_These specifications are very thorough. Please read them carefully. As stated in the Goals of this assignment, part of the purpose of this assignment is to get you used to following detailed instructions to the letter. You will be graded on strict adherence to these requirements._
 
 **Your program must follow the specifications below:**
 
