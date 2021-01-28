@@ -101,6 +101,11 @@
 
 - date: 2021-02-01
   topics: Conditionals
+  modules:
+    - name: 1 - Conditionals & While Loops Playlist (20 min)
+      link: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e2f6bd23-8c37-45a2-933e-acbc017cb83c
+    - name: 2 - PennDraw & User Input (5 min)
+      link: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d834ac57-4189-4798-b71c-acbc017c3d13
   quiz_due: Quiz
 
 - date: 2021-02-02
