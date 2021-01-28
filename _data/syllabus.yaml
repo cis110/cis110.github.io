@@ -98,9 +98,16 @@
 
 - date: 2021-01-29
   topics: Variables & Types
+  examples:
+    - example_code: LeapYear.java
+      example_code_url: LeapYear.java
 
 - date: 2021-02-01
   topics: Conditionals
+  slides: 13flow.pdf
+  examples:
+    - example_code: BouncingBall.java
+      example_code_url: BouncingBall.java
   modules:
     - name: 1 - Conditionals & While Loops Playlist (20 min)
       link: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e2f6bd23-8c37-45a2-933e-acbc017cb83c

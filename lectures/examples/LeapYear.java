@@ -1,36 +1,32 @@
 
 /*************************************************************************
- *  Compilation:  javac LeapYear.java
- *  Execution:    java LeapYear N
- *  
- *  Prints true if N corresponds to a leap year, and false otherwise.
- *  Assumes N >= 1582, corresponding to a year in the Gregorian calendar.
+ * 
+ * Name: Harry Smith
+ * 
+ * PennKey: sharry
+ * 
+ * Execution: java LeapYear N
+ * 
+ * Prints true if N corresponds to a leap year, and false otherwise. Assumes N
+ * >= 1582, corresponding to a year in the Gregorian calendar.
+ * 
+ * A leap year takes place every four years. BUT! If the year is divisible by
+ * 100, it's not actually a leap year. BUT! If the year is divisible by 400, it
+ * is again a leap year!
  *
- *  % java LeapYear 2004
- *  true
+ * % java LeapYear 2004 true
  *
- *  % java LeapYear 1900
- *  false
+ * % java LeapYear 1900 false
  *
- *  % java LeapYear 2000
- *  true
+ * % java LeapYear 2000 true
  *
  *************************************************************************/
 
-public class LeapYear { 
-    public static void main(String[] args) { 
-        int year = Integer.parseInt(args[0]);
-        boolean isLeapYear;
+public class LeapYear {
+    public static void main(String[] args) {
 
-        // divisible by 4
-        isLeapYear = (year % 4 == 0);
+        // TODO: parse the user input!
+        // The first input argument to the program is args[0]
 
-        // divisible by 4 and not 100
-        isLeapYear = isLeapYear && (year % 100 != 0);
-
-        // divisible by 4 and not 100 unless divisible by 400
-        isLeapYear = isLeapYear || (year % 400 == 0);
-
-        System.out.println(isLeapYear);
     }
 }
