@@ -45,7 +45,14 @@ public class DigitReversal {
 
         int fourthDigit = workingNumber;
 
-        // TODO: actually print the number out!
+        // we copied inputNumber into workingNumber so that we still have a variable
+        // storing our original input.
+
+        // 4893 backwards is 3984. We have each of the digits, and we can recognize
+        // that 3984 = 3000 + 900 + 80 + 3
+
+        int reversed = firstDigit * 1000 + secondDigit * 100 + thirdDigit * 10 + fourthDigit;
+        System.out.println(inputNumber + " reversed is: " + reversed);
 
     }
 }

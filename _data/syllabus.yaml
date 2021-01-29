@@ -91,7 +91,7 @@
 - date: 2021-01-27
   topics: Variables & Types
   examples:
-    - example_code: DigitReversal.java
+    - example_code: DigitReversal.java (completed)
       example_code_url: DigitReversal.java
   lecture_recording: Recording
   lecture_url: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35960866-0635-450f-8bbb-acbd00fd2de2
@@ -99,8 +99,10 @@
 - date: 2021-01-29
   topics: Variables & Types
   examples:
-    - example_code: LeapYear.java
+    - example_code: LeapYear.java (completed)
       example_code_url: LeapYear.java
+  lecture_recording: Recording
+  lecture_url: https://upenn.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9cfc2717-c6ce-42d1-8a16-acbf00f9b332
 
 - date: 2021-02-01
   topics: Conditionals
