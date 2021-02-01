@@ -3,8 +3,6 @@ layout: default
 title: CIS 110 Internal
 active_tab: git
 ---
-
-
 # Git
 
 ## Preface
