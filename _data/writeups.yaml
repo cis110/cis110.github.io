@@ -1,0 +1,24 @@
+# General format:
+# title: x
+# link: x
+# info: very short description
+# published: year-month-day
+# last_edited: if revised, year-month-day
+
+- title: Command Line Introduction
+  folder: command_line
+  link: command_line.html
+  info: Brief tutorial on interacting with your filesystem through the command line.
+  published: 2021-01-31
+
+- title: Git
+  folder: git
+  link: git.html
+  info: Git topics, from basics to industry standards
+  published: 2021-01-31
+
+- title: Homework as a TA
+  folder: hw_options
+  link: homework_options.html
+  info: There are many ways to complete the cis110 homework as a TA - here are how to do each one.
+  published: 2021-01-31

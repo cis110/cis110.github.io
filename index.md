@@ -1,48 +1,11 @@
 ---
 layout: default
-title: CIS 110 Spring 2021 — Introduction to Computer Programming
+title: CIS 110 Intenral
 active_tab: main-page
-attribution: Site adapted from CIS 121 by Michael Hackett, Sierra Mills, and Jules Pierce.
 ---
 
-{: .dl-horizontal}
-Course:
-: CIS 110: Spring 2021 
+## CIS 110 Internal Website
 
-Instructors:
-: Harry Smith [(OH Link)](https://upenn.zoom.us/j/4321577849)
+Welcome to the cis110 internal website! This website serves as a resource for our TAs on computer science topics and skills related to their jobs. If you are looking for our official website for students, please navigate [here](https://www.cis.upenn.edu/~cis110/current/) instead.
 
-Teaching Assistants:
-: [Course staff]({{site.baseurl}}/staff.html)
-
-Discussion Forum:
-: [Piazza](https://piazza.com/upenn/spring2021/cis110)
-
-Live Coding Lectures:
-: [Monday (9-10am EST), Wednesday (9-10am EST), Friday (9-10am EST)](https://upenn.zoom.us/j/91762588691)
-
-Office Hours Queue:
-: [Office Hours Queue](https://ohq.io/) - search for CIS 110
-
-IDE:
-: [Codio](https://codio.com/p/join-course?token=normal-spain) - or use join token normal-spain
-
-Community Slack:
-: [CIS 110 21sp Slack](https://join.slack.com/t/cis11021sp/shared_invite/zt-l24fmous-EXaEjOLzbpMxdvCXwiWn8w)
-
----
-
-CIS 110 Spring 2021: Introduction to Computer Programming
-
-: Introduction to Computer Programming is the first course in our series introducing students to computer science. In this class you will learn the fundamentals of computer programming in Java, with emphasis on applications in science and engineering. You will also learn about the broader field of computer science and algorithmic thinking, the fundamental approach that computer scientists take to solving problems.
-
----
-
-Announcements
-
-: 
-{% for announcement in site.data.announcements %}
-    <p>
-        {{ announcement.announcement | markdownify }}
-    </p>
-{% endfor %}
+For our cis 110 TAs, you can view our available resources by going to the writeups tab linked in the navigation bar.
