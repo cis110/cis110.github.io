@@ -53,19 +53,7 @@ At this point, you have the functionality of a basic IDE. There are three more t
 
 #### Config Example
 
-```Json
-{
-    "commands": {
-        "Compile": "javac -cp .:junit-platform-console-standalone-1.3.2.jar:cis110.jar *.java",
-        "Run Hello World": "java HelloWorld",
-        "Run MySketch": "java MySketch",
-        "Autoformat Files": "python3 linter.py /*.java"
-    },
-    "preview": {
-        "View Running Program": "https://{{domain3000}}/"
-    }
-}
-```
+![config example](config_example.png)
 
 #### Settings File
 Add to the left hand side of the file:
