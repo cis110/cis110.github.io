@@ -22,3 +22,15 @@
   link: homework_options.html
   info: There are many ways to complete the cis110 homework as a TA - here are how to do each one.
   published: 2021-01-31
+
+- title: The CIS 110 Website, Demystified
+  folder: site
+  link: site.html
+  info: Ever wonder how we put your photo on the cis110 website? Come find out.
+  published: 2021-02-07
+
+- title: Linter
+  folder: linter
+  link: linter.html
+  info: Instructions regarding the usage of our custom cis110 linter
+  published: 2021-02-07

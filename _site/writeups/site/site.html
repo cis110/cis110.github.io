@@ -96,47 +96,31 @@
 
   <div class="container">
     
-    <!-- This file pulls from writeups.yaml -->
+    <h1 id="cis-110-website">CIS 110 Website</h1>
 
-<h3 id="writeups">Writeups</h3>
+<h2 id="brief-intro">Brief Intro</h2>
 
-<hr />
+<p>All websites can be broadly divided into two sets: <strong>static</strong> sites and <strong>dynamic</strong> sites. A static site will deliver the same content to every user whereas a dynamic site is in some way personalized. Twitter, for example, is a <strong>dynamic</strong> site - you have a custom feed curated for your account, and in the backend, there is a database that is holding the info that was just loaded onto your screen. Something like cis110.com is a static site - if you go to the homepage, it will look the same to you as it does to everyone else. As you navigate through a static site, you’re just traversing a tree of html files that are loaded into your browser as you go. Because cis110.com is a static site, this guide will be focused on the following skills and tools:</p>
 
-<h4 id="command-line-introduction"><a href="writeups/command_line/command_line.html">Command Line Introduction</a></h4>
-<p>Description: Brief tutorial on interacting with your filesystem through the command line.</p>
+<ul>
+  <li>Our modern solution for our website, including development and deployment</li>
+  <li>Day to day edits for the site including
+    <ul>
+      <li>Releasing homework</li>
+      <li>Modifying the syllabus</li>
+      <li>Adding staff info</li>
+    </ul>
+  </li>
+  <li>Setting up a new semester</li>
+</ul>
 
-<p><em>Published Sun, Jan 31, 2021</em></p>
+<p>Once comfortable with the information in this guide, you should be able to edit the website yourself, as well as be prepared to launch the next semester’s site. We’re going to skip over what it used to be like to develop websites in the past and just jump right into modern approaches to keep this guide to a bearable length, but we may put together an introduction to web development that will go over writing HTML, and take the time to discuss dynamic site creation as well.</p>
 
-<hr />
+<h2 id="jekyll-a-static-site-generator">Jekyll: A Static Site Generator</h2>
 
-<h4 id="git"><a href="writeups/git/git.html">Git</a></h4>
-<p>Description: Git topics, from basics to industry standards</p>
+<p>Jekyll is the software we use to develop our website. Jekyll is a static site generator, and is <a href="https://jamstack.org/generators/">one of many</a> that exist.</p>
 
-<p><em>Published Sun, Jan 31, 2021</em></p>
-
-<hr />
-
-<h4 id="homework-as-a-ta"><a href="writeups/hw_options/homework_options.html">Homework as a TA</a></h4>
-<p>Description: There are many ways to complete the cis110 homework as a TA - here are how to do each one.</p>
-
-<p><em>Published Sun, Jan 31, 2021</em></p>
-
-<hr />
-
-<h4 id="the-cis-110-website-demystified"><a href="writeups/site/site.html">The CIS 110 Website, Demystified</a></h4>
-<p>Description: Ever wonder how we put your photo on the cis110 website? Come find out.</p>
-
-<p><em>Published Sun, Feb 7, 2021</em></p>
-
-<hr />
-
-<h4 id="linter"><a href="writeups/linter/linter.html">Linter</a></h4>
-<p>Description: Instructions regarding the usage of our custom cis110 linter</p>
-
-<p><em>Published Sun, Feb 7, 2021</em></p>
-
-<hr />
-
+<p>NOTE: This is a WIP. More to come.</p>
 
     
   </div>
@@ -152,7 +136,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-      $("#writeups").addClass("active");
+      $("#site").addClass("active");
       
     });
   </script>
