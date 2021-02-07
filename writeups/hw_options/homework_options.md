@@ -47,25 +47,13 @@ On the right, under "Build", select "My Projects." On the top, select New Projec
 4. Select gigabox: Select standard.
 
 At this point, you have the functionality of a basic IDE. There are three more things to set up to have same functionality as our students.
-- Upload the cis110.jar, junit jar, and linter.py files. 
+- Upload the [cis110.jar](support_files/cis110.jar), [junit jar](support_files/junit.jar), and [linter.py](support_files/linter.py) files. 
 - The config file should look like the below example, with the run buttons changed to be assignment specific.
 - The settings file (Codio > Preferences > Project) should have the below lines in the editor section.
 
 #### Config Example
 
-```Json
-{
-    "commands": {
-        "Compile": "javac -cp .:junit-platform-console-standalone-1.3.2.jar:cis110.jar *.java",
-        "Run Hello World": "java HelloWorld",
-        "Run MySketch": "java MySketch",
-        "Autoformat Files": "python3 linter.py /*.java"
-    },
-    "preview": {
-        "View Running Program": "https://{{domain3000}}/"
-    }
-}
-```
+![config example](config_example.png)
 
 #### Settings File
 Add to the left hand side of the file:

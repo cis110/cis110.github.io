@@ -146,25 +146,14 @@
 
 <p>At this point, you have the functionality of a basic IDE. There are three more things to set up to have same functionality as our students.</p>
 <ul>
-  <li>Upload the cis110.jar, junit jar, and linter.py files.</li>
+  <li>Upload the <a href="support_files/cis110.jar">cis110.jar</a>, <a href="support_files/junit.jar">junit jar</a>, and <a href="support_files/linter.py">linter.py</a> files.</li>
   <li>The config file should look like the below example, with the run buttons changed to be assignment specific.</li>
   <li>The settings file (Codio &gt; Preferences &gt; Project) should have the below lines in the editor section.</li>
 </ul>
 
 <h4 id="config-example">Config Example</h4>
 
-<pre><code class="language-Json">{
-    "commands": {
-        "Compile": "javac -cp .:junit-platform-console-standalone-1.3.2.jar:cis110.jar *.java",
-        "Run Hello World": "java HelloWorld",
-        "Run MySketch": "java MySketch",
-        "Autoformat Files": "python3 linter.py /*.java"
-    },
-    "preview": {
-        "View Running Program": "https:///"
-    }
-}
-</code></pre>
+<p><img src="config_example.png" alt="config example" /></p>
 
 <h4 id="settings-file">Settings File</h4>
 <p>Add to the left hand side of the file:</p>
