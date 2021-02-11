@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CIS 110 Intenral
+title: CIS 110 Internal
 active_tab: main-page
 ---
 
