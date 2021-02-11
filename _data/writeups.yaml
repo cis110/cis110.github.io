@@ -40,3 +40,9 @@
   link: codio.html
   info: Walk through of setting up assignments on Codio.
   published: 2021-02-11
+
+- title: Gradescope
+  folder: gradescope
+  link: gradescope.html
+  info: All you need to know about managing the course Gradescope.
+  published: 2021-02-11
