@@ -34,3 +34,9 @@
   link: linter.html
   info: Instructions regarding the usage of our custom cis110 linter
   published: 2021-02-07
+
+- title: Codio
+  folder: codio
+  link: codio.html
+  info: Walk through of setting up assignments on Codio.
+  published: 2021-02-11

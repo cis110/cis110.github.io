@@ -96,54 +96,40 @@
 
   <div class="container">
     
-    <!-- This file pulls from writeups.yaml -->
+    <h1 id="cis-110-codio">CIS 110 Codio</h1>
 
-<h3 id="writeups">Writeups</h3>
+<h2 id="creating-the-assignment">Creating the Assignment</h2>
+<p>Click the blue pencil in the top right to edit assignments.</p>
 
-<hr />
+<p>Unless it’s a brand new assignment, you can copy the assignment from a previous semester. Do this by Add Assignment &gt; Existing and then navigate to the previous semester’s version.</p>
 
-<h4 id="command-line-introduction"><a href="writeups/command_line/command_line.html">Command Line Introduction</a></h4>
-<p>Description: Brief tutorial on interacting with your filesystem through the command line.</p>
+<p>If you’re setting up a brand new assignment, go to Add Assignment &gt; Project Based. In Step 1, click to see more options &gt; browse &gt; University of Pennsylvania SEAS / CIS 110 Java Stack. Fill in the name field, and leave the memory as standard. Click Create.</p>
 
-<p><em>Published Sun, Jan 31, 2021</em></p>
+<p>If you just want to edit an existing assignment, click the name of it.</p>
 
-<hr />
+<h2 id="checking-the-configuration">Checking the configuration</h2>
 
-<h4 id="git"><a href="writeups/git/git.html">Git</a></h4>
-<p>Description: Git topics, from basics to industry standards</p>
+<p>Once the assignment has been created, confirm the following configurations are correct.</p>
+<ul>
+  <li>Upload the cis110.jar, junit jar, and linter.py files.</li>
+  <li>The config file should look like the below example, with the run buttons changed to be assignment specific.</li>
+  <li>The settings file (Codio &gt; Preferences &gt; Project) should have the below lines in the editor section.</li>
+</ul>
 
-<p><em>Published Sun, Jan 31, 2021</em></p>
+<h3 id="config-example">Config Example</h3>
 
-<hr />
+<p><img src="../hw_options/config_example.png" alt="config code" /></p>
 
-<h4 id="homework-as-a-ta"><a href="writeups/hw_options/homework_options.html">Homework as a TA</a></h4>
-<p>Description: There are many ways to complete the cis110 homework as a TA - here are how to do each one.</p>
+<h3 id="settings-lines">Settings Lines</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tab_size = 4
+ruler = 85
+</code></pre></div></div>
 
-<p><em>Published Sun, Jan 31, 2021</em></p>
+<h2 id="pushing-changes">Pushing Changes</h2>
+<p>Once you’ve made the changes you need to make, go back to the main list of assignments and click Publish, enter your changes in the changelog, and click Publish. This pushes your changes to everyone else, it <strong>does not</strong> release the homework.</p>
 
-<hr />
-
-<h4 id="the-cis-110-website-demystified"><a href="writeups/site/site.html">The CIS 110 Website, Demystified</a></h4>
-<p>Description: Ever wonder how we put your photo on the cis110 website? Come find out.</p>
-
-<p><em>Published Sun, Feb 7, 2021</em></p>
-
-<hr />
-
-<h4 id="linter"><a href="writeups/linter/linter.html">Linter</a></h4>
-<p>Description: Instructions regarding the usage of our custom cis110 linter</p>
-
-<p><em>Published Sun, Feb 7, 2021</em></p>
-
-<hr />
-
-<h4 id="codio"><a href="writeups/codio/codio.html">Codio</a></h4>
-<p>Description: Walk through of setting up assignments on Codio.</p>
-
-<p><em>Published Thu, Feb 11, 2021</em></p>
-
-<hr />
-
+<h2 id="publishing-the-homework">Publishing the Homework</h2>
+<p>Leave edit mode (click the blue pencil in the top right) and click the lock next to the name of the assignment. Unlocked means available to students, locked means not available to students.</p>
 
     
   </div>
@@ -159,7 +145,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-      $("#writeups").addClass("active");
+      $("#codio").addClass("active");
       
     });
   </script>
