@@ -116,11 +116,168 @@
 
 <p>Once comfortable with the information in this guide, you should be able to edit the website yourself, as well as be prepared to launch the next semester’s site. We’re going to skip over what it used to be like to develop websites in the past and just jump right into modern approaches to keep this guide to a bearable length, but we may put together an introduction to web development that will go over writing HTML, and take the time to discuss dynamic site creation as well.</p>
 
+<p><em>Note: some information in this guide is pulled from the README.md and START.md files that you can find in the 21sp repository for our infra committee.</em></p>
+
 <h2 id="jekyll-a-static-site-generator">Jekyll: A Static Site Generator</h2>
 
-<p>Jekyll is the software we use to develop our website. Jekyll is a static site generator, and is <a href="https://jamstack.org/generators/">one of many</a> that exist.</p>
+<p>Jekyll is the software we use to develop our website. Jekyll is a static site generator, and is <a href="https://jamstack.org/generators/">one of many</a> that exist. Working with a Jekyll site involves working with yaml files for data and markdown files for general content. Jekyll then compiles your markdown and yaml files into html which you can view in your browser.</p>
 
-<p>NOTE: This is a WIP. More to come.</p>
+<hr />
+
+<h2 id="our-site">Our Site</h2>
+
+<p>The following section goes over the installation and editing of the website.</p>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>
+    <p>Install <a href="https://www.ruby-lang.org/en/">Ruby</a> version 2.6 and the <a href="https://bundler.io">Bundler
+gem</a>. If you are using a Mac, you already have Ruby
+installed, so the following command should work (maybe needing <code class="language-plaintext highlighter-rouge">sudo</code>):</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install bundler
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install this project’s dependencies from Bundler.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Build and run the website locally. (Note that all Jekyll commands such as
+<code class="language-plaintext highlighter-rouge">jekyll build</code> or <code class="language-plaintext highlighter-rouge">jekyll serve</code> must be prefixed with <code class="language-plaintext highlighter-rouge">bundle exec</code>.)</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve --watch --incremental
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Sometimes, the local development becomes annoying and refuses to build
+files automatically. In that case, open a new terminal tab and run
+<code class="language-plaintext highlighter-rouge">jekyll build</code> every time you make a change. This tends to happen when editing yaml files.</p>
+
+    <p>Now, navigate to <a href="http://localhost:4000"><code class="language-plaintext highlighter-rouge">http://localhost:4000/</code></a>, and
+you should see the website!</p>
+  </li>
+</ol>
+
+<h2 id="updating-content">Updating Content</h2>
+
+<p>Jekyll is a static site builder that allows users to modify (for the most part) only yaml and md files and then builds html files for you in a _site folder. Never touch the _site folder, as it is rebuilt and changes will be discarded. To edit yaml files, go to _data - this includes announcements, exams, homework, navigation bar, recitations, staff, SRS, and the syllabus. The md files themself iterate over the contents of these yaml files and format the page accordingly, so you only need to change those md files if you want to change how the page will look.</p>
+
+<p>For individual homework, we change the md, not the yaml. The homework.yaml file is an enumeration of the assignments, whereas the homework folder actually contains the files which will be built into the homework html files.</p>
+
+<h3 id="syllabus">Syllabus</h3>
+
+<p>Update _data/syllabus.yaml following the instructions at the top. As of Spring 2021, we have a script for converting from csv -&gt; yaml in the util repository.</p>
+
+<h3 id="schedule">Schedule</h3>
+
+<p>You can embed a Google Calendar into the site. The 20sp google calendar is still embedded, so just follow that format.</p>
+
+<h3 id="staff">Staff</h3>
+
+<p>The repo will have an existing staff csv file. Create a new one following the same format. Then, if it is semester “20fa”, run “python3 ta_info_csv_to_yaml.py 20fa_staff.csv”. Then go to _data/staff_temp.yaml, verify it looks alright, and move it into _data/staff.yaml. Make sure that assets/img/staff has image files for each individaul following the naming convention of <pennkey>.jpg. Rebuild and load the staff page and verify it is as expected.</pennkey></p>
+
+<p>Note that the script does not contain information regarding pronouns or additional languages spoken from the TAs because the staff csv file (probably) does not have that. As of now we update that manually.</p>
+
+<h3 id="pushing-announcements-or-exams">Pushing announcements or exams</h3>
+
+<p>Update the yaml pages only! The markdown files don’t need to change. You can upload new exam pdfs into the assets/exams/examX directory.</p>
+
+<h3 id="pushing-homework">Pushing Homework</h3>
+
+<p>First, edit the relevant markdown file in the homework folder. They are updated for the 21sp semester, including base files.
+After doing this, the only file that needs to change to make a homework live is homework.yaml. This will dynamically update the navigation bar and the homework.html table so that students can access it. Just uncomment the link and rebuild.</p>
+
+<p>For TAs to complete the homework, the link already exists, the markdown file just needs to be updated. The link will be of the form “cis.upenn.edu/~cis110/current/homework/<homework_name>.html". For example, hw00 is https://www.cis.upenn.edu/~cis110/current/homework/hello_world.html even though the link isn't published to students.</homework_name></p>
+
+<h2 id="structural-changes">Structural Changes</h2>
+
+<h3 id="nested-structure">Nested Structure</h3>
+
+<p>Files which can be found within a dropdown share a common prefix with the other files in that same dropdown. For example, all policy files can be found at /policies/filename.html. This is enforced via 1) a “prefix” attribute in the navigation.html file as well as 2) a directory with that same prefix name within the repository</p>
+
+<h3 id="updating-the-header">Updating the header</h3>
+
+<p>Update the navigation.yaml page. DO NOT touch navigation.html or default.html - those pull from the yaml.</p>
+
+<h3 id="updating-the-base-url">Updating the base URL</h3>
+
+<p>Change the baseurl in _config.yaml. You will need to restart your local server for changes to take effect.</p>
+
+<h3 id="pushing-to-prod">Pushing to Prod</h3>
+
+<p>Push your changes to the git repository, and then ssh into the course account and run the script <code class="language-plaintext highlighter-rouge">push_site_to_prod.sh</code>.</p>
+
+<hr />
+
+<h2 id="setting-up-a-new-semester">Setting up a New Semester</h2>
+
+<p>Once a semester, we need to reconstruct the site. A semi-hidden secret is that you can visit any past semester’s cis110 website by changing the word ‘current’ in the url to the semester. For example, Fall 2020’s site can be accessed at <a href="https://www.cis.upenn.edu/~cis110/20fa/">https://www.cis.upenn.edu/~cis110/20fa/</a>, and similarly, Spring 2019 can be visited at <a href="https://www.cis.upenn.edu/~cis110/19sp/">https://www.cis.upenn.edu/~cis110/19sp/</a>.</p>
+
+<p>Because we keep up every semester’s site, that means we can’t just edit the existing site repository to prep for a new semester. Instead, we need to make a new git repository, copy the contents of last semester’s site into it, and then go about resetting the markdown and yaml files for the new semester. We always name the repositories the name of the semester, so next semester’s repo will be called ‘21fa’.</p>
+
+<p>The following are detailed instructions on how to accomplish this for both repository setup and the corresponding course account changes necessary for a new semester.</p>
+
+<h3 id="repo-creation">Repo Creation</h3>
+
+<ol>
+  <li>Go to github.com/cis110. If there is a repo named cis110.github.io, rename it to the previous semester’s session using a format of “20fa” for example.</li>
+  <li>Create a new repository and name it either cis110.github.io or the current semester’s session.</li>
+  <li>Copy this file into the new repository.</li>
+  <li>Recursively copy contents of last sem into current sem</li>
+  <li>Push content as your first commit. You now will have a fresh repo which contains last semester’s most recent info as your first commit.</li>
+</ol>
+
+<p>Note: In the future, it would be better to have a starter repo that we can just clone at the beginning of each summer rather than do this, but it works for now.</p>
+
+<h3 id="course-account-changes---website">Course Account Changes - Website</h3>
+
+<ul>
+  <li>ssh into the course account (ssh cis110@eniac.seas.upenn.edu). Navigate into ~/html and perform mkdir 20fa (replace 20fa with current semester).</li>
+  <li>Now change the symlink for current, which is now pointing to last semester, to the folder you just created
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">ls -l current</code> to confirm the symlink exists.</li>
+      <li>Do <code class="language-plaintext highlighter-rouge">rm current</code> to remove symlink</li>
+      <li>Do <code class="language-plaintext highlighter-rouge">ln -s 20fa current</code> to attach symlink of current -&gt; correct semester</li>
+      <li>Now, <code class="language-plaintext highlighter-rouge">~/html/current</code> will be an empty folder</li>
+    </ul>
+  </li>
+  <li>Next, we need to update our course account’s repo folder. Do <code class="language-plaintext highlighter-rouge">cd ~/repo</code> and <code class="language-plaintext highlighter-rouge">mkdir 20fa</code> (again, replace with correct semester). Now perform the same symlink work as in html - <code class="language-plaintext highlighter-rouge">ls -l current</code> to confirm it exists, <code class="language-plaintext highlighter-rouge">rm current</code> to remove it, and <code class="language-plaintext highlighter-rouge">ln -s 20fa current</code> to attach to new semester. <code class="language-plaintext highlighter-rouge">cd</code> into that directory and then:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">git init</code></li>
+      <li><code class="language-plaintext highlighter-rouge">git remote add origin https://github.com/cis110/20fa.git</code></li>
+      <li><code class="language-plaintext highlighter-rouge">git pull origin master</code></li>
+      <li><code class="language-plaintext highlighter-rouge">git branch --set-upstream-to=origin/master</code></li>
+    </ul>
+  </li>
+  <li>If you now try to visit cis110.com, you will notice that it does not work (hard refresh if it loads content from your cache) - specifically you will receive a 403, as the <code class="language-plaintext highlighter-rouge">~/html/current</code> directory does not have read access granted yet.</li>
+  <li>One time procedure: Do <code class="language-plaintext highlighter-rouge">chmod a+rx ~/html/current</code> to provide read access on the contents of the <code class="language-plaintext highlighter-rouge">current</code> folder</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">./push_site_to_prod</code> and load the site now, you should see your website rendered.
+    <ul>
+      <li>Note: the script uses the <code class="language-plaintext highlighter-rouge">current</code> symlinks to pull from git and push to the html folders, so MAKE SURE they are correct before running the script or you risk writing over existing information.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>At this point, you are set to begin editing the site on your local device. Make sure to build the <code class="language-plaintext highlighter-rouge">_site</code> folder before pushing to git. Then, just ssh into the course account and run the push script and you will see your changes.</p>
+
+<h3 id="course-account-changes---non-website">Course Account Changes - Non-Website</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ssh</code> into the course account and note that the <code class="language-plaintext highlighter-rouge">current</code> directory is a symlink to <code class="language-plaintext highlighter-rouge">content/20su</code> (where <code class="language-plaintext highlighter-rouge">20su</code> is the previous semester in this example)</li>
+  <li>I do not really know how much of this is important, so do yourself a favor and just copy it all over - <code class="language-plaintext highlighter-rouge">cd content &amp;&amp; mkdir 20fa &amp;&amp; cp -r 20su 20fa</code> for example.</li>
+  <li>This will take a minute.</li>
+  <li>Now <code class="language-plaintext highlighter-rouge">cd ~</code> and change the symlink for <code class="language-plaintext highlighter-rouge">current</code> from <code class="language-plaintext highlighter-rouge">content/20su</code> to <code class="language-plaintext highlighter-rouge">content/20fa</code> with <code class="language-plaintext highlighter-rouge">rm current &amp;&amp; ln -s content/20fa current</code></li>
+  <li>There is another symlink in the home directory that is the same thing but is named the name of the semester. Because I don’t know if that matters, just replace it as well. <code class="language-plaintext highlighter-rouge">rm 20su &amp;&amp; ln -s content/20fa 20fa</code></li>
+  <li>Clean up old files
+    <ul>
+      <li>Move the semester’s homework folder to <code class="language-plaintext highlighter-rouge">hw_old</code> and make a new directory called <code class="language-plaintext highlighter-rouge">hw_20fa</code> (ie)</li>
+    </ul>
+  </li>
+</ul>
 
     
   </div>
