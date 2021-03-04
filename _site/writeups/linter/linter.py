@@ -65,12 +65,18 @@ def parse_lines(lines):
         
         # move back on }, add line, move forward on {
         else:
-            last_char = line[-1]
-            if last_char == '}' or line[0] == '}':
+            # fix - last char may not be brace if inline comment exists. instead search for existence of braces.
+            contains_end_brace = '}' in set(line)
+            contains_start_brace = '{' in set(line)
+            
+            if contains_end_brace and not contains_start_brace:
                 indent_level -= 1
+            
             lines_with_indent.append((line, indent_level))
-            if last_char == '{':
+
+            if contains_start_brace and not contains_end_brace:
                 indent_level += 1
+
             line_number += 1
     return lines_with_indent
 
@@ -111,9 +117,10 @@ def headerify(lines):
                         pass
                     # override should have method header
                     elif '@Override' in with_headers[-1]:
-                        last = with_headers.pop()
-                        with_headers += method_header
-                        with_headers.append(last)
+                        if with_headers[-2] != '*/' and with_headers[-2] != '**/':
+                            last = with_headers.pop()
+                            with_headers += method_header
+                            with_headers.append(last)
                     else:
                         if with_headers[-1] != '*/' and with_headers[-1] != '**/':
                             with_headers += method_header
@@ -147,5 +154,6 @@ if __name__ == '__main__':
             print('Please input only .java files.')
         else:
             for filename in files:
-                lint(filename)
+                if filename != 'PennDraw.java':
+                    lint(filename)
         
