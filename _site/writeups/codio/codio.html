@@ -125,6 +125,18 @@
 ruler = 85
 </code></pre></div></div>
 
+<h2 id="junit">JUnit</h2>
+<p>The compile command we use doesn’t work for JUnit files, so in the config we have to change it to be actual files instead of all java files. For instance, if I wanted to compile <code class="language-plaintext highlighter-rouge">FingerExercises.java</code> and <code class="language-plaintext highlighter-rouge">Sierpinski.java</code>, the command would be <code class="language-plaintext highlighter-rouge">javac -cp .:cis110.jar FingerExercises.java Sierpinski.java</code>.</p>
+
+<p>Now, for the actual JUnit configurations, navigate to the JUnit tool through Tools -&gt; JUnit. In this pane you can switch between JUnit Settings and JUnit Executions at the top. Settings is where you’ll change the settings, and executions is where you’ll see the test output.</p>
+
+<p>On the JUnit Settings, type <code class="language-plaintext highlighter-rouge">cis110.jar</code> into Library path. In Add Test Case, type the name of one of the test files, click Add Test Case, and then continue that for any other test files. Keep in mind that this will throw errors if you enter a file that has no test cases in it, so if it’s a file that students will be filling out, add a test case similar to the one below to get around that issue.</p>
+
+<pre><code class="language-Java">public static void dummyTest() {
+    assertTrue(true);
+}
+</code></pre>
+
 <h2 id="pushing-changes">Pushing Changes</h2>
 <p>Once you’ve made the changes you need to make, go back to the main list of assignments and click Publish, enter your changes in the changelog, and click Publish. This pushes your changes to everyone else, it <strong>does not</strong> release the homework.</p>
 
