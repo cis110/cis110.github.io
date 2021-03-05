@@ -61,6 +61,14 @@ Add to the left hand side of the file:
 tab_size = 4
 ruler = 85
 ```
+
+#### JUnit
+If you're doing a homework assignment that has JUnit testing, you'll have to configure the paths yourself. First, for the compile command in the config file, change it to be actual files instead of all java files - this command only works for non-JUnit files. For instance, if I wanted to compile `FingerExercises.java` and `Sierpinski.java`, the command would be `javac -cp .:cis110.jar FingerExercises.java Sierpinski.java`.
+
+Now, for the actual JUnit configurations, navigate to the JUnit tool through Tools -> JUnit. In this pane you can switch between JUnit Settings and JUnit Executions at the top. Settings is where you'll change the settings, and executions is where you'll see the test output. 
+
+On the JUnit Settings, type `cis110.jar` into Library path. In Add Test Case, type the name of one of your test files, click Add Test Case, and then continue that for any other test files. When you're done, click Execute All.
+
 ---
 
 ## Text Editor + Command Line
@@ -88,6 +96,21 @@ $ mkdir hw02 && cd hw02 && cp ../standard/PennDraw.java . && cp ../standard/In.j
 Note that the `code .` is a command set up with VS Code that tells VS Code to open a new window in this directory. Just one reason why you shouldn't use Sublime 👀
 
 If you would like to use the jar, you can compile with `javac -cp .:cis110.jar JavaFile.java` and run with `java -cp .:cis110.jar JavaFile`. I have them set up into aliases (c110 for compile 110 and r110 for run 110) so you don't have to remember the "gross" syntax and you also don't have to find the files every time. For these commands to work you will need the cis110 jar in the folder you're currently in (you can set up an alias for this too if you want.)
+
+### JUnit Setup
+A few of our homeworks use JUnit tests and you should at least be able to *say* you can run tests, even if you don't actually do it. You'll need the [junit jar](junit-4.12.jar) and the [hamcrest jar](hamcrest-core-1.3.jar) in the directory you're running JUnit from.
+
+In order to compile a JUnit file, use the command `javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar Filename.java`, and to run it use the command `java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore Filename`.
+
+You'll notice that these commands are not fun to remember. I use the following aliases to make life a little easier:
+
+```Shell
+alias setjunit='cp ~/Documents/jars/junit-4.12.jar junit-4.12.jar; cp ~/Documents/jars/hamcrest-core-1.3.jar hamcrest-core-1.3.jar'
+alias junitc='javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar'
+alias junit='java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore'
+```
+
+With these aliases, you run `setjunit` once in the folder you're using - note that this assumes the jars are located in `~/Documents/jars/` - and then use `junitc` everytime you want to compile and `junit` everytime you want to run.
 
 
 ### Putting it Together
