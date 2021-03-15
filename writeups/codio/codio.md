@@ -7,7 +7,7 @@ active_tab: codio
 # CIS 110 Codio
 
 ## Creating the Assignment
-Click the blue pencil in the top right to edit assignments.
+Click the edit button on the top bar to edit assignments.
 
 Unless it's a brand new assignment, you can copy the assignment from a previous semester. Do this by Add Assignment > Existing and then navigate to the previous semester's version.
 
@@ -46,7 +46,7 @@ public static void dummyTest() {
 ```
 
 ## Pushing Changes
-Once you've made the changes you need to make, go back to the main list of assignments and click Publish, enter your changes in the changelog, and click Publish. This pushes your changes to everyone else, it **does not** release the homework.
+Once you've made the changes you need to make, go to the top bar of the assignment, then go to Education -> Publish Assignment.
 
 ## Publishing the Homework
 Leave edit mode (click the blue pencil in the top right) and click the lock next to the name of the assignment. Unlocked means available to students, locked means not available to students.
