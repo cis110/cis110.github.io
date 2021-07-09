@@ -17,7 +17,7 @@ The purpose of this writeup is to introduce everyone to the following command li
 - File system navigation
 - File and folder creation, deletion, and editing with Vim
 
-By the end of this tutorial, you should have the tools you need in order to practive moving around your own filesystem. With time, you may find it's even faster than using your Finder (on Mac) or your GUI file system explorer on whatever OS you are using.
+By the end of this tutorial, you should have the tools you need in order to practice moving around your own filesystem. With time, you may find it's even faster than using your Finder (on Mac) or your GUI file system explorer on whatever OS you are using.
 
 ## Disclaimer
 
