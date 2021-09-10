@@ -65,13 +65,14 @@ def parse_lines(lines):
         
         # move back on }, add line, move forward on {
         else:
-            last_char = line[-1]
+            last_char = line.split('//')[0].strip()[-1] # last char before an inline comment, if there is one
             if last_char == '}' or line[0] == '}':
                 indent_level -= 1
             lines_with_indent.append((line, indent_level))
             if last_char == '{':
                 indent_level += 1
             line_number += 1
+
     return lines_with_indent
 
 def headerify(lines):
@@ -148,5 +149,6 @@ if __name__ == '__main__':
             print('Please input only .java files.')
         else:
             for filename in files:
-                lint(filename)
+                if filename != 'PennDraw.java':
+                    lint(filename)
         

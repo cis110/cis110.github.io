@@ -65,19 +65,14 @@ def parse_lines(lines):
         
         # move back on }, add line, move forward on {
         else:
-            # fix - last char may not be brace if inline comment exists. instead search for existence of braces.
-            contains_end_brace = '}' in set(line)
-            contains_start_brace = '{' in set(line)
-            
-            if contains_end_brace and not contains_start_brace:
+            last_char = line.split('//')[0].strip()[-1] # last char before an inline comment, if there is one
+            if last_char == '}' or line[0] == '}':
                 indent_level -= 1
-            
             lines_with_indent.append((line, indent_level))
-
-            if contains_start_brace and not contains_end_brace:
+            if last_char == '{':
                 indent_level += 1
-
             line_number += 1
+
     return lines_with_indent
 
 def headerify(lines):
