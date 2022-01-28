@@ -122,19 +122,19 @@
 <h3 id="use-the-live-coding-workspace">Use the Live Coding Workspace</h3>
 <p>The Live Coding Workspace in the 110 course will be open from the beginning of the semester, so you’re always welcome to do that. When you’re looking at the list of assignments, click the 3 dots on the right &gt; Preview to open your own copy.</p>
 
-<p>I’m pretty sure Preview mode doesn’t save your work in between sessions, so use this option at your own peril.</p>
+<p>I’m pretty sure Preview mode doesn’t save your work in between sessions, so use this option at your own peril. <strong>We don’t really recommend this.</strong></p>
 
 <h3 id="set-up-your-own-project">Set up your own Project</h3>
 <p>You can also set up your own Codio project to have the same config as our course ones. It can be a little annoying, so I would probably recommend setting up one project and using that for all 110 things.</p>
 
-<p>On the right, under “Build”, select “My Projects.” On the top, select New Project. You will be taken to a page that walks you through the settings.</p>
+<p>On the left, under “Build”, select “My Projects.” On the top, select New Project. You will be taken to a page that walks you through the settings.</p>
 
 <ol>
   <li>
     <p>Select your starting point: Below the options, click “Click here” to see more options. Select “browse” next to Empty Stack, and then select “CIS 110 Java Stack.”</p>
   </li>
   <li>
-    <p>Add some details: You can make the name and description anything you want. Name can not be empty, but description can be.</p>
+    <p>Add some details: You can make the name and description anything you want. We recommend naming this “110 HW Template”.</p>
   </li>
   <li>
     <p>Select the visibility: Select private.</p>
@@ -153,7 +153,19 @@
 
 <h4 id="config-example">Config Example</h4>
 
-<p><img src="config_example.png" alt="config example" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "commands": {
+        "Compile": "javac -cp .:junit-platform-console-standalone-1.3.2.jar:cis110.jar *.java",
+        "Run LetterViewer": "java LetterViewer",
+        "Run LineDrawingTool": "java LineDrawingTool",
+        "Run Rivalry": "java Rivalry",
+        "Autoformat Files": "python3 linter.py *.java"
+    },
+    "preview": {
+        "View Running Program": "https:///"
+    }
+}
+</code></pre></div></div>
 
 <h4 id="settings-file">Settings File</h4>
 <p>Add to the left hand side of the file:</p>

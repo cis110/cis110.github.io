@@ -31,16 +31,16 @@ If you'd like to use Codio because it's what you know, or you want to see what s
 ### Use the Live Coding Workspace
 The Live Coding Workspace in the 110 course will be open from the beginning of the semester, so you're always welcome to do that. When you're looking at the list of assignments, click the 3 dots on the right > Preview to open your own copy.
 
-I'm pretty sure Preview mode doesn't save your work in between sessions, so use this option at your own peril.
+I'm pretty sure Preview mode doesn't save your work in between sessions, so use this option at your own peril. **We don't really recommend this.**
 
 ### Set up your own Project
 You can also set up your own Codio project to have the same config as our course ones. It can be a little annoying, so I would probably recommend setting up one project and using that for all 110 things. 
 
-On the right, under "Build", select "My Projects." On the top, select New Project. You will be taken to a page that walks you through the settings.
+On the left, under "Build", select "My Projects." On the top, select New Project. You will be taken to a page that walks you through the settings.
 
 1. Select your starting point: Below the options, click "Click here" to see more options. Select "browse" next to Empty Stack, and then select "CIS 110 Java Stack."
 
-2. Add some details: You can make the name and description anything you want. Name can not be empty, but description can be.
+2. Add some details: You can make the name and description anything you want. We recommend naming this "110 HW Template".
 
 3. Select the visibility: Select private.
 
@@ -53,7 +53,20 @@ At this point, you have the functionality of a basic IDE. There are three more t
 
 #### Config Example
 
-![config example](config_example.png)
+```
+{
+    "commands": {
+        "Compile": "javac -cp .:junit-platform-console-standalone-1.3.2.jar:cis110.jar *.java",
+        "Run LetterViewer": "java LetterViewer",
+        "Run LineDrawingTool": "java LineDrawingTool",
+        "Run Rivalry": "java Rivalry",
+        "Autoformat Files": "python3 linter.py *.java"
+    },
+    "preview": {
+        "View Running Program": "https://{{domain3000}}/"
+    }
+}
+```
 
 #### Settings File
 Add to the left hand side of the file:
