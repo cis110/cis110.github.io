@@ -53,6 +53,7 @@ At this point, you have the functionality of a basic IDE. There are three more t
 
 #### Config Example
 
+{% raw %}
 ```
 {
     "commands": {
@@ -67,6 +68,7 @@ At this point, you have the functionality of a basic IDE. There are three more t
     }
 }
 ```
+{% endraw %}
 
 #### Settings File
 Add to the left hand side of the file:
